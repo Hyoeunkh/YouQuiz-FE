@@ -1,0 +1,158 @@
+$grey:#747474;
+$green:#19A05E;
+
+
+.auth-wrapper{
+    position: absolute;
+    width: 432px;
+    height: 650px;
+
+}
+.welcome {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    align-items: center; 
+    h3{
+        font-weight: 500;
+        font-size: 30px;
+        line-height: 36px;
+        color: $green;
+        margin-right: 10px;
+    }
+    span{
+        
+        font-size: 15px;
+        color: $grey;
+    }
+}
+.usertype{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+
+    position: absolute;
+    width: 416px;
+    height: 65px;
+    left: 8px;
+    top: 80px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    button {
+        width: 209px;
+        height: 65px;
+
+        background: #FFFFFF;
+        border-radius: 0px 5px 0px 0px;
+    }
+    .student{
+        color:$green;
+        
+    }
+    .teacher{
+        color: $grey;
+    }
+}
+
+.idpw{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 17px;
+
+    position: absolute;
+    width: 357px;
+    height: 151px;
+    left: 38px;
+    top: 170px;
+    box-sizing: border-box;
+
+}
+.input {
+    width: 357px;
+    height: 67px;
+    left: 0px;
+
+    background: #FFFFFF;
+    border: 1px solid #949494;
+    border-radius: 5px;
+    padding-left: 30px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    color: #999999;
+
+}
+
+.store {
+    position: absolute;
+    width: 150px;
+    height: 28px;
+    left: 37px;
+    top: 342px;
+
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 28px;
+    color: #666666;
+
+}
+.login {
+    position: absolute;
+    width: 357px;
+    height: 74px;
+    left: 35px;
+    top: 415px;
+
+    background: $green;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 36px;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+.error-message{
+    color: red;
+    text-align: center;
+    font-size: 0.875rem;
+    margin-top: 1rem;
+}
+.bottom {
+    position: absolute;
+    width: 380px;
+    height: 30px;
+    left: 10px;
+    top: 520px;
+    display: flex;
+    flex-direction: row;
+    justify-content:  center;
+    li {
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        border-right: 1px solid $grey;
+        padding: 0 10px;
+        font-size: 13px;
+        justify-content: center;
+        color: $grey;
+    }
+    .last{
+        border:none;
+    }
+}
+
+
+
