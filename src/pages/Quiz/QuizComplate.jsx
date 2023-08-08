@@ -1,15 +1,12 @@
 import { Link } from "react-router-dom";
 import React from "react";
 import "../../style/QuizComplate.scss";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleCheck } from "@fortawesome/free-regular-svg-icons";
-
 
 const QuizComplate = () => {
 	return (
 	<>
 		<div className="complate-container">
-			<FontAwesomeIcon className="icon" icon={faCircleCheck} style={{color: "#19a05e",}} />
+			<img width="150" height="150" src="https://img.icons8.com/ios/150/19a05e/ok--v1.png" alt="ok--v1"/>
 				<h1>제출 완료!</h1>
 				<p>채점이 완료되면 알려드려요.</p>
 			<div className="button">

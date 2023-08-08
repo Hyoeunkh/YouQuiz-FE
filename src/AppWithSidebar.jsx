@@ -28,6 +28,9 @@ const AppWithSidebar = () => {
       case "/register/*":
         return "Sign up";
       case "/quiz":
+      case "/quizmedia":
+      case "/quizanswer":
+      case "/quizcomplate":
         return "Quiz";
       default:
         return "";
