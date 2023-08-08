@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { changeField, initializeForm, register } from "../../modules/auth";
 import { check } from "../../modules/user";
 import { useNavigate } from "react-router-dom";
-
 const RegisterForm = () => {
     const [error,setError] = useState(null);
     const dispatch = useDispatch();
@@ -76,14 +75,16 @@ const RegisterForm = () => {
     }, [navigate, user]);
     return (
         <>
-            <div className="idpw" onSubmit={onSubmit}>
-                <input className="input" autoComplete="username" name="username" placeholder="아이디" onChange={onChange} value={form.username} />
-                <input className="input" autoComplete="new-password" name="password" placeholder="비밀번호" type="password" onChange={onChange} value={form.password} />
-                <input className="input" autoComplete="new-passwordConfirm" name="password" placeholder="비밀번호 확인" type="passwordConfirm" onChange={onChange} value={form.passwordConfirm} />
+            <div className="register-wrapper">
+                <div className="idpw" onSubmit={onSubmit}>
+                    <input className="input" autoComplete="username" name="username" placeholder="아이디" onChange={onChange} value={form.username} />
+                    <input className="input" autoComplete="new-password" name="password" placeholder="비밀번호" type="password" onChange={onChange} value={form.password} />
+                    <input className="input" autoComplete="new-passwordConfirm" name="password" placeholder="비밀번호 확인" type="passwordConfirm" onChange={onChange} value={form.passwordConfirm} />
+                </div>
+                {error && <div className="error-message">{error}</div>}
+                <button>이전</button>
+                <button>다음</button>
             </div>
-            {error && <div className="error-message">{error}</div>}
-            <button>이전</button>
-            <button>다음</button>
         </>
     );
 };

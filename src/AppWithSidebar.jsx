@@ -8,6 +8,8 @@ import MyPage from "./pages/MyPage";
 import QuizPage from "./pages/Quiz/QuizPage";
 import Header from "./component/base/Header";
 import QuizMedia from "./pages/Quiz/QuizMedia";
+import QuizAnswer from "./pages/Quiz/QuizAnswer";
+import QuizComplate from "./pages/Quiz/QuizComplate";
 
 const AppWithSidebar = () => {
   const location = useLocation();
@@ -35,8 +37,8 @@ const AppWithSidebar = () => {
     <>
       {!hideSidebarAndHeader && (
         <>
-          {/* <Sidebar />
-          <Header page={getPageTitle()} /> */}
+          <Sidebar />
+          <Header page={getPageTitle()} />
         </>
       )}
       <Routes>
@@ -46,6 +48,8 @@ const AppWithSidebar = () => {
         <Route path="/register/*" element={<RegisterPage />} />
         <Route path="/quiz" element={<QuizPage />} />
         <Route path="/quizmedia" element={<QuizMedia />} />
+        <Route path="/quizanswer" element={<QuizAnswer />} />
+        <Route path="/quizcomplate" element={<QuizComplate />} />
       </Routes>
     </>
   );

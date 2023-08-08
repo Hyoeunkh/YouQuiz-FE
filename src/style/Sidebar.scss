@@ -1,32 +1,30 @@
 $grey:#747474;
 $green:#19A05E;
-*{
-    padding: 0;
-    margin: 0;
-}
+
 
 .nav-wrapper {
-    position: fixed;
-    height: 100%;
     width: 130px;
-    display: flex;
+    height: 1000px; /*나중에바꾸기*/
+    display:flex;
     flex-direction: row;
-    align-items: center;
+    float: left;
     background-color: $green;
 }
 .nav-container {
-    width: 130px;
+    width: 100%;
     list-style: none;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 0; /* 추가 */
+    margin: 0; /* 추가 */
     
     .logo{
         display: flex;
     }
     .nav-item {
-        width: 130px;
+        width: 100%;
         height: 130px;
         color: white;
         display: flex;
@@ -39,19 +37,22 @@ $green:#19A05E;
             font-size: 21px;
             line-height: 25px;
             font-weight: 450;
+            color: inherit;
+            text-decoration: none;
         }
         .icon{
             font-size: 40px;
             padding-bottom: 10px;
         }
     }
-}
-.current-page {
-    /* 각 페이지에 들어갔을 때 적용할 스타일 */
-    background-color: white; 
-    a{
-        color: green;
+    .current-page {
+        /* 각 페이지에 들어갔을 때 적용할 스타일 */
+        background-color: white; 
+        a{
+            color:$green;
+        }
     }
+    
 }
 
 

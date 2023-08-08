@@ -1,0 +1,12 @@
+.answer-container {
+    height: 1000px;
+    width: 1000px;
+    align-items: center;
+}
+.problem-container, textarea{
+    width: 50%;
+    height: 30%;
+    border: 1px solid grey;
+    margin-bottom: 50px;
+    text-align: center;
+}

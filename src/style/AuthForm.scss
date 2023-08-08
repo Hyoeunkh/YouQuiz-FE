@@ -1,18 +1,17 @@
 $grey:#747474;
 $green:#19A05E;
 
-
 .auth-wrapper{
-    position: absolute;
     width: 432px;
     height: 650px;
-
+    margin: 0 auto;
 }
 .welcome {
+    
+    width: 357px;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    text-align: center;
     align-items: center; 
     h3{
         font-weight: 500;
@@ -30,21 +29,15 @@ $green:#19A05E;
 .usertype{
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
 
-    position: absolute;
-    width: 416px;
+    width: 357px;
     height: 65px;
-    left: 8px;
-    top: 80px;
 
-    font-family: 'Inter';
-    font-style: normal;
     font-weight: 400;
     font-size: 20px;
     line-height: 24px;
     button {
-        width: 209px;
+        width: 175px;
         height: 65px;
 
         background: #FFFFFF;
@@ -62,42 +55,29 @@ $green:#19A05E;
 .idpw{
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     gap: 17px;
 
-    position: absolute;
     width: 357px;
     height: 151px;
-    left: 38px;
-    top: 170px;
-    box-sizing: border-box;
-
 }
 .input {
     width: 357px;
     height: 67px;
-    left: 0px;
 
     background: #FFFFFF;
     border: 1px solid #949494;
     border-radius: 5px;
     padding-left: 30px;
 
-    font-family: 'Inter';
-    font-style: normal;
     font-weight: 400;
     font-size: 18px;
     line-height: 22px;
     color: #999999;
-
 }
 
 .store {
-    position: absolute;
     width: 150px;
     height: 28px;
-    left: 37px;
-    top: 342px;
 
     font-weight: 400;
     font-size: 20px;
@@ -106,11 +86,8 @@ $green:#19A05E;
 
 }
 .login {
-    position: absolute;
     width: 357px;
     height: 74px;
-    left: 35px;
-    top: 415px;
 
     background: $green;
     border-radius: 5px;
@@ -131,14 +108,10 @@ $green:#19A05E;
     margin-top: 1rem;
 }
 .bottom {
-    position: absolute;
     width: 380px;
     height: 30px;
-    left: 10px;
-    top: 520px;
     display: flex;
     flex-direction: row;
-    justify-content:  center;
     li {
         display: flex;
         flex-direction: column;

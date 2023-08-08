@@ -1,4 +1,4 @@
-import PageTemplate from "../../component/auth/PageTemplate";
+
 import "../../style/AgreementPage.scss";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
@@ -43,43 +43,41 @@ const AgreementPage = () => {
 
   return (
     <>
-      <PageTemplate>
-        <div className="agree-wrapper">
-          <div className="agreement">
-            <label className="agree">
-              <input
-                type="checkbox"
-                onChange={handleCheckAll}
-                checked={checkbox1Checked}
-              />
-              전체 동의하기<br />
-              <span>이용약관, 개인정보 수집 및 이용에 모두 동의합니다.</span>
-            </label>
-            <label className="agree">
-              <input
-                type="checkbox"
-                onChange={handleCheckbox2Change}
-                checked={checkbox2Checked}
-              />
-              [필수] 유퀴즈 이용약관
-            </label>
-            <label className="agree">
-              <input
-                type="checkbox"
-                onChange={handleCheckbox3Change}
-                checked={checkbox3Checked}
-              />
-              [필수] 개인정보 수집 및 이용
-            </label>
-          </div>
-          {errorMessage && ( // 오류 메시지가 있을 경우에만 빨간색으로 표시
-            <div className="error-message" style={{ color: "red" }}>
-              {errorMessage}
+          <div className="agree-wrapper">
+            <div className="agreement">
+              <label className="agree">
+                <input
+                  type="checkbox"
+                  onChange={handleCheckAll}
+                  checked={checkbox1Checked}
+                />
+                전체 동의하기<br />
+                <span>이용약관, 개인정보 수집 및 이용에 모두 동의합니다.</span>
+              </label>
+              <label className="agree">
+                <input
+                  type="checkbox"
+                  onChange={handleCheckbox2Change}
+                  checked={checkbox2Checked}
+                />
+                [필수] 유퀴즈 이용약관
+              </label>
+              <label className="agree">
+                <input
+                  type="checkbox"
+                  onChange={handleCheckbox3Change}
+                  checked={checkbox3Checked}
+                />
+                [필수] 개인정보 수집 및 이용
+              </label>
             </div>
-          )}
-          <button onClick={handleNextPage}>다음</button>
-        </div>
-      </PageTemplate>
+            {errorMessage && ( // 오류 메시지가 있을 경우에만 빨간색으로 표시
+              <div className="error-message" style={{ color: "red" }}>
+                {errorMessage}
+              </div>
+            )}
+            <button onClick={handleNextPage}>다음</button>
+          </div>
     </>
   );
 };
