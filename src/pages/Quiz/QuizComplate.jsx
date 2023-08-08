@@ -12,8 +12,10 @@ const QuizComplate = () => {
 			<FontAwesomeIcon className="icon" icon={faCircleCheck} style={{color: "#19a05e",}} />
 				<h1>제출 완료!</h1>
 				<p>채점이 완료되면 알려드려요.</p>
-			<Link to ='/my'><button>홈으로</button></Link>
-			<Link to ='/quiz'><button>학습으로</button></Link>
+			<div className="button">
+				<Link to ='/my'><button className="homebtn">홈으로</button></Link>
+				<Link to ='/quiz'><button>학습으로</button></Link>
+			</div>
 		</div>
 	</>
 	)

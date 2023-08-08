@@ -3,6 +3,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@500&display=swap');
 @import url(//cdn.jsdelivr.net/gh/moonspam/NanumSquare@2.0/NanumSquare.css);
 
+$dark-green:#105A31;
+$green:#19A05E;
+
 p {
     font-family: "Noto Sans KR", sans-serif;
     font-weight: 400;
@@ -39,11 +42,11 @@ h1 {
         font-family: 'Inter';
         font-style: normal;
         font-weight:bold;
-        font-size: 20px;
-        line-height: 24px;
+        font-size: 1.25rem;
+        line-height: 1.5rem;
         letter-spacing: 0.07em;
 
-        color: #105A31;
+        color: $dark-green;
     }
     .title{
         
@@ -53,30 +56,30 @@ h1 {
         font-family: 'Righteous';
         font-style: normal;
         font-weight: 400;
-        font-size: 90px;
-        line-height: 112px;
+        font-size: 5.635rem;
+        line-height: 7rem;
         letter-spacing: 0.07em;
 
-        color: #105A31;
+        color: $dark-green;
 
-        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        text-shadow: 0px 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
     }
 
     button{
-        
         position: absolute;
         width: 295.5px;
         height: 80px;
         left: 0px;
         top:212px;
 
-        background: linear-gradient(90deg, #19A05E 0%, #20CD79 101.86%);
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-        border-radius: 101px;
+        background: linear-gradient(90deg, $green 0%, #20CD79 101.86%);
+        box-shadow: 0px 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
+        border-radius: 6.25rem;
+        border: none;
 
         font-weight: 700;
-        font-size: 25px;
-        line-height: 30px;
+        font-size: 1.563rem;
+        line-height: 1.875rem;
         text-align: center;
         letter-spacing: 0.07em;
 
@@ -84,7 +87,6 @@ h1 {
 
     }
 }
-
 
 .title-img{
     position: absolute;
@@ -95,7 +97,7 @@ h1 {
 
 
 .line{
-    border-bottom: 1px dashed #C7C7C7;
+    border-bottom: 0.063rem dashed #C7C7C7;
 }
 .home-first{
     position: absolute;
@@ -107,8 +109,8 @@ h1 {
         position: absolute;
         width: 804.12px;
         height: 681.56px;
-        left: -70px;
-        top: -60px;
+        left: -4.375rem;
+        top: -3.75rem;
         z-index: 1;
     }
     .text {
@@ -128,20 +130,20 @@ h1 {
             text-align: center;
             background: #E3FAE7;
             border: 1px solid rgba(16, 90, 49, 0.22);
-            border-radius: 10px;
+            border-radius: 0.625rem;
             font-family: "Noto Sans", sans-serif;
-            font-size: 11px;
-            line-height: 15px;
+            font-size: 0.688rem;
+            line-height: 1rem;
             
-            padding-top: 2px;
+            padding-top: 0.125rem;
 
-            color: #19A05E;
+            color: $green;
 
         }
         h1 {
-            margin-top: 47px;
-            font-size: 50px;
-            line-height: 57px;
+            margin-top: 3rem;
+            font-size: 3.2rem;
+            line-height: 3.5rem;
             /* identical to box height */
             text-align: right;
             letter-spacing: 0.07em;
@@ -150,13 +152,13 @@ h1 {
         }
         p {
             font-style: normal;
-            font-size: 20px;
-            line-height: 27px;
+            font-size: 1.25rem;
+            line-height: 1.7rem;
             text-align: right;
             letter-spacing: 0.07em;
 
             color: #2D3E34;
-            padding: 22px 0px;
+            padding: 1.4rem 0rem;
         }
         button {
             position: absolute;
@@ -165,18 +167,18 @@ h1 {
             left: 371px;
             top: 304px;
 
-            background: #19A05E;
-            border: 2px solid #F0F0F0;
-            box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25), inset -1px -1px 0px rgba(255, 255, 255, 0.25), inset 1px 1px 0px rgba(255, 255, 255, 0.25);
-            border-radius: 10px;
+            background: $green;
+            border: 0.125rem solid #F0F0F0;
+            box-shadow: 0.063rem 0.063rem 0.25rem rgba(0, 0, 0, 0.25), inset -0.063rem -0.063rem 0rem rgba(255, 255, 255, 0.25), inset 0.063rem 0.063rem 0px rgba(255, 255, 255, 0.25);
+            border-radius: 0.625rem;
             font-family: 'Noto Sans';
             font-weight: 600;
-            font-size: 20px;
-            line-height: 27px;
+            font-size: 1.25rem;
             text-align: center;
-            letter-spacing: 0.07em;
 
-            color: #FFFFFF;
+            margin-top: 1.25rem;
+
+            color: #ffffff;
         }
     }
 }
@@ -202,21 +204,21 @@ h1 {
 
             text-align: center;
             background: #E3FAE7;
-            border: 1px solid rgba(16, 90, 49, 0.22);
-            border-radius: 10px;
+            border: 0.063rem solid rgba(16, 90, 49, 0.22);
+            border-radius: 0.625rem;
             font-family: "Noto Sans", sans-serif;
-            font-size: 11px;
-            line-height: 15px;
+            font-size: 0.688rem;
+            line-height: 0.938;
             
-            padding-top: 2px;
+            padding-top: 00.125rem;
 
-            color: #19A05E;
+            color: $green;
 
         }
         h1 {
-            margin-top: 47px;
-            font-size: 50px;
-            line-height: 57px;
+            margin-top: 3rem;
+            font-size: 3.2rem;
+            line-height: 3.5rem;
             /* identical to box height */
             text-align: left;
             letter-spacing: 0.07em;
@@ -225,15 +227,17 @@ h1 {
         }
         p {
             font-style: normal;
-            font-size: 20px;
-            line-height: 27px;
+            font-size: 1.25rem;
+            line-height: 1.7rem;
             text-align: left;
             letter-spacing: 0.07em;
 
             color: #2D3E34;
 
-            padding: 22px 0px;
+            padding: 1.4rem 0rem;
         }
+ 
+
         button {
             position: absolute;
             width: 149px;
@@ -241,18 +245,17 @@ h1 {
             left: 0px;
             top: 329.58px;
 
-            background: #19A05E;
-            border: 2px solid #F0F0F0;
-            box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25), inset -1px -1px 0px rgba(255, 255, 255, 0.25), inset 1px 1px 0px rgba(255, 255, 255, 0.25);
-            border-radius: 10px;
+            background: $green;
+            border: 0.125rem solid #F0F0F0;
+            box-shadow: 0.063rem 0.063rem 0.25rem rgba(0, 0, 0, 0.25), inset -0.063rem -0.063rem 0rem rgba(255, 255, 255, 0.25), inset 0.063rem 0.063rem 0px rgba(255, 255, 255, 0.25);
+            border-radius: 0.625rem;
             font-family: 'Noto Sans';
             font-weight: 600;
-            font-size: 20px;
-            line-height: 27px;
+            font-size: 1.25rem;
             text-align: center;
-            letter-spacing: 0.07em;
 
-            color: #FFFFFF;
+            margin-top: 1.25rem;
+            color: white;
         }
     }
     .image {
@@ -294,20 +297,21 @@ h1 {
 
             text-align: center;
             background: #E3FAE7;
-            border: 1px solid rgba(16, 90, 49, 0.22);
-            border-radius: 10px;
+            border: 0.063rem solid rgba(16, 90, 49, 0.22);
+            border-radius: 0.625rem;
             font-family: "Noto Sans", sans-serif;
-            font-size: 11px;
-            line-height: 15px;
-            padding-top: 2px;
+            font-size: 0.688rem;
+            line-height: 0.938;
+            
+            padding-top: 0.125rem;
 
-            color: #19A05E;
+            color: $green;
 
         }
         h1 {
-            margin-top: 47px;
-            font-size: 50px;
-            line-height: 57px;
+            margin-top: 3rem;
+            font-size: 3.2rem;
+            line-height: 3.5rem;
             /* identical to box height */
             text-align: left;
             letter-spacing: 0.07em;
@@ -323,27 +327,7 @@ h1 {
             color: #2D3E34;
             padding: 22px 0px;
         }
-        button {
-            position: absolute;
-            width: 191px;
-            height: 47px;
-            left: 337px;
-            top: 312px;
 
-            background: #19A05E;
-            border: 2px solid #F0F0F0;
-            box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25), inset -1px -1px 0px rgba(255, 255, 255, 0.25), inset 1px 1px 0px rgba(255, 255, 255, 0.25);
-            border-radius: 10px;
-            font-family: 'Noto Sans';
-            font-style: normal;
-            font-weight: 600;
-            font-size: 20px;
-            line-height: 27px;
-            text-align: center;
-            letter-spacing: 0.07em;
-
-            color: #FFFFFF;
-        }
     }
 
 }

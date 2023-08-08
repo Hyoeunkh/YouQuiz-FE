@@ -1,12 +1,40 @@
 
 .complate-container{
-    height: 500px;
-    width: 500px;
+    height: 25vh;
+    width: 23vw;
     margin: 0 auto;
     text-align: center;
+    margin-top: 15vh;
     .icon{
-        font-size: 150px;
+        font-size: 8vw;
+        margin-bottom: 2vh;
+    }
+    h1{
+        font-weight: 800;
+    }
+    p{
+        color:gray;
     }
     
 }
+.button{
+    margin-top: 8vh;
+    display: flex;
+    justify-content: space-between;
+    button{
+        font-size: 1.2rem;
+        width: 10vw;
+        height: 7vh;
+        border-radius: 1.4rem;
+        background-color: #19A05e;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    }
+    .homebtn{
+        background-color: white;
+        color: #19A05e;
+    }
+}
+
+
 
