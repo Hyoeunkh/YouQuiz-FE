@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import QuizTitle from "../../component/base/QuizTitle";
-import "bootstrap/dist/css/bootstrap.css";
-import "../../style/QuizAnswer.scss";
+import "../../style/ShortAnswer.scss";
 import { Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
@@ -28,7 +27,7 @@ const ShortAnswer = () => {
 		<div className="btn">
 			<Link to="/quizmedia">
 				<img width="80" height="80" src="https://img.icons8.com/ios/80/19A05E/circled-left-2.png" alt="circled-left-2"/>
-				{/*<img width="80" height="80" src="https://img.icons8.com/ios/80/000000/circled-right-2.png" alt="circled-left-2"/>*/}
+				{/*<img width="80" height="80" src="https://img.icons8.com/ios/80/19A05E/circled-right-2.png" alt="circled-left-2"/>*/}
 			</Link>
 			<Link to="/quizcomplate">
 				<button onClick={ () => console.log(text)}>제출</button>

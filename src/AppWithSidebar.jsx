@@ -8,8 +8,9 @@ import MyPage from "./pages/MyPage";
 import QuizPage from "./pages/Quiz/QuizPage";
 import Header from "./component/base/Header";
 import QuizMedia from "./pages/Quiz/QuizMedia";
-import QuizAnswer from "./pages/Quiz/QuizAnswer";
+import ShortAnswer from "./pages/Quiz/ShortAnswer";
 import QuizComplate from "./pages/Quiz/QuizComplate";
+import FirstQuestion from "./pages/Quiz/FirstQuestion";
 
 const AppWithSidebar = () => {
   const location = useLocation();
@@ -29,7 +30,8 @@ const AppWithSidebar = () => {
         return "Sign up";
       case "/quiz":
       case "/quizmedia":
-      case "/quizanswer":
+      case "/firstq":
+      case "/shortanswer":
       case "/quizcomplate":
         return "Quiz";
       default:
@@ -51,7 +53,8 @@ const AppWithSidebar = () => {
         <Route path="/register/*" element={<RegisterPage />} />
         <Route path="/quiz" element={<QuizPage />} />
         <Route path="/quizmedia" element={<QuizMedia />} />
-        <Route path="/quizanswer" element={<QuizAnswer />} />
+        <Route path="/firstq" element={<FirstQuestion />} />
+        <Route path="/shortanswer" element={<ShortAnswer />} />
         <Route path="/quizcomplate" element={<QuizComplate />} />
       </Routes>
     </>

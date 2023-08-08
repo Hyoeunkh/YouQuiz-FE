@@ -56,7 +56,7 @@ export default function QuizMedia() {
       </Contents>
 
       <Btn>
-        <Link to="/quizanswer">
+        <Link to="/firstq">
         <img width="80" height="80" src="https://img.icons8.com/ios/80/19A05E/circled-right-2.png" alt="circled-left-2"/>
         </Link>
       </Btn>
