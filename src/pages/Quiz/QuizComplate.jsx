@@ -1,4 +1,4 @@
-import { useParams , Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import React from "react";
 import "../../style/QuizComplate.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -6,8 +6,6 @@ import { faCircleCheck } from "@fortawesome/free-regular-svg-icons";
 
 
 const QuizComplate = () => {
-	const {i} = useParams();
-
 	return (
 	<>
 		<div className="complate-container">

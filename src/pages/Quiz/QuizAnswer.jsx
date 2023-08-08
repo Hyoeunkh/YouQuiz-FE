@@ -1,4 +1,3 @@
-import { useParams } from "react-router-dom";
 import React, { useState } from "react";
 import QuizTitle from "../../component/base/QuizTitle";
 import "bootstrap/dist/css/bootstrap.css";
@@ -7,7 +6,6 @@ import { Container } from "react-bootstrap";
 
 const ShortAnswer = () => {
 	const [text, setText] = useState('');
-	const {i} = useParams();
 
 	const handleChange = (event) => {
 		setText(event.target.value);
