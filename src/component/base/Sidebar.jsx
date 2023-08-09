@@ -1,9 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser,faCircleUser, faBook, faCircleQuestion } from "@fortawesome/free-solid-svg-icons";
-
 import "../../style/Sidebar.scss"
 
 export default function SideBar() {
@@ -18,22 +15,22 @@ export default function SideBar() {
         <>
             <nav className='nav-wrapper'>
                 <ul className="nav-container">
-                    <li>
+                    <li className="Ylogo">
                         <Link to='/'>
-                        <img className="logo"  src="title-logo.png" alt="logo"/>
+                        <img className="sidelogo"  src="title-logo.png" alt="logo"/>
                         </Link>
                     </li>
                     <li className={`nav-item ${isLoginPage ? "current-page" : ""}`}>
-                        <Link to="/login"><FontAwesomeIcon className="icon" icon={faUser} style={{ color: isLoginPage ? "#19a05e" : "#ffffff",}} />로그인</Link>
+                        <Link to="/login"><img className="icon" src={ isLoginPage ? "user.png" : "user-wh.png" } alt="" />로그인</Link>
                     </li>
                     <li className={`nav-item ${isRegisterPage ? "current-page" : ""}`}>
-                        <Link to="/register"><FontAwesomeIcon className="icon" icon={faCircleUser} style={{ color: isRegisterPage ? "#19a05e" : "#ffffff",}} />회원가입</Link>
+                        <Link to="/register"><img className="icon" src= { isRegisterPage ? "circle.png" : "circle-wh.png" } alt="" />회원가입</Link>
                     </li>
                     <li className={`nav-item ${isQuizPage ? "current-page" : ""}`}>
-                            <Link to="/quiz"><FontAwesomeIcon className="icon" icon={faBook} style={{ color: isQuizPage ? "#19a05e" : "#ffffff", }} />학습</Link>
+                            <Link to="/quiz"><img className="icon" src={isQuizPage ? "book.png" : "book-wh.png"} alt="" s />학습</Link>
                     </li>
                     <li className="nav-item">
-                            <Link to="#"><FontAwesomeIcon className="icon" icon={faCircleQuestion} style={{ color: "#ffffff",}} />이용안내</Link>
+                            <Link to="#"><img className="icon" src="help-wh.png" alt="" />이용안내</Link>
                     </li>
                 </ul>
             </nav>

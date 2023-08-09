@@ -16,43 +16,50 @@ $green:#19A05E;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     padding: 0; /* 추가 */
     margin: 0; /* 추가 */
     
-    .logo{
+    .Ylogo {
+        width: 100%;
         display: flex;
+        justify-content: center;
+        margin: 5vh 0;
+        .logo{
+            display: flex;
+        }
     }
     .nav-item {
         width: 100%;
-        height: 130px;
+        height: 16vh;
         color: white;
+
         display: flex;
-        text-decoration: none;
         justify-content: center; 
         align-items: center;
         a{
             display: flex;
             flex-direction: column;
-            font-size: 21px;
-            line-height: 25px;
-            font-weight: 450;
+            font-size: 1.3rem;
+            line-height: 1.5vh;
+            font-weight: 500;
             color: inherit;
             text-decoration: none;
+            align-items: center;
         }
         .icon{
-            font-size: 40px;
-            padding-bottom: 10px;
+            width: 3.3vw;
+            height: auto;
+            padding-bottom: 1.2vh;
         }
     }
     .current-page {
         /* 각 페이지에 들어갔을 때 적용할 스타일 */
         background-color: white; 
+
         a{
-            color:$green;
+            color: #19A05E;
         }
     }
-    
 }
 
 

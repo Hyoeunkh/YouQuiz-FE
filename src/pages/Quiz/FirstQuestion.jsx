@@ -5,10 +5,10 @@ import { Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const ShortAnswer = () => {
-	const [choice, setChoice] = useState('');
+	const [checked, setChecked] = useState(false);
 
-	const handleChoice = (event) => {
-		setChoice(event.target.value);
+	const handleChecked = () => {
+        setChecked(!checked);
 	};
 	return (
 	<>
@@ -19,24 +19,24 @@ const ShortAnswer = () => {
 				<Container className="problem-container">첫번째 문제</Container>
 			</div>
             <ul className="radio-list">
-                <label>
-                    <input type="radio" id="choice1" className="choice" value="1" onChange={handleChoice}/>
+                <label for="choice1">
+                    <input type="radio" id="choice1" name="choice" value="1" onChange={handleChecked} className="radio2"/>
                     휘영님감사해요..
                 </label>
-                <label>
-                    <input type="radio" id="choice2" className="choice" value="2" onChange={handleChoice}/>
+                <label for="choice2">
+                    <input type="radio" id="choice2" name="choice" value="2" onChange={handleChecked}/>
                     휘영님감사해요..
                 </label>
-                <label>
-                    <input type="radio" id="choice3" className="choice" value="3" onChange={handleChoice}/>
+                <label for="choice3">
+                    <input type="radio" id="choice3" name="choice" value="3" onChange={handleChecked}/>
                     불주먹형철은귀엽다
                 </label>
-                <label>
-                    <input type="radio" id="choice4" className="choice" value="4" onChange={handleChoice}/>
+                <label for="choice4">
+                    <input type="radio" id="choice4" name="choice" value="4" onChange={handleChecked}/>
                     대한민국 교권은 크게 추락하였다
                 </label>
-                <label>
-                    <input type="radio" id="choice5" className="choice" value="5" onChange={handleChoice}/>
+                <label for="choice5">
+                    <input type="radio" id="choice5" name="choice" value="5" onChange={handleChecked}/>
                     빨리끝나랑
                     {/*<img width="50" height="50" src="https://img.icons8.com/ios/50/19a05e/1-circle.png" alt="1-circle"/>*/}
                 </label>
