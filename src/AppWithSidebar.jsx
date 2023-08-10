@@ -8,9 +8,11 @@ import MyPage from "./pages/MyPage";
 import QuizPage from "./pages/Quiz/QuizPage";
 import Header from "./component/base/Header";
 import QuizMedia from "./pages/Quiz/QuizMedia";
-import ShortAnswer from "./pages/Quiz/ShortAnswer";
+import AnswerQuestion from "./pages/Quiz/Student/AnswerQuestion";
 import QuizComplate from "./pages/Quiz/QuizComplate";
 import FirstQuestion from "./pages/Quiz/FirstQuestion";
+import AnswerResult from "./pages/Quiz/Student/AnswerResult";
+import AnswerTeacher from "./pages/Quiz/Teacher/AnswerTeacher";
 
 const AppWithSidebar = () => {
   const location = useLocation();
@@ -31,8 +33,10 @@ const AppWithSidebar = () => {
       case "/quiz":
       case "/quizmedia":
       case "/firstq":
-      case "/shortanswer":
+      case "/answerq":
       case "/quizcomplate":
+      case "/answerResult":
+      case "/answerTeacher":
         return "Quiz";
       default:
         return "";
@@ -54,8 +58,10 @@ const AppWithSidebar = () => {
         <Route path="/quiz" element={<QuizPage />} />
         <Route path="/quizmedia" element={<QuizMedia />} />
         <Route path="/firstq" element={<FirstQuestion />} />
-        <Route path="/shortanswer" element={<ShortAnswer />} />
+        <Route path="/answerq" element={<AnswerQuestion />} />
         <Route path="/quizcomplate" element={<QuizComplate />} />
+        <Route path="/answerResult" element={<AnswerResult />} />
+        <Route path="/answerTeacher" element={<AnswerTeacher />} />
       </Routes>
     </>
   );
