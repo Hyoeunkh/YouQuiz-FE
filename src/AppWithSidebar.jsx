@@ -55,10 +55,12 @@ const AppWithSidebar = () => {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/my" element={<MyPage />} />
         <Route path="/register/*" element={<RegisterPage />} />
+        
         <Route path="/quiz" element={<QuizPage />} />
         <Route path="/quizmedia" element={<QuizMedia />} />
         <Route path="/firstq" element={<FirstQuestion />} />
         <Route path="/answerq" element={<AnswerQuestion />} />
+
         <Route path="/quizcomplate" element={<QuizComplate />} />
         <Route path="/answerResult" element={<AnswerResult />} />
         <Route path="/answerTeacher" element={<AnswerTeacher />} />

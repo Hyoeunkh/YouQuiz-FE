@@ -12,8 +12,6 @@
         height: 60%;
         display: flex;
         flex-direction: column;
-<<<<<<< HEAD
-        
         margin-left: 20vw;
         margin-top: 2vh;
         label {
@@ -34,22 +32,6 @@ input[type="radio"] {
   }
 
 
-=======
-        margin-left: 20vw;
-        margin-top: 2vh;
-        cursor: pointer;
-        label {
-            font-size: 1.5rem;
-            padding:1vh 0;
-        }
-    }
-
-    ul input[type="radio"].radio2 {
-        background-image: url('../../public/footerlogo.png');
-    }
-
-}
->>>>>>> 4279e10e9e6cacc672c58f09c72ae22b5decca10
 .question {
     width: 80%;
     height: 30%;

@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
 
-<<<<<<< HEAD
 const Questionwrapper = styled.div`
   display: flex;
   flex-direction: row;
@@ -67,16 +66,5 @@ const Title = ({ text, currentPage, totalPageCount }) => {
       </Questionwrapper>
     </>
   );
-=======
-const Problem = styled.div`
-  font-size:2.1rem;
-  font-weight:600;
-  margin: 1.8rem;
-  margin-left:20vw;
-`;
-const Title = ({ text }) => {
-  return <Problem>{text}</Problem>;
->>>>>>> 4279e10e9e6cacc672c58f09c72ae22b5decca10
-};
-
+}
 export default Title;

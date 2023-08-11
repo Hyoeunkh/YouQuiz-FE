@@ -3,14 +3,8 @@ $green:#19A05E;
 
 
 .nav-wrapper {
-<<<<<<< HEAD
     width: 7vw;
     height: 100vh;
-=======
-    width: 130px;
-    height: 1000px; /*나중에바꾸기*/
-    display:flex;
->>>>>>> 4279e10e9e6cacc672c58f09c72ae22b5decca10
     flex-direction: row;
     float: left;
     background-color: $green;
@@ -35,11 +29,7 @@ $green:#19A05E;
     }
     .nav-item {
         width: 100%;
-<<<<<<< HEAD
         height: 15vh;
-=======
-        height: 16vh;
->>>>>>> 4279e10e9e6cacc672c58f09c72ae22b5decca10
         color: white;
 
         display: flex;
@@ -48,11 +38,7 @@ $green:#19A05E;
         a{
             display: flex;
             flex-direction: column;
-<<<<<<< HEAD
             font-size: 1vw;
-=======
-            font-size: 1.3rem;
->>>>>>> 4279e10e9e6cacc672c58f09c72ae22b5decca10
             line-height: 1.5vh;
             font-weight: 500;
             color: inherit;
@@ -60,11 +46,7 @@ $green:#19A05E;
             align-items: center;
         }
         .icon{
-<<<<<<< HEAD
             width: 3vw;
-=======
-            width: 3.3vw;
->>>>>>> 4279e10e9e6cacc672c58f09c72ae22b5decca10
             height: auto;
             padding-bottom: 1.2vh;
         }

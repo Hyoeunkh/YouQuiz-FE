@@ -1,47 +1,48 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import "bootstrap/dist/css/bootstrap.min.css";
-const gray = "#747474";
-const green = "#19A05E";
+import QuizPageForm from "./QuizPageForm";
+import axios from "axios";
 
 // quiz components
-const Contents = styled.div`
-  background-color: light-gray;
-
+const ListBlock = styled.div`
   height: 100px;
-
-  .custom-list-item {
-    margin-top: 2vh;
-    margin-left: 5vw;
-    width: 80vw;
-    height: 100px;
-  }
 `;
 
+const sample = {
+  chap_id: "10",
+  youtube_url: "https://youtu.be/YhY5PojUD_M",
+};
+
+
 export default function QuizPage() {
-  const navigate = useNavigate();
-  
+  const [lists, setLists ] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          "/{PROTOCOL}/{HOST}:{port}/student/${student_id}/study"
+          /*이거어떻게사용하는지 모르겠어요ㅠㅠ*/
+        );
+        setLists(response.data.lists);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+    fetchData();
+  }, []);
+  if (!lists) {
+    return null;
+  }
+
   return (
     <>
-      <Contents
-        onClick={() => {
-          navigate("/quizmedia");
-        }}
-      >
-        {/* 배열로 받아서 contents 수정하기 */}
-        <ol class="list-group list-group-numbered">
-          <li class="list-group-item d-flex justify-content-between align-items-start custom-list-item">
-            <div class="ms-2 me-auto">
-              <div class="fw-bold">Subheading</div>
-              Content for list item
-            </div>
-            <span class="badge bg-success rounded-pill custom-badge">
-              학습하기
-            </span>
-          </li>
-        </ol>
-      </Contents>
+      <ListBlock>
+        {lists.map(list => (
+          <QuizPageForm key={list.url} no_study_list={sample} />
+        ))}
+      </ListBlock>
     </>
   );
 }
