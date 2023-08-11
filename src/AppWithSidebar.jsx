@@ -13,6 +13,7 @@ import QuizComplate from "./pages/Quiz/QuizComplate";
 import FirstQuestion from "./pages/Quiz/FirstQuestion";
 import AnswerResult from "./pages/Quiz/Student/AnswerResult";
 import AnswerTeacher from "./pages/Quiz/Teacher/AnswerTeacher";
+import StudyResult from  "./pages/My/StudyResult";
 
 const AppWithSidebar = () => {
   const location = useLocation();
@@ -26,6 +27,7 @@ const AppWithSidebar = () => {
       case "/login":
         return "Login";
       case "/my":
+      case "/studyresult":
         return "Mypage";
       case "/register":
       case "/register/*":
@@ -60,10 +62,11 @@ const AppWithSidebar = () => {
         <Route path="/quizmedia" element={<QuizMedia />} />
         <Route path="/firstq" element={<FirstQuestion />} />
         <Route path="/answerq" element={<AnswerQuestion />} />
-
         <Route path="/quizcomplate" element={<QuizComplate />} />
-        <Route path="/answerResult" element={<AnswerResult />} />
-        <Route path="/answerTeacher" element={<AnswerTeacher />} />
+        <Route path="/answerresult" element={<AnswerResult />} />
+
+        <Route path="/answerteacher" element={<AnswerTeacher />} />
+        <Route path="/studyresult" element={<StudyResult/>} />
       </Routes>
     </>
   );
