@@ -7,7 +7,7 @@ import { sendChoicesToBackend } from "../../services/StudentResult";
 
   
 const FirstQuestion = () => {
-  const [selectedChoice, setSelectedChoice] = useState([]);
+  const [selectedChoice, setSelectedChoice] = useState(null);
   const [currentPage, setCurrentPage] = useState(2);
 
   const handlePageChange = (page) => {
@@ -24,7 +24,7 @@ const FirstQuestion = () => {
   };
 
   const getImageSource = (choice) => 
-    selectedChoice.includes(choice) ? `https://img.icons8.com/ios-filled/80/19A05E/${choice}-circle.png`
+    selectedChoice === choice ? `https://img.icons8.com/ios-filled/80/19A05E/${choice}-circle.png`
     : `https://img.icons8.com/ios/80/19A05E/${choice}-circle.png`;
 
  
@@ -42,30 +42,19 @@ const FirstQuestion = () => {
         <ul className="radio-list">
           {radioChoices.map((choice) => (
             <label key={choice} className="radio-label" htmlFor={`${choice}`}>
-              <div
-                className={`radio-option ${selectedChoice.includes(choice) ? "selected" : ""}`}
-                onClick={() =>{
-                  if (selectedChoice.includes(choice)) {
-                    setSelectedChoice(selectedChoice.filter(item => item !== choice));
-                  } else {
-                    setSelectedChoice([...selectedChoice, choice]);
-                  }
-                }}
-                >
                 <input
                   type="radio"
                   id={`${choice}`}
                   name="choice"
                   value={choice}
-                  checked={selectedChoice.includes(choice)}
-                  onChange={() => {}}
+                  checked={selectedChoice === choice}
+                  onChange={() => setSelectedChoice(selectedChoice === choice ? null : choice) }
                 />
                 <img
                   src={getImageSource(choice)}
                   alt={`{choice}-circle`}
                 />
                 휘영님감사해요..
-              </div>
             </label>
           ))}
         </ul>
