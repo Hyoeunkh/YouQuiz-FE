@@ -63,13 +63,12 @@ export default function AnswerTeacher() {
 			<TableToggle />
 		</div>
 		<div className="btn">
-			<Link to="/my">
+			<Link to={`/study/${chap_id}/3`}>
 				<img width="80" height="80" src="https://img.icons8.com/ios/80/19A05E/circled-left-2.png" alt="circled-left-2"/>
 				{/*<img width="80" height="80" src="https://img.icons8.com/ios/80/19A05E/circled-right-2.png" alt="circled-left-2"/>*/}
 			</Link>
-			<Link to="/quizcomplate">
+			<Link to={`/study/${chap_id}/complete`}>
 				<button>완료</button>
-				{/*클릭할때 왜 검정 테두리가 생기는지*/}
 			</Link>
 		</div>
 	</>

@@ -57,10 +57,10 @@ const FirstQuestion = () => {
         </ul>
       </div>
       <div className="btn">
-        <Link to="/quizmedia">
+        <Link to={`/study/${chap_id}/media`}>
           <img onClick={() => handlePageChange(currentPage - 1)} width="80" height="80" src="https://img.icons8.com/ios/80/19A05E/circled-left-2.png" alt="circled-left-2" />
         </Link>
-        <Link to="/answerq">
+        <Link to={`/study/${chap_id}/4`}>
           <img onClick={() => handlePageChange(currentPage + 1)} width="80" height="80" src="https://img.icons8.com/ios/80/19A05E/circled-right-2.png" alt="circled-left-2" />
         </Link>
       </div>

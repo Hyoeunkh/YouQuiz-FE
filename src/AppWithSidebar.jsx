@@ -8,16 +8,17 @@ import MyPage from "./pages/MyPage";
 import QuizPage from "./pages/Quiz/QuizPage";
 import Header from "./component/base/Header";
 import QuizMedia from "./pages/Quiz/QuizMedia";
-import AnswerQuestion from "./pages/Quiz/Student/AnswerQuestion";
+import AnswerQuestion from "./pages/Quiz/Student/Question/AnswerQuestion";
 import QuizComplate from "./pages/Quiz/QuizComplete";
-import FirstQuestion from "./pages/Quiz/FirstQuestion";
-import AnswerResult from "./pages/Quiz/Student/AnswerResult";
+import FirstQuestion from "./pages/Quiz/Student/Question/FirstQuestion";
+import AnswerResult from "./pages/Quiz/Student/Result/AnswerResult";
 import AnswerTeacher from "./pages/Quiz/Teacher/AnswerTeacher";
 import StudyResult from  "./pages/My/StudyResult";
 import QuizResult from  "./pages/My/StudyResult";
 import StudentManage from "./pages/My/StudentManage";
 import AnswerManage from "./pages/My/AnswerManage";
 import QuestionPage from "./pages/Quiz/QuestionPage";
+import ResultPage from  "./pages/Quiz/ResultPage";
 
 const AppWithSidebar = () => {
   const location = useLocation();
@@ -28,21 +29,26 @@ const AppWithSidebar = () => {
 
   const getPageTitle = () => {
     switch (pathname) {
-      case "/login":
+      case "/login/*":
         return "Login";
-      case "/my":
-      case "/studyresult":
+      case "/my"://test용
+      case "/studyresult"://test용
+      case "/student/:student_id":
+      case "/student/:student_id/:chap_id/*":
+      case "/teacher/:teacher_id/studystatus":
+      case "/teacher/:teacher_id/evaluationstatus":
         return "Mypage";
-      case "/register":
       case "/register/*":
         return "Sign up";
-      case "/quiz":
-      case "/quizmedia":
-      case "/firstq":
-      case "/answerq":
-      case "/quizcomplate":
-      case "/answerResult":
-      case "/answerTeacher":
+      case "/quiz"://test
+      case "/quizmedia"://test
+      case "/firstq"://test
+      case "/answerq"://test
+      case "/quizcomplate"://test
+      case "/answerResult"://test
+      case "/answerTeacher"://test
+      case "/student/:student_id/study/*":
+      case "/teacher/:teacher_id/study/*":
         return "Quiz";
       default:
         return "";
@@ -69,7 +75,8 @@ const AppWithSidebar = () => {
         </Route>
         {/*Student*/ }
         <Route path="/student/:student_id" element={<StudyResult />}>{ /*마이페이지-학습결과*/ }
-          <Route path="/:chap_id" element={<QuizResult />} /> { /*학습결과-결과보기 버튼*/ }
+          <Route path="/:chap_id" element={<QuizResult />} /> { /*마이페이지-학습결과-각 영상 결과보기 버튼*/ }
+          <Route path="/:chap_id/:result_number" element={<ResultPage />} />
           <Route path="/study" element={<QuizPage />}> { /*학습*/ }
             <Route path="/:chap_id" element={<QuizMedia />} />{ /*학습-학습하기버튼*/ }
             <Route path="/:chap_id/:question_number" element={<QuestionPage />} />{ /*media, Q1,2,3,4, complete*/ }
@@ -86,8 +93,8 @@ const AppWithSidebar = () => {
 
 
         {/*Test용 라우터*/ }
-        <Route path="/student" element={<MyPage />} />
-        <Route path="/register/*" element={<RegisterPage />} />
+        <Route path="/my" element={<MyPage />} />
+        <Route path="/register" element={<RegisterPage />} />
         
         <Route path="/quiz" element={<QuizPage />} />
         <Route path="/quizmedia" element={<QuizMedia />} />

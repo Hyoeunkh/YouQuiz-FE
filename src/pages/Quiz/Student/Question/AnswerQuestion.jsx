@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import QuizTitle from "../../../component/base/QuizTitle";
+import QuizTitle from "../../../../component/base/QuizTitle";
 import "../../../style/AnswerQuestion.scss";
 import { Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { sendChoicesToBackend } from "../../../services/StudentResult";
+import { sendChoicesToBackend } from "../../../../services/StudentResult";
 
 const AnswerQuestion = () => {
 	const [text, setText] = useState('');
@@ -46,13 +46,13 @@ const AnswerQuestion = () => {
 				rows={8}/>
 		</div>
 		<div className="btn">
-			<Link to="/firstq">
+			<Link to={`/study/${chap_id}/3`}>
 				<img onClick={() => 
 					handlePageChange(currentPage - 1)} 
 					width="80" height="80"
 					src="https://img.icons8.com/ios/80/19A05E/circled-left-2.png" alt="left"/>
 			</Link>
-			<Link to="/quizcomplate">
+			<Link to={`/study/${chap_id}/complete`}>
 			<button onClick={() => handlePageChange(currentPage + 1)}>제출</button>
 				{/*클릭할때 왜 검정 테두리가 생기는지*/}
 			</Link>

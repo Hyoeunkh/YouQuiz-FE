@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import QuizTitle from "../../component/base/QuizTitle";
+import QuizTitle from "../../../../component/base/QuizTitle";
 import "../../style/FirstQuestion.scss";
 import { Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { sendChoicesToBackend } from "../../services/StudentResult";
+import { sendChoicesToBackend } from "../../../../services/StudentResult";
 
   
 const FirstQuestion = () => {

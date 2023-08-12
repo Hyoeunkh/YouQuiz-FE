@@ -65,7 +65,7 @@ const QuizPageForm = ({ no_study_list }) => {
           {isMyPage ? <><SubSidebar /> <SubHeader page={getPageTitle()} /></>: null }
           <div className="Contents"
             onClick={() => {
-              navigate("/quizmedia"); // /student/id/quizmedia??
+              navigate(`/study/${chap_id}/media`); //선생은?
             }}
           >
             {/* 배열로 받아서 contents 수정하기 */}

@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import React, { useState } from "react";
 
-import QuizTitle from "../../../component/base/QuizTitle";
-import Tablebar from "../../../component/base/Tablebar";
+import QuizTitle from "../../../../component/base/QuizTitle";
+import Tablebar from "../../../../component/base/Tablebar";
 import "../../../style/AnswerResult.scss";
 
 
@@ -53,11 +53,9 @@ export default function AnswerResult() {
 		<div className="btn">
 			<Link to="/my">
 				<img onClick={() => handlePageChange(currentPage + -1)} width="80" height="80" src="https://img.icons8.com/ios/80/19A05E/circled-left-2.png" alt="circled-left-2"/>
-				{/*<img width="80" height="80" src="https://img.icons8.com/ios/80/19A05E/circled-right-2.png" alt="circled-left-2"/>*/}
 			</Link>
-			<Link to="/quizcomplate">
+			<Link to={`/study/${chap_id}/complete`}>
 				<button onClick={() => handlePageChange(currentPage + 1)} >완료</button>
-				{/*클릭할때 왜 검정 테두리가 생기는지*/}
 			</Link>
 		</div>
 	</>

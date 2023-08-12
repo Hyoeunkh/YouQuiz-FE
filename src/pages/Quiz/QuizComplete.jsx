@@ -12,7 +12,7 @@ const QuizComplate = () => {
 				<p>제출 후에는 수정이 불가합니다.</p>
 			<div className="button">
 				<Link to ='/my'><button className="homebtn">홈으로</button></Link>
-				<Link to ='/quiz'><button>학습으로</button></Link>
+				<Link to ={`student/${student_id}/study`}><button>학습으로</button></Link>
 			</div>
 		</div>
 	</>

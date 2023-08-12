@@ -1,13 +1,12 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 
-import FirstQuestion from './FirstQuestion';
+import FirstQuestion from './Student/Question/FirstQuestion';
 import SecondQuestion from './SecondQuestion';
 import ThirdQuestion from './ThirdQuestion';
 import QuizMedia from './QuizMedia';
-import AnswerQuestion from './Student/AnswerQuestion';
+import AnswerQuestion from './Student/Question/AnswerQuestion';
 import QuizComplate from './QuizComplete';
-// ... 다른 문제 컴포넌트들을 가져옵니다.
 
 function QuestionPage() {
   const { question_number } = useParams();
