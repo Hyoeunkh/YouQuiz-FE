@@ -7,6 +7,8 @@ import { sendChoicesToBackend } from "../../../../services/StudentResult";
 
   
 const FirstQuestion = () => {
+  const chap_id = "sample_chap_id";
+
   const [selectedChoice, setSelectedChoice] = useState(null);
   const [currentPage, setCurrentPage] = useState(2);
 

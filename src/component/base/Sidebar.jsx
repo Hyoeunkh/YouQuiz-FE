@@ -7,10 +7,17 @@ export default function SideBar() {
     const location = useLocation();
 
     // 현재 경로를 가져와서 로그인 페이지에 있는지 확인
-    const isLoginPage = location.pathname === "/login";
-    const isRegisterPage = location.pathname === "/register";
-    const isQuizPage = location.pathname === "/quiz";
+    const isLoginPage = location.pathname === "/login/*";
+    const isRegisterPage = location.pathname === "/register/*";
+    const isQuizPage = location.pathname === ("/student/:student_id/study/*" || "/teacher/:teacher_id/study/*");
+    const isMyPage = location.pathname === (
+        "/student/:student_id" || 
+        "/student/:student_id/:chap_id/*" || 
+        "/teacher/:teacher_id/studystatus" || 
+        "/teacher/:teacher_id/evaluationstatus" );
 
+    
+    //로그인하면 로그인,회원가입칸이 마이페이지로바뀌게 해야함--나중에구현
     return (
         <>
             <nav className='nav-wrapper'>

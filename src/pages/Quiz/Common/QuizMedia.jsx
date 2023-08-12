@@ -2,7 +2,7 @@ import React, { useState }  from "react";
 import styled from "styled-components";
 import "bootstrap/dist/css/bootstrap.min.css";
 import YouTube from "react-youtube";
-import QuizTitle from "../../component/base/QuizTitle";
+import QuizTitle from "../../../component/base/QuizTitle";
 import { Link } from "react-router-dom";
 
 const gray = "#747474";
@@ -42,6 +42,8 @@ const YoutubeVideo = ({ videoId }) => {
 };
 
 export default function QuizMedia() {
+  const chap_id = "sample_chap_id";
+
   const [currentPage, setCurrentPage] = useState(1);
 
   const handlePageChange = (page) => {

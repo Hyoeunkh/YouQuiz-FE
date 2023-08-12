@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import "bootstrap/dist/css/bootstrap.min.css";
-import QuizPageForm from "./QuizPageForm";
+import QuizPageForm from "../QuizPageForm";
 import axios from "axios";
 
 // quiz components
