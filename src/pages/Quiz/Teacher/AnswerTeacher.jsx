@@ -50,6 +50,9 @@ export default function AnswerTeacher() {
     }
   ];
   */
+
+  const chap_id = "sample_chap_id";
+  const teacher_id = "sample_teacher_id";
   return (
 	<>
 		<QuizTitle text="[1단계] 교내 휴대전화 허용 어디까지?" />
@@ -67,7 +70,7 @@ export default function AnswerTeacher() {
 				<img width="80" height="80" src="https://img.icons8.com/ios/80/19A05E/circled-left-2.png" alt="circled-left-2"/>
 				{/*<img width="80" height="80" src="https://img.icons8.com/ios/80/19A05E/circled-right-2.png" alt="circled-left-2"/>*/}
 			</Link>
-			<Link to={`/study/${chap_id}/complete`}>
+			<Link to={`/study/${chap_id}/complete?userType=teacher&teacher_id=${teacher_id}`}>
 				<button>완료</button>
 			</Link>
 		</div>
