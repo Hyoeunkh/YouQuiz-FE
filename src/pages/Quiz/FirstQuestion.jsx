@@ -61,7 +61,7 @@ const FirstQuestion = () => {
       </div>
 
       <div className="btn">
-        <Link to="/quizmedia">
+        <Link to={`/study/${chap_id}/media`}>
           <img onClick={() => {
             handlePageChange(currentPage - 1);
           }}
@@ -69,7 +69,7 @@ const FirstQuestion = () => {
           src="https://img.icons8.com/ios/80/19A05E/circled-left-2.png" alt="left" />
         </Link>
 
-        <Link to="/answerq">
+        <Link to={`/study/${chap_id}/2`}>
         <img onClick={() => {
             handlePageChange(currentPage + 1);
           }}

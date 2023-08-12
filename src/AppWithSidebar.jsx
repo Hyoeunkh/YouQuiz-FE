@@ -9,11 +9,15 @@ import QuizPage from "./pages/Quiz/QuizPage";
 import Header from "./component/base/Header";
 import QuizMedia from "./pages/Quiz/QuizMedia";
 import AnswerQuestion from "./pages/Quiz/Student/AnswerQuestion";
-import QuizComplate from "./pages/Quiz/QuizComplate";
+import QuizComplate from "./pages/Quiz/QuizComplete";
 import FirstQuestion from "./pages/Quiz/FirstQuestion";
 import AnswerResult from "./pages/Quiz/Student/AnswerResult";
 import AnswerTeacher from "./pages/Quiz/Teacher/AnswerTeacher";
 import StudyResult from  "./pages/My/StudyResult";
+import QuizResult from  "./pages/My/StudyResult";
+import StudentManage from "./pages/My/StudentManage";
+import AnswerManage from "./pages/My/AnswerManage";
+import QuestionPage from "./pages/Quiz/QuestionPage";
 
 const AppWithSidebar = () => {
   const location = useLocation();
@@ -44,6 +48,11 @@ const AppWithSidebar = () => {
         return "";
     }
   };
+  
+  function NotFoundPage() {
+    return <div>Page not found.</div>;
+  }
+
   return (
     <>
       {!hideSidebarAndHeader && (
@@ -54,8 +63,30 @@ const AppWithSidebar = () => {
       )}
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/my" element={<MyPage />} />
+        <Route path="/login" element={<LoginPage />}>
+          <Route path="/student" element={<LoginPage />} />
+          <Route path="/teacher" element={<LoginPage />} />
+        </Route>
+        {/*Student*/ }
+        <Route path="/student/:student_id" element={<StudyResult />}>{ /*마이페이지-학습결과*/ }
+          <Route path="/:chap_id" element={<QuizResult />} /> { /*학습결과-결과보기 버튼*/ }
+          <Route path="/study" element={<QuizPage />}> { /*학습*/ }
+            <Route path="/:chap_id" element={<QuizMedia />} />{ /*학습-학습하기버튼*/ }
+            <Route path="/:chap_id/:question_number" element={<QuestionPage />} />{ /*media, Q1,2,3,4, complete*/ }
+          </Route>
+        </Route>
+        {/*Teacher*/ }
+        <Route path="/teacher/:teacher_id/studystatus" element={<StudentManage />} />{ /*마이페이지-학습관리*/ }
+        <Route path="/teacher/:teacher_id/evaluationstatus" element={<AnswerManage />} /> { /*마이페이지-채점관리*/ }
+        <Route path="/teacher/:teacher_id/study" element={<QuizPage />}> { /*학습*/ }
+            <Route path="/:chap_id" element={<QuizMedia />} />{ /*학습-학습하기버튼*/ }
+            <Route path="/:chap_id/:question_number" element={<QuestionPage />} />{ /*media, Q1,2,3,4, complete*/ }
+        </Route>
+        <Route path="/*" element={<NotFoundPage />} />
+
+
+        {/*Test용 라우터*/ }
+        <Route path="/student" element={<MyPage />} />
         <Route path="/register/*" element={<RegisterPage />} />
         
         <Route path="/quiz" element={<QuizPage />} />

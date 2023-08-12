@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import React from "react";
-import "../../style/QuizComplate.scss";
+import "../../style/QuizComplete.scss";
 
 const QuizComplate = () => {
 	return (
