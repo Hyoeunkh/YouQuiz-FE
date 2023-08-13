@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Header = ({ page }) => {
+const SubHeader = ({ page }) => {
   return (
     <>
       <div className="subheader-container">
@@ -12,4 +12,4 @@ const Header = ({ page }) => {
   );
 };
 
-export default Header;
+export default SubHeader;

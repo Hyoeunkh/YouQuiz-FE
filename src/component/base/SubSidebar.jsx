@@ -24,25 +24,39 @@ const ListContent = styled.div`
     }
 `;
 
-export default function SideBar() {
+export default function SubSideBar( { userType, student_id, teacher_id } ) {
     const location = useLocation();
-
-    // 현재 경로를 가져와서 로그인 페이지에 있는지 확인
-    const isStudentResultPage = location.pathname === "/studyresult";
-    const isUpdatePage = location.pathname === "/update";
+    const isStudent = userType === "student";
+    const isTeacher = userType === "teacher";
 
     return (
-        <>
-            <ListContent>
-                <ul className="sub-container">
-                    <li className={`nav-item ${isStudentResultPage ? "current-page" : ""}`}>
-                        <Link to="/studyresult">학습 결과</Link>
-                    </li>
-                    <li className={`nav-item ${isUpdatePage ? "current-page" : ""}`}>
-                        <Link to="/update">개인정보 수정</Link>
-                    </li>
-                </ul>
-            </ListContent>
-        </>
+        <ListContent>
+            <ul className="sub-container">
+                {isStudent && (
+                    <>
+                        <li className={`nav-item ${location.pathname === `/student/${student_id}` ? "current-page" : ""}`}>
+                            <Link to={`/student/${student_id}`}>학습 결과</Link>
+                        </li>
+                        <li className={`nav-item ${location.pathname === `/student/${student_id}/update` ? "current-page" : ""}`}>
+                            <Link to={`/student/${student_id}/update`}>개인정보 수정</Link>
+                        </li>
+                    </>
+                )}
+
+                {isTeacher && (
+                    <>
+                        <li className={`nav-item ${location.pathname === `/teacher/${teacher_id}/studystatus` ? "current-page" : ""}`}>
+                            <Link to={`/teacher/${teacher_id}/studystatus`}>학습 관리</Link>
+                        </li>
+                        <li className={`nav-item ${location.pathname === `/teacher/${teacher_id}/evalutionstatus` ? "current-page" : ""}`}>
+                            <Link to={`/teacher/${teacher_id}/evalutionstatus`}>채점 관리</Link>
+                        </li>
+                        <li className={`nav-item ${location.pathname === `/teacher/${teacher_id}/update` ? "current-page" : ""}`}>
+                            <Link to={`/teacher/${teacher_id}/update`}>개인정보 수정</Link>
+                        </li>
+                    </>
+                )}
+            </ul>
+        </ListContent>
     );
 }
