@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import SubSidebar from "../../component/base/SubSidebar";
-import SubHeader from "../../component/base/SubHeader";
+import SubSidebar from "../component/base/SubSidebar";
+import SubHeader from "../component/base/SubHeader";
 
 const MyFormWrapper = styled.div`
     display:flex;

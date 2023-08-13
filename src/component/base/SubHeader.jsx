@@ -1,6 +1,6 @@
 import styled from "styled-components";
 const Sub = styled.div`
-  width:60%;
+  width:70%;
   .sub-header {
     border-bottom: 2px solid #414141;
     padding: 0px 0px 15px 10px;

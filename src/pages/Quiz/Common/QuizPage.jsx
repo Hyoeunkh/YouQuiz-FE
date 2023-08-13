@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import "bootstrap/dist/css/bootstrap.min.css";
-import QuizPageForm from "../QuizPageForm";
+import QuizPageForm from "../../../containers/QuizPageForm";
 import axios from "axios";
 
 // quiz components
 const ListBlock = styled.div`
-  height: 100px;
+  position: relative;
+  margin: 0 auto;
+  width: 70%;
+  height: 100%;
 `;
 
 const sample = {
@@ -17,13 +20,13 @@ const sample = {
 
 export default function QuizPage() {
   const [lists, setLists ] = useState(null);
-
+  
+{/*실제코드
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
           "/{PROTOCOL}/{HOST}:{port}/student/${student_id}/study"
-          /*이거어떻게사용하는지 모르겠어요ㅠㅠ*/
         );
         setLists(response.data.lists);
       } catch (e) {
@@ -45,4 +48,14 @@ export default function QuizPage() {
       </ListBlock>
     </>
   );
+  */}
+  
+  return (
+    <>
+      <ListBlock>
+          <QuizPageForm no_study_list={sample} />
+      </ListBlock>
+    </>
+  );
 }
+

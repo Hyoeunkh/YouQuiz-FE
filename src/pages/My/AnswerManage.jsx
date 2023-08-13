@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import "bootstrap/dist/css/bootstrap.min.css";
-import MyPageForm from "./MyPageForm";
+import MyPageForm from "../../containers/MyPageForm";
 
 
 const ListBlock = styled.div`

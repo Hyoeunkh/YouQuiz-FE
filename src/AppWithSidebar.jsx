@@ -37,7 +37,7 @@ const AppWithSidebar = () => {
       case "/student/:student_id/:chap_id/*":
       case "/teacher/:teacher_id/studystatus":
       case "/teacher/:teacher_id/evaluationstatus":
-        return "Mypage";
+        return "My page";
       case "/register/*":
         return "Sign up";
       case "/quiz"://test
@@ -70,7 +70,30 @@ const AppWithSidebar = () => {
 
       <Routes>
         <Route path="/" element={<HomePage />} />
-        {/*여기 */}
+        {/* test할때 이부분 지우고 하기 */}
+        <Route path="/login" element={<LoginPage />}>
+          <Route path="/student" element={<LoginPage />} />
+          <Route path="/teacher" element={<LoginPage />} />
+        </Route>
+        {/*Student*/ }
+        <Route path="/student/:student_id" element={<StudyResult />}>{ /*마이페이지-학습결과*/ }
+          <Route path="/:chap_id" element={<QuizResult />} /> { /*마이페이지-학습결과-각 영상 결과보기 버튼*/ }
+          <Route path="/:chap_id/:result_number" element={<ResultPage />} />
+          <Route path="/study" element={<QuizPage />}> { /*학습*/ }
+            <Route path="/:chap_id" element={<QuizMedia />} />{ /*학습-학습하기버튼*/ }
+            <Route path="/:chap_id/:question_number" element={<QuestionPage />} />{ /*media, Q1,2,3,4, complete*/ }
+          </Route>
+        </Route>
+        {/*Teacher*/ }
+        <Route path="/teacher/:teacher_id/studystatus" element={<StudentManage />} />{ /*마이페이지-학습관리*/ }
+        <Route path="/teacher/:teacher_id/evaluationstatus" element={<AnswerManage />} /> { /*마이페이지-채점관리*/ }
+        <Route path="/teacher/:teacher_id/study" element={<QuizPage />}> { /*학습*/ }
+            <Route path="/:chap_id" element={<QuizMedia />} />{ /*학습-학습하기버튼*/ }
+            <Route path="/:chap_id/:question_number" element={<QuestionPage />} />{ /*media, Q1,2,3,4, complete*/ }
+        </Route>
+        <Route path="/*" element={<NotFoundPage />} />
+
+        
         {/*Test용 라우터*/ }
         <Route path="/my" element={<MyPage />} />
         <Route path="/register" element={<RegisterPage />} />

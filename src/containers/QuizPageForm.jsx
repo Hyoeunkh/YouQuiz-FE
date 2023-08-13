@@ -1,18 +1,18 @@
 import React from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import SubSidebar from "../../component/base/SubSidebar";
 import "bootstrap/dist/css/bootstrap.min.css";
-import SubHeader from "../../component/base/SubHeader";
 
 const QuizFormWrapper = styled.div`
-
-align-items: center;
-  display:flex;
-  margin-left: 20vw;
+  position: absolute;
+  align-items: center;
+  display: flex;
+  width: 100%;
+  
   .Contents {
     background-color: light-gray;
     height: 100%;
+    width:100%;
 
     .custom-list-item {
       margin-top: 2vh;
@@ -26,7 +26,6 @@ align-items: center;
 
       .youtubelist {
         height:80px;
-        width:auto;
       }
     }
   }
@@ -41,31 +40,17 @@ const extractYoutubeVideoId = (url) => {
 const QuizPageForm = ({ no_study_list }) => {
   const { chap_id, youtube_url, score } = no_study_list;
   const navigate = useNavigate();
-  const location = useLocation();
-  const pathname = location.pathname;
-  const isMyPage =  location.pathname === "/studyresult"; //my로 바꾸기
 
   //썸네일 추출하기
   const videoId = extractYoutubeVideoId(youtube_url);
   const imgsrc = videoId ? `https://img.youtube.com/vi/${videoId}/mqdefault.jpg` : "";
-  const getPageTitle = () => {
-    switch (pathname) {
-      case "/login":
-        return "Login";
-      case "/my":
-      case "/studyresult":
-        return "Mypage";
-      default:
-        return "";
-    }
-  }
+
     return (
       <> 
         <QuizFormWrapper>
-          {isMyPage ? <><SubSidebar /> <SubHeader page={getPageTitle()} /></>: null }
           <div className="Contents"
             onClick={() => {
-              navigate(`/study/${chap_id}/media`); //선생은?
+              navigate(`/study/${chap_id}/media`);
             }}
           >
             {/* 배열로 받아서 contents 수정하기 */}
