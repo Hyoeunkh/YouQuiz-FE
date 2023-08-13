@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import "bootstrap/dist/css/bootstrap.min.css";
-import SubHeader from "../../component/base/SubHeader";
-import SubSidebar from "../../component/base/SubSidebar";
+import MyPageForm from "./MyPageForm";
+
 
 const ListBlock = styled.div`
   height: 100%;
@@ -23,8 +23,7 @@ export default function QuizPage() {
 {/* 실제코드
   return (
     <>
-      <SubSidebar/>
-      <SubHeader page={"학습 관리"} />
+      <MyPageForm  userType={"student"} student_id={"samplw_id"} page={"학습결과"} />
         <ListBlock>
           {lists.map(list => (
             <QuizPageForm key={list.url} no_study_list={sample} />
@@ -36,6 +35,7 @@ export default function QuizPage() {
 
   return (
     <>
+      <MyPageForm  userType={"teacher"} teacher_id={"20"} page={"학습 관리"} />
         <ListBlock>
             {/*학생들목록이랑 이수여부 보는 표 */}
         </ListBlock>

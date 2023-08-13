@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import React from "react";
-import "../../style/QuizComplete.scss";
+import "../../../style/QuizComplete.scss";
 
 const QuizComplate = ( { userType, student_id, teacher_id, score } ) => {
 	//userType은 student, teacher, result로 지정

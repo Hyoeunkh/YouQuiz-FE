@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import "bootstrap/dist/css/bootstrap.min.css";
 import QuizPageForm from "../Quiz/QuizPageForm";
+import MyPageForm from "./MyPageForm";
+
 
 const ListBlock = styled.div`
   height: 100%;
@@ -22,8 +24,7 @@ export default function QuizPage() {
 {/* 실제코드
   return (
     <>
-      <SubSidebar/>
-      <Header page={"학습 결과"} />
+      <MyPageForm  userType={"student"} student_id={"samplw_id"} page={"학습결과"} />
         <ListBlock>
           {lists.map(list => (
             <QuizPageForm key={list.url} no_study_list={sample} />
@@ -35,9 +36,9 @@ export default function QuizPage() {
 
   return (
     <>
-        <ListBlock>
-            <QuizPageForm  no_study_list={sample} />
-        </ListBlock>
+      <MyPageForm  userType={"student"} student_id={"20"} page={"학습 결과"} />
+      <ListBlock>
+      </ListBlock>
     </>
   );
 }

@@ -2,11 +2,11 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 
 import FirstResult from './Student/Result/FirstResult';
-import SecondResult from './SecondResult';
-import ThirdResult from './ThirdResult';
-import QuizMedia from './QuizMedia';
+import SecondResult from './Student/Result/SecondResult';
+import ThirdResult from './Student/Result/ThirdResult';
+import QuizMedia from './Common/QuizMedia';
 import AnswerResult from './Student/Result/AnswerResult';
-import QuizComplate from './QuizComplete';
+import QuizComplate from './Common/QuizComplete';
 
 function ResultPage() {
   const { Result_number } = useParams();

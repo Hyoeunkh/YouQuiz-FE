@@ -4,7 +4,7 @@ import React, { useState } from "react";
 
 import QuizTitle from "../../../../component/base/QuizTitle";
 import Tablebar from "../../../../component/base/Tablebar";
-import "../../../style/AnswerResult.scss";
+import "../../../../style/AnswerResult.scss";
 
 
 const headers = [

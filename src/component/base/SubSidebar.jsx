@@ -8,8 +8,8 @@ const ListContent = styled.div`
         flex-direction: column;
         list-style: none;
         padding: 0;
-        margin: 0;
-        gap: 2vh;
+        margin-top: 2vh;;
+        gap: 4vh;
     }
     a {
         color: black;

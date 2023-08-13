@@ -2,11 +2,11 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 
 import FirstQuestion from './Student/Question/FirstQuestion';
-import SecondQuestion from './SecondQuestion';
-import ThirdQuestion from './ThirdQuestion';
-import QuizMedia from './QuizMedia';
+import SecondQuestion from './Student/Question/SecondQuestion';
+import ThirdQuestion from './Student/Question/ThirdQuestion';
+import QuizMedia from './Common/QuizMedia';
 import AnswerQuestion from './Student/Question/AnswerQuestion';
-import QuizComplate from './QuizComplete';
+import QuizComplate from './Common/QuizComplete';
 
 function QuestionPage() {
   const { question_number } = useParams();
