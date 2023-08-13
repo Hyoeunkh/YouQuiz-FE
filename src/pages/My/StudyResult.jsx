@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import QuizPageForm from "../../containers/QuizPageForm";
 import MyPageForm from "../../containers/MyPageForm";
 import axios from "axios";
+import { Outlet } from "react-router-dom";
 
 const ListBlock = styled.div`
   position: relative;

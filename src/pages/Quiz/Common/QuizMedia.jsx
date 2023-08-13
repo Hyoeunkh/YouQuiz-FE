@@ -41,8 +41,9 @@ const YoutubeVideo = ({ videoId }) => {
   return <YouTube videoId={videoId} opts={opts} />;
 };
 
-export default function QuizMedia() {
-  const chap_id = "sample_chap_id";
+
+export default function QuizMedia( ) {
+  const chap_id = "10";
 
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -63,7 +64,7 @@ export default function QuizMedia() {
       </Contents>
 
       <Btn>
-        <Link to={`/study/${chap_id}/1`}>
+        <Link to={`${chap_id}/1`}>
           <img onClick={() => handlePageChange(currentPage + 1)} width="80" height="80" src="https://img.icons8.com/ios/80/19A05E/circled-right-2.png" alt="circled-left-2"/>
         </Link>
       </Btn>

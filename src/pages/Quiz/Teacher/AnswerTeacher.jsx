@@ -66,11 +66,11 @@ export default function AnswerTeacher() {
 			<TableToggle />
 		</div>
 		<div className="btn">
-			<Link to={`/study/${chap_id}/3`}>
+			<Link to={`study/${chap_id}/3`}>
 				<img width="80" height="80" src="https://img.icons8.com/ios/80/19A05E/circled-left-2.png" alt="circled-left-2"/>
 				{/*<img width="80" height="80" src="https://img.icons8.com/ios/80/19A05E/circled-right-2.png" alt="circled-left-2"/>*/}
 			</Link>
-			<Link to={`/study/${chap_id}/complete?userType=teacher&teacher_id=${teacher_id}`}>
+			<Link to={`study/${chap_id}/complete?userType=teacher&teacher_id=${teacher_id}`}>
 				<button>완료</button>
 			</Link>
 		</div>

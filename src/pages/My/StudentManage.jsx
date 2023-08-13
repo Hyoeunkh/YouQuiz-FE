@@ -23,11 +23,9 @@ export default function QuizPage() {
 {/* 실제코드
   return (
     <>
-      <MyPageForm  userType={"student"} student_id={"samplw_id"} page={"학습결과"} />
+      <MyPageForm  userType={"teacher"} teacher_id={"teacher_id"} page={"학습 관리"} />
         <ListBlock>
-          {lists.map(list => (
-            <QuizPageForm key={list.url} no_study_list={sample} />
-          ))}
+
         </ListBlock>
     </>
   );

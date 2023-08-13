@@ -37,8 +37,9 @@ export default function QuizPage() {
     <>
       <MyPageForm  userType={"teacher"} teacher_id={"20"} page={"채점 관리"} />
         <ListBlock>
-            {/*채점관리 */}
         </ListBlock>
     </>
   );
 }
+
+

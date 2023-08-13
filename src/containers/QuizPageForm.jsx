@@ -50,8 +50,10 @@ const QuizPageForm = ({ no_study_list }) => {
         <QuizFormWrapper>
           <div className="Contents"
             onClick={() => {
-              navigate(`/study/${chap_id}/media`);
-            }}
+                navigate(`${chap_id}`);
+              }
+            }
+  
           >
             {/* 배열로 받아서 contents 수정하기 */}
             <ol class="list-group list-group-numbered">

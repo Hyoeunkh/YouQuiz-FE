@@ -58,7 +58,7 @@ export default function AnswerResult() {
 			<Link to="/my">
 				<img onClick={() => handlePageChange(currentPage + -1)} width="80" height="80" src="https://img.icons8.com/ios/80/19A05E/circled-left-2.png" alt="circled-left-2"/>
 			</Link>
-			<Link to={`/study/${chap_id}/complete?userType=result&student_id=${student_id}&score=${score}`}>
+			<Link to={`study/${chap_id}/complete?userType=result&student_id=${student_id}&score=${score}`}>
 				<button onClick={() => handlePageChange(currentPage + 1)} >완료</button>
 			</Link>
 		</div>

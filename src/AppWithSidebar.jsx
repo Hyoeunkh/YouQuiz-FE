@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes, useLocation, useParams } from "react-router-dom";
 import Sidebar from "./component/base/Sidebar";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
@@ -14,11 +14,40 @@ import FirstQuestion from "./pages/Quiz/Student/Question/FirstQuestion";
 import AnswerResult from "./pages/Quiz/Student/Result/AnswerResult";
 import AnswerTeacher from "./pages/Quiz/Teacher/AnswerTeacher";
 import StudyResult from  "./pages/My/StudyResult";
-import QuizResult from  "./pages/My/StudyResult";
 import StudentManage from "./pages/My/StudentManage";
 import AnswerManage from "./pages/My/AnswerManage";
 import QuestionPage from "./pages/Quiz/QuestionPage";
 import ResultPage from  "./pages/Quiz/ResultPage";
+
+const StudentStudyRoute = () => {
+  const { student_id } = useParams();
+
+  return (
+    <Routes>
+      <Route path="/" element={<StudyResult />} />
+      <Route path=":chap_id" element={<QuizMedia />} />
+      <Route path=":chap_id/:result_number" element={<ResultPage />} />
+      <Route path="study/*" element={<QuizPage />}>
+        {/*여기서부터왜안먹힐까? */}
+        <Route path=":chap_id" element={<QuizMedia />} />
+        <Route path=":chap_id/:question_number" element={<QuestionPage />} />
+      </Route>
+    </Routes>
+  );
+};
+
+const TeacherStudyRoute = () => {
+  return (
+    <Routes>
+      <Route path="studystatus" element={<StudentManage />} />{ /*마이페이지-학습관리*/ }
+      <Route path="evaluationstatus" element={<AnswerManage />} /> { /*마이페이지-채점관리*/ }
+      <Route path="study" element={<QuizPage />}> { /*학습*/ }
+          <Route path=":chap_id" element={<QuizMedia />} />{ /*학습-학습하기버튼*/ }
+          <Route path=":chap_id/:question_number" element={<QuestionPage />} />{ /*media, Q1,2,3,4, complete*/ }
+      </Route>
+    </Routes>
+  );
+};
 
 const AppWithSidebar = () => {
   const location = useLocation();
@@ -59,6 +88,8 @@ const AppWithSidebar = () => {
     return <div>Page not found.</div>;
   }
 
+
+  
   return (
     <>
       {!hideSidebarAndHeader && (
@@ -70,29 +101,21 @@ const AppWithSidebar = () => {
 
       <Routes>
         <Route path="/" element={<HomePage />} />
-        {/* test할때 이부분 지우고 하기 */}
         <Route path="/login" element={<LoginPage />}>
-          <Route path="/student" element={<LoginPage />} />
-          <Route path="/teacher" element={<LoginPage />} />
+          <Route path="student" element={<LoginPage />} />
+          <Route path="teacher" element={<LoginPage />} />
         </Route>
         {/*Student*/ }
-        <Route path="/student/:student_id" element={<StudyResult />}>{ /*마이페이지-학습결과*/ }
-          <Route path="/:chap_id" element={<QuizResult />} /> { /*마이페이지-학습결과-각 영상 결과보기 버튼*/ }
-          <Route path="/:chap_id/:result_number" element={<ResultPage />} />
-          <Route path="/study" element={<QuizPage />}> { /*학습*/ }
-            <Route path="/:chap_id" element={<QuizMedia />} />{ /*학습-학습하기버튼*/ }
-            <Route path="/:chap_id/:question_number" element={<QuestionPage />} />{ /*media, Q1,2,3,4, complete*/ }
-          </Route>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/login" element={<LoginPage />}>
+          <Route path="student" element={<LoginPage />} />
+          <Route path="teacher" element={<LoginPage />} />
         </Route>
-        {/*Teacher*/ }
-        <Route path="/teacher/:teacher_id/studystatus" element={<StudentManage />} />{ /*마이페이지-학습관리*/ }
-        <Route path="/teacher/:teacher_id/evaluationstatus" element={<AnswerManage />} /> { /*마이페이지-채점관리*/ }
-        <Route path="/teacher/:teacher_id/study" element={<QuizPage />}> { /*학습*/ }
-            <Route path="/:chap_id" element={<QuizMedia />} />{ /*학습-학습하기버튼*/ }
-            <Route path="/:chap_id/:question_number" element={<QuestionPage />} />{ /*media, Q1,2,3,4, complete*/ }
-        </Route>
+        <Route path="/student/:student_id/*" element={<StudentStudyRoute />} />
+        <Route path="/teacher/:teacher_id/*" element={<TeacherStudyRoute />} />
         <Route path="/*" element={<NotFoundPage />} />
-
+        
+        {/*Teacher*/ }
         
         {/*Test용 라우터*/ }
         <Route path="/my" element={<MyPage />} />
