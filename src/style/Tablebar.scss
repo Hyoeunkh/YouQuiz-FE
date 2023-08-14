@@ -1,28 +1,30 @@
-table {
+.tablebar{
+    table {
     width: 70%;
     height: 60%;
     border-spacing: 0;
     background-color: white;
     text-align: center;
-}
+    }
 
-thead {
-    tr {
-        border-bottom: 2px solid #adadad;
-        background-color: #f0f0f0;
+    thead {
+        tr {
+            border-bottom: 2px solid #adadad;
+            background-color: #f0f0f0;
+        }
     }
-}
-tbody {
-    tr:nth-child(2) {
-        background-color: #f0f0f0;
+    tbody {
+        tr:nth-child(2) {
+            background-color: #f0f0f0;
+        }
+        td:nth-child(3){
+            text-align: left;
+        }
     }
-    td:nth-child(3){
-        text-align: left;
+    td, th {
+        min-width: 1vw;
+        padding: 0.5vw;
+        margin: 0;
     }
-}
-td, th {
-    min-width: 1vw;
-    padding: 0.5vw;
-    margin: 0;
-  }
 
+}

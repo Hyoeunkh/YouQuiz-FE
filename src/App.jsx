@@ -16,13 +16,15 @@ import AnswerTeacher from "./pages/Quiz/Teacher/AnswerTeacher";
 import StudyResult from  "./pages/My/StudyResult";
 import StudentStudyRoute from "./Router/StudentRoute";
 import TeacherStudyRoute from "./Router/TeacherRoute";
+import AnswerManage from "./pages/My/AnswerManage";
+import Studentdata from "./pages/My/Studentdata";
 
 function NotFoundPage() {
   return <div>Page not found.</div>;
 }
 
 
-const AppWithSidebar = () => {
+const App = () => {
   const location = useLocation();
   const pathname = location.pathname;
 
@@ -94,9 +96,10 @@ const AppWithSidebar = () => {
 
         <Route path="/answerteacher" element={<AnswerTeacher />} />
         <Route path="/studyresult" element={<StudyResult/>} />
+        <Route path="/evaluationstatus" element={<Studentdata />} /> 
       </Routes>
     </>
   );
 };
 
-export default AppWithSidebar;
+export default App;

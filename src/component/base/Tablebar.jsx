@@ -8,6 +8,7 @@ export default function Tablebar(
     
     const headerKey = headers.map((header) => header.value);
     return (
+        <div className="tablebar">
         <table>
             <thead>
                 <tr>
@@ -36,5 +37,6 @@ export default function Tablebar(
                 }
             </tbody>
         </table>
+        </div>
     )
 }
