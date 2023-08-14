@@ -3,8 +3,8 @@ import { Route, Routes, useParams } from "react-router-dom";
 import QuizPage from "../pages/Quiz/Common/QuizPage";
 import QuestionPage from "../pages/Quiz/QuestionPage";
 import QuizMedia from "../pages/Quiz/Common/QuizMedia";
-import StudentManage from "../pages/My/StudentManage";
-import AnswerManage from "../pages/My/AnswerManage";
+import StudyData from "../pages/My/StudyData";
+import EvaluationData from "../pages/My/EvaluationData";
 
 const QuizPageRoute = () => {
     return (
@@ -19,8 +19,8 @@ const TeacherStudyRoute = () => {
     const { chap_id } = useParams();
     return (
       <Routes>
-        <Route path="studystatus" element={<StudentManage />} />{ /*마이페이지-학습관리*/ }
-        <Route path="evaluationstatus" element={<AnswerManage />} /> { /*마이페이지-채점관리*/ }
+        <Route path="studystatus" element={<StudyData/>} />{ /*마이페이지-학습관리*/ }
+        <Route path="evaluationstatus" element={<EvaluationData />} /> { /*마이페이지-채점관리*/ }
         <Route path="study/*" element={<QuizPageRoute />} /> { /*학습*/ }
       </Routes>
     );

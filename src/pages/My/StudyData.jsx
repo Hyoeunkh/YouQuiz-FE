@@ -1,7 +1,7 @@
-import StudentManage from "./StudentManage";
+import StudyManage from "./StudyManage";
 import { useMemo } from "react";
 
-export default function Studentdata() {
+export default function StudyData() {
     const samples = useMemo(
         () => [
         {
@@ -136,5 +136,5 @@ export default function Studentdata() {
     );
 
     
-    return <StudentManage columns={columns} data={data} />;
+    return <StudyManage columns={columns} data={data} />;
 }

@@ -22,7 +22,6 @@ const TableBlock = styled.div`
     
     text-align: center;
     border-collapse: collapse;
-    table-layout: fixed
   }
 
   th,
@@ -43,7 +42,7 @@ export default function StudentManage( { columns, data } ) {
 
   return (
     <>
-      <MyPageForm  userType={"teacher"} student_id={"20"} page={"학습 관리"} />
+      <MyPageForm  userType={"teacher"} student_id={"20"} page={"채점 관리"} />
       <TableBlock>
         <table {...getTableProps()}>
           <thead>
@@ -73,4 +72,3 @@ export default function StudentManage( { columns, data } ) {
     </>
   );
 }
-

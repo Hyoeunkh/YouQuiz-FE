@@ -16,8 +16,8 @@ import AnswerTeacher from "./pages/Quiz/Teacher/AnswerTeacher";
 import StudyResult from  "./pages/My/StudyResult";
 import StudentStudyRoute from "./Router/StudentRoute";
 import TeacherStudyRoute from "./Router/TeacherRoute";
-import AnswerManage from "./pages/My/AnswerManage";
-import Studentdata from "./pages/My/Studentdata";
+import StudyData from "./pages/My/StudyData";
+import EvaluationData from "./pages/My/EvaluationData";
 
 function NotFoundPage() {
   return <div>Page not found.</div>;
@@ -96,8 +96,9 @@ const App = () => {
 
         <Route path="/answerteacher" element={<AnswerTeacher />} />
         <Route path="/studyresult" element={<StudyResult/>} />
-        <Route path="/evaluationstatus" element={<Studentdata />} /> 
-      </Routes>
+        <Route path="/evaluationstatus" element={<EvaluationData />} />
+        <Route path="/studystatus" element={<StudyData />} />
+        </Routes>
     </>
   );
 };
