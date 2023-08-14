@@ -11,7 +11,7 @@ const AnswerQuestion = () => {
 	const userType = "student";
 
 	const [text, setText] = useState('');
-	const [currentPage, setCurrentPage] = useState(3);
+	const [currentPage, setCurrentPage] = useState(5);
 
 	const handlePageChange = (page) => {
 		sendSubjectiveAnswerToBackend(text); // 주관식 답변을 백엔드로 전송
