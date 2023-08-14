@@ -49,7 +49,7 @@ const AnswerQuestion = () => {
 				rows={8}/>
 		</div>
 		<div className="btn">
-			<Link to={`study/${chap_id}/3`}>
+			<Link to={-1}>
 				<img onClick={() => 
 					handlePageChange(currentPage - 1)} 
 					width="80" height="80"

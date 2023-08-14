@@ -3,7 +3,6 @@ import styled from "styled-components";
 import "bootstrap/dist/css/bootstrap.min.css";
 import QuizPageForm from "../../../containers/QuizPageForm";
 import axios from "axios";
-
 // quiz components
 const ListBlock = styled.div`
   position: relative;

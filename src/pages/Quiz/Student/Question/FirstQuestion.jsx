@@ -63,7 +63,7 @@ const FirstQuestion = () => {
       </div>
 
       <div className="btn">
-        <Link to={`study/${chap_id}/media`}>
+        <Link to={-1}>
           <img onClick={() => {
             handlePageChange(currentPage - 1);
           }}
@@ -71,7 +71,7 @@ const FirstQuestion = () => {
           src="https://img.icons8.com/ios/80/19A05E/circled-left-2.png" alt="left" />
         </Link>
 
-        <Link to={`study/${chap_id}/2`}>
+        <Link to={`2`}> {/*1/2로 가는거 고치기*/}
         <img onClick={() => {
             handlePageChange(currentPage + 1);
           }}

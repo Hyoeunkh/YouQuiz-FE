@@ -11,22 +11,19 @@ import QuizComplate from './Common/QuizComplete';
 function QuestionPage() {
   const { question_number } = useParams();
 
-  let QuestionComponent;
+  const questionComponents = {
+    media: QuizMedia,
+    '1': FirstQuestion,
+    '2': SecondQuestion,
+    '3': ThirdQuestion,
+    '4': AnswerQuestion,
+    complete: QuizComplate,
+  };
+  const QuestionComponent = questionComponents[question_number];
 
-  if (question_number === 'media') {
-    QuestionComponent = QuizMedia;
-  } else if (question_number === '1') {
-    QuestionComponent = FirstQuestion;
-  }else if (question_number === '2') {
-    QuestionComponent = SecondQuestion;
-  } else if (question_number === '3') {
-    QuestionComponent = ThirdQuestion;
-  }  else if (question_number === '4') {
-    QuestionComponent = AnswerQuestion;
-  }  else if (question_number === 'complete') {
-    QuestionComponent = QuizComplate;
+  if (!QuestionComponent) {
+    return <div>잘못된 Page입니다.</div>;
   }
-
   return <QuestionComponent />;
 }
 

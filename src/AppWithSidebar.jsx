@@ -14,40 +14,13 @@ import FirstQuestion from "./pages/Quiz/Student/Question/FirstQuestion";
 import AnswerResult from "./pages/Quiz/Student/Result/AnswerResult";
 import AnswerTeacher from "./pages/Quiz/Teacher/AnswerTeacher";
 import StudyResult from  "./pages/My/StudyResult";
-import StudentManage from "./pages/My/StudentManage";
-import AnswerManage from "./pages/My/AnswerManage";
-import QuestionPage from "./pages/Quiz/QuestionPage";
-import ResultPage from  "./pages/Quiz/ResultPage";
+import StudentStudyRoute from "./Router/StudentRoute";
+import TeacherStudyRoute from "./Router/TeacherRoute";
 
-const StudentStudyRoute = () => {
-  const { student_id } = useParams();
+function NotFoundPage() {
+  return <div>Page not found.</div>;
+}
 
-  return (
-    <Routes>
-      <Route path="/" element={<StudyResult />} />
-      <Route path=":chap_id" element={<QuizMedia />} />
-      <Route path=":chap_id/:result_number" element={<ResultPage />} />
-      <Route path="study/*" element={<QuizPage />}>
-        {/*여기서부터왜안먹힐까? */}
-        <Route path=":chap_id" element={<QuizMedia />} />
-        <Route path=":chap_id/:question_number" element={<QuestionPage />} />
-      </Route>
-    </Routes>
-  );
-};
-
-const TeacherStudyRoute = () => {
-  return (
-    <Routes>
-      <Route path="studystatus" element={<StudentManage />} />{ /*마이페이지-학습관리*/ }
-      <Route path="evaluationstatus" element={<AnswerManage />} /> { /*마이페이지-채점관리*/ }
-      <Route path="study" element={<QuizPage />}> { /*학습*/ }
-          <Route path=":chap_id" element={<QuizMedia />} />{ /*학습-학습하기버튼*/ }
-          <Route path=":chap_id/:question_number" element={<QuestionPage />} />{ /*media, Q1,2,3,4, complete*/ }
-      </Route>
-    </Routes>
-  );
-};
 
 const AppWithSidebar = () => {
   const location = useLocation();
@@ -84,9 +57,7 @@ const AppWithSidebar = () => {
     }
   };
   
-  function NotFoundPage() {
-    return <div>Page not found.</div>;
-  }
+
 
 
   
@@ -105,18 +76,11 @@ const AppWithSidebar = () => {
           <Route path="student" element={<LoginPage />} />
           <Route path="teacher" element={<LoginPage />} />
         </Route>
-        {/*Student*/ }
-        <Route path="/" element={<HomePage />} />
-        <Route path="/login" element={<LoginPage />}>
-          <Route path="student" element={<LoginPage />} />
-          <Route path="teacher" element={<LoginPage />} />
-        </Route>
         <Route path="/student/:student_id/*" element={<StudentStudyRoute />} />
         <Route path="/teacher/:teacher_id/*" element={<TeacherStudyRoute />} />
         <Route path="/*" element={<NotFoundPage />} />
         
-        {/*Teacher*/ }
-        
+
         {/*Test용 라우터*/ }
         <Route path="/my" element={<MyPage />} />
         <Route path="/register" element={<RegisterPage />} />
