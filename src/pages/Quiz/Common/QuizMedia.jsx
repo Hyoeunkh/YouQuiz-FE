@@ -3,7 +3,7 @@ import styled from "styled-components";
 import "bootstrap/dist/css/bootstrap.min.css";
 import YouTube from "react-youtube";
 import QuizTitle from "../../../component/base/QuizTitle";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const gray = "#747474";
 const green = "#19A05E";
@@ -50,6 +50,7 @@ export default function QuizMedia( ) {
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
+  const { question_number } = useParams();
 
   return (
     <>

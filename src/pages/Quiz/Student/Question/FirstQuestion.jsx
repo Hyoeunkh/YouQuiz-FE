@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import QuizTitle from "../../../../component/base/QuizTitle";
 import "../../../../style/FirstQuestion.scss";
 import { Container } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { sendChoicesToBackend } from "../../../../services/StudentResult";
+import QuestionPage from "../../QuestionPage";
 
-  
 const FirstQuestion = () => {
   const chap_id = "sample_chap_id";
+  const { question_number } = useParams();
 
   const [selectedChoice, setSelectedChoice] = useState(null);
   const [currentPage, setCurrentPage] = useState(2);
@@ -63,7 +64,7 @@ const FirstQuestion = () => {
       </div>
 
       <div className="btn">
-        <Link to={-1}>
+        <Link to={`media`}>
           <img onClick={() => {
             handlePageChange(currentPage - 1);
           }}

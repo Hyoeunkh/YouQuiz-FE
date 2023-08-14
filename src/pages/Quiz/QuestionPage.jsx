@@ -12,12 +12,12 @@ function QuestionPage() {
   const { question_number } = useParams();
 
   const questionComponents = {
-    media: QuizMedia,
+    "media" : QuizMedia,
     '1': FirstQuestion,
     '2': SecondQuestion,
     '3': ThirdQuestion,
     '4': AnswerQuestion,
-    complete: QuizComplate,
+    "complete" : QuizComplate,
   };
   const QuestionComponent = questionComponents[question_number];
 

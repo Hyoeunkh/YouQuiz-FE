@@ -6,9 +6,10 @@ import { Link } from "react-router-dom";
 import { sendChoicesToBackend } from "../../../../services/StudentResult";
 
 const AnswerQuestion = () => {
-	const chap_id = "sample_chap_id";
-	const student_id = "sample_student_id";
-	
+	const chap_id = "10";
+	const student_id = "10";
+	const userType = "student";
+
 	const [text, setText] = useState('');
 	const [currentPage, setCurrentPage] = useState(3);
 
@@ -49,15 +50,14 @@ const AnswerQuestion = () => {
 				rows={8}/>
 		</div>
 		<div className="btn">
-			<Link to={-1}>
+			<Link to={`3`}>
 				<img onClick={() => 
 					handlePageChange(currentPage - 1)} 
 					width="80" height="80"
 					src="https://img.icons8.com/ios/80/19A05E/circled-left-2.png" alt="left"/>
 			</Link>
-			<Link to={`study/${chap_id}/complete?userType=student&student_id=${student_id}`}>
+			<Link to={`/student/${student_id}/study/${chap_id}/complete`} state={{userType, student_id}}>
 			<button onClick={() => handlePageChange(currentPage + 1)}>제출</button>
-				{/*클릭할때 왜 검정 테두리가 생기는지*/}
 			</Link>
 		</div>
 	</>

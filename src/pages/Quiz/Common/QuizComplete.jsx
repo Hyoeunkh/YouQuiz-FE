@@ -1,21 +1,32 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import React from "react";
 import "../../../style/QuizComplete.scss";
 
-const QuizComplate = ( { userType, student_id, teacher_id, score } ) => {
+const QuizComplate = () => {
+	const location = useLocation();
+
+	const userType = location.state.userType;
+	const student_id = location.state.student_id;
+	const teacher_id = location.state.teacher_id;
+	const score = location.state.score;
 	//userType은 student, teacher, result로 지정
-	const h1Text = userType === "student"
-	? "제출 완료!"
-	: userType === "teacher"
-	? "패점 완료!"
-	: `${score}점`;
+	const h1Text =
+	userType === "student"
+		? "제출 완료!"
+		: userType === "teacher"
+		? "채점 완료!"
+		: userType === "result"
+		? `${score}점`
+		: "";
 
 const pText =
   userType === "student"
 	? "제출 후에는 수정이 불가합니다."
 	: userType === "teacher"
 	? "채점 완료 확인되었습니다."
-	: "수고하셨습니다";
+	: userType === "result"
+	? "수고하셨습니다."
+	: "";
 
 	return (
 	<>
