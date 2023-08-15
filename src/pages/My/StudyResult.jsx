@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import "bootstrap/dist/css/bootstrap.min.css";
 import QuizPageForm from "../../containers/QuizPageForm";
 import MyPageForm from "../../containers/MyPageForm";
 import axios from "axios";
@@ -11,27 +10,19 @@ const ListBlock = styled.div`
   width: 55%;
   height: 100%;
   top: -5vh;
+  left: 7vw;
 `;
-
-const sample = {
-  score: "111",
-  chap_id: "10",
-  youtube_url: "https://youtu.be/YhY5PojUD_M",
-};
-
-
 
 export default function StudyResult() {
   const [lists, setLists] = useState(null);
   
-  {/* 실제코드
     useEffect(() => {
       const fetchData = async () => {
         try {
           const response = await axios.get(
-            "/{PROTOCOL}/{HOST}:{port}/student/${student_id}"
+            "http://localhost:3000/studied_chapter"
           );
-          setLists(response.data.lists);
+          setLists(response.data);
         } catch (e) {
           console.log(e);
         }
@@ -47,20 +38,9 @@ export default function StudyResult() {
     <>
       <MyPageForm  userType={"student"} student_id={"sample_id"} page={"학습결과"} />
         <ListBlock>
-          {lists.map(list => (
-            <QuizPageForm key={list.url} no_study_list={sample} />
-          ))}
+          <QuizPageForm lists={lists} />
         </ListBlock>
     </>
   );
-          */}
 
-  return (
-    <>
-      <MyPageForm  userType={"student"} student_id={"sample"} page={"학습 결과"} />
-      <ListBlock>
-          <QuizPageForm no_study_list={sample} />
-      </ListBlock>
-    </>
-  );
 }

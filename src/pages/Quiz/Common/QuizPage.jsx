@@ -6,28 +6,24 @@ import axios from "axios";
 // quiz components
 const ListBlock = styled.div`
   position: relative;
-  margin: 0 auto;
+  margin: auto;
   width: 70%;
   height: 100%;
+  top: 5vh;
+  left: 3vw;
 `;
 
-const sample = {
-  chap_id: "10",
-  youtube_url: "https://youtu.be/YhY5PojUD_M",
-};
-
-
+//teacher api따로있음 리스트 띄우려면 페이지따로만들어야함
 export default function QuizPage() {
   const [lists, setLists ] = useState(null);
   
-{/*실제코드
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "/{PROTOCOL}/{HOST}:{port}/student/${student_id}/study"
+          `http://localhost:3000/no_study_list`
         );
-        setLists(response.data.lists);
+        setLists(response.data);
       } catch (e) {
         console.log(e);
       }
@@ -41,19 +37,8 @@ export default function QuizPage() {
   return (
     <>
       <ListBlock>
-        {lists.map(list => (
-          <QuizPageForm key={list.url} no_study_list={sample} />
-        ))}
-      </ListBlock>
-    </>
-  );
-  */}
-  return (
-    <>
-      <ListBlock>
-          <QuizPageForm no_study_list={sample} />
+        <QuizPageForm lists={lists} />
       </ListBlock>
     </>
   );
 }
-
