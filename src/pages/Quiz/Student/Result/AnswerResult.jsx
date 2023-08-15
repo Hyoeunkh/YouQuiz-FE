@@ -37,9 +37,10 @@ const items = [
 export default function AnswerResult() {
 	const chap_id = "sample_chap_id";
 	const student_id = "sample_student_id";
+	const userType = "result";
 	const score = "sample_score";
 
-	const [currentPage, setCurrentPage] = useState(3);
+	const [currentPage, setCurrentPage] = useState(5);
 
 	const handlePageChange = (page) => {
 		setCurrentPage(page);
@@ -55,10 +56,14 @@ export default function AnswerResult() {
 			<Tablebar headers={headers} items={items} />
 		</div>
 		<div className="btn">
-			<Link to="/my">
-				<img onClick={() => handlePageChange(currentPage + -1)} width="80" height="80" src="https://img.icons8.com/ios/80/19A05E/circled-left-2.png" alt="circled-left-2"/>
+			<Link to="3">
+				<img onClick={() => 
+					handlePageChange(currentPage + -1)}
+					width="80" height="80"
+					src="https://img.icons8.com/ios/80/19A05E/circled-left-2.png" alt="circled-left-2"
+				/>
 			</Link>
-			<Link to={`study/${chap_id}/complete?userType=result&student_id=${student_id}&score=${score}`}>
+			<Link to={`/student/${student_id}/studystatus/${chap_id}/complete`} state={{userType, student_id, score}}>
 				<button onClick={() => handlePageChange(currentPage + 1)} >완료</button>
 			</Link>
 		</div>

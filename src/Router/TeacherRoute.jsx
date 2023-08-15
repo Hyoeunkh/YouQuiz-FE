@@ -9,7 +9,7 @@ import EvaluationData from "../pages/My/EvaluationData";
 const QuizPageRoute = () => {
     return (
         <Routes>
-            <Route path="/" element={<QuizPage />} />
+            <Route path="/" element={<QuizPage />} /> { /*학습*/ }
             <Route path=":chap_id" element={<QuizMedia />} />{ /*학습-학습하기버튼*/ }
             <Route path=":chap_id/:question_number" element={<QuestionPage />} />{ /*media, Q1,2,3,4, complete*/ }
         </Routes>
@@ -21,7 +21,7 @@ const TeacherStudyRoute = () => {
       <Routes>
         <Route path="studystatus" element={<StudyData/>} />{ /*마이페이지-학습관리*/ }
         <Route path="evaluationstatus" element={<EvaluationData />} /> { /*마이페이지-채점관리*/ }
-        <Route path="study/*" element={<QuizPageRoute />} /> { /*학습*/ }
+        <Route path="study/*" element={<QuizPageRoute />} /> 
       </Routes>
     );
   };

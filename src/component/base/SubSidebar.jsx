@@ -34,8 +34,8 @@ export default function SubSideBar( { userType, student_id, teacher_id } ) {
             <ul className="sub-container">
                 {isStudent && (
                     <>
-                        <li className={`nav-item ${location.pathname === `/student/${student_id}` ? "current-page" : ""}`}>
-                            <Link to={`/student/${student_id}`}>학습 결과</Link>
+                        <li className={`nav-item ${location.pathname === `/student/${student_id}/studystatus` ? "current-page" : ""}`}>
+                            <Link to={`/student/${student_id}/studystatus`}>학습 결과</Link>
                         </li>
                         <li className={`nav-item ${location.pathname === `/student/${student_id}/update` ? "current-page" : ""}`}>
                             <Link to={`/student/${student_id}/update`}>개인정보 수정</Link>

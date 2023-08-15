@@ -23,10 +23,7 @@ const AnswerQuestion = () => {
 	};
 	
 	const sendSubjectiveAnswerToBackend = (answer) => {
-		const studentId = "your_student_id"; // 실제로 사용할 학생 ID
-		const chapId = "your_chap_id"; // 실제로 사용할 챕터 ID
-
-		sendChoicesToBackend(studentId, chapId, [], answer)
+		sendChoicesToBackend(student_id, chap_id, [], answer)
 			.then(() => {
 				console.log("complete");
 			})

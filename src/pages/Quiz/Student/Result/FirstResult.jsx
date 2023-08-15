@@ -23,8 +23,9 @@ const FirstResult = ( prop ) => {
 
   useEffect(() => {
     // 여기서 백엔드에서 받아온 answer_list 값을 설정
-    //const backendAnswerList = [1, 5, 3]; //sample값
-    setSelectedChoice(prop.answer_list[0]);
+    const backendAnswerList = [1, 5, 3]; //sample값
+    //setSelectedChoice(prop.answer_list[0]); //원래코드?
+    setSelectedChoice(backendAnswerList[0]);
   }, []);
 
   return (
@@ -33,7 +34,7 @@ const FirstResult = ( prop ) => {
       <div className="firstq-container">
         <div className="question">
           <h1>Q1</h1>
-          <Container className="problem-container">{prop.question}</Container>
+          <Container className="problem-container">{/*prop.question*/}첫번째문제</Container>
         </div>
 
         <ul className="radio-list">
@@ -50,7 +51,8 @@ const FirstResult = ( prop ) => {
                   src={getImageSource(choice)}
                   alt={`{choice}-circle`}
                 />
-                {prop.question}
+                {/*prop.choice*/} 1~5선지
+                {/*더미데이터 가져와 쓰는거고치기, 정답 라디오 표시하기 */}
             </label>
           ))}
         </ul>

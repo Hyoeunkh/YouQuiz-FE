@@ -40,7 +40,7 @@ const pText =
 				<p>{pText}</p>
 			<div className="button">
 				<Link to ='/my'><button className="homebtn">홈으로</button></Link>
-				<Link to ={`/${userType}/${(userType === 'student' || userType === 'result') ? student_id : teacher_id}/study`}><button>학습으로</button></Link>
+				<Link to ={`/${(userType === 'result') ? "student" : userType}/${(userType === 'student' || userType === 'result') ? student_id : teacher_id}/study`}><button>학습으로</button></Link>
 				{/*teacher/${teacher_id}/study*/}
 				{/*student/${student_id}/study*/}
 			</div>

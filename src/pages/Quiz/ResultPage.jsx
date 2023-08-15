@@ -9,24 +9,21 @@ import AnswerResult from './Student/Result/AnswerResult';
 import QuizComplate from './Common/QuizComplete';
 
 function ResultPage( prop ) {
-  const { Result_number } = useParams();
+  const { result_number } = useParams();
 
-  let ResultComponent;
+  const resultComponents = {
+    "media" : QuizMedia,
+    '1': FirstResult,
+    '2': SecondResult,
+    '3': ThirdResult,
+    '4': AnswerResult,
+    "complete" : QuizComplate,
+  };
+  const ResultComponent = resultComponents[result_number];
 
-  if (Result_number === 'media') {
-    ResultComponent = QuizMedia;
-  } else if (Result_number === '1') {
-    ResultComponent = FirstResult;
-  }else if (Result_number === '2') {
-    ResultComponent = SecondResult;
-  } else if (Result_number === '3') {
-    ResultComponent = ThirdResult;
-  }  else if (Result_number === '4') {
-    ResultComponent = AnswerResult;
-  }  else if (Result_number === 'complete') {
-    ResultComponent = QuizComplate;
+  if (!ResultComponent) {
+    return <div>잘못된 Page입니다.</div>;
   }
-
   return <ResultComponent prop={prop}/>;
 }
 
