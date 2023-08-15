@@ -28,41 +28,26 @@ function NotFoundPage() {
 const App = () => {
   const location = useLocation();
   const pathname = location.pathname;
-
   // 홈 화면 경로일 때 사이드바와 헤더 숨기기
   const hideSidebarAndHeader = pathname === "/";
 
   const getPageTitle = () => {
-    switch (pathname) {
-      case "/login/*":
-        return "Login";
-      case "/my"://test용
-      case "/studyresult"://test용
-      case "/student/:student_id":
-      case "/student/:student_id/:chap_id/*":
-      case "/teacher/:teacher_id/studystatus":
-      case "/teacher/:teacher_id/evaluationstatus":
-        return "My page";
-      case "/register/*":
-        return "Sign up";
-      case "/quiz"://test
-      case "/quizmedia"://test
-      case "/firstq"://test
-      case "/answerq"://test
-      case "/quizcomplate"://test
-      case "/answerResult"://test
-      case "/answerTeacher"://test
-      case "/student/:student_id/study/*":
-      case "/teacher/:teacher_id/study/*":
-        return "Quiz";
-      default:
-        return "";
+    if (pathname.includes("/login")) {
+      return "Login";
     }
-  };
-  
-
-
-
+    if (
+      pathname.includes("/evaluationstatus") || 
+      pathname.includes("/studystatus")
+    ) {
+      return "My page";
+    }
+    if (pathname.includes("/register")) {
+      return "Sign up";
+    }
+    if (pathname.includes("/study")) {
+      return "Quiz";
+    }
+  }
   
   return (
     <>

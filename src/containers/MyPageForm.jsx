@@ -15,7 +15,7 @@ const MyPageForm = ( { userType, student_id, teacher_id, chap_id, page } ) => {
     return (
       <> 
         <MyFormWrapper>
-            <SubSidebar userType={userType} student_id={student_id}/>
+            <SubSidebar userType={userType} student_id={student_id} teacher_id={teacher_id}/>
             <SubHeader page={page} />
         </MyFormWrapper>
       </>

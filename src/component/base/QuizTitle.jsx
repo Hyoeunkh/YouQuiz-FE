@@ -6,16 +6,16 @@ const Questionwrapper = styled.div`
   flex-direction: row;
   width: 75vw;
   justify-content:space-between;
-`;
 
-const Problem = styled.div`
+
+ .problem {
   width: 70%;
   font-size:2.1rem;
   font-weight:600;
   margin: 1.8rem;
   margin-left:10vw;
-`;
-const Progressbar = styled.div`
+  }
+ .Progressbar-container {
   display: flex;
   flex-direction: row;
   margin: 3.8rem 0px 0px 0px;
@@ -24,36 +24,35 @@ const Progressbar = styled.div`
   align-items:center;
   justify-content:center;
 
-  .progressbar {
-    width: 19vw;
-    height: 0.1vh;
-    background-color: green;
-    border: 2px solid green;
-    position: absolute;
+    .progressbar {
+      width: 19vw;
+      height: 0.1vh;
+      background-color: green;
+      border: 2px solid green;
+      position: absolute;
+    }
+    .circle {
+      width: 0.6vw;
+      height: 0.6vw;
+      border-radius: 50%;
+      background-color: white;
+      border: 0.15vw solid green;
+      margin: 0vw 2vw;
+      position: relative;
+      z-index: 2;
+    }
+    .filled {
+      background-color: green;
+    }
   }
-  .circle {
-    width: 0.6vw;
-    height: 0.6vw;
-    border-radius: 50%;
-    background-color: white;
-    border: 0.15vw solid green;
-    margin: 0vw 2vw;
-    position: relative;
-    z-index: 2;
-  }
-  
-  .filled {
-    background-color: green;
-  }
-  
 `;
 
 const Title = ({ text, currentPage, totalPageCount }) => {
   return (
     <>
       <Questionwrapper>
-        <Problem>{text}</Problem>
-        <Progressbar>
+        <div className='problem'>{text}</div>
+        <div className="progressbar-container">
           <div className="progressbar"></div>
             {[...Array(totalPageCount)].map((_, index) => (
               <div
@@ -62,7 +61,7 @@ const Title = ({ text, currentPage, totalPageCount }) => {
               >
               </div>
             ))}
-        </Progressbar>
+        </div>
       </Questionwrapper>
     </>
   );

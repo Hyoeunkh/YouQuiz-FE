@@ -22,6 +22,7 @@ const ListContent = styled.div`
             color: #19A05E;
         }
     }
+
 `;
 
 export default function SubSideBar( { userType, student_id, teacher_id } ) {
@@ -48,8 +49,8 @@ export default function SubSideBar( { userType, student_id, teacher_id } ) {
                         <li className={`nav-item ${location.pathname === `/teacher/${teacher_id}/studystatus` ? "current-page" : ""}`}>
                             <Link to={`/teacher/${teacher_id}/studystatus`}>학습 관리</Link>
                         </li>
-                        <li className={`nav-item ${location.pathname === `/teacher/${teacher_id}/evalutionstatus` ? "current-page" : ""}`}>
-                            <Link to={`/teacher/${teacher_id}/evalutionstatus`}>채점 관리</Link>
+                        <li className={`nav-item ${location.pathname === `/teacher/${teacher_id}/evaluationstatus` ? "current-page" : ""}`}>
+                            <Link to={`/teacher/${teacher_id}/evaluationstatus`}>채점 관리</Link>
                         </li>
                         <li className={`nav-item ${location.pathname === `/teacher/${teacher_id}/update` ? "current-page" : ""}`}>
                             <Link to={`/teacher/${teacher_id}/update`}>개인정보 수정</Link>

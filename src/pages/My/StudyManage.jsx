@@ -39,13 +39,13 @@ const TableBlock = styled.div`
   }
 `;
 
-export default function StudentManage( { columns, data } ) {
+export default function StudyManage( { columns, data } ) {
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     useTable({ columns, data });
 
   return (
     <>
-      <MyPageForm  userType={"teacher"} student_id={"20"} page={"학습 관리"} />
+      <MyPageForm  userType={"teacher"} teacher_id={"20"} page={"학습 관리"} />
       <TableBlock>
         <table {...getTableProps()}>
           <thead>

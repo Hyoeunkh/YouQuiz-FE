@@ -57,7 +57,7 @@ export default function StudyResult() {
 
   return (
     <>
-      <MyPageForm  userType={"student"} student_id={"20"} page={"학습 결과"} />
+      <MyPageForm  userType={"student"} student_id={"sample"} page={"학습 결과"} />
       <ListBlock>
           <QuizPageForm no_study_list={sample} />
       </ListBlock>
