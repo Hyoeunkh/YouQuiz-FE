@@ -8,7 +8,7 @@ import QuizMedia from './Common/QuizMedia';
 import AnswerResult from './Student/Result/AnswerResult';
 import QuizComplate from './Common/QuizComplete';
 
-function ResultPage() {
+function ResultPage( prop ) {
   const { Result_number } = useParams();
 
   let ResultComponent;
@@ -27,7 +27,7 @@ function ResultPage() {
     ResultComponent = QuizComplate;
   }
 
-  return <ResultComponent />;
+  return <ResultComponent prop={prop}/>;
 }
 
 export default ResultPage;

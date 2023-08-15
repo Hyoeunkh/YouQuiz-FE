@@ -18,7 +18,8 @@ import StudentStudyRoute from "./Router/StudentRoute";
 import TeacherStudyRoute from "./Router/TeacherRoute";
 import StudyData from "./pages/My/StudyData";
 import EvaluationData from "./pages/My/EvaluationData";
-
+import FirstResult from "./pages/Quiz/Student/Result/FirstResult";
+ 
 function NotFoundPage() {
   return <div>Page not found.</div>;
 }
@@ -78,8 +79,8 @@ const App = () => {
           <Route path="student" element={<LoginPage />} />
           <Route path="teacher" element={<LoginPage />} />
         </Route>
-        <Route path="/student/:student_id/*" element={<StudentStudyRoute />} />
-        <Route path="/teacher/:teacher_id/*" element={<TeacherStudyRoute />} />
+        <Route path="/student/:student_id/*" element={<StudentStudyRoute />} />{/* 학생라우터 */}
+        <Route path="/teacher/:teacher_id/*" element={<TeacherStudyRoute />} />{/* 선생라우터 */}
         <Route path="/*" element={<NotFoundPage />} />
         
 
@@ -93,6 +94,7 @@ const App = () => {
         <Route path="/answerq" element={<AnswerQuestion />} />
         <Route path="/quizcomplate" element={<QuizComplate />} />
         <Route path="/answerresult" element={<AnswerResult />} />
+        <Route path="/firstr" element={<FirstResult />} />
 
         <Route path="/answerteacher" element={<AnswerTeacher />} />
         <Route path="/studyresult" element={<StudyResult/>} />

@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import QuizTitle from "../../../../component/base/QuizTitle";
 import "../../../../style/FirstQuestion.scss";
 import { Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-const FirstQuestion = () => {
+const FirstResult = ( prop ) => {
   const chap_id = "sample_chap_id";
 
   const [selectedChoice, setSelectedChoice] = useState(null);
@@ -14,15 +14,18 @@ const FirstQuestion = () => {
     setCurrentPage(page);
   };
 
-  const handleChoiceClick = (choice) => {
-    setSelectedChoice(selectedChoice === choice ? null : choice);
-  };
   const getImageSource = (choice) => 
-    selectedChoice === choice? `https://img.icons8.com/ios-filled/80/19A05E/${choice}-circle.png`
+    selectedChoice === choice? `https://img.icons8.com/ios-filled/80/EB3223/${choice}-circle.png`
     : `https://img.icons8.com/ios/80/19A05E/${choice}-circle.png`;
 
  
   const radioChoices = [1, 2, 3, 4, 5];
+
+  useEffect(() => {
+    // 여기서 백엔드에서 받아온 answer_list 값을 설정
+    //const backendAnswerList = [1, 5, 3]; //sample값
+    setSelectedChoice(prop.answer_list[0]);
+  }, []);
 
   return (
     <>
@@ -30,39 +33,33 @@ const FirstQuestion = () => {
       <div className="firstq-container">
         <div className="question">
           <h1>Q1</h1>
-          <Container className="problem-container">첫번째 문제</Container>
+          <Container className="problem-container">{prop.question}</Container>
         </div>
+
         <ul className="radio-list">
           {radioChoices.map((choice) => (
             <label key={choice} className="radio-label" htmlFor={`${choice}`}>
-              <div
-                className={`radio-option ${selectedChoice === `${choice}` ? "selected" : ""}`}
-                onClick={() => handleChoiceClick(`${choice}`)}
-              >
                 <input
                   type="radio"
                   id={`${choice}`}
                   name="choice"
                   value={choice}
-                  checked={selectedChoice === `${choice}`}
-                  onChange={() => {}}
+                  checked={selectedChoice === choice}
                 />
                 <img
-                  key={selectedChoice}
-                  src={getImageSource(`${choice}`)}
+                  src={getImageSource(choice)}
                   alt={`{choice}-circle`}
                 />
-                휘영님감사해요..
-              </div>
+                {prop.question}
             </label>
           ))}
         </ul>
       </div>
       <div className="btn">
-        <Link to={`study/${chap_id}/media`}>
+        <Link to={`media`}>
           <img onClick={() => handlePageChange(currentPage - 1)} width="80" height="80" src="https://img.icons8.com/ios/80/19A05E/circled-left-2.png" alt="circled-left-2" />
         </Link>
-        <Link to={`study/${chap_id}/4`}>
+        <Link to={`2`}>
           <img onClick={() => handlePageChange(currentPage + 1)} width="80" height="80" src="https://img.icons8.com/ios/80/19A05E/circled-right-2.png" alt="circled-left-2" />
         </Link>
       </div>
@@ -71,4 +68,4 @@ const FirstQuestion = () => {
   );
 };
 
-export default FirstQuestion;
+export default FirstResult;

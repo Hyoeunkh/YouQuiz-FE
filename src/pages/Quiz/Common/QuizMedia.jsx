@@ -61,7 +61,7 @@ export default function QuizMedia( ) {
           <img width="40" height="40" src="https://img.icons8.com/ios/50/19a05e/cinema---v1.png" alt="cinema---v1"/>
           영상을 시청해주세요!
         </p>
-        <YoutubeVideo videoId="YhY5PojUD_M" />
+        <YoutubeVideo videoId="YhY5PojUD_M" />{/*api*/}
       </Contents>
 
       <Btn>
