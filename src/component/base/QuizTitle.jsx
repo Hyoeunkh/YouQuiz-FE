@@ -15,35 +15,34 @@ const Questionwrapper = styled.div`
   margin: 1.8rem;
   margin-left:10vw;
   }
- .Progressbar-container {
+ .progressbar-container {
   display: flex;
   flex-direction: row;
-  margin: 3.8rem 0px 0px 0px;
+  margin: 2.5rem 0px 0px 0px;
   position: relative;
   z-index: 1; 
   align-items:center;
   justify-content:center;
-
-    .progressbar {
-      width: 19vw;
-      height: 0.1vh;
-      background-color: green;
-      border: 2px solid green;
-      position: absolute;
-    }
-    .circle {
-      width: 0.6vw;
-      height: 0.6vw;
-      border-radius: 50%;
-      background-color: white;
-      border: 0.15vw solid green;
-      margin: 0vw 2vw;
-      position: relative;
-      z-index: 2;
-    }
-    .filled {
-      background-color: green;
-    }
+ }
+  .progressbar {
+    width: 19vw;
+    height: 0.1vh;
+    background-color: green;
+    border: 2px solid green;
+    position: absolute;
+  }
+  .circle {
+    width: 0.6vw;
+    height: 0.6vw;
+    border-radius: 50%;
+    background-color: white;
+    border: 0.15vw solid green;
+    margin: 0vw 2vw;
+    position: relative;
+    z-index: 2;
+  }
+  .filled {
+    background-color: green;
   }
 `;
 
