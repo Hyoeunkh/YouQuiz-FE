@@ -7,12 +7,13 @@ const TEMP_SET_USER = 'user/TEMP_SET_USER';
 const [ CHECK, CHECK_SUCCESS, CHECK_FAILURE] = createRequestActionTypes(
     'user/CHECK',
 );
+const SET_USER_INFO = 'user/SET_USER_INFO';  // 추가
 const LOGOUT= 'user/LOGOUT';
 
 export const tempSetUser = createAction (TEMP_SET_USER , user => user);
 export const check = createAction(CHECK);
 export const logout = createAction(LOGOUT);
-
+export const setUserInfo = createAction(SET_USER_INFO, ({ userType, user_id }) => ({ userType, user_id }));  // 추가
 
 const checkSaga = createRequestSaga( CHECK , authAPI.check );
 
@@ -45,6 +46,8 @@ export function* userSaga() {
 const initialState = {
     user: null,
     checkError: null,
+    userType: '', // 추가
+    user_id: '', // 추가
 };
 
 export default handleActions(
@@ -67,6 +70,11 @@ export default handleActions(
             ...state,
             user:null,
         }),
+        [SET_USER_INFO]: (state, { payload: { userType, user_id } }) => ({
+            ...state,
+            userType,
+            user_id,
+          }),
     },
     initialState,
 );

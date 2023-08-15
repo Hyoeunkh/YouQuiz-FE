@@ -1,45 +1,65 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useSelector } from 'react-redux';
 
 import "../../style/Sidebar.scss"
 
 export default function SideBar() {
     const location = useLocation();
 
-    // 현재 경로를 가져와서 로그인 페이지에 있는지 확인
-    const isLoginPage = location.pathname === "/login";
-    const isRegisterPage = location.pathname === "/register";
-    const isQuizPage = location.pathname.includes("/student/:student_id/study") || location.pathname.includes("/teacher/:teacher_id/study");
-    const isMyPage = location.pathname === "/student/:student_id" || 
-                location.pathname.includes("/student/:student_id/:chap_id/") || 
-                location.pathname.includes("/teacher/:teacher_id/studystatus") || 
-                location.pathname.includes("/teacher/:teacher_id/evaluationstatus");
-
+    // 리덕스로 user정보 받아오는거 고치기 
+    //const { userType, user_id } = useSelector((state) => state.user);
+    const userType = "student";
+    const user_id = "10";
     
-    //로그인하면 로그인,회원가입칸이 마이페이지로바뀌게 해야함--나중에구현
+    const isLoginPage = location.pathname.includes("/login");
+    const isRegisterPage = location.pathname.includes("/register");
+    const isMyPage =
+        location.pathname.includes("/studystatus") || 
+        location.pathname.includes("/evaluationstatus");
+    const isQuizPage = location.pathname === `/${userType}/${user_id}/study`;
+    
+    const renderMenu = () => {
+        if (isLoginPage || isRegisterPage) {
+            return (
+                <>
+                    <li className={`nav-item ${isLoginPage ? "current-page" : ""}`}>
+                        <Link to={`/login/${userType}`}><img className="icon" src={isLoginPage ? "/user.png" : "/user-wh.png"} alt="" />로그인</Link>
+                    </li>
+                    <li className={`nav-item ${isRegisterPage ? "current-page" : ""}`}>
+                        <Link to={`/register/${userType}`}><img className="icon" src={isRegisterPage ? "/circle.png" : "/circle-wh.png"} alt="" />회원가입</Link>
+                    </li>
+                </>
+            );
+        } else {
+            return (
+                <>
+                    <li className={`nav-item ${isMyPage ? "current-page" : ""}`}>
+                        <Link to={`/${userType}/${user_id}/studystatus`}><img className="icon" src={isMyPage ? "/circle.png" : "/circle-wh.png"} alt="" />마이페이지</Link>
+                    </li>
+                </>
+            );
+        }
+    };
+
     return (
         <>
             <nav className='nav-wrapper'>
                 <ul className="nav-container">
                     <li className="Ylogo">
                         <Link to='/'>
-                        <img className="sidelogo"  src="title-logo.png" alt="logo"/>
+                            <img className="sidelogo" src="/title-logo.png" alt="logo"/>
                         </Link>
                     </li>
-                    <li className={`nav-item ${isLoginPage ? "current-page" : ""}`}>
-                        <Link to="/login"><img className="icon" src={ isLoginPage ? "user.png" : "user-wh.png" } alt="" />로그인</Link>
-                    </li>
-                    <li className={`nav-item ${isRegisterPage ? "current-page" : ""}`}>
-                        <Link to="/register"><img className="icon" src= { isRegisterPage ? "circle.png" : "circle-wh.png" } alt="" />회원가입</Link>
-                    </li>
+                    {renderMenu()}
                     <li className={`nav-item ${isQuizPage ? "current-page" : ""}`}>
-                            <Link to="/student/:student_id/study"><img className="icon" src={isQuizPage ? "book.png" : "book-wh.png"} alt="" />학습</Link>
+                        <Link to={`/${userType}/${user_id}/study`}><img className="icon" src={isQuizPage ? "/book.png" : "/book-wh.png"} alt="" />학습</Link>
                     </li>
                     <li className="nav-item">
-                            <Link to="#"><img className="icon" src="help-wh.png" alt="" />이용안내</Link>
+                        <Link to="#"><img className="icon" src="/help-wh.png" alt="" />이용안내</Link>
                     </li>
                 </ul>
             </nav>
         </>
-    )
+    );
 }

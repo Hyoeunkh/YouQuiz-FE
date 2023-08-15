@@ -69,7 +69,7 @@ const App = () => {
         <Route path="/*" element={<NotFoundPage />} />
         
 
-        {/*Test용 라우터*/ }
+        {/* Test용 라우터 */ }
         <Route path="/my" element={<MyPage />} />
         <Route path="/register" element={<RegisterPage />} />
         
