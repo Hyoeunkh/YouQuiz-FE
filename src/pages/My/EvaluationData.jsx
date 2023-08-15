@@ -1,37 +1,31 @@
 import EvaluationManage from "./EvaluationManage";
-import { useMemo } from "react";
+import { useMemo, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export default function EvaluationData() {
   const navigate = useNavigate();
-  const samples = useMemo(
-      () => [
-          {
-              total_student: "20",
-              complete_student: "20",
-              class_id: 10000,
-              chap_id: "1",
-              youtube_url: "교내 휴대전화 허용 어디까지? " //제목가져오는건가?
-          },
-          {
-              total_student: "20",
-              complete_student: "12",
-              class_id: 10000,
-              chap_id: "2",
-              youtube_url: "10대가 느끼는 ‘성차별’"
-          },
-          {
-              total_student: "20",
-              complete_student: "10",
-              class_id: 10000,
-              chap_id: "3",
-              youtube_url: "동성애자, 좋은 사람 만날 수 있을까요?" 
-          },
-  ],
-  []
-);
+  const [lists, setLists ] = useState(null);
+  
+    useEffect(() => {
+      const fetchData = async () => {
+        try {
+          const response = await axios.get(
+            `http://localhost:3000/evaluation_status`
+          );
+          setLists(response.data);
+        } catch (e) {
+          console.log(e);
+        }
+      };
+      fetchData();
+    }, []);
+
   const columns = useMemo(
-      () => [
+    () => {
+      if (!lists) return []; // lists가 null일 때 빈 배열 반환
+
+      return [
         {
           accessor: "number",
           Header: "번호",
@@ -60,30 +54,30 @@ export default function EvaluationData() {
           accessor: "btn",
           Header: "--------",
         }
-      ],
-      [samples]
-    );
+      ];
+    }, [lists]);
 
   const data = useMemo(
-      () =>
-          samples.map((sample, index) => {
+    () => {
+      if (!lists) return []; // lists가 null일 때 빈 배열 반환
+
+      return  lists.map((list, index) => {
               const EvaluationData = {
                   number: index + 1,
-                  chap_id: sample.chap_id+"단계",
-                  URL: sample.youtube_url,
-                  status: sample.complete_student + "/" + sample.total_student, 
+                  chap_id: list.chap_id+"단계",
+                  URL: list.youtube_url,
+                  status: list.complete_student + "/" + list.total_student, 
                   btn:<button 
                         onClick={() => {
-                          navigate(`/teacher/${sample.class_id}/study/${sample.chap_id}`);
+                          navigate(`/teacher/${list.class_id}/study/${list.chap_id}`);
                           }
                         }
                         style={{ background: "none", padding: 0, cursor: "pointer",color: "black" }}
                       >채점하기</button>,
               };
               return EvaluationData;
-          }),
-      [samples]
-  );
+          });
+        }, [lists]);
 
   
   return <EvaluationManage columns={columns} data={data} />;

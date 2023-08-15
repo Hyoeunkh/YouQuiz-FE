@@ -12,7 +12,6 @@ export default function StudyData() {
             `http://localhost:3000/student_list`
           );
           setLists(response.data);
-          console.log(lists);
         } catch (e) {
           console.log(e);
         }
