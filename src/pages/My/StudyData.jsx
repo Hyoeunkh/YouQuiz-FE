@@ -1,140 +1,65 @@
 import StudyManage from "./StudyManage";
-import { useMemo } from "react";
+import { useMemo, useEffect, useState } from "react";
+import axios from "axios";
 
 export default function StudyData() {
-    const samples = useMemo(
-        () => [
-        {
-            student_name: "A",
-            chapter_data: [ 
-                {
-                    chap_id: "1",
-                    status: "O"
-                },
-                {
-                    chap_id: "2",
-                    status: "O"
-                },
-                {
-                    chap_id: "3",
-                    status: "O"
-                },
-                {
-                    chap_id: "4",
-                    status: "O"
-                },
-                {
-                    chap_id: "5",
-                    status: "O"
-                },{
-                    chap_id: "6",
-                    status: "O"
-                },{
-                    chap_id: "7",
-                    status: "O"
-                },
-                {
-                    chap_id: "8",
-                    status: "O"
-                },
-                {
-                    chap_id: "9",
-                    status: "O"
-                },
-            ],
-            student_id: "1",
-        },
-        {
-            student_name: "B",
-            chapter_data: [ 
-                {
-                    chap_id: "1",
-                    status: "O"
-                },
-                {
-                    chap_id: "2",
-                    status: "O"
-                },
-                {
-                    chap_id: "3",
-                    status: "X"
-                }
-            ],
-            student_id: "2",
-        
-        },{
-            student_name: "B",
-            chapter_data: [ 
-                {
-                    chap_id: "1",
-                    status: "O"
-                },
-                {
-                    chap_id: "2",
-                    status: "O"
-                },
-                {
-                    chap_id: "3",
-                    status: "X"
-                }
-            ],
-            student_id: "2",
-        
-        },{
-            student_name: "B",
-            chapter_data: [ 
-                {
-                    chap_id: "1",
-                    status: "O"
-                },
-                {
-                    chap_id: "2",
-                    status: "O"
-                },
-                {
-                    chap_id: "3",
-                    status: "X"
-                }
-            ],
-            student_id: "2",
-        
-        },
-    ],
-    []
-);
-    const columns = useMemo(
-        () => [
-          {
-            accessor: "student_id",
-            Header: "번호",
-          },
-          {
-            accessor: "student_name",
-            Header: "이름",
-          },
-            ...samples[0].chapter_data.map((chapter) => ({
-                accessor: `chapter_${chapter.chap_id}`,
-                Header: `${chapter.chap_id}단계`
-          })),
-        ],
-        [samples]
-      );
+    const [lists, setLists ] = useState(null);
   
-    const data = useMemo(
-        () =>
-            samples.map((sample) => {
-                const studentData = {
-                    student_id: sample.student_id,
-                    student_name: sample.student_name,
-                };
-                sample.chapter_data.forEach((chapter) => {
-                    studentData[`chapter_${chapter.chap_id}`] = chapter.status;
-                });
-                return studentData;
-            }),
-        [samples]
-    );
+    useEffect(() => {
+      const fetchData = async () => {
+        try {
+          const response = await axios.get(
+            `http://localhost:3000/student_list`
+          );
+          setLists(response.data);
+          console.log(lists);
+        } catch (e) {
+          console.log(e);
+        }
+      };
+      fetchData();
+    }, []);
 
+    const columns = useMemo(
+        () => {
+          if (!lists) return []; // lists가 null일 때 빈 배열 반환
     
-    return <StudyManage columns={columns} data={data} />;
-}
+          return [
+            {
+              accessor: "student_id",
+              Header: "번호",
+            },
+            {
+              accessor: "student_name",
+              Header: "이름",
+            },
+            ...lists[0].chapter_data.map((chapter) => ({
+              accessor: `chapter_${chapter.chap_id}`,
+              Header: `${chapter.chap_id}단계`
+            })),
+          ];
+        },
+        [lists]
+      );
+    
+      const data = useMemo(
+        () => {
+          if (!lists) return []; // lists가 null일 때 빈 배열 반환
+    
+          return lists.map((list) => {
+            const studentData = {
+              student_id: list?.student_id,
+              student_name: list?.student_name,
+            };
+            list.chapter_data.forEach((chapter) => {
+              studentData[`chapter_${chapter.chap_id}`] = chapter.status;
+            });
+            return studentData;
+          });
+        },
+        [lists]
+      );
+    
+      return <StudyManage columns={columns} data={data} />;
+    }
+    

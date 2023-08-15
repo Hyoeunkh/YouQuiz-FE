@@ -2,13 +2,24 @@ import { useState } from 'react';
 import ResultPage from '../../pages/Quiz/ResultPage';
 import axios from 'axios';
 
-export default function ResultAPI() {
+
+export default function Result() {
   const [resultPage, setResultPage] = useState([]);
 
-    axios.get("{PROTOCOL}/{HOST}:{port}/student/{student_id}/studystatus/{chapter_id}")
-    .then(response => setResultPage(response.data))
+  const resultAPI = async () => {
+    try {
+      const response = await axios.get(
+        "http://localhost:3000/study_result"
+      );
+      setResultPage(response.data);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+  resultAPI();
 
   return (
-    <ResultPage prop={resultPage} />
+    <ResultPage data={resultPage} />
   );
 }
+
