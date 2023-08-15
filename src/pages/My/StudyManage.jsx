@@ -25,11 +25,14 @@ const TableBlock = styled.div`
     table-layout: fixed
   }
 
-  td, th{
+  td{
     border: 1px solid white;
   }
+  th {
+    font-weight: 600;
+  }
   tbody tr:nth-child(2n+1) {
-    background-color: #E5E5E5;
+    background-color: #F4F4F4
   }
   tbody tr:nth-child(2n) {
     background-color: white;

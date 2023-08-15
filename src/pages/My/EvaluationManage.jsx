@@ -22,14 +22,14 @@ const TableBlock = styled.div`
     
     text-align: center;
     border-collapse: collapse;
+    font-weight: 600;
   }
-
-  th,
-  td {
-    border: 1px solid white;
+  thead {
+    border-top: 1px solid black;
+    border-bottom: 1px solid #5A5A5A;
   }
   tbody tr:nth-child(2n+1) {
-    background-color: #E5E5E5;
+    background-color: #F4F4F4;
   }
   tbody tr:nth-child(2n) {
     background-color: white;
