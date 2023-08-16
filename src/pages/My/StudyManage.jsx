@@ -5,34 +5,52 @@ import { useTable } from "react-table";
 
 const TableBlock = styled.div`
   margin: 0 auto;
-  height: 400px;
-  width: 50%;
+  height: 60vh;
+  width: 60vw;
+  display: flex;
+  flex-direction:column;
+  align-items:center;
+  margin: 0 15vw;
+`;
+const TableWrapper = styled.div`
+  height: 80%;
+  width: 80%;
   overflow-y: auto; /* 내용많으면 스크롤됨 */
+  padding-right: 1vw;
   
+  &::-webkit-scrollbar {
+    width: .7vw;
+  }
   &::-webkit-scrollbar-thumb {
-    background: #D9D9D9;
+    background: #E5E5E5;
+    border-radius: 5px;
   }
   &::-webkit-scrollbar-track {
     background: none;
   }
-
   table {
     width: 100%;
     height: 100%;
-    
     text-align: center;
     border-collapse: collapse;
-    table-layout: fixed
   }
 
   td{
+    height: 5vh;
     border: 1px solid white;
+  }
+  thead {
+    font-weight: bold;
+    position: sticky;
+    top: 0;
+    height: 5vh;
+    background-color: white;
   }
   th {
     font-weight: 600;
   }
   tbody tr:nth-child(2n+1) {
-    background-color: #F4F4F4
+    background-color: #E5E5E5;
   }
   tbody tr:nth-child(2n) {
     background-color: white;
@@ -47,30 +65,32 @@ export default function StudyManage( { columns, data } ) {
     <>
       <MyPageForm  userType={"teacher"} teacher_id={"20"} page={"학습 관리"} />
       <TableBlock>
-        <table {...getTableProps()}>
-          <thead>
-            {headerGroups.map((headerGroup) => (
-              <tr {...headerGroup.getHeaderGroupProps()}>
-                {headerGroup.headers.map((column) => (
-                  <th {...column.getHeaderProps()}>{column.render("Header")}</th>
-                  
-                ))}
-              </tr>
-            ))}
-          </thead>
-          <tbody {...getTableBodyProps()}>
-            {rows.map((row) => {
-              prepareRow(row);
-              return (
-                <tr key={row.id} {...row.getRowProps()}>
-                  {row.cells.map((cell) => (
-                    <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
+        <TableWrapper>
+          <table {...getTableProps()}>
+            <thead>
+              {headerGroups.map((headerGroup) => (
+                <tr {...headerGroup.getHeaderGroupProps()}>
+                  {headerGroup.headers.map((column) => (
+                    <th {...column.getHeaderProps()}>{column.render("Header")}</th>
+                    
                   ))}
                 </tr>
-              );
-            })}
-          </tbody>
-        </table>
+              ))}
+            </thead>
+            <tbody {...getTableBodyProps()}>
+              {rows.map((row) => {
+                prepareRow(row);
+                return (
+                  <tr key={row.id} {...row.getRowProps()}>
+                    {row.cells.map((cell) => (
+                      <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
+                    ))}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+          </TableWrapper>
       </TableBlock>
     </>
   );

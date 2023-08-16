@@ -3,7 +3,7 @@ import styled from "styled-components";
 import MyPageForm from "../../containers/MyPageForm";
 import { useTable } from "react-table";
 
-const TableBlock = styled.div`
+const EvaluationBlock = styled.div`
   margin: 0 auto;
   height: 400px;
   width: 50%;
@@ -43,7 +43,7 @@ export default function EvaluationtManage( { columns, data } ) {
   return (
     <>
       <MyPageForm  userType={"teacher"} teacher_id={"20"} page={"채점 관리"} />
-      <TableBlock>
+      <EvaluationBlock>
         <table {...getTableProps()}>
           <thead>
             {headerGroups.map((headerGroup) => (
@@ -68,7 +68,7 @@ export default function EvaluationtManage( { columns, data } ) {
             })}
           </tbody>
         </table>
-      </TableBlock>
+      </EvaluationBlock>
     </>
   );
 }

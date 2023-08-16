@@ -11,7 +11,7 @@ const QuizPageRoute = () => {
         <Routes>
             <Route path="/" element={<QuizPage />} /> { /*학습*/ }
             <Route path=":chap_id" element={<QuizMedia />} />{ /*학습-학습하기버튼*/ }
-            <Route path=":chap_id/:question_number" element={<QuestionPage />} />{ /*media, Q1,2,3,4, complete*/ }
+            <Route path=":chap_id/:question_number" element={<QuestionPage />} />{ /* QuestionPage말고 선생버전으로 고치기 */ }
         </Routes>
     )
 }

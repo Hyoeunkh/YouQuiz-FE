@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import { Container } from "react-bootstrap";
 
@@ -51,11 +51,18 @@ export default function AnswerTeacher() {
   ];
   */
 
-  const chap_id = "sample_chap_id";
-  const teacher_id = "sample_teacher_id";
+  const chap_id = "10";
+  const teacher_id = "10";
+  const userType = "teacher";
+  const [currentPage, setCurrentPage] = useState(5);
+
+	const handlePageChange = (page) => {
+		setCurrentPage(page);
+	};
+
   return (
 	<>
-		<QuizTitle text="[1단계] 교내 휴대전화 허용 어디까지?" />
+		<QuizTitle text="[1단계] 교내 휴대전화 허용 어디까지?" currentPage={currentPage} totalPageCount={5}  />
 		<div className="accordion-container">
 			<div className="question">
 				<h1>Q4</h1>
@@ -67,11 +74,14 @@ export default function AnswerTeacher() {
 		</div>
 		<div className="btn">
 			<Link to={`study/${chap_id}/3`}>
-				<img width="80" height="80" src="https://img.icons8.com/ios/80/19A05E/circled-left-2.png" alt="circled-left-2"/>
-				{/*<img width="80" height="80" src="https://img.icons8.com/ios/80/19A05E/circled-right-2.png" alt="circled-left-2"/>*/}
+      <img onClick={() => 
+					handlePageChange(currentPage - 1)}
+					width="80" height="80"
+					src="https://img.icons8.com/ios/80/19A05E/circled-left-2.png" alt="circled-left-2"
+				/>
 			</Link>
-			<Link to={`study/${chap_id}/complete?userType=teacher&teacher_id=${teacher_id}`}>
-				<button>완료</button>
+			<Link to={`/teacher/${teacher_id}/study/${chap_id}/complete`} state={{userType, teacher_id}}>
+        <button onClick={() => handlePageChange(currentPage + 1)} >완료</button>
 			</Link>
 		</div>
 	</>
