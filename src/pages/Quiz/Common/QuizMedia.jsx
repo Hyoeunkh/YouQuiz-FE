@@ -65,7 +65,7 @@ export default function QuizMedia( ) {
       </Contents>
 
       <Btn>
-        <Link to={`1`}>
+        <Link to={`/study/1`}> {/* ?? my페이지일경우에는 어떻게? */}
           <img onClick={() => handlePageChange(currentPage + 1)} width="80" height="80" src="https://img.icons8.com/ios/80/19A05E/circled-right-2.png" alt="circled-left-2"/>
         </Link>
       </Btn>
