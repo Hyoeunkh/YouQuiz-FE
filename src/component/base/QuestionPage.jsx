@@ -1,19 +1,19 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { addAnswer } from "../../../../services/reducers";
+import { addAnswer } from "../../services/reducers";
 import { Container } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
-import QuizTitle from "../../../../component/base/QuizTitle";
-import "../../../../style/FirstQuestion.scss";
+import QuizTitle from "../../component/base/QuizTitle";
+import "../../style/FirstQuestion.scss";
 
-export const QuestionPage = ({ questionNumber, title, questionText, choices, totalPageCount }) => {
+const QuestionPage = ({ questionNumber, title, questionText, choices, totalPageCount }) => {
     const { question_number } = useParams();
   
     const selectedChoices = useSelector((state) => state.answers);
     const dispatch = useDispatch();
   
     const [selectedChoice, setSelectedChoice] = useState(null);
-    const [currentPage, setCurrentPage] = useState(4);
+    const [currentPage, setCurrentPage] = useState( questionNumber + 1);
   
     const handlePageChange = (page) => {
       dispatch(addAnswer(selectedChoices)); // 리덕스 액션 호출
@@ -89,3 +89,4 @@ export const QuestionPage = ({ questionNumber, title, questionText, choices, tot
     </>
   );
 };
+export default QuestionPage;

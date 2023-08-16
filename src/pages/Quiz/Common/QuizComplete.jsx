@@ -46,8 +46,6 @@ const QuizComplate = () => {
 						/study`}>
 						<button>학습으로</button>
 					</Link>
-					{/*teacher/${teacher_id}/study*/}
-					{/*student/${student_id}/study*/}
 				</div>
 			</div>
 		</>

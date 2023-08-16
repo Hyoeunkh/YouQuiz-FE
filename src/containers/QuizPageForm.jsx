@@ -90,14 +90,14 @@ const QuizPageForm = ({ lists }) => {
               <li
                 key={index}
                 className="list-group-item d-flex justify-content-between align-items-center custom-list-item"
-                onClick={() => navigate(`/quiz${item.chap_id}/quizmedia`)} {/* ?? 변수를 어떻게 */}
+                onClick={() => navigate(`/quiz${item.chap_id}/quizmedia`)}
               >
                 <div className="list-container">
                   <img className="youtubelist" src={imgsrc} alt="" />
                   <div className="ms-5 custom-text">
                     <div className="levle-con">
                       <div className="level fw-bold">{item.chap_id}단계</div>
-                      {item.score ? <span>({item.score}점/ 100점)</span> : null} {/* my페이지와 study페이지 재사용 */}
+                      {item.score ? <span>({item.score}점/ 100점)</span> : null}
                     </div>
                     <div className="fw-bold fs-3 mt-2">제목</div>
                   </div>

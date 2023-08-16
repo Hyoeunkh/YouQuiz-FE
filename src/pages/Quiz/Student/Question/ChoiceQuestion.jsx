@@ -1,10 +1,10 @@
-import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import { Routes, Route} from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import QuestionPage from "../../../../component/base/QuestionPage"; // ChoiceQuestion 컴포넌트 경로
+import QuestionPage from "../../../../component/base/QuestionPage";
 
 
-export const ChoiceQuestion = () => {
+const ChoiceQuestion = () => {
     const [questions, setQuestions ] = useState(null);
   
   useEffect(() => {
@@ -25,10 +25,9 @@ export const ChoiceQuestion = () => {
   }
 
   return (
-    <Router>
-      <Switch>
+    <Routes>
         {questions.map((question, index) => (
-          <Route key={index} path={`/${index + 1}`}> {/* media페이지를 1번으로?? */}
+          <Route key={index} path={`/${index + 1}`}>
             <QuestionPage
               questionNumber={index + 1}
               questionText={question.questionText}
@@ -37,7 +36,7 @@ export const ChoiceQuestion = () => {
             />
           </Route>
         ))}
-      </Switch>
-    </Router>
+    </Routes>
   );
 };
+export default ChoiceQuestion;

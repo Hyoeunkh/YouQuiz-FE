@@ -34,7 +34,7 @@ const FirstResult = ( prop ) => {
       <div className="firstq-container">
         <div className="question">
           <h1>Q1</h1>
-          <Container className="problem-container">{/*prop.question*/}첫번째문제</Container>
+          <Container className="problem-container">첫번째문제</Container>
         </div>
 
         <ul className="radio-list">
@@ -51,8 +51,8 @@ const FirstResult = ( prop ) => {
                   src={getImageSource(choice)}
                   alt={`{choice}-circle`}
                 />
-                {/*prop.choice*/} 1~5선지
-                {/*더미데이터 가져와 쓰는거고치기, 정답 라디오 표시하기 */}
+              1~5선지
+              
             </label>
           ))}
         </ul>
