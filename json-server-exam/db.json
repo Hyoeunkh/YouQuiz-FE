@@ -884,19 +884,7 @@
             "complete_student": "10",
             "chap_id": "4",
             "youtube_url": "교내 휴대전화 허용 어디까지?"
-        } ,{
-            "total_student": "20",
-            "class_id": 10000,
-            "complete_student": "3",
-            "chap_id": "5",
-            "youtube_url": "10대가 느끼는 ‘성차별’"
-        } ,{
-            "total_student": "20",
-            "class_id": 10000,
-            "complete_student": "0",
-            "chap_id": "6",
-            "youtube_url": "교내 휴대전화 허용 어디까지?"
-        } 
+        }
     ],
 
     "no_study_list": [ 

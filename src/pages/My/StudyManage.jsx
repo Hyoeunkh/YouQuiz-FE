@@ -4,17 +4,16 @@ import MyPageForm from "../../containers/MyPageForm";
 import { useTable } from "react-table";
 
 const TableBlock = styled.div`
-  margin: 0 auto;
-  height: 60vh;
-  width: 60vw;
+  height: 75vh;
+  width: 55vw;
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   align-items:center;
-  margin: 0 15vw;
+  margin-top: 1vh;
 `;
 const TableWrapper = styled.div`
-  height: 80%;
-  width: 80%;
+  height: 100%;
+  width: 95%;
   overflow-y: auto; /* 내용많으면 스크롤됨 */
   padding-right: 1vw;
   
@@ -23,7 +22,6 @@ const TableWrapper = styled.div`
   }
   &::-webkit-scrollbar-thumb {
     background: #E5E5E5;
-    border-radius: 5px;
   }
   &::-webkit-scrollbar-track {
     background: none;

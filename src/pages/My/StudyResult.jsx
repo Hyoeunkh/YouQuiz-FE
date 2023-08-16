@@ -5,12 +5,8 @@ import MyPageForm from "../../containers/MyPageForm";
 import axios from "axios";
 
 const ListBlock = styled.div`
-  position: relative;
-  margin: 0 auto;
-  width: 55%;
-  height: 100%;
-  top: -5vh;
-  left: 7vw;
+  width: 85%;
+  margin-top: 4vh;
 `;
 
 export default function StudyResult() {

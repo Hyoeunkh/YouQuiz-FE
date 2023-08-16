@@ -4,9 +4,8 @@ import styled from "styled-components";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const QuizFormWrapper = styled.div`
-  position: absolute;
-  width: 100%;
 
+  width: 100%;
   .Contents {
     height: 100%;
     width: 100%;
@@ -58,7 +57,7 @@ const QuizFormWrapper = styled.div`
     width: 20%;
     height:40%;
     color: white;
-    border-radius: .75rem;
+    border-radius: .5rem;
     margin-right: 2vw;
     background-color: #19a05e;
     justify-content: center;

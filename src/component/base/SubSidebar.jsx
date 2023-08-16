@@ -3,18 +3,26 @@ import { Link, useLocation } from "react-router-dom";
 import { styled } from "styled-components";
 
 const ListContent = styled.div`
+    position: relative;
+    float: left;
+    width: 23vw;
+    height:70vh;
+
     .sub-container {
         display:flex;
+        float: right;
+        width: 60%;
         flex-direction: column;
+        align-items: start;
         list-style: none;
         padding: 0;
-        margin-top: 2vh;;
+        margin-top: 6vh;
         gap: 4vh;
     }
     a {
         color: black;
         text-decoration: none;
-        font-size: 20px;
+        font-size: 1.5rem;
     }
     .current-page a {
             font-weight: 600;
