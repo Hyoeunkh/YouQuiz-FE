@@ -66,9 +66,7 @@ export default function AnswerTeacher() {
 		<div className="accordion-container">
 			<div className="question">
 				<h1>Q4</h1>
-				<Container className="problem-container">주관식 문제 교육자가 답글다는페이지. 학습자결과보는페이지랑 겹치는데 페이지 재활용은못하나요?
-        그리고 이미 답글단이후에 답글버튼을 또 누르면 수정되는거 어렵네용 .. 각 답글 상태관리도 state로 하나요??
-        답변 바로밑에 답글창만들기, 답글창길이만큼 아래 아이템들 위치 내리기</Container>
+				<Container className="problem-container">주관식 문제 교육자가 답글다는페이지.</Container>
 			</div>
 			<TableToggle />
 		</div>
