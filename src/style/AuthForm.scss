@@ -4,7 +4,10 @@ $green:#19A05E;
 .auth-wrapper{
     width: 432px;
     height: 650px;
-    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    margin: 5vh auto;
+    gap: 2vh;
 }
 .welcome {
     
@@ -14,19 +17,20 @@ $green:#19A05E;
     justify-content: center;
     align-items: center; 
     h3{
-        font-weight: 500;
+        font-weight: bolder;
         font-size: 30px;
         line-height: 36px;
         color: $green;
         margin-right: 10px;
     }
     span{
-        
-        font-size: 15px;
+        font-weight: bold;
+        font-size: 1.5rem;
         color: $grey;
     }
 }
 .usertype{
+    margin: 1vh 0;
     display: flex;
     flex-direction: row;
 
@@ -42,14 +46,13 @@ $green:#19A05E;
 
         background: #FFFFFF;
         border-radius: 0px 5px 0px 0px;
-    }
-    .student{
-        color:$green;
-        
-    }
-    .teacher{
         color: $grey;
+        &.active {
+            color:$green;
+        }
     }
+
+
 }
 
 .idpw{
@@ -75,17 +78,34 @@ $green:#19A05E;
     color: #999999;
 }
 
+
 .store {
+    display: flex;
     width: 150px;
     height: 28px;
-
+    
+    align-items: center; 
+    gap: .2vw;
     font-weight: 400;
     font-size: 20px;
     line-height: 28px;
     color: #666666;
+    input[type="checkbox"]{
+        display: none;
+    }
+    input[type="checkbox"] + label{
+        display: block;
+        width: 24px;
+        height: 24px;
+        background: url("https://img.icons8.com/ios/50/666666/ok--v1.png")no-repeat 0 0px / contain;
+    }
+    input[type="checkbox"]:checked + label {
+        background: url("https://img.icons8.com/ios-filled/50/999999/ok--v1.png")no-repeat 0 1px / contain;
+    }
 
 }
 .login {
+    margin-top: 1vh;
     width: 357px;
     height: 74px;
 
@@ -108,22 +128,25 @@ $green:#19A05E;
     margin-top: 1rem;
 }
 .bottom {
-    width: 380px;
-    height: 30px;
+    padding: 0;
+    margin-top: 3vh;
     display: flex;
     flex-direction: row;
+    gap: 2vw;
+
     li {
         display: flex;
-        flex-direction: column;
-        list-style: none;
-        border-right: 1px solid $grey;
-        padding: 0 10px;
-        font-size: 13px;
-        justify-content: center;
+        align-items: center;
         color: $grey;
     }
-    .last{
+    a {
+        font-size: 1.2rem;
+        color: inherit;
+        text-decoration: none;
         border:none;
+    }
+    .last {
+        border: none;
     }
 }
 

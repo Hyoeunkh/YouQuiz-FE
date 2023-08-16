@@ -43,4 +43,14 @@
         font-weight: 400;
         color: grey;
     }
+    input[type="checkbox"] + label{
+        display: block;
+        width: 24px;
+        height: 24px;
+
+    }
+    input[type="checkbox"]:checked + label {
+        background: url("https://img.icons8.com/ios-filled/50/999999/ok--v1.png")no-repeat 0 1px / contain;
+    }
+
 }
