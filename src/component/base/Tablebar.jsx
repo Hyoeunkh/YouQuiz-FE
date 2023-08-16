@@ -1,4 +1,5 @@
 import "../../style/Tablebar.scss";
+import React from 'react';
 
 export default function Tablebar(
     { 
@@ -24,15 +25,22 @@ export default function Tablebar(
             <tbody>
                 {
                     items.map((item, index) => (
-                        <tr key={index}>
-                        { 
-                            headerKey.map((key) => 
-                            <td key={key + index}>
-                                {item[key]}
-                            </td>
-                            )
-                        }
-                        </tr>
+                        <React.Fragment>
+                            <tr key={index}>
+                            { 
+                                headerKey.map((key) => 
+                                <td key={key + index}>
+                                    {item[key]}
+                                </td>
+                                )
+                            }
+                            </tr>
+                            <tr>
+                                <td colSpan="3">
+                                    <div className="teacher-reply">comment</div>
+                                </td>
+                            </tr>
+                      </React.Fragment>
                     ))
                 }
             </tbody>

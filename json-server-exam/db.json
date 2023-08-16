@@ -955,5 +955,82 @@
             "class_code":"wQ2Yso6"
         }
     ],
-    "key":{}
+    "key":{},
+    "correct_answerList": [
+    1,
+    2,
+    3
+    ],
+    "youtube_link": "URL",
+    "quizEntityList": [
+    {
+    "id": 1,
+    "question": "1번 문제",
+    "writer": "",
+    "comment": null,
+    "exampleList": [
+    "1번 선택지",
+    "2번 선택지",
+    "3번 선택지"
+    ]
+    },
+    {
+    "id": 2,
+    "question": "2번 문제",
+    "writer": null,
+    "comment": null,
+    "exampleList": [
+    "1번 선택지",
+    "2번 선택지",
+    "3번 선택지"
+    ]
+    },
+    {
+    "id": 3,
+    "question": "3번 문제",
+    "writer": null,
+    "comment": null,
+    "exampleList": [
+    "1번 선택지",
+    "2번 선택지",
+    "3번 선택지"
+    ]
+    },
+    {
+    "id": 4,
+    "question": "주관식 문제",
+    "writer": null,
+    "comment": null,
+    "exampleList": []
+    }
+    ],
+    "teacher_id": 1,
+    "answer_sentence_list": [
+    {
+    "student_id": 1,
+    "answer_sentence": "(동건)제 생각엔..."
+    },
+    {
+    "student_id": 2,
+    "answer_sentence": "(수빈)제 생각엔..."
+    },
+    {
+    "student_id": 3,
+    "answer_sentence": "(형철)제 생각엔..."
+    }
+    ],
+    "commentEntityList": [
+    {
+    "id": 1,
+    "comment": "선생님이 생각하기에는"
+    },
+    {
+    "id": 2,
+    "comment": "선생님이 생각하기에는"
+    },
+    {
+    "id": 3,
+    "comment": "선생님이 생각하기에는"
+    }
+    ]
 }
