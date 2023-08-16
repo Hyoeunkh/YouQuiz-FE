@@ -3,27 +3,25 @@ import QuizTitle from "../../../../component/base/QuizTitle";
 import "../../../../style/FirstQuestion.scss";
 import { Container } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
-import { sendChoicesToBackend } from "../../../../services/StudentResult";
 import QuestionPage from "../../QuestionPage";
+
+import { useSelector, useDispatch } from "react-redux";
+import { addAnswer } from "../../../../services/reducers";
 
 const FirstQuestion = () => {
   const chap_id = "sample_chap_id";
   const { question_number } = useParams();
 
+  // 리덕스
+  const selectedChoices = useSelector((state) => state.answers);
+  const dispatch = useDispatch();
+
   const [selectedChoice, setSelectedChoice] = useState(null);
   const [currentPage, setCurrentPage] = useState(2);
 
   const handlePageChange = (page) => {
-    const studentId = "sample_student_id"; // 실제로 사용할 학생 ID
-    const chapId = "sample_chap_id"; // 실제로 사용할 챕터 ID
-
-    sendChoicesToBackend(studentId, chapId, selectedChoice)
-      .then(() => {
-        setCurrentPage(page);
-      })
-      .catch((error) => {
-        console.error("Error sending choices to backend:", error);
-      });
+    dispatch(addAnswer(selectedChoices)); // 리덕스 액션 호출
+    setCurrentPage(page);
   };
 
   const getImageSource = (choice) => 

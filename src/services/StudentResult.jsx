@@ -4,7 +4,7 @@ export const sendChoicesToBackend = (studentId, chapId, answerList, answerSenten
       answer_sentence: answerSentence,
     };
   
-    return fetch(`/api/student/${studentId}/study/${chapId}`, { //이렇게 하는거 맞나요?
+    return fetch(`/api/student/${studentId}/study/${chapId}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

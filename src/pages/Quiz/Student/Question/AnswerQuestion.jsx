@@ -3,7 +3,9 @@ import QuizTitle from "../../../../component/base/QuizTitle";
 import "../../../../style/AnswerQuestion.scss";
 import { Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import { sendChoicesToBackend } from "../../../../services/StudentResult";
+import { addSubjectiveAnswer } from "../../../../services/reducers";
 
 const AnswerQuestion = () => {
 	const chap_id = "10";
@@ -13,24 +15,33 @@ const AnswerQuestion = () => {
 	const [text, setText] = useState('');
 	const [currentPage, setCurrentPage] = useState(5);
 
-	const handlePageChange = (page) => {
-		sendSubjectiveAnswerToBackend(text); // 주관식 답변을 백엔드로 전송
-		setCurrentPage(page);
-	};
+	// 리덕스 스토어에서 주관식 답변과 객관식 답변 가져오기
+	const selectedChoices = useSelector((state) => state.answers);
+	const subjectiveAnswer = useSelector((state) => state.subjectiveAnswer);
+  	const dispatch = useDispatch();
 
 	const handleChange = (event) => {
 		setText(event.target.value);
 	};
-	
-	const sendSubjectiveAnswerToBackend = (answer) => {
-		sendChoicesToBackend(student_id, chap_id, [], answer)
-			.then(() => {
-				console.log("complete");
-			})
-			.catch((error) => {
-				console.error("Error sending choices to backend:", error);
-			});
+
+  // 백엔드로 선택한 답변 배열 전송
+  	const handleSubmit = () => {
+		dispatch(addSubjectiveAnswer(text));
+
+    	sendChoicesToBackend(student_id, chap_id, selectedChoices, subjectiveAnswer)
+		.then(() => {
+			console.log("complete");
+		})
+		.catch((error) => {
+			console.error("Error sending choices to backend:", error);
+		});
+		setCurrentPage(currentPage + 1);
 	};
+
+	const handlePageChange = (page) => { 
+		setCurrentPage(page);
+	};
+	
 	
 	return (
 	<>
@@ -54,7 +65,7 @@ const AnswerQuestion = () => {
 					src="https://img.icons8.com/ios/80/19A05E/circled-left-2.png" alt="left"/>
 			</Link>
 			<Link to={`/student/${student_id}/study/${chap_id}/complete`} state={{userType, student_id}}>
-			<button onClick={() => handlePageChange(currentPage + 1)}>제출</button>
+			<button onClick={handleSubmit}>제출</button>
 			</Link>
 		</div>
 	</>
