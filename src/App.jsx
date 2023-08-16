@@ -2,9 +2,6 @@ import React from "react";
 import { Route, Routes, useLocation, useParams } from "react-router-dom";
 import Sidebar from "./component/base/Sidebar";
 import HomePage from "./pages/HomePage";
-import LoginPage from "./pages/LoginPage";
-import RegisterPage from "./pages/Register/RegisterPage";
-import MyPage from "./pages/MyPage";
 import QuizPage from "./pages/Quiz/Common/QuizPage";
 import Header from "./component/base/Header";
 import QuizMedia from "./pages/Quiz/Common/QuizMedia";
@@ -14,12 +11,15 @@ import FirstQuestion from "./pages/Quiz/Student/Question/FirstQuestion";
 import AnswerResult from "./pages/Quiz/Student/Result/AnswerResult";
 import AnswerTeacher from "./pages/Quiz/Teacher/AnswerTeacher";
 import StudyResult from  "./pages/My/StudyResult";
-import StudentStudyRoute from "./Router/StudentRoute";
-import TeacherStudyRoute from "./Router/TeacherRoute";
 import StudyData from "./pages/My/StudyData";
 import EvaluationData from "./pages/My/EvaluationData";
 import FirstResult from "./pages/Quiz/Student/Result/FirstResult";
- 
+
+import StudentStudyRoute from "./Router/StudentRoute";
+import TeacherStudyRoute from "./Router/TeacherRoute";
+import RegisterRoute from "./Router/RegisterRoute";
+import LoginRoute from "./Router/LoginRoute";
+
 function NotFoundPage() {
   return <div>Page not found.</div>;
 }
@@ -60,19 +60,14 @@ const App = () => {
 
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/login" element={<LoginPage />}>
-          <Route path="student" element={<LoginPage />} />
-          <Route path="teacher" element={<LoginPage />} />
-        </Route>
-        <Route path="/student/:student_id/*" element={<StudentStudyRoute />} />{/* 학생라우터 */}
-        <Route path="/teacher/:teacher_id/*" element={<TeacherStudyRoute />} />{/* 선생라우터 */}
+        <Route path="/login/*" element={<LoginRoute />} />
+        <Route path="/register/*" element={<RegisterRoute />} />
+        <Route path="/student/:student_id/*" element={<StudentStudyRoute />} />
+        <Route path="/teacher/:teacher_id/*" element={<TeacherStudyRoute />} />
         <Route path="/*" element={<NotFoundPage />} />
         
 
         {/* Test용 라우터 */ }
-        <Route path="/my" element={<MyPage />} />
-        <Route path="/register" element={<RegisterPage />} />
-        
         <Route path="/quiz" element={<QuizPage />} />
         <Route path="/quizmedia" element={<QuizMedia />} />
         <Route path="/firstq" element={<FirstQuestion />} />

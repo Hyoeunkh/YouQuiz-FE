@@ -30,8 +30,8 @@ const LoginForm = ({history}) => {
 
     const onSubmit = e => {
         e.preventDefalut();
-        const {username,password} = form;
-        dispatch(login({ username,password }));
+        const {userid,password} = form;
+        dispatch(login({ userid,password }));
     }
 
     useEffect(() => {

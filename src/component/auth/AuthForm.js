@@ -14,7 +14,7 @@ const AuthForm = ({type, form, onChange, onSubmit, error}) => {
                     <button className="teacher">교직원</button>
                 </div>
                 <div className="idpw" onSubmit={onSubmit}>
-                    <input className="input" autoComplete="username" name="username" placeholder="아이디" onChange={onChange} value={form.username} />
+                    <input className="input" autoComplete="userid" name="userid" placeholder="아이디" onChange={onChange} value={form.userid} />
                     <input className="input" autoComplete="new-password" name="password" placeholder="비밀번호" type="password" onChange={onChange} value={form.password} />
                 </div>
                 <label  className="store" htmlFor="store">

@@ -20,7 +20,7 @@ const ResultPageRoute = () => {
   return (
     <Routes>
       <Route path="/" element={<StudyResult />} /> { /*마이페이지-학습결과 */ }
-      <Route path=":chap_id/" element={<QuizMedia />} /> { /*마이페이지-학습결과- 결과보기버튼 */ }
+      <Route path=":chap_id" element={<QuizMedia />} /> { /*마이페이지-학습결과- 결과보기버튼 */ }
       <Route path=":chap_id/:result_number" element={<ResultPage />} /> { /*media, Q1,2,3,4, complete*/ }
     </Routes>
   )

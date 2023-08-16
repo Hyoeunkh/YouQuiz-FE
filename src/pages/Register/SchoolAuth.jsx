@@ -43,7 +43,8 @@ const RegisterWrapper = styled.div`
         background: #828282;
     }
 `;
-const RegisterForm = () => {
+
+const SchoolAuth = () => {
     const [error,setError] = useState(null);
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -68,20 +69,12 @@ const RegisterForm = () => {
 
     const onSubmit = e => {
         e.preventDefalut();
-        const {userid,password, passwordConfirm, username, birth, sex, phoneNumber} = form;
-        if([userid, password, passwordConfirm, username, birth, sex, phoneNumber].includes('')) {
+        const { school, grade, classnum, code } = form;
+        if([school, grade, classnum, code].includes('')) {
             setError('빈 칸을 모두 입력하세요.');
             return;
         }
-        if(password !== passwordConfirm){
-            setError('비밀번호가 일치하지 않습니다.');
-            dispatch(changeField({ form: 'register', key:'password', value:''}));
-            dispatch(
-                changeField({form: 'register', key:'passwordConfirm', value:''}),
-            );
-            return;
-        }
-        dispatch(register({userid,password}));
+        
     }
 
     useEffect(() => {
@@ -113,32 +106,31 @@ const RegisterForm = () => {
             }
         }
     }, [navigate, user]);
-    return (
+
+	return (
         <>
-        <RegisterWrapper>
-            <div className="register-wrapper">
-                <div className="idpw" onSubmit={onSubmit}>
-                    <input className="input" autoComplete="userid" name="userid" placeholder="아이디" onChange={onChange} value={form.userid} />
-                    <input className="input" autoComplete="new-password" name="password" placeholder="비밀번호" type="password" onChange={onChange} value={form.password} />
-                    <input className="input" autoComplete="new-passwordConfirm" name="password" placeholder="비밀번호 확인" type="passwordConfirm" onChange={onChange} value={form.passwordConfirm} />
-                    <input className="input" autoComplete="new-username" name="username" placeholder="이름" type="username" onChange={onChange} value={form.username} />
-                    <input className="input" autoComplete="new-birth" name="birth" placeholder="생년월일 8자리" type="birth" onChange={onChange} value={form.birth} />
-                    <input className="input" autoComplete="sex" name="sex" placeholder="성별" type="sex" onChange={onChange} value={form.sex} />
-                    <input className="input" autoComplete="new-phoneNumber" name="phoneNumber" placeholder="휴대전화번호" type="phoneNumber" onChange={onChange} value={form.phoneNumber} />
+            <RegisterWrapper>
+                <div className="register-wrapper">
+                    <div className="idpw" onSubmit={onSubmit}>
+                        <input className="input" autoComplete="new-school" name="school" placeholder="학교" onChange={onChange} value={form.school} />
+                        <input className="input" autoComplete="new-grade" name="grade" placeholder="학년" type="grade" onChange={onChange} value={form.grade} />
+                        <input className="input" autoComplete="new-classnum" name="classnum" placeholder="반" type="classnum" onChange={onChange} value={form.classnum} />
+                        <input className="input" autoComplete="new-code" name="code" placeholder="학급코드" type="code" onChange={onChange} value={form.code} />
+                    </div>
+                    {error && <div className="error-message">{error}</div>}
+                    <div className="btn2">
+                        <Link to={-1}>
+                            <button className="back">이전</button>
+                        </Link>
+                        <Link to={`/login`}>
+                            <button>다음</button>
+                        </Link>
+                    </div>
                 </div>
-                {error && <div className="error-message">{error}</div>}
-                <div className="btn2">
-                    <Link to={-1}>
-                        <button className="back">이전</button>
-                    </Link>
-                    <Link to={`/register/schoolAuth`}>
-                        <button>다음</button>
-                    </Link>
-                </div>
-            </div>
-        </RegisterWrapper>
+            </RegisterWrapper>
+            
         </>
     );
-};
+}
 
-export default RegisterForm;
+export default SchoolAuth;

@@ -1,0 +1,430 @@
+{
+    "studied_chapter": [ 
+        {
+            "score": "70",
+            "chap_id": "1",
+            "youtube_url": "https://youtu.be/YhY5PojUD_M"
+        },
+        {
+            "score": "80",
+            "chap_id": "2",
+            "youtube_url": "https://youtu.be/3agxU3_c630"
+        },
+        {
+            "score": "10",
+            "chap_id": "3",
+            "youtube_url": "https://youtu.be/Wfx-IaxPy9Q"
+        } 
+    ],
+    "study_result": [ 
+        {
+            "score": 80,
+            "answer_sentence": "주관식답변쓴거입니당",
+            "question": ["TEST1", "TEST2", "TEST3" ],
+            "answer_list": [ 1, 2, 4 ],
+            "youtube_url": "https://youtu.be/YhY5PojUD_M",
+            "choice": [ "test1", "test2", "test3", "test4", "test5" ],
+            "student_answer_list": [ 1, 3, 5 ]
+        }
+    ],
+    "student_list": [
+            {
+                "student_name": "서형철",
+                "chapter_data": [ 
+                    {
+                        "chap_id": "1",
+                        "status": "O"
+                    },{
+                        "chap_id": "2",
+                        "status": "O"
+                    },{
+                        "chap_id": "3",
+                        "status": "O"
+                    },{
+                        "chap_id": "4",
+                        "status": "O"
+                    },{
+                        "chap_id": "5",
+                        "status": "O"
+                    },{
+                        "chap_id": "6",
+                        "status": "O"
+                    },{
+                        "chap_id": "7",
+                        "status": "O"
+                    },{
+                        "chap_id": "8",
+                        "status": "O"
+                    },{
+                        "chap_id": "9",
+                        "status": "X"
+                    }
+                ],
+                "grade": "1",
+                "school_name": "KNU",
+                "student_id": "1",
+                "class_num": "1"
+            },{
+                "student_name": "이동건",
+                "chapter_data": [ 
+                    {
+                        "chap_id": "1",
+                        "status": "O"
+                    },{
+                        "chap_id": "2",
+                        "status": "O"
+                    },{
+                        "chap_id": "3",
+                        "status": "O"
+                    },{
+                        "chap_id": "4",
+                        "status": "O"
+                    },{
+                        "chap_id": "5",
+                        "status": "X"
+                    },{
+                        "chap_id": "6",
+                        "status": "X"
+                    },{
+                        "chap_id": "7",
+                        "status": "X"
+                    },{
+                        "chap_id": "8",
+                        "status": "O"
+                    },{
+                        "chap_id": "9",
+                        "status": "O"
+                    }
+                ],
+                "grade": "1",
+                "school_name": "KNU",
+                "student_id": "2",
+                "class_num": "1"
+            },{
+                "student_name": "A",
+                "chapter_data": [ 
+                    {
+                        "chap_id": "1",
+                        "status": "O"
+                    },{
+                        "chap_id": "2",
+                        "status": "O"
+                    },{
+                        "chap_id": "3",
+                        "status": "O"
+                    },{
+                        "chap_id": "4",
+                        "status": "O"
+                    },{
+                        "chap_id": "5",
+                        "status": "X"
+                    },{
+                        "chap_id": "6",
+                        "status": "X"
+                    },{
+                        "chap_id": "7",
+                        "status": "O"
+                    },{
+                        "chap_id": "8",
+                        "status": "X"
+                    },{
+                        "chap_id": "9",
+                        "status": "X"
+                    }
+                ],
+                "grade": "1",
+                "school_name": "KNU",
+                "student_id": "3",
+                "class_num": "1"
+            },{
+                "student_name": "편수빈",
+                "chapter_data": [ 
+                    {
+                        "chap_id": "1",
+                        "status": "O"
+                    },{
+                        "chap_id": "2",
+                        "status": "X"
+                    },{
+                        "chap_id": "3",
+                        "status": "X"
+                    },{
+                        "chap_id": "4",
+                        "status": "O"
+                    },{
+                        "chap_id": "5",
+                        "status": "O"
+                    },{
+                        "chap_id": "6",
+                        "status": "X"
+                    },{
+                        "chap_id": "7",
+                        "status": "O"
+                    },{
+                        "chap_id": "8",
+                        "status": "O"
+                    },{
+                        "chap_id": "9",
+                        "status": "O"
+                    }
+                ],
+                "grade": "1",
+                "school_name": "KNU",
+                "student_id": "4",
+                "class_num": "1"
+            },{
+                "student_name": "장휘영",
+                "chapter_data": [ 
+                    {
+                        "chap_id": "1",
+                        "status": "O"
+                    },{
+                        "chap_id": "2",
+                        "status": "O"
+                    },{
+                        "chap_id": "3",
+                        "status": "O"
+                    },{
+                        "chap_id": "4",
+                        "status": "O"
+                    },{
+                        "chap_id": "5",
+                        "status": "O"
+                    },{
+                        "chap_id": "6",
+                        "status": "O"
+                    },{
+                        "chap_id": "7",
+                        "status": "O"
+                    },{
+                        "chap_id": "8",
+                        "status": "O"
+                    },{
+                        "chap_id": "9",
+                        "status": "O"
+                    }
+                ],
+                "grade": "1",
+                "school_name": "KNU",
+                "student_id": "5",
+                "class_num": "1"
+            },{
+                "student_name": "A",
+                "chapter_data": [ 
+                    {
+                        "chap_id": "1",
+                        "status": "O"
+                    },{
+                        "chap_id": "2",
+                        "status": "O"
+                    },{
+                        "chap_id": "3",
+                        "status": "X"
+                    },{
+                        "chap_id": "4",
+                        "status": "X"
+                    },{
+                        "chap_id": "5",
+                        "status": "O"
+                    },{
+                        "chap_id": "6",
+                        "status": "X"
+                    },{
+                        "chap_id": "7",
+                        "status": "O"
+                    },{
+                        "chap_id": "8",
+                        "status": "X"
+                    },{
+                        "chap_id": "9",
+                        "status": "X"
+                    }
+                ],
+                "grade": "1",
+                "school_name": "KNU",
+                "student_id": "6",
+                "class_num": "1"
+            },{
+                "student_name": "A",
+                "chapter_data": [ 
+                    {
+                        "chap_id": "1",
+                        "status": "O"
+                    },{
+                        "chap_id": "2",
+                        "status": "O"
+                    },{
+                        "chap_id": "3",
+                        "status": "O"
+                    },{
+                        "chap_id": "4",
+                        "status": "O"
+                    },{
+                        "chap_id": "5",
+                        "status": "O"
+                    },{
+                        "chap_id": "6",
+                        "status": "X"
+                    },{
+                        "chap_id": "7",
+                        "status": "X"
+                    },{
+                        "chap_id": "8",
+                        "status": "X"
+                    },{
+                        "chap_id": "9",
+                        "status": "X"
+                    }
+                ],
+                "grade": "1",
+                "school_name": "KNU",
+                "student_id": "7",
+                "class_num": "1"
+            },{
+                "student_name": "이효은",
+                "chapter_data": [ 
+                    {
+                        "chap_id": "1",
+                        "status": "O"
+                    },{
+                        "chap_id": "2",
+                        "status": "O"
+                    },{
+                        "chap_id": "3",
+                        "status": "O"
+                    },{
+                        "chap_id": "4",
+                        "status": "O"
+                    },{
+                        "chap_id": "5",
+                        "status": "O"
+                    },{
+                        "chap_id": "6",
+                        "status": "O"
+                    },{
+                        "chap_id": "7",
+                        "status": "O"
+                    },{
+                        "chap_id": "8",
+                        "status": "O"
+                    },{
+                        "chap_id": "9",
+                        "status": "O"
+                    }
+                ],
+                "grade": "1",
+                "school_name": "KNU",
+                "student_id": "8",
+                "class_num": "1"
+            }
+    ],
+    "evaluation_status": [ 
+        {
+            "total_student": "20",
+            "class_id": 10000,
+            "complete_student": "20",
+            "chap_id": "1",
+            "youtube_url": "교내 휴대전화 허용 어디까지?"
+        },{
+            "total_student": "20",
+            "class_id": 10000,
+            "complete_student": "20",
+            "chap_id": "2",
+            "youtube_url": "10대가 느끼는 ‘성차별’"
+        } ,{
+            "total_student": "20",
+            "class_id": 10000,
+            "complete_student": "17",
+            "chap_id": "3",
+            "youtube_url": "동성애자, 좋은 사람 만날 수 있을까요?"
+        } ,{
+            "total_student": "20",
+            "class_id": 10000,
+            "complete_student": "10",
+            "chap_id": "4",
+            "youtube_url": "교내 휴대전화 허용 어디까지?"
+        } ,{
+            "total_student": "20",
+            "class_id": 10000,
+            "complete_student": "3",
+            "chap_id": "5",
+            "youtube_url": "10대가 느끼는 ‘성차별’"
+        } ,{
+            "total_student": "20",
+            "class_id": 10000,
+            "complete_student": "0",
+            "chap_id": "6",
+            "youtube_url": "교내 휴대전화 허용 어디까지?"
+        } 
+    ],
+
+    "no_study_list": [ 
+        {
+            "chap_id": "1",
+            "youtube_url": "https://youtu.be/YhY5PojUD_M"
+        },
+        {
+            "chap_id": "2",
+            "youtube_url": "https://youtu.be/3agxU3_c630"
+        },
+        {
+            "chap_id": "3",
+            "youtube_url": "https://youtu.be/Wfx-IaxPy9Q"
+        } 
+    ],
+    "sydent_study": [ 
+        {
+            "correct_answerList": [
+                1,
+                2,
+                3,
+                4,
+                5
+            ],
+            "youtube_url": "https://youtu.be/YhY5PojUD_M",
+            "quizEntityList": [
+                {
+                    "id": 1,
+                    "question": "과연 이 댓글은 맞는 걸까요?",
+                    "writer": "에이그머니나",
+                    "comment": "저건 그냥 바보 아님?",
+                    "exampleList": [
+                        "이거는 내가봤을 때 맞는 말임 ㅅㄱ",
+                        "이거는 내가봤을 때 틀린 말임 ㅅㄱ"
+                    ]
+                },
+                {
+                    "id": 2,
+                    "question": "과연 저 댓글은 맞는 걸까요?",
+                    "writer": "독산동총잡이",
+                    "comment": "이건 좀 아닌 듯?",
+                    "exampleList": [
+                        "이거는 내가봤을 때 맞는 말임 ㅅㄱ",
+                        "이거는 내가봤을 때 틀린 말임 ㅅㄱ"
+                    ]
+                },
+                {
+                    "id": 3,
+                    "question": "과연 요 댓글은 맞는 걸까요?",
+                    "writer": "지져스",
+                    "comment": "나는 신이다",
+                    "exampleList": [
+                        "이거는 내가봤을 때 맞는 말임 ㅅㄱ",
+                        "이거는 내가봤을 때 틀린 말임 ㅅㄱ"
+                    ]
+                }
+            ],
+            "class_ChapterEntityList": []
+        }
+    ],
+    "schoolAuth": [ 
+        {
+            "id":1,
+            "school_name":"지산중학교",
+            "grade":2,
+            "class_num":8,
+            "class_code":"wQ2Yso6"
+        }
+    ],
+    "key":{}
+}

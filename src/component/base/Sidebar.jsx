@@ -27,7 +27,7 @@ export default function SideBar() {
                         <Link to={`/login/${userType}`}><img className="icon" src={isLoginPage ? "/user.png" : "/user-wh.png"} alt="" />로그인</Link>
                     </li>
                     <li className={`nav-item ${isRegisterPage ? "current-page" : ""}`}>
-                        <Link to={`/register/${userType}`}><img className="icon" src={isRegisterPage ? "/circle.png" : "/circle-wh.png"} alt="" />회원가입</Link>
+                        <Link to={`/register`}><img className="icon" src={isRegisterPage ? "/circle.png" : "/circle-wh.png"} alt="" />회원가입</Link>
                     </li>
                 </>
             );

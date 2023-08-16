@@ -10,7 +10,8 @@ const AgreementPage = () => {
     const [checkbox3Checked, setCheckbox3Checked] = useState(false);
     const navigate = useNavigate();
     const [errorMessage, setErrorMessage] = useState("");
-    
+    const userType = "student";// 이거 어떻게?
+
     useEffect(() => {
     // 두 번째와 세 번째 체크박스가 모두 체크되었을 때, 첫 번째 체크박스를 체크상태로
       setCheckbox1Checked(checkbox2Checked && checkbox3Checked);
@@ -35,7 +36,7 @@ const AgreementPage = () => {
 
   const handleNextPage = () => {
     if (allChecked) {
-        navigate("/register/userinfo");
+        navigate(`/register/${userType}`);
     } else {
       setErrorMessage("필수 항목에 동의해주세요.");
     }

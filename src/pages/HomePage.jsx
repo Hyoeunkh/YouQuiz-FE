@@ -27,7 +27,7 @@ const HomePage = () => {
                     <h1>나의 학습</h1>
                     <p className="line">스스로 생각하는 능력을 길러 디지털 문해력을 향상시키는 것이<br/>유퀴즈의 목표!</p>
                     <p>주차 별 학습 목록을 확인하고 채점 결과를 볼 수 있어요.<br/>교육자의 코멘트를 확인해 보세요.</p>
-                    <Link to="/quiz"><button>학습하러 가기<img src="right-fill.png" alt=""/></button></Link>
+                    <Link to={ `/login`}><button>학습하러 가기<img src="right-fill.png" alt=""/></button></Link>
                 </div>
             </div>
 
