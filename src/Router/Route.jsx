@@ -16,18 +16,7 @@ import EvaluationData from "../pages/My/EvaluationData";
 import AnswerTeacher from "../pages/Quiz/Teacher/AnswerTeacher";
 
 
-export const QuizPageRoute = () => {
-    return (
-        <Routes>
-            <Route path="/" element={<QuizPage />} />
-            <Route path="quizmedia" element={<QuizMedia />} />
-            <Route path="quizcomplate" element={<QuizComplete />} />
-            <Route path="answerquestion" element={<AnswerQuestion />} />
-            <Route path="answerteacher" element={<AnswerTeacher/>} />
-            <Route path=":question_number" element={<ChoiceQuestion />} />
-        </Routes>
-    )
-}
+
 export const MyPageRoute = () => {
   return (
     <Routes>
