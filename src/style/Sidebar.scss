@@ -5,6 +5,8 @@ $green:#19A05E;
 .nav-wrapper {
     width: 7vw;
     height: 100vh;
+    position : fixed;
+    overflow: auto;
     flex-direction: row;
     float: left;
     background-color: $green;

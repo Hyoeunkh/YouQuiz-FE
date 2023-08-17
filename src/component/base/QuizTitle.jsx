@@ -3,10 +3,9 @@ import styled from "styled-components";
 
 const Questionwrapper = styled.div`
   display: flex;
-  flex-direction: row;
-  width: 75vw;
-  justify-content:space-between;
-
+  width: 79vw;
+  margin-left: 9vw; 
+  justify-content: space-between;
 
  .problem {
   width: 70%;
@@ -25,19 +24,19 @@ const Questionwrapper = styled.div`
   justify-content:center;
  }
   .progressbar {
-    width: 27vw;
+    width: 15vw;
     height: 0.1vh;
     background-color: green;
     border: 2px solid green;
     position: absolute;
   }
   .circle {
-    width: 0.6vw;
-    height: 0.6vw;
+    width: 0.5vw;
+    height: 0.5vw;
     border-radius: 50%;
     background-color: white;
     border: 0.15vw solid green;
-    margin: 0vw 2vw;
+    margin: 0vw 1vw;
     position: relative;
     z-index: 2;
   }

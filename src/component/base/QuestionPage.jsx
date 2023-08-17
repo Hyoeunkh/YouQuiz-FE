@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { addAnswer } from "../../services/reducers";
-import { Container } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
 import QuizTitle from "../../component/base/QuizTitle";
-import "../../style/FirstQuestion.scss";
+import "../../style/QuestionPage.scss";
 
 const QuestionPage = ({ title, questionText, choices, totalPageCount,writer, comment }) => {
 
@@ -31,14 +30,14 @@ const QuestionPage = ({ title, questionText, choices, totalPageCount,writer, com
       <>
         <QuizTitle text={title} currentPage={currentPage} totalPageCount={totalPageCount} />
         <div className="firstq-container">
-          <div className="question">
+          <div className="question-conta">
             <h1>Q{parseInt(question_number)}</h1>
-            <Container className="problem-container">
-            <h3>{questionText}</h3>
-            <h6 className="comment">
-              @{writer}<br/>{comment}
-            </h6>
-            </Container>
+            <div className="problem-container">
+              <h3>{questionText}</h3>
+              <h6 className="comment">
+                @{writer}<span><br/>{comment}</span>
+              </h6>
+            </div>
           </div>
   
           <ul className="radio-list">

@@ -15,8 +15,8 @@ const ChoiceQuestion = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          /*http://localhost:3000/student_study`*/
-          `http://101.101.219.109/student/1/study/1`
+          `http://localhost:3000/student_study`
+          /*`http://101.101.219.109/student/1/study/1`*/
         );
         setQuestions(response.data);
       } catch (e) {

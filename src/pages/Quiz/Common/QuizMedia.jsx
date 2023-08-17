@@ -1,23 +1,21 @@
-import React, { useState, useEffect }  from "react";
+import React, { useState}  from "react";
 import styled from "styled-components";
 import "bootstrap/dist/css/bootstrap.min.css";
 import YouTube from "react-youtube";
 import QuizTitle from "../../../component/base/QuizTitle";
-import { Link, useParams, useNavigate } from "react-router-dom";
-
-const gray = "#747474";
-const green = "#19A05E";
+import { useNavigate } from "react-router-dom";
 
 // quiz components
 const Contents = styled.div`
   background-color: light-gray;
   height: 55vh;
-  width: 75vw;
+  width: 65vw;
   display:flex;
-  flex-direction:column;
+  flex-direction: column;
   margin: 0 20vw;
   font-size: 1.5rem;
-
+  .youtube {
+  }
   img {
     margin-right: 0.5vw;
   }
@@ -72,7 +70,9 @@ export default function QuizMedia( { youtube_link, title, totalPageCount } ) {
           <img width="40" height="40" src="https://img.icons8.com/ios/50/19a05e/cinema---v1.png" alt="cinema---v1"/>
           영상을 시청해주세요!
         </p>
-        <YoutubeVideo videoId={videoId} />
+        <div className="youtube">
+          <YoutubeVideo videoId={videoId} />
+        </div>
       </Contents>
 
       <Btn>

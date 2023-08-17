@@ -1,13 +1,15 @@
 .header-container {
   height: 120px;
-  width: 100%;
+  width: calc(100% - 7vw);
   float: top;
+  display: flex;
+  margin-left: 7vw;
+  justify-content: center;
 }
 
 .header {
   width: 80%;
   height:100%;
-  margin: 0 auto;
   display: flex;
   flex-direction: row;
   align-items: end;

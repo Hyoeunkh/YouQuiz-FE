@@ -46,31 +46,28 @@ const AgreementPage = () => {
     <>
           <div className="agree-wrapper">
             <div className="agreement">
-              <label className="agree">
-                <input
-                  type="checkbox"
-                  onChange={handleCheckAll}
-                  checked={checkbox1Checked}
-                />
-                전체 동의하기<br />
-                <span>이용약관, 개인정보 수집 및 이용에 모두 동의합니다.</span>
+              <label id="label">
+                <input id="hiddenCheckbox" type="checkbox"
+                    onChange={handleCheckAll}
+                    checked={checkbox1Checked} />
+                <div id="showCheckbox"></div>
+                <span>전체 동의하기<br />
+                <p>이용약관, 개인정보 수집 및 이용에 모두 동의합니다.</p></span>
               </label>
-              <label className="agree">
-                <input
-                  type="checkbox"
-                  onChange={handleCheckbox2Change}
-                  checked={checkbox2Checked}
-                />
-                [필수] 유퀴즈 이용약관
+              <label id="label">
+                <input id="hiddenCheckbox" type="checkbox"
+                    onChange={handleCheckbox2Change}
+                    checked={checkbox2Checked} />
+                <div id="showCheckbox"></div>
+                <span>[필수] 유퀴즈 이용약관</span>
               </label>
-              <label className="agree">
-                <input
-                  type="checkbox"
+              <label id="label">
+              <input id="hiddenCheckbox" type="checkbox"
                   onChange={handleCheckbox3Change}
-                  checked={checkbox3Checked}
-                />
-                [필수] 개인정보 수집 및 이용
-              </label>
+                  checked={checkbox3Checked} />
+              <div id="showCheckbox"></div>
+              <span>[필수] 개인정보 수집 및 이용</span>
+            </label>
             </div>
             {errorMessage && ( // 오류 메시지가 있을 경우에만 빨간색으로 표시
               <div className="error-message" style={{ color: "red" }}>
