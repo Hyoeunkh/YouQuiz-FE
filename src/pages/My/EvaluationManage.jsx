@@ -53,13 +53,13 @@ const EvaluationBlock = styled.div`
   }
 `;
 
-export default function EvaluationtManage( { columns, data } ) {
+export default function EvaluationtManage( { columns, data, title } ) {
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     useTable({ columns, data });
 
   return (
     <>
-      <MyPageForm  userType={"teacher"} teacher_id={"20"} page={"채점 관리"} />
+      <MyPageForm  userType={"teacher"} teacher_id={"20"} page={"채점 관리"} title ={title}/>
       <TableBlock>
         <EvaluationBlock>
           <table {...getTableProps()}>

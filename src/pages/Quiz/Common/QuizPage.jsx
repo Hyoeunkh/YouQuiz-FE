@@ -13,7 +13,6 @@ const ListBlock = styled.div`
   left: 3vw;
 `;
 
-//teacher api따로있음 리스트 띄우려면 페이지따로만들어야함
 export default function QuizPage() {
   const [lists, setLists ] = useState(null);
   
@@ -21,7 +20,7 @@ export default function QuizPage() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3000/no_study_list`
+          `http://101.101.219.109/student/1/study`
         );
         setLists(response.data);
       } catch (e) {
@@ -37,7 +36,7 @@ export default function QuizPage() {
   return (
     <>
       <ListBlock>
-        <QuizPageForm lists={lists} />
+        <QuizPageForm lists={lists.no_study_list} />
       </ListBlock>
     </>
   );

@@ -18,13 +18,15 @@ const Sub = styled.div`
   }
 `;
 
-const SubHeader = ({ page, school, grade, classnum }) => {
+const SubHeader = ({ page, title }) => {
   return (
     <>
       <Sub>
         <div className="sub-header">
           <div className="sub-title">{page}</div>
-          <div className="sub-class">{`${school}고 ${grade}학년 ${classnum}반`}</div>
+          { title && (
+            <div className="sub-class">{`${title.school_name}고 ${title.grade}학년 ${title.class_num}반`}</div>
+          )}
         </div>
       </Sub>
     </>

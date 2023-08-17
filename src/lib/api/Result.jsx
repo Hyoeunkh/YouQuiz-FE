@@ -9,7 +9,7 @@ export default function Result() {
   const resultAPI = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:3000/study_result"
+        "http://101.101.219.109/student/1/studystatus/1"
       );
       setResultPage(response.data);
     } catch (e) {

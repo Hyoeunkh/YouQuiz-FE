@@ -13,6 +13,7 @@ import UserInfoPage from "../pages/Register/UserInfoPage";
 import SchoolAuth from "../pages/Register/SchoolAuth";
 import StudyData from "../pages/My/StudyData";
 import EvaluationData from "../pages/My/EvaluationData";
+import AnswerTeacher from "../pages/Quiz/Teacher/AnswerTeacher";
 
 
 export const QuizPageRoute = () => {
@@ -22,6 +23,7 @@ export const QuizPageRoute = () => {
             <Route path="quizmedia" element={<QuizMedia />} />
             <Route path="quizcomplate" element={<QuizComplete />} />
             <Route path="answerquestion" element={<AnswerQuestion />} />
+            <Route path="answerteacher" element={<AnswerTeacher/>} />
             <Route path=":question_number" element={<ChoiceQuestion />} />
         </Routes>
     )
@@ -29,7 +31,7 @@ export const QuizPageRoute = () => {
 export const MyPageRoute = () => {
   return (
     <Routes>
-      <Route path="studysatus" element={<StudyData />} />
+      <Route path="studystatus" element={<StudyData />} />
       <Route path="evaluationstatus" element={<EvaluationData />} />
       <Route path="studyresult" element={<StudyResult/>} />
       <Route path="quizmedia" element={<QuizMedia />} />

@@ -14,11 +14,9 @@ export default function SideBar() {
     
     const isLoginPage = location.pathname.includes("/login");
     const isRegisterPage = location.pathname.includes("/register");
-    const isMyPage =
-        location.pathname.includes("/studystatus") || 
-        location.pathname.includes("/evaluationstatus");
-    const isQuizPage = location.pathname === `/${userType}/${user_id}/study`;
-    
+    const isMyPage = location.pathname.includes("/my");
+    const isQuizPage = location.pathname === `/study`;
+
     const renderMenu = () => {
         if (isLoginPage || isRegisterPage) {
             return (
@@ -35,7 +33,7 @@ export default function SideBar() {
             return (
                 <>
                     <li className={`nav-item ${isMyPage ? "current-page" : ""}`}>
-                        <Link to={`/${userType}/${user_id}/studystatus`}><img className="icon" src={isMyPage ? "/circle.png" : "/circle-wh.png"} alt="" />마이페이지</Link>
+                        <Link to={`/my/studystatus`}><img className="icon" src={isMyPage ? "/circle.png" : "/circle-wh.png"} alt="" />마이페이지</Link>
                     </li>
                 </>
             );
@@ -53,7 +51,7 @@ export default function SideBar() {
                     </li>
                     {renderMenu()}
                     <li className={`nav-item ${isQuizPage ? "current-page" : ""}`}>
-                        <Link to={`/${userType}/${user_id}/study`}><img className="icon" src={isQuizPage ? "/book.png" : "/book-wh.png"} alt="" />학습</Link>
+                        <Link to={`/study`}><img className="icon" src={isQuizPage ? "/book.png" : "/book-wh.png"} alt="" />학습</Link>
                     </li>
                     <li className="nav-item">
                         <Link to="#"><img className="icon" src="/help-wh.png" alt="" />이용안내</Link>

@@ -6,20 +6,21 @@ import axios from "axios";
 export default function EvaluationData() {
   const navigate = useNavigate();
   const [lists, setLists ] = useState(null);
-  
+  const [title, settitle ] = useState(null);
     useEffect(() => {
-      const fetchData = async () => {
-        try {
-          const response = await axios.get(
-            `http://localhost:3000/evaluation_status`
-          );
-          setLists(response.data);
-        } catch (e) {
-          console.log(e);
-        }
-      };
-      fetchData();
-    }, []);
+      axios
+      .all([axios.get(
+            `http://101.101.219.109/teacher/1/evaluationstatus`
+          ), axios.get(`http://101.101.219.109/teacher/1/studystatus`)])
+          .then(
+            axios.spread((res1, res2)  => {
+              setLists(res1.data.evaluation_status);
+              settitle(res2.data.student_list[0]);
+              console.log(res2);
+            })
+           )
+          .catch ((e) => console.log(e));
+        }, []);
 
   const columns = useMemo(
     () => {
@@ -35,7 +36,7 @@ export default function EvaluationData() {
           Header: "단계"
           },
         {
-          accessor: "URL",
+          accessor: "title",
           Header: "학습내용",
         },
         {
@@ -65,11 +66,11 @@ export default function EvaluationData() {
               const EvaluationData = {
                   number: index + 1,
                   chap_id: list.chap_id+"단계",
-                  URL: list.youtube_url,
+                  title: list.title,
                   status: list.complete_student + "/" + list.total_student, 
                   btn:<button 
                         onClick={() => {
-                          navigate(`/teacher/${list.class_id}/study/${list.chap_id}`);
+                          navigate(`/study/quizmedia`);
                           }
                         }
                         style={{ background: "none", padding: 0, cursor: "pointer",color: "black" }}
@@ -80,5 +81,5 @@ export default function EvaluationData() {
         }, [lists]);
 
   
-  return <EvaluationManage columns={columns} data={data} />;
+  return <EvaluationManage columns={columns} data={data} title={title} />;
 }

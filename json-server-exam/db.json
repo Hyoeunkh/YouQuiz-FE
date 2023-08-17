@@ -3,29 +3,53 @@
         {
             "score": "70",
             "chap_id": "1",
-            "youtube_url": "https://youtu.be/YhY5PojUD_M"
+            "youtube_link": "https://youtu.be/YhY5PojUD_M"
         },
         {
             "score": "80",
             "chap_id": "2",
-            "youtube_url": "https://youtu.be/3agxU3_c630"
+            "youtube_link": "https://youtu.be/3agxU3_c630"
         },
         {
             "score": "10",
             "chap_id": "3",
-            "youtube_url": "https://youtu.be/Wfx-IaxPy9Q"
+            "youtube_link": "https://youtu.be/Wfx-IaxPy9Q"
         } 
     ],
     "study_result": [ 
-        {
-            "score": 80,
-            "answer_sentence": "주관식답변쓴거입니당",
-            "question": ["TEST1", "TEST2", "TEST3" ],
-            "answer_list": [ 1, 2, 4 ],
-            "youtube_url": "https://youtu.be/YhY5PojUD_M",
-            "choice": [ "test1", "test2", "test3", "test4", "test5" ],
-            "student_answer_list": [ 1, 3, 5 ]
-        }
+                {
+                "correct_answerList": [ 1, 2, 3, 4, 5 ],
+                "youtube_link": "https://youtu.be/Wfx-IaxPy9Q",
+                "score": 40,
+                "answer_sentence": "제 생각엔 …",
+                "title": "적절한 제목",
+                "quizEntityList": [ {
+                    "id": 1,
+                   "question": "과연 이 댓글은 맞는 걸까요?",
+                    "writer": "에이그머니나",
+                    "comment": "저건 그냥 바보 아님?",
+                    "exampleList": [
+                "이거는 내가봤을 때 맞는 말임 ㅅㄱ",
+                "이거는 내가봤을 때 틀린 말임 ㅅㄱ"
+                    ] }, {
+                    "id": 2,
+                   "question": "과연 저 댓글은 맞는 걸까요?",
+                    "writer": "독산동총잡이",
+                    "comment": "이건 좀 아닌 듯?",
+                    "exampleList": [
+                 "이거는 내가봤을 때 맞는 말임 ㅅㄱ",
+                 "이거는 내가봤을 때 틀린 말임 ㅅㄱ"
+                    ] }, {
+                    "id": 3,
+                   "question": "과연 요 댓글은 맞는 걸까요?",
+                    "writer": "지져스",
+                    "comment": "나는 신이다",
+                    "exampleList": [
+                  "이거는 내가봤을 때 맞는 말임 ㅅㄱ",
+                  "이거는 내가봤을 때 틀린 말임 ㅅㄱ"
+            ] } ],
+            "student_answer_list": [ 1, 4, 2, 4, 2 ] 
+            }
     ],
     "student_list": [
             {
@@ -865,44 +889,45 @@
             "class_id": 10000,
             "complete_student": "20",
             "chap_id": "1",
-            "youtube_url": "교내 휴대전화 허용 어디까지?"
+            "title": "교내 휴대전화 허용 어디까지?"
         },{
             "total_student": "20",
             "class_id": 10000,
             "complete_student": "20",
             "chap_id": "2",
-            "youtube_url": "10대가 느끼는 ‘성차별’"
+            "title": "10대가 느끼는 ‘성차별’"
         } ,{
             "total_student": "20",
             "class_id": 10000,
             "complete_student": "17",
             "chap_id": "3",
-            "youtube_url": "동성애자, 좋은 사람 만날 수 있을까요?"
+            "title": "동성애자, 좋은 사람 만날 수 있을까요?"
         } ,{
             "total_student": "20",
             "class_id": 10000,
             "complete_student": "10",
             "chap_id": "4",
-            "youtube_url": "교내 휴대전화 허용 어디까지?"
+            "title": "교내 휴대전화 허용 어디까지?"
         }
     ],
 
     "no_study_list": [ 
         {
             "chap_id": "1",
-            "youtube_url": "https://youtu.be/YhY5PojUD_M"
+            "youtube_link": "https://youtu.be/YhY5PojUD_M"
         },
         {
             "chap_id": "2",
-            "youtube_url": "https://youtu.be/3agxU3_c630"
+            "youtube_link": "https://youtu.be/3agxU3_c630"
         },
         {
             "chap_id": "3",
-            "youtube_url": "https://youtu.be/Wfx-IaxPy9Q"
+            "youtube_link": "https://youtu.be/Wfx-IaxPy9Q"
         } 
     ],
-    "sydent_study": [ 
+    "student_study":
         {
+            "title" : "휴대폰 사용 뭐시기",
             "correct_answerList": [
                 1,
                 2,
@@ -910,7 +935,7 @@
                 4,
                 5
             ],
-            "youtube_url": "https://youtu.be/YhY5PojUD_M",
+            "youtube_link": "https://youtu.be/YhY5PojUD_M",
             "quizEntityList": [
                 {
                     "id": 1,
@@ -918,7 +943,10 @@
                     "writer": "에이그머니나",
                     "comment": "저건 그냥 바보 아님?",
                     "exampleList": [
-                        "이거는 내가봤을 때 맞는 말임 ㅅㄱ",
+                        "이거는 내가틀린 말임 ㅅㄱ",
+                        "이거는 내가봤을 말임 ㅅㄱ",
+                        "이거는 봤을 때 틀린 말임 ㅅㄱ",
+                        "이거는 내가봤을 때 말임 ㅅㄱ",
                         "이거는 내가봤을 때 틀린 말임 ㅅㄱ"
                     ]
                 },
@@ -929,7 +957,10 @@
                     "comment": "이건 좀 아닌 듯?",
                     "exampleList": [
                         "이거는 내가봤을 때 맞는 말임 ㅅㄱ",
-                        "이거는 내가봤을 때 틀린 말임 ㅅㄱ"
+                        "이거는 내가틀린 말임 ㅅㄱ",
+                        "이거는 내가봤을 말임 ㅅㄱ",
+                        "이거는 봤을 때 틀린 말임 ㅅㄱ",
+                        "이거는 내가봤을 때 말임 ㅅㄱ"
                     ]
                 },
                 {
@@ -939,13 +970,45 @@
                     "comment": "나는 신이다",
                     "exampleList": [
                         "이거는 내가봤을 때 맞는 말임 ㅅㄱ",
-                        "이거는 내가봤을 때 틀린 말임 ㅅㄱ"
+                        "이거는 내가틀린 말임 ㅅㄱ",
+                        "이거는 내가봤을 말임 ㅅㄱ",
+                        "이거는 봤을 때 틀린 말임 ㅅㄱ",
+                        "이거는 내가봤을 때 말임 ㅅㄱ"
                     ]
+                },                {
+                    "id": 4,
+                    "question": "과연 요 댓글은 맞는 걸까요?",
+                    "writer": "지져스",
+                    "comment": "나는 신이다",
+                    "exampleList": [
+                        "이거는 내가봤을 때 맞는 말임 ㅅㄱ",
+                        "이거는 내가봤을 때 틀린 말임 ㅅㄱ",
+                        "가봤을 때 틀린 말임 ㅅㄱ",
+                        "이거는 내가봤을 때 틀린 말임 ㅅㄱ",
+                        "이거는 내가린 말임 ㅅㄱ"
+                    ]
+                },
+                                {
+                    "id": 5,
+                    "question": "과연 요 댓글은 맞는 걸까요?",
+                    "writer": "지져스",
+                    "comment": "나는 신이다",
+                    "exampleList": [
+                        "이거는 맞는 말임 ㅅㄱ",
+                        "이거는 내가봤을 때 틀린 말임 ㅅㄱ",
+                        "이거는 내가봤을 때 틀린 말임 ㅅz"
+                    ]
+                },
+                {
+                    "id": 6,
+                    "question": "주관식 문제",
+                    "writer": null,
+                    "comment": null,
+                    "exampleList": []
                 }
-            ],
-            "class_ChapterEntityList": []
-        }
-    ],
+
+            ]
+        },
     "schoolAuth": [ 
         {
             "id":1,
@@ -955,82 +1018,95 @@
             "class_code":"wQ2Yso6"
         }
     ],
-    "key":{},
-    "correct_answerList": [
-    1,
-    2,
-    3
-    ],
-    "youtube_link": "URL",
-    "quizEntityList": [
-    {
-    "id": 1,
-    "question": "1번 문제",
-    "writer": "",
-    "comment": null,
-    "exampleList": [
-    "1번 선택지",
-    "2번 선택지",
-    "3번 선택지"
-    ]
+    "key":[{}],
+    "study": {
+        "title" : "휴대폰 사용 뭐시기",
+        "correct_answerList": [ 1, 2, 3, 4, 5],
+        "youtube_link": "asdlkjfa;sdlkjf",
+        "quizEntityList": [ {
+            "id": 1,
+           "question": "과연 이 댓글은 맞는 걸까요?",
+            "writer": "에이그머니나",
+            "comment": "저건 그냥 바보 아님?",
+            "exampleList": [
+        "이거는 내가봤을 때 맞는 말임 ㅅㄱ",
+        "이거는 내가봤을 때 틀린 말임 ㅅㄱ"
+        ] }, {
+            "id": 2,
+           "question": "과연 저 댓글은 맞는 걸까요?",
+            "writer": "독산동총잡이",
+            "comment": "이건 좀 아닌 듯?",
+            "exampleList": [
+        "이거는 내가봤을 때 맞는 말임 ㅅㄱ",
+        "이거는 내가봤을 때 틀린 말임 ㅅㄱ"
+    ] }, {
+            "id": 3,
+           "question": "과연 요 댓글은 맞는 걸까요?",
+            "writer": "지져스",
+            "comment": "나는 신이다",
+            "exampleList": [
+        "이거는 내가봤을 때 맞는 말임 ㅅㄱ",
+        "이거는 내가봤을 때 틀린 말임 ㅅㄱ"
+    ] } ],
+        "class_ChapterEntityList": []
     },
-    {
-    "id": 2,
-    "question": "2번 문제",
-    "writer": null,
-    "comment": null,
-    "exampleList": [
-    "1번 선택지",
-    "2번 선택지",
-    "3번 선택지"
-    ]
-    },
-    {
-    "id": 3,
-    "question": "3번 문제",
-    "writer": null,
-    "comment": null,
-    "exampleList": [
-    "1번 선택지",
-    "2번 선택지",
-    "3번 선택지"
-    ]
-    },
-    {
-    "id": 4,
-    "question": "주관식 문제",
-    "writer": null,
-    "comment": null,
-    "exampleList": []
-    }
-    ],
-    "teacher_id": 1,
-    "answer_sentence_list": [
-    {
-    "student_id": 1,
-    "answer_sentence": "(동건)제 생각엔..."
-    },
-    {
-    "student_id": 2,
-    "answer_sentence": "(수빈)제 생각엔..."
-    },
-    {
-    "student_id": 3,
-    "answer_sentence": "(형철)제 생각엔..."
-    }
-    ],
-    "commentEntityList": [
-    {
-    "id": 1,
-    "comment": "선생님이 생각하기에는"
-    },
-    {
-    "id": 2,
-    "comment": "선생님이 생각하기에는"
-    },
-    {
-    "id": 3,
-    "comment": "선생님이 생각하기에는"
-    }
-    ]
+    "teacher_study":{
+        "correct_answerList": [ 1, 2, 3 ],
+        "youtube_link": "URL",
+        "quizEntityList": [ {
+            "id": 1,
+            "question": "1번 문제",
+            "writer": "",
+            "comment": null,
+            "exampleList": [
+            "1번 선택지", "2번 선택지", "3번 선택지"
+            ] }, {
+            "id": 2,
+            "question": "2번 문제",
+            "writer": null,
+            "comment": null,
+            "exampleList": [
+            "1번 선택지",  "2번 선택지", "3번 선택지" 
+            ] }, {
+            "id": 3,
+            "question": "3번 문제",
+            "writer": null,
+            "comment": null,
+            "exampleList": [
+            "1번 선택지", "2번 선택지", "3번 선택지"
+        ] }, {
+            "id": 4,
+            "question": "주관식 문제",
+            "writer": null,
+            "comment": null,
+            "exampleList": []
+        } ],
+            "teacher_id": 1,
+            "answer_sentence_list": [ {
+                "student_id": 1,
+                "student_name": "편수빈",
+                "answer_sentence": "제 생각엔..."
+            }, {
+                "student_id": 2,
+                "student_name": "이동건",
+                "answer_sentence": "제 생각엔..."
+            }, {
+                "student_id": 3,
+                "student_name": "서형철",
+                "answer_sentence": "제 생각엔..."
+            },{
+                "student_id": 4,
+                "student_name": "이효은",
+                "answer_sentence": "제 생각엔..."
+            } ], 
+            "commentEntityList": [ {
+            "id": 1,
+            "comment": "선생님이 생각하기에는"
+            }, {
+                "id": 2,
+                "comment": "선생님이 생각하기에는"
+            }, {
+                "id": 3,
+                "comment": "선생님이 생각하기에는"
+        } ] }
 }

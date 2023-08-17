@@ -25,7 +25,7 @@ const Questionwrapper = styled.div`
   justify-content:center;
  }
   .progressbar {
-    width: 19vw;
+    width: 27vw;
     height: 0.1vh;
     background-color: green;
     border: 2px solid green;

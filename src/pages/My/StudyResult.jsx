@@ -16,7 +16,7 @@ export default function StudyResult() {
       const fetchData = async () => {
         try {
           const response = await axios.get(
-            "http://localhost:3000/studied_chapter"
+            "http://101.101.219.109/student/1/studystatus"
           );
           setLists(response.data);
         } catch (e) {
@@ -34,7 +34,7 @@ export default function StudyResult() {
     <>
       <MyPageForm  userType={"student"} student_id={"sample_id"} page={"학습결과"} />
         <ListBlock>
-          <QuizPageForm lists={lists} />
+          <QuizPageForm lists={lists.studied_chapter} />
         </ListBlock>
     </>
   );

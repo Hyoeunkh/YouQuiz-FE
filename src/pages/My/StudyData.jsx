@@ -9,7 +9,7 @@ export default function StudyData() {
       const fetchData = async () => {
         try {
           const response = await axios.get(
-            `http://localhost:3000/student_list`
+            `http://101.101.219.109//teacher/1/studystatus`
           );
           setLists(response.data);
         } catch (e) {
@@ -45,7 +45,7 @@ export default function StudyData() {
         () => {
           if (!lists) return []; // lists가 null일 때 빈 배열 반환
     
-          return lists.map((list) => {
+          return lists.student_list.map((list) => {
             const studentData = {
               student_id: list?.student_id,
               student_name: list?.student_name,
@@ -59,6 +59,6 @@ export default function StudyData() {
         [lists]
       );
     
-      return <StudyManage columns={columns} data={data} />;
+      return <StudyManage columns={columns} data={data} title={lists}/>;
     }
     

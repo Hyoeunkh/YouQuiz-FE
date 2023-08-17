@@ -55,13 +55,13 @@ const TableWrapper = styled.div`
   }
 `;
 
-export default function StudyManage( { columns, data } ) {
+export default function StudyManage( { columns, data, title } ) {
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     useTable({ columns, data });
 
   return (
     <>
-      <MyPageForm  userType={"teacher"} teacher_id={"20"} page={"학습 관리"} />
+      <MyPageForm  userType={"teacher"} teacher_id={"20"} page={"학습 관리"} title={ title } />
       <TableBlock>
         <TableWrapper>
           <table {...getTableProps()}>

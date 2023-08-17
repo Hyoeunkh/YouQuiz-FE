@@ -81,7 +81,7 @@ const QuizPageForm = ({ lists }) => {
       <div className="Contents">
         <ol className="list-group">
           {lists.map((item, index) => {
-            const videoId = extractYoutubeVideoId(item.youtube_url);
+            const videoId = extractYoutubeVideoId(item.youtube_link);
             const imgsrc = videoId
               ? `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`
               : "";
@@ -90,7 +90,7 @@ const QuizPageForm = ({ lists }) => {
               <li
                 key={index}
                 className="list-group-item d-flex justify-content-between align-items-center custom-list-item"
-                onClick={() => navigate(`/quiz${item.chap_id}/quizmedia`)}
+                onClick={() => navigate(`/study/quizmedia`)}
               >
                 <div className="list-container">
                   <img className="youtubelist" src={imgsrc} alt="" />
@@ -99,7 +99,7 @@ const QuizPageForm = ({ lists }) => {
                       <div className="level fw-bold">{item.chap_id}단계</div>
                       {item.score ? <span>({item.score}점/ 100점)</span> : null}
                     </div>
-                    <div className="fw-bold fs-3 mt-2">제목</div>
+                    <div className="fw-bold fs-3 mt-2">{lists.title}</div>
                   </div>
                 </div>
                 <span className="custom-bad fw-bold fs-4">{item.score ? "결과보기" : "학습하기" }</span>

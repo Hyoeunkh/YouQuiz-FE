@@ -4,7 +4,7 @@ import Sidebar from "./component/base/Sidebar";
 import HomePage from "./pages/HomePage";
 import Header from "./component/base/Header";
 import { QuizPageRoute, MyPageRoute, RegisterRoute, LoginRoute } from "./Router/Route";
-
+import ChoiceQuestion from "./pages/Quiz/Student/Question/ChoiceQuestion";
 
 function NotFoundPage() {
   return <div>Page not found.</div>;
@@ -48,7 +48,7 @@ const App = () => {
         <Route path="/" element={<HomePage />} />
         <Route path="/login/*" element={<LoginRoute />} />
         <Route path="/register/*" element={<RegisterRoute />} />
-        <Route path="/study/*" element={<QuizPageRoute />} />
+        <Route path="/study/*" element={<ChoiceQuestion/>} />
         <Route path="/my/*" element={<MyPageRoute />} />
         <Route path="/*" element={<NotFoundPage />} />
       </Routes>

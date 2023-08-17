@@ -1,9 +1,9 @@
-import React, { useState }  from "react";
+import React, { useState, useEffect }  from "react";
 import styled from "styled-components";
 import "bootstrap/dist/css/bootstrap.min.css";
 import YouTube from "react-youtube";
 import QuizTitle from "../../../component/base/QuizTitle";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 
 const gray = "#747474";
 const green = "#19A05E";
@@ -42,31 +42,42 @@ const YoutubeVideo = ({ videoId }) => {
 };
 
 
-export default function QuizMedia( ) {
-  const chap_id = "10";
-
+export default function QuizMedia( { youtube_link, title, totalPageCount } ) {
+  const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(1);
 
+  if (!youtube_link) {
+    return null;
+  }
+  const extractYoutubeVideoId = (url) => {
+    
+    const match = url.match(
+      /(?:https?:\/\/)?(?:www\.)?youtu(?:be\.com\/watch\?v=|\.be\/)([\w\-\_]*)(&(amp;)?[\w\?=]*)?/
+    );
+    return match && match[1] ? match[1] : null;
+  };
+
+  const videoId = extractYoutubeVideoId(youtube_link);
+
   const handlePageChange = (page) => {
+    navigate(`/study/${currentPage}`);
     setCurrentPage(page);
   };
-  const { question_number } = useParams();
 
   return (
     <>
-      <QuizTitle text="[1단계] 교내 휴대전화 허용 어디까지?" currentPage={currentPage} totalPageCount={5}/>
+      <QuizTitle text={title} currentPage={currentPage} totalPageCount={totalPageCount}/>
       <Contents>
         <p>
           <img width="40" height="40" src="https://img.icons8.com/ios/50/19a05e/cinema---v1.png" alt="cinema---v1"/>
           영상을 시청해주세요!
         </p>
-        <YoutubeVideo videoId="YhY5PojUD_M" />
+        <YoutubeVideo videoId={videoId} />
       </Contents>
 
       <Btn>
-        <Link to={`/study/1`}>
-          <img onClick={() => handlePageChange(currentPage + 1)} width="80" height="80" src="https://img.icons8.com/ios/80/19A05E/circled-right-2.png" alt="circled-left-2"/>
-        </Link>
+          <img onClick={() => handlePageChange(currentPage + 1)}
+           width="80" height="80" src="https://img.icons8.com/ios/80/19A05E/circled-right-2.png" alt="circled-left-2"/>
       </Btn>
       
     </>

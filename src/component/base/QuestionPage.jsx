@@ -6,20 +6,20 @@ import { Link, useParams } from "react-router-dom";
 import QuizTitle from "../../component/base/QuizTitle";
 import "../../style/FirstQuestion.scss";
 
-const QuestionPage = ({ questionNumber, title, questionText, choices, totalPageCount }) => {
+const QuestionPage = ({ title, questionText, choices, totalPageCount,writer, comment }) => {
+
     const { question_number } = useParams();
-  
     const selectedChoices = useSelector((state) => state.answers);
     const dispatch = useDispatch();
-  
+
     const [selectedChoice, setSelectedChoice] = useState(null);
-    const [currentPage, setCurrentPage] = useState( questionNumber + 1);
+    const [currentPage, setCurrentPage] = useState(parseInt(question_number)+1);
   
     const handlePageChange = (page) => {
       dispatch(addAnswer(selectedChoices)); // 리덕스 액션 호출
       setCurrentPage(page);
     };
-  
+    console.log(question_number);
     const getImageSource = (choice) => 
       selectedChoice === choice ? `https://img.icons8.com/ios-filled/80/19A05E/${choice}-circle.png`
       : `https://img.icons8.com/ios/80/19A05E/${choice}-circle.png`;
@@ -29,11 +29,16 @@ const QuestionPage = ({ questionNumber, title, questionText, choices, totalPageC
   
     return (
       <>
-        <QuizTitle text={title} currentPage={currentPage} totalPageCount={5} />
+        <QuizTitle text={title} currentPage={currentPage} totalPageCount={totalPageCount} />
         <div className="firstq-container">
           <div className="question">
-            <h1>Q{questionNumber}</h1>
-            <Container className="problem-container">{questionText}</Container>
+            <h1>Q{parseInt(question_number)}</h1>
+            <Container className="problem-container">
+            <h3>{questionText}</h3>
+            <h6 className="comment">
+              @{writer}<br/>{comment}
+            </h6>
+            </Container>
           </div>
   
           <ul className="radio-list">
@@ -51,15 +56,14 @@ const QuestionPage = ({ questionNumber, title, questionText, choices, totalPageC
                 src={getImageSource(choice)}
                 alt={`${choice}-circle`}
               />
-              {choices[choice]}
+              {choices[choice - 1]}
             </label>
           ))}
         </ul>
       </div>
   
       <div className="btn">
-        {questionNumber > 1 && (
-          <Link to={`${questionNumber - 1}`}>
+          <Link to={parseInt(question_number) > 1 ? `/study/${parseInt(question_number) - 1}` : `/study/quizmedia`}>
             <img
               onClick={() => {
                 handlePageChange(currentPage - 1);
@@ -70,21 +74,17 @@ const QuestionPage = ({ questionNumber, title, questionText, choices, totalPageC
               alt="left"
             />
           </Link>
-        )}
-
-        {questionNumber < totalPageCount && (
-          <Link to={`${questionNumber + 1}`}>
-            <img
-              onClick={() => {
-                handlePageChange(currentPage + 1);
-              }}
-              width="80"
-              height="80"
-              src="https://img.icons8.com/ios/80/19A05E/circled-right-2.png"
-              alt="right"
-            />
-          </Link>
-        )}
+        <Link to={parseInt(question_number) < totalPageCount-2 ? `/study/${parseInt(question_number) + 1}` : `/study/answerquestion` } state={currentPage}>
+          <img
+            onClick={() => {
+              handlePageChange(currentPage + 1);
+            }}
+            width="80"
+            height="80"
+            src="https://img.icons8.com/ios/80/19A05E/circled-right-2.png"
+            alt="right"
+          />
+        </Link>
       </div>
     </>
   );

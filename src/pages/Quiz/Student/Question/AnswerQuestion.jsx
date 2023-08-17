@@ -7,13 +7,13 @@ import { useSelector, useDispatch } from "react-redux";
 import { sendChoicesToBackend } from "../../../../services/StudentResult";
 import { addSubjectiveAnswer } from "../../../../services/reducers";
 
-const AnswerQuestion = () => {
+const AnswerQuestion = ( { title, questionText, question_number,totalPageCount } ) => {
 	const chap_id = "10";
 	const student_id = "10";
 	const userType = "student";
 
 	const [text, setText] = useState('');
-	const [currentPage, setCurrentPage] = useState(5);
+	const [currentPage, setCurrentPage] = useState(7);
 
 	// 리덕스 스토어에서 주관식 답변과 객관식 답변 가져오기
 	const selectedChoices = useSelector((state) => state.answers);
@@ -45,11 +45,11 @@ const AnswerQuestion = () => {
 	
 	return (
 	<>
-		<QuizTitle text="[1단계] 교내 휴대전화 허용 어디까지?" currentPage={currentPage} totalPageCount={5} />
+		<QuizTitle text={title} currentPage={currentPage} totalPageCount={totalPageCount}/>
 		<div className="answer-container">
 			<div className="question">
-				<h1>Q4</h1>
-				<Container className="problem-container">주관식 문제</Container>
+				<h1>Q{parseInt(question_number)}</h1>
+				<Container className="problem-container">{questionText}</Container>
 			</div>
 			<textarea className="form"
 				value={text}
@@ -58,13 +58,13 @@ const AnswerQuestion = () => {
 				rows={8}/>
 		</div>
 		<div className="btn">
-			<Link to={`3`}>
+			<Link to={-1}>
 				<img onClick={() => 
 					handlePageChange(currentPage - 1)} 
 					width="80" height="80"
 					src="https://img.icons8.com/ios/80/19A05E/circled-left-2.png" alt="left"/>
 			</Link>
-			<Link to={`/student/${student_id}/study/${chap_id}/complete`} state={{userType, student_id}}>
+			<Link to={`/study/complete`} state={{userType, student_id}}>
 			<button onClick={handleSubmit}>제출</button>
 			</Link>
 		</div>

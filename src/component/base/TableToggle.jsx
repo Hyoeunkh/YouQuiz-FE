@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { styled } from 'styled-components';
+import axios from 'axios';
 
 const TableWrapper = styled.div`
   height: 60vh;
@@ -76,32 +77,32 @@ const StudentTable = ({ studentData, onReply, replyingStudentId, text, handleCha
           </tr>
         </thead>
         {studentData.map((student) => (
-            <React.Fragment key={student.id}>
+            <React.Fragment key={student.student_id}>
               <tr style={{
                 backgroundColor:
-                (lastRepliedStudentId === student.id && replyingStudentId !== student.id) ?
+                (lastRepliedStudentId === student.student_id && replyingStudentId !== student.student_id) ?
                 '#F8F8F8' : 'white' }}
               >
-                <td>{student.studentNumber}</td>
-                <td>{student.name}</td>
-                <td width="70%">{student.content}</td>
+                <td>{student.student_id}</td>
+                <td>{student.student_name}</td>
+                <td width="70%">{student.answer_sentence}</td>
                 <td>
-                  <button onClick={() => onReply(student.id)}>답글</button>
+                  <button onClick={() => onReply(student.student_id)}>답글</button>
                 </td>
               </tr>
-              {replyingStudentId === student.id && (
+              {replyingStudentId === student.student_id && (
                 <tr>
                   <td colSpan="4">
                     <textarea
                       rows="4"
                       cols="50"
                       placeholder="답글을 달아주세요"
-                      value={text[student.id] || ''}
-                      onChange={(event) => handleChange(event, student.id)}
+                      value={text[student.student_id] || ''}
+                      onChange={(event) => handleChange(event, student.student_id)}
                     />
                     <button className="complete-btn"
                       onClick={() => 
-                        handleCompleteReply(student.id, text[student.id])
+                        handleCompleteReply(student.student_id, text[student.student_id])
                       }
                     >
                       완료
@@ -118,20 +119,22 @@ const StudentTable = ({ studentData, onReply, replyingStudentId, text, handleCha
 
 const TableToggle = () => {
 
-  const initialStudentData = [
-    // sample data
-    { id: 1, studentNumber: '21번', name: '이동건', content: '2013년 서울에서 멋쟁이사자처럼 코스프레를 함2013년 서울에서 멋쟁이사자처럼 코스프레를 함2013년 서울에서 멋쟁이사자처럼 코스프레를 함2013년 서울에서 멋쟁이사자처럼 코스프레를 함2013년 서울에서 멋쟁이사자처럼 코스프레를 함2013년 서울에서 멋쟁이사자처럼 코스프레를 함' },
-    { id: 2, studentNumber: '11번', name: '편수빈', content: '2013년 서울에서 멋쟁이사자처럼 코스프레를 함' },
-    { id: 3, studentNumber: '21번', name: '이동건', content: '2013년 서울에서 멋쟁이사자처럼 코스프레를 함' },
-    { id: 4, studentNumber: '11번', name: '편수빈', content: '2013년 서울에서 멋쟁이사자처럼 코스프레를 함' },
-    { id: 5, studentNumber: '21번', name: '이동건', content: '2013년 서울에서 멋쟁이사자처럼 코스프레를 함' },
-    { id: 6, studentNumber: '11번', name: '편수빈', content: '2013년 서울에서 멋쟁이사자처럼 코스프레를 함' },
-  
-  ];
-
   const [replyingStudentId, setReplyingStudentId] = useState(null);
   const [lastRepliedStudentId, setLastRepliedStudentId] = useState(null);
   const [text, setText] = useState([]);
+  const [data, setData] = useState([]);
+
+  const StudentData = async () => {
+    try {
+      const response = await axios.get(
+        "http://101.101.219.109/teacher/1/study/1/1"
+      );
+      setData(response.data.answer_sentence_list);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+  StudentData();
 
   const handleReply = (studentId) => {
     setReplyingStudentId(studentId);
@@ -153,7 +156,7 @@ const TableToggle = () => {
   return (
     <TableWrapper>
       <StudentTable
-        studentData={initialStudentData}
+        studentData={data}
         onReply={handleReply}
         replyingStudentId={replyingStudentId}
         text={text}

@@ -39,11 +39,8 @@ const QuizComplate = () => {
 					<h1>{h1Text}</h1>
 					<p>{pText}</p>
 				<div className="button">
-					<Link to ='/my'><button className="homebtn">홈으로</button></Link>
-					<Link to =
-					{`/${(userType === 'result') ? "student" : userType}/
-						${(userType === 'student' || userType === 'result') ? student_id : teacher_id}
-						/study`}>
+					<Link to ='/study'><button className="homebtn">홈으로</button></Link>
+					<Link to ={`/my/studyresult`}>
 						<button>학습으로</button>
 					</Link>
 				</div>

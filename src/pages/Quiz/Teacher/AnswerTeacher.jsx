@@ -6,7 +6,7 @@ import QuizTitle from "../../../component/base/QuizTitle";
 import TableToggle from "../../../component/base/TableToggle";
 import "../../../style/AnswerResult.scss";
 
-export default function AnswerTeacher() {
+export default function AnswerTeacher( { title, questionText, question_number,totalPageCount } ) {
  /*
   const headers = [
     {
@@ -54,7 +54,7 @@ export default function AnswerTeacher() {
   const chap_id = "10";
   const teacher_id = "10";
   const userType = "teacher";
-  const [currentPage, setCurrentPage] = useState(5);
+  const [currentPage, setCurrentPage] = useState(7);
 
 	const handlePageChange = (page) => {
 		setCurrentPage(page);
@@ -62,23 +62,23 @@ export default function AnswerTeacher() {
 
   return (
 	<>
-		<QuizTitle text="[1단계] 교내 휴대전화 허용 어디까지?" currentPage={currentPage} totalPageCount={5}  />
+		<QuizTitle text={title} currentPage={currentPage} totalPageCount={totalPageCount} />
 		<div className="accordion-container">
 			<div className="question">
-				<h1>Q4</h1>
-				<Container className="problem-container">주관식 문제 교육자가 답글다는페이지.</Container>
+				<h1>Q{parseInt(question_number)}</h1>
+				<Container className="problem-container">{questionText}</Container>
 			</div>
 			<TableToggle />
 		</div>
 		<div className="btn">
-			<Link to={`study/${chap_id}/3`}>
+			<Link to={`-1`}>
       <img onClick={() => 
 					handlePageChange(currentPage - 1)}
 					width="80" height="80"
 					src="https://img.icons8.com/ios/80/19A05E/circled-left-2.png" alt="circled-left-2"
 				/>
 			</Link>
-			<Link to={`/teacher/${teacher_id}/study/${chap_id}/complete`} state={{userType, teacher_id}}>
+			<Link to={`/study/complete`} state={{userType, teacher_id}}>
         <button onClick={() => handlePageChange(currentPage + 1)} >완료</button>
 			</Link>
 		</div>
