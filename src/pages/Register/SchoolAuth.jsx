@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { changeField, initializeForm, register } from "../../modules/auth";
-import { check } from "../../modules/user";
+import { changeField, initializeForm, register } from "../../what/modules/auth";
+import { check } from "../../what/modules/user";
 import { useNavigate, Link } from "react-router-dom";
 import styled from "styled-components";
 

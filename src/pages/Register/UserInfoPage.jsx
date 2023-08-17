@@ -1,4 +1,4 @@
-import RegisterForm from "../../containers/auth/RegisterForm"
+import RegisterForm from "../../containers/RegisterForm"
 
 const UserInfoPage = () => {
 	return (

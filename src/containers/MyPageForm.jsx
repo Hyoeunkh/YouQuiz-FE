@@ -1,6 +1,6 @@
 import React from "react";
-import SubSidebar from "../component/base/SubSidebar";
-import SubHeader from "../component/base/SubHeader";
+import SubSidebar from "../component/SubSidebar";
+import SubHeader from "../component/SubHeader";
 
 const MyPageForm = ( { userType, student_id, teacher_id, chap_id, page, title } ) => {
 

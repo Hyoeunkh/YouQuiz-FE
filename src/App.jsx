@@ -1,10 +1,14 @@
-import React from "react";
-import { Route, Routes, useLocation, useParams } from "react-router-dom";
-import Sidebar from "./component/base/Sidebar";
-import HomePage from "./pages/HomePage";
-import Header from "./component/base/Header";
-import { QuizPageRoute, MyPageRoute, RegisterRoute, LoginRoute } from "./Router/Route";
-import ChoiceQuestion from "./pages/Quiz/Student/Question/ChoiceQuestion";
+import React, { useState } from "react";
+import { Route, Routes, useLocation } from "react-router-dom";
+import Sidebar from "./component/Sidebar";
+import HomePage from "./pages/Common/HomePage";
+import Header from "./component/Header";
+import { RegisterRoute, LoginRoute } from "./Router/Route";
+import QuestionRoute from "./Router/QuestionRoute";
+import TeacherStudyRoute from "./Router/TeacherStudyRoute";
+import ResultRoute from "./Router/ResultRoute";
+import EvaluationData from "./pages/Teacher/EvaluationData";
+import StudyData from "./pages/Teacher/StudyData";
 
 function NotFoundPage() {
   return <div>Page not found.</div>;
@@ -14,8 +18,12 @@ function NotFoundPage() {
 const App = () => {
   const location = useLocation();
   const pathname = location.pathname;
+  
   // 홈 화면 경로일 때 사이드바와 헤더 숨기기
   const hideSidebarAndHeader = pathname === "/";
+
+  //일단급한대fh state로 함
+  const [role, setrole] = useState("student");
 
   const getPageTitle = () => {
     if (pathname.includes("/login")) {
@@ -39,7 +47,7 @@ const App = () => {
     <>
       {!hideSidebarAndHeader && (
         <>
-          <Sidebar />
+          <Sidebar role={role} />
           <Header page={getPageTitle()} />
         </>
       )}
@@ -48,9 +56,11 @@ const App = () => {
         <Route path="/" element={<HomePage />} />
         <Route path="/login/*" element={<LoginRoute />} />
         <Route path="/register/*" element={<RegisterRoute />} />
-        <Route path="/study/*" element={<ChoiceQuestion/>} />
-        <Route path="/my/*" element={<MyPageRoute />} />
-        <Route path="/*" element={<NotFoundPage />} />
+        <Route path="/my" component={<ResultRoute />} />
+        <Route path="/study" component={role === 'teacher' ? <TeacherStudyRoute />  : <QuestionRoute /> } />
+        <Route path="/teacher/my/studystatus" component={<StudyData />} />
+        <Route path="/teacher/my/evaluationstatus" component={<EvaluationData />} />
+        <Route path="/*" component={<NotFoundPage />} />
       </Routes>
     </>
   );

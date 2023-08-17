@@ -1,3 +1,5 @@
+import { combineReducers } from "redux";
+
 export const addAnswer = (answer) => ({
     type: "ADD_ANSWER",
     payload: answer,
@@ -31,5 +33,17 @@ export const addAnswer = (answer) => ({
         return state;
     }
   };
+  const studentNumberReducer = (state = null, action) => {
+    switch (action.type) {
+      case "SET_STUDENT_NUMBER":
+        return action.payload;
+      default:
+        return state;
+    }
+  };
+  
+  const rootReducer = combineReducers({
+    studentNumber: studentNumberReducer,
+  });
 
   export default answersReducer;

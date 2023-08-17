@@ -6,9 +6,9 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from 'react-redux';
 import { createStore , applyMiddleware} from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import rootReducer, {rootSaga} from './modules';
+import rootReducer, {rootSaga} from './what/modules';
 import createSagaMiddleware from 'redux-saga';
-import {tempSetUser, check} from './modules/user';
+import {tempSetUser, check} from './what/modules/user';
 
 const sagaMiddleware = createSagaMiddleware();
 const store =createStore(rootReducer,composeWithDevTools(applyMiddleware(sagaMiddleware)));

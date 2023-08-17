@@ -4,7 +4,7 @@ export const sendChoicesToBackend = (studentId, chapId, answerList, answerSenten
       answer_sentence: answerSentence,
     };
   
-    return fetch(`/api/student/${studentId}/study/${chapId}`, {
+    return fetch(`http://101.101.219.109:8080/student/${studentId}/study/${chapId}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -17,4 +17,6 @@ export const sendChoicesToBackend = (studentId, chapId, answerList, answerSenten
       throw error;
     });
   };
-  
+  /* 이런형식으로 post해야함
+    “answer_list”: [1, 4, 2, 4, 2],
+    “answer_sentence”: “제 생각엔 …”  */
