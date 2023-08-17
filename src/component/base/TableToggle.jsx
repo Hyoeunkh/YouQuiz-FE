@@ -127,7 +127,7 @@ const TableToggle = () => {
   const StudentData = async () => {
     try {
       const response = await axios.get(
-        "http://101.101.219.109/teacher/1/study/1/1"
+        "http://101.101.219.109:8080/teacher/1/study/1/1"
       );
       setData(response.data.answer_sentence_list);
     } catch (e) {

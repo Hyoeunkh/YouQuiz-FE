@@ -16,7 +16,7 @@ export default function StudyResult() {
       const fetchData = async () => {
         try {
           const response = await axios.get(
-            "http://101.101.219.109/student/1/studystatus"
+            "http://101.101.219.109:8080/student/1/studystatus"
           );
           setLists(response.data);
         } catch (e) {

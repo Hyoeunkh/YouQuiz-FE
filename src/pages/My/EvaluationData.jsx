@@ -10,8 +10,8 @@ export default function EvaluationData() {
     useEffect(() => {
       axios
       .all([axios.get(
-            `http://101.101.219.109/teacher/1/evaluationstatus`
-          ), axios.get(`http://101.101.219.109/teacher/1/studystatus`)])
+            `http://101.101.219.109:8080/teacher/1/evaluationstatus`
+          ), axios.get(`http://101.101.219.109:8080/teacher/1/studystatus`)])
           .then(
             axios.spread((res1, res2)  => {
               setLists(res1.data.evaluation_status);

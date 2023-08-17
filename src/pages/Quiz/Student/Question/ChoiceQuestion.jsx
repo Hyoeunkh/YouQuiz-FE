@@ -16,7 +16,7 @@ const ChoiceQuestion = () => {
       try {
         const response = await axios.get(
           `http://localhost:3000/student_study`
-          /*`http://101.101.219.109/student/1/study/1`*/
+          /*`http://101.101.219.109:8080/student/1/study/1`*/
         );
         setQuestions(response.data);
       } catch (e) {
