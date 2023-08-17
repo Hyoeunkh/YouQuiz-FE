@@ -19,7 +19,7 @@ const QuestionRoute = () => {
       try {
         const response = await axios.get(
           /*`http://localhost:3000/student_study`*/
-          `http://101.101.219.109:8080/student/${student_id}/studystatus/1`
+          `http://101.101.219.109:8080/student/${student_id}/study/1`
         );
         setQuestions(response.data);
       } catch (e) {
