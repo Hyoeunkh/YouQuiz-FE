@@ -55,7 +55,7 @@ const App = () => {
         <Route path="/my/*" elementt={<ResultRoute />} />
         <Route path="/study/*" element={<QuestionRoute  /> } />
         <Route path="/teacher/study/*" element={<TeacherStudyRoute />} />
-        <Route path="/teacher/my/studystatus" element={<StudyData />} />
+        <Route path="/teacher/my/status" element={<StudyData />} />
         <Route path="/teacher/my/evaluationstatus" element={<EvaluationData />} />
         <Route path="/*" element={<NotFoundPage />} />
       </Routes>

@@ -1,26 +1,27 @@
 import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
-import { useEffect, useState, useSelector } from "react";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import QuestionPage from "../component/QuestionPage";
 import QuizPage from "../pages/Student/study/QuizPage";
 import QuizMedia from "../pages/Common/QuizMedia";
 import QuizComplete from "../pages/Common/QuizComplete";
 import AnswerQuestion from "../pages/Student/study/AnswerQuestion";
-import fetchData from "../what/api/quiz";
+import { ChapFetchThunk } from "../store/chapSlice";
 
 const QuestionRoute = () => {
   const [questions, setQuestions] = useState(null);
   const [studyNumber, setstudyNumber] = useState(null);
   const navigate = useNavigate();
-  const chap_id = 1;
-  //const studentNumber = useSelector((state) => state.auth.studentNumber);
-
-
+  const { role, id} = useSelector((state) => state.auth);
+  const { chap_id }= useSelector((state)=> state.chap);
+    
   useEffect(() => {
     const Data = async () => {
       try {
         const response = await axios.get(
-          //`http://101.101.219.109:8080/student/${id}/study/${chap_id}`
+          /*`http://101.101.219.109:8080/student/${student_id}/study/${chap_id}`*/
+          `http://101.101.219.109:8080/${role}/${id}/study/1`
         );
         setQuestions(response.data);
       } catch (e) {
@@ -33,7 +34,7 @@ const QuestionRoute = () => {
     return null;
   }
 
-  const lists = fetchData();
+
 
   console.log(questions.quizEntityList);
   const handleNextClick = (nextStudyNumber) => {
@@ -46,9 +47,9 @@ const QuestionRoute = () => {
   return (
     <>
     <Routes>
-      <Route path="/" element={<QuizPage lists={lists.no_study_list} />} />
-      <Route path= {`${lists.chap_id}/complete`} element={<QuizComplete />} />
-      <Route path={`${lists.chap_id}/answerquestion`}
+      <Route path="/" element={<QuizPage/>} />
+      <Route path= {`${chap_id}/complete`} element={<QuizComplete />} />
+      <Route path={`${chap_id}/answerquestion`}
         element={
         <AnswerQuestion
           title={questions.title}
@@ -58,7 +59,7 @@ const QuestionRoute = () => {
           studyNumber={studyNumber}
         />} 
       />
-      <Route path={`${lists.chap_id}/quizmedia`} 
+      <Route path={`${chap_id}/quizmedia`} 
       element={<QuizMedia
         title={questions.title}
         youtube_link={questions.youtube_link}
@@ -70,7 +71,7 @@ const QuestionRoute = () => {
       {questions.quizEntityList.map((question, index) => (
           <Route
             key={index}
-            path={`/study/${lists.no_study_list.chap_id}/${studyNumber}`}
+            path={`/study/${chap_id}/${studyNumber}`}
             element={
               <QuestionPage
                 title={questions.title}
