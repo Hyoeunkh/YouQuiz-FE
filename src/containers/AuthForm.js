@@ -49,7 +49,8 @@ const AuthForm = ({type, form, onChange, onSubmit, error }) => {
                 </label>
                     {error && <div className="error-message">{error}</div>}
                     <button className="login" onClick={onClickHandler}>로그인</button>
-
+                    test용 학생 아이디 : st1, 비밀번호 : 1000<br/>
+                    test용 선생 아이디 : test1, 비밀번호 : 1000
                 <ul className="bottom">
                         <li>
                             <Link to ="#">아이디 찾기</Link>

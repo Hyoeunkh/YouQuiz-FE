@@ -12,7 +12,7 @@ const QuestionPage = ({
   const navigate = useNavigate();
   const selectedChoices = useSelector((state) => state.answers);
   const dispatch = useDispatch();
-  const totalcount =5;
+  const totalcount = [1, 2, 3, 4, 5];
   const [selectedChoice, setSelectedChoice] = useState(null);
   const [currentPage, setCurrentPage] = useState(parseInt(question) + 1);
 
