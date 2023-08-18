@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 import "bootstrap/dist/css/bootstrap.min.css";
 import StudentQuizListForm from "../../../containers/StudentQuizListForm";
-import axios from "axios";
+    
 // quiz components
 const ListBlock = styled.div`
   position: relative;
@@ -13,12 +14,13 @@ const ListBlock = styled.div`
   left: 3vw;
 `;
 
-export default function QuizPage( lists ) {
-
+export default function QuizPage( ) {
+  const { data }= useSelector((state)=> state.chap);
+  // console.log(data);
   return (
     <>
       <ListBlock>
-        <StudentQuizListForm lists={lists} />
+        <StudentQuizListForm lists={data.no_study_list} />
       </ListBlock>
     </>
   );

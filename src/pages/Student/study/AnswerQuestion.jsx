@@ -23,6 +23,7 @@ const AnswerQuestion = ({
 	// 리덕스 스토어에서 주관식 답변과 객관식 답변 가져오기
 	const selectedChoices = useSelector((state) => state.answers);
 	const subjectiveAnswer = useSelector((state) => state.subjectiveAnswer);
+	const {status, data }= useSelector((state)=> state.chap);
 	const dispatch = useDispatch();
 
 	const handleChange = (event) => {
@@ -47,8 +48,8 @@ const AnswerQuestion = ({
 
   };
 	
-	const handleRightClick = ( nextStudyNumber ) => {
-		const nextUrl = `/student/complete`;
+	const handleRightClick = ( ) => {
+		const nextUrl = `/study/${data.no_study_list[0].chap_id}/complete`;
 		handleSubmit();
 		setCurrentPage(currentPage + 1);
 		navigate(nextUrl);

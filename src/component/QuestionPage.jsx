@@ -6,23 +6,18 @@ import QuizTitle from "../component/QuizTitle";
 import "../style/QuestionPage.scss";
 
 const QuestionPage = ({
-  title,
-  questionText,
-  choices,
-  totalPageCount,
-  writer,
-  comment,
-  onNextClick,
-  navigate,
+  questions
 }) => {
-  const { question_number } = useParams();
+  const { question } = useParams();
+  const navigate = useNavigate();
   const selectedChoices = useSelector((state) => state.answers);
   const dispatch = useDispatch();
-
+  const totalcount =5;
   const [selectedChoice, setSelectedChoice] = useState(null);
-  const [currentPage, setCurrentPage] = useState(parseInt(question_number) + 1);
+  const [currentPage, setCurrentPage] = useState(parseInt(question) + 1);
 
-  console.log(question_number);
+  const {status, data }= useSelector((state)=> state.chap);
+  
   const getImageSource = (choice) =>
     selectedChoice === choice
       ? `https://img.icons8.com/ios-filled/80/19A05E/${choice}-circle.png`
@@ -31,35 +26,39 @@ const QuestionPage = ({
   const radioChoices = [1, 2, 3, 4, 5];
 
   const handleleftClick = () => {
-    const nextStudyNumber = parseInt(question_number) - 1;
     dispatch(addAnswer(selectedChoices)); // 리덕스 액션 호출
     setCurrentPage(currentPage - 1);
-    onNextClick(nextStudyNumber);
-    
   };
+
   const handleRightClick = () => {
-    const nextStudyNumber = parseInt(question_number) + 1;
+    const nextStudyNumber = parseInt(question) + 1;
     dispatch(addAnswer(selectedChoices)); // 리덕스 액션 호출
     setCurrentPage(currentPage + 1);
-    onNextClick(nextStudyNumber);
+    if ( 4 < nextStudyNumber) {
+      navigate( `/study/${data.no_study_list[0].chap_id}/${parseInt(
+        nextStudyNumber
+      )}`)
+      return
+    }
   };
   return (
     <>
       <QuizTitle
-        text={title}
+        text={questions.title}
         currentPage={currentPage}
-        totalPageCount={totalPageCount}
+        totalPageCount={5}
       />
+      {totalcount.map((number,index) => (
       <div className="firstq-container">
         <div className="question-conta">
-          <h1>Q{parseInt(question_number)}</h1>
+          <h1>Q{parseInt(question)}</h1>
           <div className="problem-container">
-            <h3>{questionText}</h3>
+            <h3>{questions.quizEntityList[question-1].questionText}</h3>
             <h6 className="comment">
-              @{writer}
+              @{questions.quizEntityList[question-1].writer}
               <span>
                 <br />
-                {comment}
+                {questions.quizEntityList[question-1].comment}
               </span>
             </h6>
           </div>
@@ -79,11 +78,13 @@ const QuestionPage = ({
                 }
               />
               <img src={getImageSource(choice)} alt={`${choice}-circle`} />
-              {choices[choice - 1]}
+              {questions.quizEntityList[question-1].choices[choice - 1]}
             </label>
           ))}
         </ul>
       </div>
+      
+      ))}
 
       <div className="btn">
         <img

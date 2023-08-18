@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import YouTube from "react-youtube";
 import QuizTitle from "../../component/QuizTitle";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 // quiz components
 const Contents = styled.div`
@@ -41,16 +42,12 @@ const YoutubeVideo = ({ videoId }) => {
 export default function QuizMedia({
   youtube_link,
   title,
-  totalPageCount,
-  studentNumber = 1,
-  studyNumber = 1,
+  totalPageCount
 }) {
-  console.log("Student Number:", studentNumber);
-  console.log("Study Number:", studyNumber);
+  console.log(youtube_link, title, totalPageCount);
+  const {status, data }= useSelector((state)=> state.chap);
   const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(1);
-  const nextStudentNumber = parseInt(studentNumber) + 1;
-  const nextStudyNumber = parseInt(studyNumber) + 1;
 
   if (!youtube_link) {
     return null;
@@ -64,10 +61,8 @@ export default function QuizMedia({
 
   const videoId = extractYoutubeVideoId(youtube_link);
 
-  const handleRightClick = (nextStudentNumber, nextStudyNumber) => {
-    const nextUrl = `/student/${parseInt(nextStudentNumber)}/study/${parseInt(
-      nextStudyNumber
-    )}`;
+  const handleRightClick = () => {
+    const nextUrl = `/study/${data.no_study_list[0].chap_id}/${currentPage}`;
     navigate(nextUrl);
   };
   return (
@@ -98,7 +93,7 @@ export default function QuizMedia({
           height="80"
           src="https://img.icons8.com/ios/80/19A05E/circled-right-2.png"
           alt="circled-left-2"
-          onClick={() => handleRightClick(nextStudentNumber, nextStudyNumber)}
+          onClick={() => handleRightClick()}
         />
       </Btn>
     </>

@@ -25,7 +25,7 @@ export const ChapFetchThunk = () => {
         const request = async () => {
             const response = await fetch(`http://101.101.219.109:8080/student/1/study`);
             if(!response.ok) throw new Error("Failed!");
-            
+            // console.log("response" + response.json());
             return response.json();
         }
 
