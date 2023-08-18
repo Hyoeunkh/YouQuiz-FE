@@ -4,7 +4,6 @@ import styled from "styled-components";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const QuizFormWrapper = styled.div`
-
   width: 100%;
   .Contents {
     height: 100%;
@@ -90,7 +89,7 @@ const StudentQuizListForm = ({ lists }) => {
               <li
                 key={index}
                 className="list-group-item d-flex justify-content-between align-items-center custom-list-item"
-                onClick={() => navigate(`/study/quizmedia`)}
+                onClick={() => navigate(`/study/${item.chap_id}/quizmedia`)}
               >
                 <div className="list-container">
                   <img className="youtubelist" src={imgsrc} alt="" />
@@ -99,7 +98,7 @@ const StudentQuizListForm = ({ lists }) => {
                       <div className="level fw-bold">{item.chap_id}단계</div>
                       {item.score ? <span>({item.score}점/ 100점)</span> : null}
                     </div>
-                    <div className="fw-bold fs-3 mt-2">{lists.title}</div>
+                    <div className="fw-bold fs-4 mt-2">{item.title}</div>
                   </div>
                 </div>
                 <span className="custom-bad fw-bold fs-4">{item.score ? "결과보기" : "학습하기" }</span>

@@ -7,7 +7,7 @@ import QuizComplete from "../pages/Common/QuizComplete";
 import AnswerTeacher from "../pages/Teacher/AnswerTeacher";
 import TeacherStudyList from "../pages/Teacher/TeacherStudyList";
 
-const TeacherRoute = () => {
+const TeacherStudyRoute = () => {
   const [questions, setQuestions] = useState(null);
   const [studyNumber, setstudyNumber] = useState(null);
   const navigate = useNavigate();
@@ -90,4 +90,4 @@ const TeacherRoute = () => {
     </>
   );
 };
-export default TeacherRoute;
+export default TeacherStudyRoute;

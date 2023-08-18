@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { addAnswer } from "../../../services/reducers";
+import { addAnswer } from "../services/reducers";
 import { useParams } from "react-router-dom";
-import QuizTitle from "../../../component/QuizTitle";
-import "../../../style/QuestionPage.scss";
+import QuizTitle from "./QuizTitle";
+import "../style/QuestionPage.scss";
 
-const ResultPage = ({
+const ResultQuestionPage = ({
   title,
   questionText,
   choices,
@@ -107,4 +107,4 @@ const ResultPage = ({
     </>
   );
 };
-export default ResultPage;
+export default ResultQuestionPage;

@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { changeField, initializeForm, register } from "../what/modules/auth";
-import { check } from "../what/modules/user";
 import { useNavigate, Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -55,54 +53,6 @@ const RegisterForm = () => {
         user: user.user
     }));
 
-    const onChange = e => {
-        const {value, name} = e.target;
-        dispatch(
-            changeField({
-                form:'register',
-                key:name,
-                value
-            })
-        );
-    };
-
-    const onSubmit = e => {
-        e.preventDefault();
-        const {userid,password, passwordConfirm, username, birth, sex, phoneNumber} = form;
-        if([userid, password, passwordConfirm, username, birth, sex, phoneNumber].includes('')) {
-            setError('빈 칸을 모두 입력하세요.');
-            return;
-        }
-        if(password !== passwordConfirm){
-            setError('비밀번호가 일치하지 않습니다.');
-            dispatch(changeField({ form: 'register', key:'password', value:''}));
-            dispatch(
-                changeField({form: 'register', key:'passwordConfirm', value:''}),
-            );
-            return;
-        }
-        dispatch(register({userid,password}));
-    }
-
-    useEffect(() => {
-        dispatch(initializeForm('register'));
-    }, [dispatch]);
-    
-    useEffect(() => {
-        if(authError) {
-            if(authError.response.status === 409) {
-                setError('이미 존재하는 계정명입니다.');
-                return;
-            }
-            setError('회원가입 실패');
-            return;
-        }
-        if(auth) {
-            console.log('회원가입 성공');
-            console.log(auth);
-            dispatch(check());
-        }
-    },[auth, authError, dispatch]);
     useEffect(() => {
         if(user) {
             navigate('/');
@@ -117,6 +67,7 @@ const RegisterForm = () => {
         <>
         <RegisterWrapper>
             <div className="register-wrapper">
+                {/*
                 <div className="idpw" onSubmit={onSubmit}>
                     <input className="input" autoComplete="userid" name="userid" placeholder="아이디" onChange={onChange} value={form.userid} />
                     <input className="input" autoComplete="new-password" name="password" placeholder="비밀번호" type="password" onChange={onChange} value={form.password} />
@@ -126,6 +77,7 @@ const RegisterForm = () => {
                     <input className="input" autoComplete="sex" name="sex" placeholder="성별" type="sex" onChange={onChange} value={form.sex} />
                     <input className="input" autoComplete="new-phoneNumber" name="phoneNumber" placeholder="휴대전화번호" type="phoneNumber" onChange={onChange} value={form.phoneNumber} />
                 </div>
+    */}
                 {error && <div className="error-message">{error}</div>}
                 <div className="btn2">
                     <Link to={-1}>

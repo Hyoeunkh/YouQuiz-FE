@@ -1,8 +1,8 @@
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { useEffect, useState, useSelector } from "react";
 import axios from "axios";
-import QuestionPage from "../component/QuestionPage";
-import ResultPage from "../pages/Student/my/ResultPage";
+import ResultQuestionPage from "../component/ResultQuestionPage";
+import StudyResult from "../pages/Student/my/StudyResult";
 import QuizMedia from "../pages/Common/QuizMedia";
 import QuizComplete from "../pages/Common/QuizComplete";
 import AnswerResult from "../pages/Student/my/AnswerResult";
@@ -42,7 +42,7 @@ const ResultRoute = () => {
   return (
     <>
     <Routes>
-      <Route path="/" element={<ResultPage />} />
+      <Route path="/" element={<StudyResult />} />
       <Route path="complete" element={<QuizComplete />} />
       <Route path="answerresult" 
         element={
@@ -68,7 +68,7 @@ const ResultRoute = () => {
             key={index}
             path={`/my/${studyNumber}`}
             element={
-              <QuestionPage
+              <ResultQuestionPage
                 title={questions.title}
                 questionText={question.question}
                 choices={question.exampleList}

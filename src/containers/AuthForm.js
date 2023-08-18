@@ -1,10 +1,25 @@
 import "../style/AuthForm.scss"
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useDispatch } from "react-redux";
+import { AuthFetchThunk } from "../store/authSlice";
 
 
 const AuthForm = ({type, form, onChange, onSubmit, error }) => {
+    const btnRef= useRef();
+    const dispatch = useDispatch();
+    
     const [btnActive, setBtnActive] = useState('student');
+
+    const onClickHandler = (e) => {
+       
+            console.log("btnclicked");
+            dispatch(AuthFetchThunk(btnActive, "id", "pw"));
+        
+
+    }
+
+
     return (
         <>
             <div className="auth-wrapper">
@@ -15,17 +30,18 @@ const AuthForm = ({type, form, onChange, onSubmit, error }) => {
                     <button className={`student ${btnActive === "student" ? "active" : ""}`} onClick={()=>setBtnActive("student")}>학생</button>
                     <button className={`teacher ${btnActive === "teacher" ? "active" : ""}`} onClick={()=>setBtnActive("teacher")}>교직원</button>
                 </div>
+                {/*
                 <div className="idpw" onSubmit={onSubmit}>
                     <input className="input" autoComplete="userid" name="userid" placeholder="아이디" onChange={onChange} value={form.userid} />
                     <input className="input" autoComplete="new-password" name="password" placeholder="비밀번호" type="password" onChange={onChange} value={form.password} />
-                </div>
+    </div>*/}
                 <label className="store">
                     <input type="checkbox" id="store"/>
                     <label htmlFor="store"></label>
                     아이디 저장
                 </label>
                     {error && <div className="error-message">{error}</div>}
-                    <button className="login" >로그인</button>
+                    <button className="login" onClick={onClickHandler}>로그인</button>
 
                 <ul className="bottom">
                         <li>
