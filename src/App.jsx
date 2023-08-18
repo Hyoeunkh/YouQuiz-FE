@@ -7,9 +7,8 @@ import { RegisterRoute, LoginRoute } from "./Router/Route";
 import QuestionRoute from "./Router/QuestionRoute";
 import TeacherStudyRoute from "./Router/TeacherStudyRoute";
 import ResultRoute from "./Router/ResultRoute";
-import EvaluationData from "./pages/Teacher/EvaluationData";
-import StudyData from "./pages/Teacher/StudyData";
-import QuizPage from "./pages/Student/study/QuizPage";
+import EvaluationData from "./pages/Teacher/my/EvaluationData";
+import StudyData from "./pages/Teacher/my/StudyData";
 
 function NotFoundPage() {
   return <div>Page not found.</div>;
@@ -21,7 +20,7 @@ const App = () => {
   // 홈 화면 경로일 때 사이드바와 헤더 숨기기
   const hideSidebarAndHeader = pathname === "/";
 
-  //일단급한대fh state로 함
+  //일단급한대로 state로 함
   const [role, setrole] = useState("student");
 
   const getPageTitle = () => {

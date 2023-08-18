@@ -5,13 +5,15 @@ export const authSlice = createSlice({
     
     initialState: {
         status : null,
-        data : null,
+        id : null,
+        username : null,
         role : null,
     },
     reducers: {
         setAuth : (state, action) => {
             state.status = action.payload.status;
-            state.data = action.payload.data;
+            state.id = action.payload.id;
+            state.username = action.payload.username;
             state.role = action.payload.role;
         }
     },
@@ -20,35 +22,45 @@ export const authSlice = createSlice({
 export const AuthFetchThunk = (role, id, pw) => {
     return async (dispatch) => {
         dispatch(authActions.setAuth({
-            state : "fetching",
-            data : null,
+            status : "fetching",
+            id : null,
+            username : null,
             role : null,
         }));
 
         const request = async () => {
-            const response = await fetch(`/login/${role}`, {
+            const response = await fetch(`http://101.101.219.109:8080/login/${role}`, {
                 method : "POST",
                 headers:{
                     "Content-Type" : "application/json"
                 },
-                body : {
-                    useId : id,
-                    password : pw
-                }
+                body : JSON.stringify({
+                    "userId" : id,
+                    "password" : pw
+                })
             });
             if(!response.ok) throw new Error("Login Failed!");
+            
             return response.json();
         }
 
         try{
-            const data = request();
-            console.log(data);
+            const data = await request();
+            
             dispatch(authActions.setAuth({
-                state : "success",
-                data : 123,
+                status : "success",
+                id : data.id,
+                username : data.username,
+                role : role
             }));
         }catch(err){
-            console.log(err);
+            
+            dispatch(authActions.setAuth({
+                status: "failed",
+                id : null,
+                username: null,
+                role : null
+            }))
         }
     }
 }

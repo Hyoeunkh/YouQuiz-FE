@@ -11,15 +11,16 @@ const ResultRoute = () => {
   const [questions, setQuestions] = useState(null);
   const [studyNumber, setstudyNumber] = useState(null);
   const navigate = useNavigate();
+
   //const studentNumber = useSelector((state) => state.auth.studentNumber);
-  const student_id = 1;
-  
+  const chap_id = 1;
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
           /*`http://localhost:3000/student_study`*/
-          `http://101.101.219.109:8080/student/${student_id}/studystatus/1`
+          //`http://101.101.219.109:8080/student/${id}/studystatus/${chap_id}`
         );
         setQuestions(response.data);
       } catch (e) {

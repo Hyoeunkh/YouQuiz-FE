@@ -1,23 +1,30 @@
 import "../style/AuthForm.scss"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { AuthFetchThunk } from "../store/authSlice";
 
 
 const AuthForm = ({type, form, onChange, onSubmit, error }) => {
     const btnRef= useRef();
+    const navigate = useNavigate();
     const dispatch = useDispatch();
+
+    const {status, id, username, role }= useSelector((state)=>state.auth);
     
     const [btnActive, setBtnActive] = useState('student');
+    const [idRef, pwRef] = [useRef(), useRef()];
 
     const onClickHandler = (e) => {
-       
             console.log("btnclicked");
-            dispatch(AuthFetchThunk(btnActive, "id", "pw"));
-        
-
+            console.log(btnActive);
+            dispatch(AuthFetchThunk(btnActive, idRef.current.value, pwRef.current.value));
     }
+
+    useEffect(() => {
+        if(role === "student") navigate("/study");
+        else if (role === "teacher") navigate("/teacher/study");
+    }, [role])
 
 
     return (
@@ -30,11 +37,11 @@ const AuthForm = ({type, form, onChange, onSubmit, error }) => {
                     <button className={`student ${btnActive === "student" ? "active" : ""}`} onClick={()=>setBtnActive("student")}>학생</button>
                     <button className={`teacher ${btnActive === "teacher" ? "active" : ""}`} onClick={()=>setBtnActive("teacher")}>교직원</button>
                 </div>
-                {/*
+                
                 <div className="idpw" onSubmit={onSubmit}>
-                    <input className="input" autoComplete="userid" name="userid" placeholder="아이디" onChange={onChange} value={form.userid} />
-                    <input className="input" autoComplete="new-password" name="password" placeholder="비밀번호" type="password" onChange={onChange} value={form.password} />
-    </div>*/}
+                    <input ref={idRef} className="input"  name="userid" placeholder="아이디" onChange={onChange}  />
+                    <input ref={pwRef} className="input"  name="password" placeholder="비밀번호" type="password" onChange={onChange}  />
+                </div>
                 <label className="store">
                     <input type="checkbox" id="store"/>
                     <label htmlFor="store"></label>

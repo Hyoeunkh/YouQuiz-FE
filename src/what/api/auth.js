@@ -2,7 +2,7 @@ import client from './client'
 
 export const login = ({userid, password}) =>{
     console.log('Sending login request:', userid, password);
-    return client.get('http://101.101.219.109:8080/student/1/study`, {userid, password}`)
+    return client.post('http://101.101.219.109:8080/login/student', {userid, password})
         .then(response => {
             console.log('Login response:', response.data); // 응답 데이터 확인
             return response;

@@ -12,15 +12,15 @@ const QuestionRoute = () => {
   const [questions, setQuestions] = useState(null);
   const [studyNumber, setstudyNumber] = useState(null);
   const navigate = useNavigate();
+  const chap_id = 1;
   //const studentNumber = useSelector((state) => state.auth.studentNumber);
-  console.log("quizrouter");
+
 
   useEffect(() => {
     const Data = async () => {
       try {
         const response = await axios.get(
-          /*`http://localhost:3000/student_study`*/
-          // `http://101.101.219.109:8080/student/1/study/${chap_id}`
+          //`http://101.101.219.109:8080/student/${id}/study/${chap_id}`
         );
         setQuestions(response.data);
       } catch (e) {

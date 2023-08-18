@@ -4,8 +4,8 @@ import axios from "axios";
 import QuestionPage from "../component/QuestionPage";
 import QuizMedia from "../pages/Common/QuizMedia";
 import QuizComplete from "../pages/Common/QuizComplete";
-import AnswerTeacher from "../pages/Teacher/AnswerTeacher";
-import TeacherStudyList from "../pages/Teacher/TeacherStudyList";
+import AnswerTeacher from "../pages/Teacher/study/AnswerTeacher";
+import TeacherStudyList from "../pages/Teacher/study/TeacherStudyList";
 
 const TeacherStudyRoute = () => {
   const [questions, setQuestions] = useState(null);
