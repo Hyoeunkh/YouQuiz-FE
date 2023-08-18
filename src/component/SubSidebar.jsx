@@ -42,8 +42,8 @@ export default function SubSideBar( { userType, student_id, teacher_id } ) {
             <ul className="sub-container">
                 {isStudent && (
                     <>
-                        <li className={`nav-item ${location.pathname.includes(`/studyresult`) ? "current-page" : ""}`}>
-                            <Link to={`/my/studyresult`}>학습 결과</Link>
+                        <li className={`nav-item ${location.pathname.includes(`/result`) ? "current-page" : ""}`}>
+                            <Link to={`/my/result`}>학습 결과</Link>
                         </li>
                         <li className={`nav-item ${location.pathname.includes(`/update`) ? "current-page" : ""}`}>
                             <Link to="#">개인정보 수정</Link>
@@ -53,8 +53,8 @@ export default function SubSideBar( { userType, student_id, teacher_id } ) {
 
                 {isTeacher && (
                     <>
-                        <li className={`nav-item ${location.pathname.includes(`studystatus`) ? "current-page" : ""}`}>
-                            <Link to={`/my/studystatus`}>학습 관리</Link>
+                        <li className={`nav-item ${location.pathname.includes(`status`) ? "current-page" : ""}`}>
+                            <Link to={`/my/status`}>학습 관리</Link>
                         </li>
                         <li className={`nav-item ${location.pathname.includes(`/evaluationstatus`) ? "current-page" : ""}`}>
                             <Link to={`/my/evaluationstatus`}>채점 관리</Link>
