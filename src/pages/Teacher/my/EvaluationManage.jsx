@@ -1,69 +1,67 @@
 import React from "react";
 import styled from "styled-components";
-import MyPageForm from "../../containers/MyPageForm";
+import MyPageForm from "../../../containers/MyPageForm";
 import { useTable } from "react-table";
 
 const TableBlock = styled.div`
   height: 75vh;
-  width: 55vw;
+  width: 54.5vw;
   display: flex;
-  flex-direction: column;
   align-items:center;
-  margin-top: 1vh;
+  margin-top: .5vh;
 `;
-const TableWrapper = styled.div`
-  height: 100%;
-  width: 95%;
+
+const EvaluationBlock = styled.div`
+  height: 90%;
+  width: 100%;
   overflow-y: auto; /* 내용많으면 스크롤됨 */
-  padding-right: 1vw;
-  
-  &::-webkit-scrollbar {
-    width: .7vw;
-  }
+
   &::-webkit-scrollbar-thumb {
-    background: #E5E5E5;
+    background: #D9D9D9;
   }
   &::-webkit-scrollbar-track {
     background: none;
   }
+
   table {
     width: 100%;
-    height: 100%;
+    height: 55%;
     text-align: center;
     border-collapse: collapse;
-  }
-
-  td{
-    height: 5vh;
-    border: 1px solid white;
+    font-weight: 600;
   }
   thead {
-    font-weight: bold;
     position: sticky;
     top: 0;
     height: 5vh;
-    background-color: white;
+    border-top: 1px solid #5A5A5A;
+    border-bottom: 1px solid #5A5A5A;
   }
-  th {
-    font-weight: 600;
+  td{
+    height: 5vh;
+  }
+  tbody td:nth-child(3) {
+    width: 40%;
+    text-align: start;
+    padding-left: 2vw;
   }
   tbody tr:nth-child(2n+1) {
-    background-color: #E5E5E5;
+    background-color: #F4F4F4;
   }
   tbody tr:nth-child(2n) {
     background-color: white;
   }
 `;
 
-export default function StudyManage( { columns, data, title } ) {
+export default function EvaluationtManage( { columns, data, title } ) {
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     useTable({ columns, data });
 
   return (
     <>
-      <MyPageForm  userType={"teacher"} teacher_id={"20"} page={"학습 관리"} title={ title } />
+      <MyPageForm  userType={"teacher"} teacher_id={"20"} page={"채점 관리"} title ={title}/>
       <TableBlock>
-        <TableWrapper>
+        <EvaluationBlock>
           <table {...getTableProps()}>
             <thead>
               {headerGroups.map((headerGroup) => (
@@ -88,9 +86,8 @@ export default function StudyManage( { columns, data, title } ) {
               })}
             </tbody>
           </table>
-          </TableWrapper>
+        </EvaluationBlock>
       </TableBlock>
     </>
   );
 }
-

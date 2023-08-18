@@ -7,14 +7,12 @@ import { RegisterRoute, LoginRoute } from "./Router/Route";
 import QuestionRoute from "./Router/QuestionRoute";
 import TeacherStudyRoute from "./Router/TeacherStudyRoute";
 import ResultRoute from "./Router/ResultRoute";
-import EvaluationData from "./pages/Teacher/EvaluationData";
-import StudyData from "./pages/Teacher/StudyData";
+import EvaluationData from "./pages/Teacher/my/EvaluationData";
+import StudyData from "./pages/Teacher/my/StudyData";
 
 function NotFoundPage() {
   return <div>Page not found.</div>;
 }
-
-
 const App = () => {
   const location = useLocation();
   const pathname = location.pathname;
@@ -22,7 +20,7 @@ const App = () => {
   // 홈 화면 경로일 때 사이드바와 헤더 숨기기
   const hideSidebarAndHeader = pathname === "/";
 
-  //일단급한대fh state로 함
+  //일단급한대로 state로 함
   const [role, setrole] = useState("student");
 
   const getPageTitle = () => {
@@ -30,8 +28,7 @@ const App = () => {
       return "Login";
     }
     if (
-      pathname.includes("/evaluationstatus") || 
-      pathname.includes("/studystatus")
+      pathname.includes("/my")
     ) {
       return "My page";
     }
@@ -51,17 +48,18 @@ const App = () => {
           <Header page={getPageTitle()} />
         </>
       )}
-
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/login/*" element={<LoginRoute />} />
         <Route path="/register/*" element={<RegisterRoute />} />
-        <Route path="/my" component={<ResultRoute />} />
-        <Route path="/study" component={role === 'teacher' ? <TeacherStudyRoute />  : <QuestionRoute /> } />
-        <Route path="/teacher/my/studystatus" component={<StudyData />} />
-        <Route path="/teacher/my/evaluationstatus" component={<EvaluationData />} />
-        <Route path="/*" component={<NotFoundPage />} />
+        <Route path="/my/*" elementt={<ResultRoute />} />
+        <Route path="/study/*" element={<QuestionRoute  /> } />
+        <Route path="/teacher/study/*" element={<TeacherStudyRoute />} />
+        <Route path="/teacher/my/studystatus" element={<StudyData />} />
+        <Route path="/teacher/my/evaluationstatus" element={<EvaluationData />} />
+        <Route path="/*" element={<NotFoundPage />} />
       </Routes>
+      
     </>
   );
 };

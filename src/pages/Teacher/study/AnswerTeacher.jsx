@@ -2,9 +2,9 @@ import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import { Container } from "react-bootstrap";
 
-import QuizTitle from "../../component/QuizTitle";
-import TeacherToggle from "../../component/TeacherToggle";
-import "../../style/AnswerResult.scss";
+import QuizTitle from "../../../component/QuizTitle";
+import TeacherToggle from "../../../component/TeacherToggle";
+import "../../../style/AnswerResult.scss";
 
 export default function AnswerTeacher( { title, questionText, question_number,totalPageCount } ) {
  /*

@@ -22,10 +22,6 @@ const QuestionPage = ({
   const [selectedChoice, setSelectedChoice] = useState(null);
   const [currentPage, setCurrentPage] = useState(parseInt(question_number) + 1);
 
-  const handlePageChange = (page) => {
-    dispatch(addAnswer(selectedChoices)); // 리덕스 액션 호출
-    setCurrentPage(page);
-  };
   console.log(question_number);
   const getImageSource = (choice) =>
     selectedChoice === choice
@@ -35,14 +31,17 @@ const QuestionPage = ({
   const radioChoices = [1, 2, 3, 4, 5];
 
   const handleleftClick = () => {
-    const nextStudentNumber = parseInt(question_number) - 1;
     const nextStudyNumber = parseInt(question_number) - 1;
-    onNextClick(nextStudentNumber, nextStudyNumber);
+    dispatch(addAnswer(selectedChoices)); // 리덕스 액션 호출
+    setCurrentPage(currentPage - 1);
+    onNextClick(nextStudyNumber);
+    
   };
   const handleRightClick = () => {
-    const nextStudentNumber = parseInt(question_number) + 1;
     const nextStudyNumber = parseInt(question_number) + 1;
-    onNextClick(nextStudentNumber, nextStudyNumber);
+    dispatch(addAnswer(selectedChoices)); // 리덕스 액션 호출
+    setCurrentPage(currentPage + 1);
+    onNextClick(nextStudyNumber);
   };
   return (
     <>

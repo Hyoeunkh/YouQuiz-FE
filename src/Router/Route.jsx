@@ -1,9 +1,9 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import LoginPage from "../pages/Common/LoginPage";
-import AgreementPage from "../pages/Register/AgreementPage";
-import UserInfoPage from "../pages/Register/UserInfoPage";
-import SchoolAuth from "../pages/Register/SchoolAuth";
+import AgreementPage from "../pages/Common/AgreementPage";
+import UserInfoPage from "../pages/Common/UserInfoPage";
+import SchoolAuth from "../pages/Common/SchoolAuth";
 
 
 

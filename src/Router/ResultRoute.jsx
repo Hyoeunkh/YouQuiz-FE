@@ -1,8 +1,8 @@
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { useEffect, useState, useSelector } from "react";
 import axios from "axios";
-import QuestionPage from "../component/QuestionPage";
-import ResultPage from "../pages/Student/my/ResultPage";
+import ResultQuestionPage from "../component/ResultQuestionPage";
+import StudyResult from "../pages/Student/my/StudyResult";
 import QuizMedia from "../pages/Common/QuizMedia";
 import QuizComplete from "../pages/Common/QuizComplete";
 import AnswerResult from "../pages/Student/my/AnswerResult";
@@ -11,15 +11,16 @@ const ResultRoute = () => {
   const [questions, setQuestions] = useState(null);
   const [studyNumber, setstudyNumber] = useState(null);
   const navigate = useNavigate();
+
   //const studentNumber = useSelector((state) => state.auth.studentNumber);
-  const student_id = 1;
-  
+  const chap_id = 1;
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
           /*`http://localhost:3000/student_study`*/
-          `http://101.101.219.109:8080/student/${student_id}/studystatus/1`
+          //`http://101.101.219.109:8080/student/${id}/studystatus/${chap_id}`
         );
         setQuestions(response.data);
       } catch (e) {
@@ -42,7 +43,7 @@ const ResultRoute = () => {
   return (
     <>
     <Routes>
-      <Route path="/" element={<ResultPage />} />
+      <Route path="/" element={<StudyResult />} />
       <Route path="complete" element={<QuizComplete />} />
       <Route path="answerresult" 
         element={
@@ -68,7 +69,7 @@ const ResultRoute = () => {
             key={index}
             path={`/my/${studyNumber}`}
             element={
-              <QuestionPage
+              <ResultQuestionPage
                 title={questions.title}
                 questionText={question.question}
                 choices={question.exampleList}
