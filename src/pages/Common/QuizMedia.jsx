@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import "bootstrap/dist/css/bootstrap.min.css";
 import YouTube from "react-youtube";
 import QuizTitle from "../../component/QuizTitle";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import axios from "axios";
 
-// quiz components
 const Contents = styled.div`
   background-color: light-gray;
   height: 55vh;
@@ -38,20 +38,30 @@ const YoutubeVideo = ({ videoId }) => {
 
   return <YouTube videoId={videoId} opts={opts} />;
 };
-
-export default function QuizMedia({
-  youtube_link,
-  title,
-  totalPageCount
-}) {
-  console.log(youtube_link, title, totalPageCount);
-  const {status, data }= useSelector((state)=> state.chap);
+//result 일경우????
+export default function QuizMedia() {
+  const [questions, setQuestions] = useState(null);
+  const { role, id } = useSelector((state) => state.auth);
+  const { data }= useSelector((state)=> state.chap);
   const navigate = useNavigate();
-  const [currentPage, setCurrentPage] = useState(1);
+  useEffect(() => {
+      const Data = async () => {
+        try {
+          const response = await axios.get(
+            `http://101.101.219.109:8080/${role}/${id}/study/${data.no_study_list[0].chap_id}`
+          );
+          setQuestions(response.data);
 
-  if (!youtube_link) {
+        } catch (e) {
+          console.log(e);
+        }
+      };
+      Data();
+  }, [questions]);
+  if (!questions) {
     return null;
   }
+  
   const extractYoutubeVideoId = (url) => {
     const match = url.match(
       /(?:https?:\/\/)?(?:www\.)?youtu(?:be\.com\/watch\?v=|\.be\/)([\w\-\_]*)(&(amp;)?[\w\?=]*)?/
@@ -59,18 +69,13 @@ export default function QuizMedia({
     return match && match[1] ? match[1] : null;
   };
 
-  const videoId = extractYoutubeVideoId(youtube_link);
+  const videoId = extractYoutubeVideoId(questions.youtube_link);
 
-  const handleRightClick = () => {
-    const nextUrl = `/study/${data.no_study_list[0].chap_id}/${currentPage}`;
-    navigate(nextUrl);
-  };
   return (
     <>
       <QuizTitle
-        text={title}
-        currentPage={currentPage}
-        totalPageCount={totalPageCount}
+        text={questions.title}
+        currentPage={1}
       />
       <Contents>
         <p>
@@ -93,7 +98,7 @@ export default function QuizMedia({
           height="80"
           src="https://img.icons8.com/ios/80/19A05E/circled-right-2.png"
           alt="circled-left-2"
-          onClick={() => handleRightClick()}
+          onClick={() => navigate(`/study/${data.no_study_list[0].chap_id}/quiz`, {state: { questions:questions.quizEntityList, title:questions.title } })}
         />
       </Btn>
     </>

@@ -96,12 +96,11 @@ const StudentQuizListForm = ({ lists }) => {
                   <div className="ms-5 custom-text">
                     <div className="levle-con">
                       <div className="level fw-bold">{item.chap_id}단계</div>
-                      {item.score ? <span>({item.score}점/ 100점)</span> : null}
                     </div>
                     <div className="fw-bold fs-4 mt-2">{item.title}</div>
                   </div>
                 </div>
-                <span className="custom-bad fw-bold fs-4">{item.score ? "결과보기" : "학습하기" }</span>
+                <span className="custom-bad fw-bold fs-4">학습하기</span>
               </li>
             );
           })}

@@ -72,7 +72,7 @@ const extractYoutubeVideoId = (url) => {
   return match && match[1] ? match[1] : null;
 };
 
-const TeacherQuizListForm = ({ lists }) => {
+const ResultQuizListForm = ({ lists }) => {
   const navigate = useNavigate();
 
   return (
@@ -89,18 +89,19 @@ const TeacherQuizListForm = ({ lists }) => {
               <li
                 key={index}
                 className="list-group-item d-flex justify-content-between align-items-center custom-list-item"
-                onClick={() => navigate(`/teacher/study/${item.chap_id}/quizmedia`)}
+                onClick={() => navigate(`/my/${item.chap_id}/quizmedia`)}
               >
                 <div className="list-container">
                   <img className="youtubelist" src={imgsrc} alt="" />
                   <div className="ms-5 custom-text">
                     <div className="levle-con">
                       <div className="level fw-bold">{item.chap_id}단계</div>
+                      <span>({item.score}점/ 100점)</span>
                     </div>
                     <div className="fw-bold fs-4 mt-2">{item.title}</div>
                   </div>
                 </div>
-                <span className="custom-bad fw-bold fs-4">학습하기</span>
+                <span className="custom-bad fw-bold fs-4">결과보기</span>
               </li>
             );
           })}
@@ -110,4 +111,4 @@ const TeacherQuizListForm = ({ lists }) => {
   );
 };
 
-export default TeacherQuizListForm;
+export default ResultQuizListForm;

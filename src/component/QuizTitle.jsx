@@ -45,14 +45,14 @@ const Questionwrapper = styled.div`
   }
 `;
 
-const Title = ({ text, currentPage, totalPageCount }) => {
+const Title = ({ text, currentPage}) => {
   return (
     <>
       <Questionwrapper>
         <div className='problem'>{text}</div>
         <div className="progressbar-container">
           <div className="progressbar"></div>
-            {[...Array(totalPageCount)].map((_, index) => (
+            {[...Array([1,2,3,4,5,6])].map((_, index) => (
               <div
                 key={index}
                 className={`circle ${index < currentPage ? 'filled' : ''}`}
