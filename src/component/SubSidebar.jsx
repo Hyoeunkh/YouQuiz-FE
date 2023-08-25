@@ -32,7 +32,7 @@ const ListContent = styled.div`
 
 `;
 
-export default function SubSideBar( { userType, student_id, teacher_id } ) {
+export default function SubSideBar( { userType} ) {
     const location = useLocation();
     const isStudent = userType === "student";
     const isTeacher = userType === "teacher";
@@ -53,11 +53,11 @@ export default function SubSideBar( { userType, student_id, teacher_id } ) {
 
                 {isTeacher && (
                     <>
-                        <li className={`nav-item ${location.pathname.includes(`status`) ? "current-page" : ""}`}>
-                            <Link to={`/my/status`}>학습 관리</Link>
+                        <li className={`nav-item ${location.pathname === (`/teacher/my/status`) ? "current-page" : ""}`}>
+                            <Link to={`/teacher/my/status`}>학습 관리</Link>
                         </li>
                         <li className={`nav-item ${location.pathname.includes(`/evaluationstatus`) ? "current-page" : ""}`}>
-                            <Link to={`/my/evaluationstatus`}>채점 관리</Link>
+                            <Link to={`/teacher/my/evaluationstatus`}>채점 관리</Link>
                         </li>
                         <li className={`nav-item ${location.pathname.includes(`update`) ? "current-page" : ""}`}>
                             <Link to="#">개인정보 수정</Link>

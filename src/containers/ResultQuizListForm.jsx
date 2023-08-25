@@ -74,9 +74,10 @@ const extractYoutubeVideoId = (url) => {
   return match && match[1] ? match[1] : null;
 };
 
-const StudentQuizListForm = ({ lists }) => {
+const ResultQuizListForm = ({ lists }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
 
   return (
     <QuizFormWrapper>
@@ -92,20 +93,21 @@ const StudentQuizListForm = ({ lists }) => {
               <li
                 key={index}
                 className="list-group-item d-flex justify-content-between align-items-center custom-list-item"
-                onClick={() => { navigate(`/study/${item.chap_id}/quizmedia`);
-                  dispatch(ChapIdFetchThunk(item.chap_id));
-                }}
+                onClick={() => { navigate(`/my/${item.chap_id}/quizmedia`);
+                dispatch(ChapIdFetchThunk(item.chap_id));
+              }}
               >
                 <div className="list-container">
                   <img className="youtubelist" src={imgsrc} alt="" />
                   <div className="ms-5 custom-text">
                     <div className="levle-con">
                       <div className="level fw-bold">{item.chap_id}단계</div>
+                      <span>({item.score}점/ 100점)</span>
                     </div>
                     <div className="fw-bold fs-4 mt-2">{item.title}</div>
                   </div>
                 </div>
-                <span className="custom-bad fw-bold fs-4">학습하기</span>
+                <span className="custom-bad fw-bold fs-4">결과보기</span>
               </li>
             );
           })}
@@ -115,4 +117,4 @@ const StudentQuizListForm = ({ lists }) => {
   );
 };
 
-export default StudentQuizListForm;
+export default ResultQuizListForm;

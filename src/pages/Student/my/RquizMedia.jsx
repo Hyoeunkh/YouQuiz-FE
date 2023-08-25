@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import "bootstrap/dist/css/bootstrap.min.css";
 import YouTube from "react-youtube";
-import QuizTitle from "../../component/QuizTitle";
+import QuizTitle from "../../../component/QuizTitle";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import axios from "axios";
@@ -38,7 +38,7 @@ const YoutubeVideo = ({ videoId }) => {
 
   return <YouTube videoId={videoId} opts={opts} />;
 };
-
+//result 일경우????
 export default function QuizMedia() {
   const [questions, setQuestions] = useState(null);
   const { role, id } = useSelector((state) => state.auth);
@@ -48,7 +48,7 @@ export default function QuizMedia() {
       const Data = async () => {
         try {
           const response = await axios.get(
-            `http://101.101.219.109:8080/${role}/${id}/study/${chap_id}`
+            `http://101.101.219.109:8080/${role}/${id}/studystatus/${chap_id}`
           );
           setQuestions(response.data);
 
@@ -98,7 +98,7 @@ export default function QuizMedia() {
           height="80"
           src="https://img.icons8.com/ios/80/19A05E/circled-right-2.png"
           alt="circled-left-2"
-          onClick={() => navigate(`/study/${chap_id}/quiz`, {state: { questions:questions.quizEntityList, title:questions.title } })}
+          onClick={() => navigate(`/my/${chap_id}/quiz`, {state: { questions:questions.quizEntityList, title:questions.title, correct_answerList:questions.correct_answerList, student_answer_list:questions.student_answer_list, answer_sentence:questions.answer_sentence, teacher_comment:questions.teacher_comment } })}
         />
       </Btn>
     </>

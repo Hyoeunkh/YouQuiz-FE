@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
-import StudentQuizListForm from "../../../containers/StudentQuizListForm";
+import "bootstrap/dist/css/bootstrap.min.css";
+import TeacherQuizListForm from "../../../containers/TeacherQuizListForm";
 import { useSelector, useDispatch } from "react-redux";
-import { ChapFetchThunk } from "../../../store/chapSlice";
+import { TeacherFetchThunk } from "../../../store/teacherSlice";
 
 const ListBlock = styled.div`
   position: relative;
@@ -13,19 +14,19 @@ const ListBlock = styled.div`
   left: 3vw;
 `;
 
-export default function QuizPage() {
-  const { status, data }= useSelector((state)=> state.chap);
+export default function TeacherStudyList() {
+  const { status, data }= useSelector((state)=> state.teacher);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(ChapFetchThunk());
+    dispatch(TeacherFetchThunk());
   }, []);
-  
+
   if(status === "success"){
     return (
       <>
         <ListBlock>
-          <StudentQuizListForm lists={data.no_study_list} />
+          <TeacherQuizListForm lists={data.teacherChapterList} />
         </ListBlock>
       </>
     );

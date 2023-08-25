@@ -1,12 +1,12 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
 import "../style/Sidebar.scss"
 
-export default function SideBar( ) {
+export default function SideBar() {
     const location = useLocation();
 
-    const {role} = useSelector((state) => state.auth);
+    const { role } = useSelector((state) => state.auth);
 
     const isLoginPage = location.pathname.includes("/login");
     const isRegisterPage = location.pathname.includes("/register");
@@ -32,7 +32,7 @@ export default function SideBar( ) {
                         </li>
                         </> : 
                         <li className={`nav-item ${isMyPage ? "current-page" : ""}`}>
-                            <Link to={`${role ==="student" ? `/my` : `/my/teacher/status`}`}><img className="icon" src={isMyPage ? "/circle.png" : "/circle-wh.png"} alt="" />마이페이지</Link>
+                            <Link to={`${role ==="student" ? `/my` : `/teacher/my/status`}`}><img className="icon" src={isMyPage ? "/circle.png" : "/circle-wh.png"} alt="" />마이페이지</Link>
                         </li>
                     }
                     <li className={`nav-item ${isQuizPage ? "current-page" : ""}`}>

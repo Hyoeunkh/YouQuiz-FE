@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import "bootstrap/dist/css/bootstrap.min.css";
 import YouTube from "react-youtube";
-import QuizTitle from "../../component/QuizTitle";
+import QuizTitle from "../../../component/QuizTitle";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import axios from "axios";
@@ -38,17 +38,18 @@ const YoutubeVideo = ({ videoId }) => {
 
   return <YouTube videoId={videoId} opts={opts} />;
 };
-
-export default function QuizMedia() {
+//result 일경우????
+export default function TquizMedia() {
   const [questions, setQuestions] = useState(null);
   const { role, id } = useSelector((state) => state.auth);
   const { chap_id } = useSelector((state) => state.chap_id);
   const navigate = useNavigate();
+
   useEffect(() => {
       const Data = async () => {
         try {
           const response = await axios.get(
-            `http://101.101.219.109:8080/${role}/${id}/study/${chap_id}`
+            `http://101.101.219.109:8080/${role}/${id}/study/1/${chap_id}`
           );
           setQuestions(response.data);
 
@@ -61,7 +62,6 @@ export default function QuizMedia() {
   if (!questions) {
     return null;
   }
-  
   const extractYoutubeVideoId = (url) => {
     const match = url.match(
       /(?:https?:\/\/)?(?:www\.)?youtu(?:be\.com\/watch\?v=|\.be\/)([\w\-\_]*)(&(amp;)?[\w\?=]*)?/
@@ -98,7 +98,7 @@ export default function QuizMedia() {
           height="80"
           src="https://img.icons8.com/ios/80/19A05E/circled-right-2.png"
           alt="circled-left-2"
-          onClick={() => navigate(`/study/${chap_id}/quiz`, {state: { questions:questions.quizEntityList, title:questions.title } })}
+          onClick={() => navigate(`/teacher/study/${chap_id}/quiz`, {state: { questions:questions.quizEntityList, title:questions.title, correct_answerList:questions.correct_answerList } })}
         />
       </Btn>
     </>

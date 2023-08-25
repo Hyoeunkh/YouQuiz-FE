@@ -1,43 +1,42 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-export const chapSlice = createSlice({
-    name:"chap",
+export const resultSlice = createSlice({
+    name:"result_chap_list",
     
     initialState: {
         status : null,
         data: null
     },
     reducers: {
-        setChap : (state, action) => {
+        setResult : (state, action) => {
             state.status = action.payload.status;
             state.data = action.payload.data;
         }
     },
 });
 
-export const ChapFetchThunk = () => {
+export const ResultFetchThunk = () => {
     return async (dispatch) => {
-        dispatch(chapActions.setChap({
+        dispatch(resultActions.setResult({
             status : "fetching",
             data: null
         }));
 
         const request = async () => {
-            const response = await fetch(`http://101.101.219.109:8080/student/1/study`);
+            const response = await fetch(`http://101.101.219.109:8080/student/1/studystatus`);
             if(!response.ok) throw new Error("Failed!");
-            // console.log("response" + response.json());
+            //console.log("response" + response.json());
             return response.json();
         }
 
         try{
             const data = await request();
-            
-            dispatch(chapActions.setChap({
+            dispatch(resultActions.setResult({
                 status : "success",
                 data : data
             }));
-        }catch(err){ 
-            dispatch(chapActions.setChap({
+        }catch(err){
+            dispatch(resultActions.setResult({
                 status: "failed",
                 data : null
             }))
@@ -46,4 +45,4 @@ export const ChapFetchThunk = () => {
 }
 
 
-export const chapActions = chapSlice.actions;
+export const resultActions = resultSlice.actions;
