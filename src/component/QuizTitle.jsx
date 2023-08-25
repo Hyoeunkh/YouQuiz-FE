@@ -45,7 +45,7 @@ const Questionwrapper = styled.div`
   }
 `;
 
-const Title = ({ text, currentPage}) => {
+const Title = ({ text, currentPage }) => {
   return (
     <>
       <Questionwrapper>

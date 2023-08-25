@@ -1,11 +1,10 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import React from "react";
 import "../../style/QuizComplete.scss";
 	
 	const QuizComplate = () => {
 		const { role } = useSelector((state) => state.auth);
-		const location = useLocation();
 		const navigate = useNavigate();
 
 		const onRightHandler = () => {
@@ -13,7 +12,7 @@ import "../../style/QuizComplete.scss";
 			else if (role === "teacher") navigate("/teacher/study");
 		}
 		const onLeftHandler = () => {
-            if(role === "student") navigate("/my");
+            if(role === "student") navigate("/mypage");
 			else if (role === "teacher") navigate("/teacher/my/status");
 		}
 

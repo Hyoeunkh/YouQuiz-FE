@@ -3,8 +3,12 @@ import { useMemo, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
+import { ChapIdFetchThunk } from "../../../store/chapIdSlice";
+import { useDispatch } from "react-redux";
+
 export default function EvaluationData() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [lists, setLists ] = useState(null);
   const [title, settitle ] = useState(null);
     useEffect(() => {
@@ -16,7 +20,6 @@ export default function EvaluationData() {
             axios.spread((res1, res2)  => {
               setLists(res1.data.evaluation_status);
               settitle(res2.data.student_list[0]);
-              console.log(res2);
             })
            )
           .catch ((e) => console.log(e));
@@ -70,7 +73,8 @@ export default function EvaluationData() {
                   status: list.complete_student + "/" + list.total_student, 
                   btn:<button 
                         onClick={() => {
-                          navigate(`/study/quizmedia`); //study/누른 chap_id문제로 들어가야함
+                          navigate(`/teacher/study/${list.chap_id}/quizmedia`);
+                          dispatch(ChapIdFetchThunk(list.chap_id));
                           }
                         }
                         style={{ background: "none", padding: 0, cursor: "pointer",color: "black" }}

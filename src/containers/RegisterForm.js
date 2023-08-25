@@ -67,17 +67,6 @@ const RegisterForm = () => {
         <>
         <RegisterWrapper>
             <div className="register-wrapper">
-                {/*
-                <div className="idpw" onSubmit={onSubmit}>
-                    <input className="input" autoComplete="userid" name="userid" placeholder="아이디" onChange={onChange} value={form.userid} />
-                    <input className="input" autoComplete="new-password" name="password" placeholder="비밀번호" type="password" onChange={onChange} value={form.password} />
-                    <input className="input" autoComplete="new-passwordConfirm" name="passwordConfirm" placeholder="비밀번호 확인" type="passwordConfirm" onChange={onChange} value={form.passwordConfirm} />
-                    <input className="input" autoComplete="new-username" name="username" placeholder="이름" type="username" onChange={onChange} value={form.username} />
-                    <input className="input" autoComplete="new-birth" name="birth" placeholder="생년월일 8자리" type="birth" onChange={onChange} value={form.birth} />
-                    <input className="input" autoComplete="sex" name="sex" placeholder="성별" type="sex" onChange={onChange} value={form.sex} />
-                    <input className="input" autoComplete="new-phoneNumber" name="phoneNumber" placeholder="휴대전화번호" type="phoneNumber" onChange={onChange} value={form.phoneNumber} />
-                </div>
-    */}
                 {error && <div className="error-message">{error}</div>}
                 <div className="btn2">
                     <Link to={-1}>

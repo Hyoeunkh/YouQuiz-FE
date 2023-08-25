@@ -3,17 +3,10 @@ import { styled } from 'styled-components';
 import axios from 'axios';
 
 const TableWrapper = styled.div`
-  height: 60vh;
-  width: 75vw;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  margin: 0 15vw;
-  gap: 1rem;
 `;
 const STable = styled.div`
-  width: 70%;
-  height: 70%;
+  width: 100%;
+  height: 100%;
   overflow-y: auto;
 
   &::-webkit-scrollbar {
@@ -117,7 +110,7 @@ const StudentTable = ({ studentData, onReply, replyingStudentId, text, handleCha
   );
 };
 
-const TableToggle = () => {
+const TeacherToggle = () => {
 
   const [replyingStudentId, setReplyingStudentId] = useState(null);
   const [lastRepliedStudentId, setLastRepliedStudentId] = useState(null);
@@ -168,4 +161,4 @@ const TableToggle = () => {
   );
 };
 
-export default TableToggle;
+export default TeacherToggle;

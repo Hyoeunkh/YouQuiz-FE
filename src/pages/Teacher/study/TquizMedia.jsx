@@ -3,7 +3,7 @@ import styled from "styled-components";
 import "bootstrap/dist/css/bootstrap.min.css";
 import YouTube from "react-youtube";
 import QuizTitle from "../../../component/QuizTitle";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import axios from "axios";
 
@@ -42,9 +42,9 @@ const YoutubeVideo = ({ videoId }) => {
 export default function TquizMedia() {
   const [questions, setQuestions] = useState(null);
   const { role, id } = useSelector((state) => state.auth);
-  const location = useLocation();
+  const { chap_id } = useSelector((state) => state.chap_id);
   const navigate = useNavigate();
-  const { chap_id } = location.state;
+
   useEffect(() => {
       const Data = async () => {
         try {
@@ -98,7 +98,7 @@ export default function TquizMedia() {
           height="80"
           src="https://img.icons8.com/ios/80/19A05E/circled-right-2.png"
           alt="circled-left-2"
-          onClick={() => navigate(`/teacher/study/${chap_id}/quiz`, {state: { questions:questions.quizEntityList, title:questions.title } })}
+          onClick={() => navigate(`/teacher/study/${chap_id}/quiz`, {state: { questions:questions.quizEntityList, title:questions.title, correct_answerList:questions.correct_answerList } })}
         />
       </Btn>
     </>

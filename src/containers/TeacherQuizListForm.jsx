@@ -2,6 +2,8 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { ChapIdFetchThunk } from "../store/chapIdSlice";
+import { useDispatch } from "react-redux";
 
 const QuizFormWrapper = styled.div`
   width: 100%;
@@ -74,6 +76,7 @@ const extractYoutubeVideoId = (url) => {
 
 const TeacherQuizListForm = ({ lists }) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   return (
     <QuizFormWrapper>
@@ -89,7 +92,9 @@ const TeacherQuizListForm = ({ lists }) => {
               <li
                 key={index}
                 className="list-group-item d-flex justify-content-between align-items-center custom-list-item"
-                onClick={() => navigate(`/teacher/study/${item.chapter_id}/quizmedia`, {state: { chap_id:item.chapter_id}})}
+                onClick={() => { navigate(`/teacher/study/${item.chapter_id}/quizmedia`);
+                  dispatch(ChapIdFetchThunk(item.chapter_id));
+                }}
               >
                 <div className="list-container">
                   <img className="youtubelist" src={imgsrc} alt="" />

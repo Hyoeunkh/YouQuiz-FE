@@ -6,34 +6,25 @@ import TeacherToggle from "../../../component/TeacherToggle";
 import "../../../style/QuestionPage.scss";
 
 const TeacherStudyPage = () => {
-  const { role, id } = useSelector((state) => state.auth);
-  const { data }= useSelector((state)=> state.teacher);
-
+  const { chap_id } =useSelector((state) => state.chap_id);
   const location = useLocation();
   const navigate = useNavigate();
 
-  const { questions, title } = location.state;
-
+  const { questions, title, correct_answerList } = location.state;
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [answers, setAnswers] = useState(new Array(questions.length).fill(null));
 
   const getImageSource = (choice) => {
-    const isSelected = answers[currentQuestion] === choice;
+    const isSelected = correct_answerList[currentQuestion] === choice;
     const prefix = isSelected ? 'ios-filled' : 'ios';
     return `https://img.icons8.com/${prefix}/80/19A05E/${choice}-circle.png`;
   };
 
-  const handleAnswerChange = (event) => {
-    const newAnswers = [...answers];
-    newAnswers[currentQuestion] = parseInt(event.target.value, 10); // 숫자로 변환하여 저장
-    setAnswers(newAnswers);
-  };
 
   const handlePrevQuestion = () => {
     if (currentQuestion > 0) {
       setCurrentQuestion(currentQuestion - 1);
     } else {
-      navigate(`/teacher/study/${data.teacherChapterList[0].chapter_id}/quizmedia`);
+      navigate(`/teacher/study/${chap_id}/quizmedia`);
     }
     
   };
@@ -42,19 +33,16 @@ const TeacherStudyPage = () => {
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
     }
+    else {
+      navigate(`/teacher/study/${chap_id}/complete` );
+    }
    };
 
-  const handleSubmit = async () => {
-    navigate(`/teacher/study/${data.teacherChapterList[0].chapter_id}/complete` );
-    
-  };
   return (
     <>
-      {questions.length > 0 ? (
-      <>
         <QuizTitle
           text={title}
-          currentPage={currentQuestion}
+          currentPage={currentQuestion+2}
         />
         <div className="firstq-container">
           <div className="question-conta">
@@ -62,7 +50,7 @@ const TeacherStudyPage = () => {
             <div className="problem-container">
               <h3>{questions[currentQuestion].question}</h3>
               {questions[currentQuestion].exampleList.length > 0 ? (
-              <h6 className="comment">
+              <h6>
                 @{questions[currentQuestion].writer}
                 <span>
                   <br />
@@ -80,8 +68,7 @@ const TeacherStudyPage = () => {
                 <input
                 type="radio"
                 value={index + 1}
-                checked={answers[currentQuestion] === index + 1}
-                onChange={handleAnswerChange}
+                checked={correct_answerList[index]}
               />
                 <img src={getImageSource(index + 1)} alt={`${choice}-circle`} />
                 {choice}
@@ -94,7 +81,7 @@ const TeacherStudyPage = () => {
         </div>
         
 
-        <div className="btn">
+        <div className="btn-container">
           <img
             width="80"
             height="80"
@@ -103,7 +90,7 @@ const TeacherStudyPage = () => {
             onClick={handlePrevQuestion}
           />
           {currentQuestion === questions.length - 1 ?
-          <button onClick={handleSubmit}>제출</button>
+          <button onClick={handleNextQuestion}>제출</button>
           :
           <img
             width="80"
@@ -115,10 +102,6 @@ const TeacherStudyPage = () => {
           }
         </div>
       </>
-      ) : (
-        <p>Loading...</p>
-      )}
-    </>
   );
 };
 export default TeacherStudyPage;

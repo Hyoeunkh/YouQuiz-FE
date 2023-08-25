@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
-import "bootstrap/dist/css/bootstrap.min.css";
 import StudentQuizListForm from "../../../containers/StudentQuizListForm";
 import { useSelector, useDispatch } from "react-redux";
 import { ChapFetchThunk } from "../../../store/chapSlice";
@@ -14,7 +13,7 @@ const ListBlock = styled.div`
   left: 3vw;
 `;
 
-export default function QuizPage( ) {
+export default function QuizPage() {
   const { status, data }= useSelector((state)=> state.chap);
   const dispatch = useDispatch();
 

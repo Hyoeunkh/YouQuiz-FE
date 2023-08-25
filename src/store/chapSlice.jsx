@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export const chapSlice = createSlice({
-    name:"chap_id",
+    name:"chap",
     
     initialState: {
         status : null,
@@ -36,8 +36,7 @@ export const ChapFetchThunk = () => {
                 status : "success",
                 data : data
             }));
-        }catch(err){
-            
+        }catch(err){ 
             dispatch(chapActions.setChap({
                 status: "failed",
                 data : null

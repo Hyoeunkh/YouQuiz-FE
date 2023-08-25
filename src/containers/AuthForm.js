@@ -10,7 +10,7 @@ const AuthForm = ({type, form, onChange, onSubmit, error }) => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-    const {status, id, username, role }= useSelector((state)=>state.auth);
+    const { status, id, username, role }= useSelector((state)=>state.auth);
     
     const [btnActive, setBtnActive] = useState('student');
     const [idRef, pwRef] = [useRef(), useRef()];

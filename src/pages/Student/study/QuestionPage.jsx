@@ -5,9 +5,8 @@ import QuizTitle from "../../../component/QuizTitle";
 import "../../../style/QuestionPage.scss";
 
 const QuestionPage = () => {
-  const { role, id } = useSelector((state) => state.auth);
-  const { data }= useSelector((state)=> state.chap);
-
+  const { chap_id } =useSelector((state) => state.chap_id);
+  const { id } = useSelector((state) => state.auth);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -36,7 +35,7 @@ const QuestionPage = () => {
     if (currentQuestion > 0) {
       setCurrentQuestion(currentQuestion - 1);
     } else {
-      navigate(`/study/${data.no_study_list[0].chap_id}/quizmedia`);
+      navigate(`/study/${chap_id}/quizmedia`);
     }
     
   };
@@ -56,7 +55,7 @@ const QuestionPage = () => {
       answer_sentence: answerSentence,
     };
   
-    fetch(`http://101.101.219.109:8080/student/${id}/study/${data.no_study_list[0].chap_id}`, {
+    fetch(`http://101.101.219.109:8080/student/${id}/study/${chap_id}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -68,16 +67,14 @@ const QuestionPage = () => {
       console.error("Error sending choices to backend:", error);
       throw error;
     });
-    navigate(`/study/${data.no_study_list[0].chap_id}/complete`);
+    navigate(`/study/${chap_id}/complete`);
     
   };
   return (
     <>
-      {questions.length > 0 ? (
-      <>
         <QuizTitle
           text={title}
-          currentPage={currentQuestion}
+          currentPage={currentQuestion+2}
         />
         <div className="firstq-container">
           <div className="question-conta">
@@ -85,7 +82,7 @@ const QuestionPage = () => {
             <div className="problem-container">
               <h3>{questions[currentQuestion].question}</h3>
               {questions[currentQuestion].exampleList.length > 0 ? (
-              <h6 className="comment">
+              <h6>
                 @{questions[currentQuestion].writer}
                 <span>
                   <br />
@@ -121,26 +118,26 @@ const QuestionPage = () => {
         </div>
         
 
-        <div className="btn">
-          <img
-            width="80"
-            height="80"
-            src="https://img.icons8.com/ios/80/19A05E/circled-left-2.png"
-            alt="left"
-            onClick={handlePrevQuestion}
-          />
-          <img
-            width="80"
-            height="80"
-            src="https://img.icons8.com/ios/80/19A05E/circled-right-2.png"
-            alt="right"
-            onClick={ currentQuestion === questions.length - 1 ? handleSubmit : handleNextQuestion }
-          />
+        <div className="btn-container">
+            <img
+              width="80"
+              height="80"
+              src="https://img.icons8.com/ios/80/19A05E/circled-left-2.png"
+              alt="left"
+              onClick={handlePrevQuestion}
+            />
+            {currentQuestion === questions.length - 1 ?
+              <button onClick={handleSubmit}>제출</button>
+            :
+              <img
+                width="80"
+                height="80"
+                src="https://img.icons8.com/ios/80/19A05E/circled-right-2.png"
+                alt="right"
+                onClick={ currentQuestion === questions.length - 1 ? handleSubmit : handleNextQuestion }
+              />
+            }
         </div>
-      </>
-      ) : (
-        <p>Loading...</p>
-      )}
     </>
   );
 };

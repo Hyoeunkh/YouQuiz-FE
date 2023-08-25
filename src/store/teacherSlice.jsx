@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export const teacherSlice = createSlice({
-    name:"teacher_chap_id",
+    name:"teacher_chap_list",
     
     initialState: {
         status : null,
@@ -10,7 +10,7 @@ export const teacherSlice = createSlice({
     reducers: {
         setTeacher: (state, action) => {
             state.status = action.payload.status;
-            state.data = action.payload.data;
+            state.data = action.payload.data
         }
     },
 });

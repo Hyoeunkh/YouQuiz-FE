@@ -1,6 +1,5 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import LoginPage from "../pages/Common/LoginPage";
 import AgreementPage from "../pages/Common/AgreementPage";
 import UserInfoPage from "../pages/Common/UserInfoPage";
 import SchoolAuth from "../pages/Common/SchoolAuth";
@@ -12,14 +11,16 @@ import TeacherStudyPage from "../pages/Teacher/study/TeacherStudyPage";
 import TeacherPage from "../pages/Teacher/study/TeacherPage";
 import ResultQuizPage from "../pages/Student/my/ResultQuizPage";
 import ResultPage from "../pages/Student/my/ResultPage";
-import TquizMedia from "../pages/Teacher/study/TquizMedia"
+import TquizMedia from "../pages/Teacher/study/TquizMedia";
+import RquizMedia from "../pages/Student/my/RquizMedia";
+
 export const ResultRoute = () => {
   return (
     <Routes>
-      <Route path="/" element={<ResultQuizPage/>} />
+      <Route path="/" element={<ResultPage/>} />
       <Route path={`:chap_id/complete`} element={<QuizComplete />} />
-      <Route path={`:chap_id/quizmedia`} element={<QuizMedia/>} />
-      <Route path={`:chap_id/quiz`} element={<ResultPage />} />
+      <Route path={`:chap_id/quizmedia`} element={<RquizMedia/>} />
+      <Route path={`:chap_id/quiz`} element={<ResultQuizPage />} />
     </Routes>
   );
 };
@@ -51,16 +52,6 @@ export const RegisterRoute = () => {
       <Route path="student" element={<UserInfoPage />} />
       <Route path="teacher" element={<UserInfoPage />} />
       <Route path="schoolAuth" element={<SchoolAuth />} />
-    </Routes>
-  );
-};
-
-export const LoginRoute = () => {
-  return (
-    <Routes>
-      <Route path="/" element={<LoginPage />} />
-      <Route path="student" element={<LoginPage />} />
-      <Route path="teacher" element={<LoginPage />} />
     </Routes>
   );
 };

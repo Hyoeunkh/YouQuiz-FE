@@ -4,6 +4,7 @@ import { authSlice } from "./authSlice";
 import { chapSlice } from "./chapSlice";
 import { teacherSlice } from "./teacherSlice";
 import { resultSlice } from "./resultSlice";
+import { chapIdSlice } from "./chapIdSlice";
 
 export const store = configureStore({
     reducer: {
@@ -11,6 +12,7 @@ export const store = configureStore({
         chap: chapSlice.reducer,
         teacher: teacherSlice.reducer,
         result: resultSlice.reducer,
+        chap_id: chapIdSlice.reducer,
     }
 
 })

@@ -21,14 +21,14 @@ export default function TeacherStudyList() {
   useEffect(() => {
     dispatch(TeacherFetchThunk());
   }, []);
-  if(status === "success"){
 
-  return (
-    <>
-      <ListBlock>
-        <TeacherQuizListForm lists={data.teacherChapterList} />
-      </ListBlock>
-    </>
-  );
+  if(status === "success"){
+    return (
+      <>
+        <ListBlock>
+          <TeacherQuizListForm lists={data.teacherChapterList} />
+        </ListBlock>
+      </>
+    );
   };
 }

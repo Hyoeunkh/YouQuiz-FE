@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export const resultSlice = createSlice({
-    name:"result_chap_id",
+    name:"result_chap_list",
     
     initialState: {
         status : null,
@@ -31,13 +31,11 @@ export const ResultFetchThunk = () => {
 
         try{
             const data = await request();
-            
             dispatch(resultActions.setResult({
                 status : "success",
                 data : data
             }));
         }catch(err){
-            
             dispatch(resultActions.setResult({
                 status: "failed",
                 data : null
