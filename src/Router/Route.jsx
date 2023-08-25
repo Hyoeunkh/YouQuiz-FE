@@ -12,7 +12,7 @@ import TeacherStudyPage from "../pages/Teacher/study/TeacherStudyPage";
 import TeacherPage from "../pages/Teacher/study/TeacherPage";
 import ResultQuizPage from "../pages/Student/my/ResultQuizPage";
 import ResultPage from "../pages/Student/my/ResultPage";
-
+import TquizMedia from "../pages/Teacher/study/TquizMedia"
 export const ResultRoute = () => {
   return (
     <Routes>
@@ -39,7 +39,7 @@ export const TeacherStudyRoute = () => {
     <Routes>
       <Route path="/" element={<TeacherPage/>} />
       <Route path={`:chap_id/complete`} element={<QuizComplete />} />
-      <Route path={`:chap_id/quizmedia`} element={<QuizMedia/>} />
+      <Route path={`:chap_id/quizmedia`} element={<TquizMedia/>} />
       <Route path={`:chap_id/quiz`} element={<TeacherStudyPage />} />
     </Routes>
   );

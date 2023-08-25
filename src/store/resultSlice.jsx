@@ -15,7 +15,7 @@ export const resultSlice = createSlice({
     },
 });
 
-export const ChapFetchThunk = () => {
+export const ResultFetchThunk = () => {
     return async (dispatch) => {
         dispatch(resultActions.setResult({
             status : "fetching",
@@ -25,7 +25,7 @@ export const ChapFetchThunk = () => {
         const request = async () => {
             const response = await fetch(`http://101.101.219.109:8080/student/1/studystatus`);
             if(!response.ok) throw new Error("Failed!");
-            // console.log("response" + response.json());
+            //console.log("response" + response.json());
             return response.json();
         }
 

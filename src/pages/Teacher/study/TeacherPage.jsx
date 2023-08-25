@@ -3,7 +3,7 @@ import styled from "styled-components";
 import "bootstrap/dist/css/bootstrap.min.css";
 import TeacherQuizListForm from "../../../containers/TeacherQuizListForm";
 import { useSelector, useDispatch } from "react-redux";
-import { ChapFetchThunk } from "../../../store/chapSlice";
+import { TeacherFetchThunk } from "../../../store/teacherSlice";
 
 const ListBlock = styled.div`
   position: relative;
@@ -19,14 +19,14 @@ export default function TeacherStudyList() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(ChapFetchThunk());
+    dispatch(TeacherFetchThunk());
   }, []);
   if(status === "success"){
 
   return (
     <>
       <ListBlock>
-        <TeacherQuizListForm lists={data.no_study_list} />
+        <TeacherQuizListForm lists={data.teacherChapterList} />
       </ListBlock>
     </>
   );

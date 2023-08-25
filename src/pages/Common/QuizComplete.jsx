@@ -6,7 +6,6 @@ import "../../style/QuizComplete.scss";
 	const QuizComplate = () => {
 		const { role } = useSelector((state) => state.auth);
 		const location = useLocation();
-		const score = location.state.score;
 		const navigate = useNavigate();
 
 		const onRightHandler = () => {
@@ -19,18 +18,18 @@ import "../../style/QuizComplete.scss";
 		}
 
 		const h1Text =
-		score
-			? `${score}점`
-			: role === "student"
+		//score
+			//? `${score}점`
+			 role === "student"
 			? "제출 완료!"
 			: role === "teacher"
 			? "채점 완료!"
 			: "";
 	
 		const pText =
-		score
-			? "수고하셨습니다."
-			: role === "student"
+		//score
+			//? "수고하셨습니다."
+			role === "student"
 			? "제출 후에는 수정이 불가합니다."
 			: role === "teacher"
 			? "채점 완료 확인되었습니다."

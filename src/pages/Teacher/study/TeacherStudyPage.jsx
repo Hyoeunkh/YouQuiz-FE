@@ -5,7 +5,7 @@ import QuizTitle from "../../../component/QuizTitle";
 import TeacherToggle from "../../../component/TeacherToggle";
 import "../../../style/QuestionPage.scss";
 
-const QuestionPage = () => {
+const TeacherStudyPage = () => {
   const { role, id } = useSelector((state) => state.auth);
   const { data }= useSelector((state)=> state.teacher);
 
@@ -33,7 +33,7 @@ const QuestionPage = () => {
     if (currentQuestion > 0) {
       setCurrentQuestion(currentQuestion - 1);
     } else {
-      navigate(`/teacher/study/${data.no_study_list[0].chap_id}/quizmedia`);
+      navigate(`/teacher/study/${data.teacherChapterList[0].chapter_id}/quizmedia`);
     }
     
   };
@@ -45,7 +45,7 @@ const QuestionPage = () => {
    };
 
   const handleSubmit = async () => {
-    navigate(`/teacher/study/${data.no_study_list[0].chap_id}/complete`);
+    navigate(`/teacher/study/${data.teacherChapterList[0].chapter_id}/complete` );
     
   };
   return (
@@ -102,13 +102,17 @@ const QuestionPage = () => {
             alt="left"
             onClick={handlePrevQuestion}
           />
+          {currentQuestion === questions.length - 1 ?
+          <button onClick={handleSubmit}>제출</button>
+          :
           <img
             width="80"
             height="80"
             src="https://img.icons8.com/ios/80/19A05E/circled-right-2.png"
             alt="right"
-            onClick={ currentQuestion === questions.length - 1 ? handleSubmit : handleNextQuestion }
+            onClick={handleNextQuestion}
           />
+          }
         </div>
       </>
       ) : (
@@ -117,4 +121,4 @@ const QuestionPage = () => {
     </>
   );
 };
-export default QuestionPage;
+export default TeacherStudyPage;

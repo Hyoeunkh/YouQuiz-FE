@@ -38,10 +38,10 @@ const AuthForm = ({type, form, onChange, onSubmit, error }) => {
                     <button className={`teacher ${btnActive === "teacher" ? "active" : ""}`} onClick={()=>setBtnActive("teacher")}>교직원</button>
                 </div>
                 
-                <div className="idpw" onSubmit={onSubmit}>
+                <form className="idpw" onSubmit={onSubmit}>
                     <input ref={idRef} className="input"  name="userid" placeholder="아이디" onChange={onChange}  />
                     <input ref={pwRef} className="input"  name="password" placeholder="비밀번호" type="password" onChange={onChange}  />
-                </div>
+                </form>
                 <label className="store">
                     <input type="checkbox" id="store"/>
                     <label htmlFor="store"></label>

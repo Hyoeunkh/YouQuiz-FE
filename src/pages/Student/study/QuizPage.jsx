@@ -21,13 +21,14 @@ export default function QuizPage( ) {
   useEffect(() => {
     dispatch(ChapFetchThunk());
   }, []);
+  
   if(status === "success"){
-  return (
-    <>
-      <ListBlock>
-        <StudentQuizListForm lists={data.no_study_list} />
-      </ListBlock>
-    </>
-  );
+    return (
+      <>
+        <ListBlock>
+          <StudentQuizListForm lists={data.no_study_list} />
+        </ListBlock>
+      </>
+    );
   };
 }

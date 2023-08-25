@@ -3,22 +3,24 @@ import styled from "styled-components";
 import ResultQuizListForm from "../../../containers/ResultQuizListForm";
 import MyPageForm from "../../../containers/MyPageForm";
 import { useSelector, useDispatch } from "react-redux";
-import { ChapFetchThunk } from "../../../store/chapSlice";
+import { ResultFetchThunk } from "../../../store/resultSlice";
 
 const ListBlock = styled.div`
   width: 85%;
   margin-top: 4vh;
 `;
 
-export default function StudyResult() {
+export default function ResultQuizPage() {
   const { status, data }= useSelector((state)=> state.result);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(ChapFetchThunk());
+    dispatch(ResultFetchThunk());
+    //console.log("response");
   }, []);
   if(status === "success"){
-
+    console.log("response");
+  };
   return (
     <>
       <MyPageForm  userType={"student"} student_id={"sample_id"} page={"학습결과"} />
@@ -26,6 +28,5 @@ export default function StudyResult() {
           <ResultQuizListForm lists={data.studied_chapter} />
         </ListBlock>
     </>
-  );
-  };
+    );
 }

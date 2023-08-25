@@ -89,13 +89,13 @@ const TeacherQuizListForm = ({ lists }) => {
               <li
                 key={index}
                 className="list-group-item d-flex justify-content-between align-items-center custom-list-item"
-                onClick={() => navigate(`/teacher/study/${item.chap_id}/quizmedia`)}
+                onClick={() => navigate(`/teacher/study/${item.chapter_id}/quizmedia`, {state: { chap_id:item.chapter_id}})}
               >
                 <div className="list-container">
                   <img className="youtubelist" src={imgsrc} alt="" />
                   <div className="ms-5 custom-text">
                     <div className="levle-con">
-                      <div className="level fw-bold">{item.chap_id}단계</div>
+                      <div className="level fw-bold">{item.chapter_id}단계</div>
                     </div>
                     <div className="fw-bold fs-4 mt-2">{item.title}</div>
                   </div>
