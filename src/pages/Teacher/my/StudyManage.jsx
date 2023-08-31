@@ -5,15 +5,14 @@ import { useTable } from "react-table";
 
 const TableBlock = styled.div`
   height: 75vh;
-  width: 55vw;
+  width: 54.5vw;
   display: flex;
   flex-direction: column;
   align-items:center;
   margin-top: 1vh;
 `;
 const TableWrapper = styled.div`
-  height: 100%;
-  width: 95%;
+  width: 100%;
   overflow-y: auto; /* 내용많으면 스크롤됨 */
   padding-right: 1vw;
   

@@ -10,11 +10,17 @@ const TeacherStudyPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
+  let showCorrect ='';
+
   const { questions, title, correct_answerList } = location.state;
   const [currentQuestion, setCurrentQuestion] = useState(0);
 
   const getImageSource = (choice) => {
     const isSelected = correct_answerList[currentQuestion] === choice;
+    if(isSelected) {
+      showCorrect = `https://img.icons8.com/ios-filled/80/19A05E/${choice}-circle.png`;
+    }
+
     const prefix = isSelected ? 'ios-filled' : 'ios';
     return `https://img.icons8.com/${prefix}/80/19A05E/${choice}-circle.png`;
   };
@@ -34,7 +40,7 @@ const TeacherStudyPage = () => {
       setCurrentQuestion(currentQuestion + 1);
     }
     else {
-      navigate(`/teacher/study/${chap_id}/complete` );
+      navigate(`/teacher/study/${chap_id}/complete`, {state: { score:null}} );
     }
    };
 
@@ -79,7 +85,14 @@ const TeacherStudyPage = () => {
             )}
           </ul>
         </div>
-        
+        {questions[currentQuestion].exampleList.length > 0 ? (
+        <ul className="result_radio">
+          <li>정답: 
+            <img 
+              src={showCorrect} alt="correct" />
+          </li>
+        </ul>
+        ) : null }
 
         <div className="btn-container">
           <img
@@ -90,7 +103,7 @@ const TeacherStudyPage = () => {
             onClick={handlePrevQuestion}
           />
           {currentQuestion === questions.length - 1 ?
-          <button onClick={handleNextQuestion}>제출</button>
+          <button onClick={handleNextQuestion}>완료</button>
           :
           <img
             width="80"

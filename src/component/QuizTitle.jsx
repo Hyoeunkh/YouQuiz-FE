@@ -6,6 +6,7 @@ const Questionwrapper = styled.div`
   width: 79vw;
   margin-left: 9vw; 
   justify-content: space-between;
+  font-family: 'Inter';
 
  .problem {
   width: 70%;
@@ -26,8 +27,8 @@ const Questionwrapper = styled.div`
   .progressbar {
     width: 15vw;
     height: 0.1vh;
-    background-color: green;
-    border: 2px solid green;
+    background-color: #19A05E;
+    border: 1.5px solid #19A05E;
     position: absolute;
   }
   .circle {
@@ -35,13 +36,13 @@ const Questionwrapper = styled.div`
     height: 0.5vw;
     border-radius: 50%;
     background-color: white;
-    border: 0.15vw solid green;
+    border: 0.1vw solid #19A05E;
     margin: 0vw 1vw;
     position: relative;
     z-index: 2;
   }
   .filled {
-    background-color: green;
+    background-color: #19A05E;
   }
 `;
 
@@ -52,7 +53,7 @@ const Title = ({ text, currentPage }) => {
         <div className='problem'>{text}</div>
         <div className="progressbar-container">
           <div className="progressbar"></div>
-            {[...Array([1,2,3,4,5,6])].map((_, index) => (
+            {[...Array(7)].map((_, index) => (
               <div
                 key={index}
                 className={`circle ${index < currentPage ? 'filled' : ''}`}

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 const Sub = styled.div`
   height: 10vh;
-  float:top;
+  float: top;
   
   .sub-header {
     display: flex;

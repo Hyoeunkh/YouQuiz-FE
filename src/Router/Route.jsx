@@ -49,8 +49,7 @@ export const RegisterRoute = () => {
   return (
     <Routes>
       <Route path="/" element={<AgreementPage />} />
-      <Route path="student" element={<UserInfoPage />} />
-      <Route path="teacher" element={<UserInfoPage />} />
+      <Route path="user" element={<UserInfoPage />} />
       <Route path="schoolAuth" element={<SchoolAuth />} />
     </Routes>
   );
