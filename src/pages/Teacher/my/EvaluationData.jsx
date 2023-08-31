@@ -9,8 +9,8 @@ import { useDispatch } from "react-redux";
 export default function EvaluationData() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [lists, setLists ] = useState(null);
-  const [title, settitle ] = useState(null);
+  const [lists, setLists] = useState(null);
+  const [title, settitle] = useState(null);
     useEffect(() => {
       axios
       .all([axios.get(
