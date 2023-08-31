@@ -13,7 +13,7 @@ const QuestionPage = () => {
   const { questions, title } = location.state;
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [answers, setAnswers] = useState(new Array(questions.length).fill(null));
+  const [answers, setAnswers] = useState(new Array(questions.length-1).fill(null));
   const [openEndedAnswer, setOpenEndedAnswer] = useState(""); 
 
   const getImageSource = (choice) => {
@@ -49,25 +49,23 @@ const QuestionPage = () => {
   const handleSubmit = async () => {
     const answerList = answers;
     const answerSentence = openEndedAnswer;
-
-    const requestBody = {
-      answer_list: answerList,
-      answer_sentence: answerSentence,
-    };
+    console.log(answerList, answerSentence);
   
     fetch(`http://101.101.219.109:8080/student/${id}/study/${chap_id}`, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "application/json"
       },
-      body: JSON.stringify(requestBody),
+      body: JSON.stringify({
+        answer_list : answerList,
+        answer_sentence : answerSentence,
+      }),
     })
-    .then((response) => response.json())
     .catch((error) => {
-      console.error("Error sending choices to backend:", error);
+      console.error("Error sending choices to backend:", error.response.data);
       throw error;
     });
-    navigate(`/study/${chap_id}/complete`);
+    navigate(`/study/${chap_id}/complete`, {state: { score:null}});
     
   };
   return (
@@ -134,7 +132,7 @@ const QuestionPage = () => {
                 height="80"
                 src="https://img.icons8.com/ios/80/19A05E/circled-right-2.png"
                 alt="right"
-                onClick={ currentQuestion === questions.length - 1 ? handleSubmit : handleNextQuestion }
+                onClick={ handleNextQuestion }
               />
             }
         </div>

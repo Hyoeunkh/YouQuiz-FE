@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import React from "react";
 import "../../style/QuizComplete.scss";
@@ -6,29 +6,31 @@ import "../../style/QuizComplete.scss";
 	const QuizComplate = () => {
 		const { role } = useSelector((state) => state.auth);
 		const navigate = useNavigate();
+		const location = useLocation();
 
+		const { score } = location.state;
 		const onRightHandler = () => {
             if(role === "student") navigate("/study");
 			else if (role === "teacher") navigate("/teacher/study");
 		}
 		const onLeftHandler = () => {
-            if(role === "student") navigate("/mypage");
+            if(role === "student") navigate("/my");
 			else if (role === "teacher") navigate("/teacher/my/status");
 		}
 
 		const h1Text =
-		//score
-			//? `${score}점`
-			 role === "student"
+				score
+			? `${score}점`
+			: role === "student"
 			? "제출 완료!"
 			: role === "teacher"
 			? "채점 완료!"
 			: "";
 	
 		const pText =
-		//score
-			//? "수고하셨습니다."
-			role === "student"
+			score
+			? "수고하셨습니다."
+			: role === "student"
 			? "제출 후에는 수정이 불가합니다."
 			: role === "teacher"
 			? "채점 완료 확인되었습니다."

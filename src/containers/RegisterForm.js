@@ -46,27 +46,16 @@ const RegisterForm = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const {form, auth, authError, user} = useSelector(({auth, user}) => ({
-        form: auth.register,
-        auth: auth.auth,
-        authError: auth.authError,
-        user: user.user
-    }));
-
-    useEffect(() => {
-        if(user) {
-            navigate('/');
-            try {
-                localStorage.setItem('user', JSON.stringify(user));
-            }catch (e){
-                console.log('localStorage is not working');
-            }
-        }
-    }, [navigate, user]);
     return (
         <>
         <RegisterWrapper>
             <div className="register-wrapper">
+            {/*<div className="idpw" onSubmit={onSubmit}>
+                        <input className="input" autoComplete="new-school" name="school" placeholder="학교" onChange={onChange} value={form.school} />
+                        <input className="input" autoComplete="new-grade" name="grade" placeholder="학년" type="grade" onChange={onChange} value={form.grade} />
+                        <input className="input" autoComplete="new-classnum" name="classnum" placeholder="반" type="classnum" onChange={onChange} value={form.classnum} />
+                        <input className="input" autoComplete="new-code" name="code" placeholder="학급코드" type="code" onChange={onChange} value={form.code} />
+    </div>*/}
                 {error && <div className="error-message">{error}</div>}
                 <div className="btn2">
                     <Link to={-1}>

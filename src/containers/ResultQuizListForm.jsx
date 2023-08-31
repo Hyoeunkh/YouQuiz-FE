@@ -18,10 +18,14 @@ const QuizFormWrapper = styled.div`
   .custom-list-item {
     text-align: center;
     width: 100%;
-    height: 150px;
+    height: 15vh;
     padding: 0;
     border: 1px solid #D9D9D9;
     cursor: pointer;
+    
+  }
+  .custom-list-item:hover {
+    background-color: #F4F4F4;
   }
   .list-container {
     height:100%;
@@ -41,10 +45,6 @@ const QuizFormWrapper = styled.div`
     display: flex;
     gap: 1vw;
   }
-  .level-con span {
-    margin: auto 0;
-    font-size: 1.2rem;
-  }
   .level {
     border: 1px solid #19a05e;
     border-radius: 5rem;
@@ -53,6 +53,7 @@ const QuizFormWrapper = styled.div`
     color: #19a05e;
     font-size: 1rem;
     padding: 5px;
+    background-color:white;
   }
   .custom-bad {
     width: 20%;
@@ -65,6 +66,11 @@ const QuizFormWrapper = styled.div`
     align-items: center;
     display: flex;
   }
+`;
+const Span = styled.span`
+  margin: .5vh 0;
+
+  font-size: 1rem;
 `;
 
 const extractYoutubeVideoId = (url) => {
@@ -102,9 +108,9 @@ const ResultQuizListForm = ({ lists }) => {
                   <div className="ms-5 custom-text">
                     <div className="levle-con">
                       <div className="level fw-bold">{item.chap_id}단계</div>
-                      <span>({item.score}점/ 100점)</span>
+                      <Span>({item.score}점/ 100점)</Span>
                     </div>
-                    <div className="fw-bold fs-4 mt-2">{item.title}</div>
+                    <div className="fw-bold fs-5 mt-2">{item.title}</div>
                   </div>
                 </div>
                 <span className="custom-bad fw-bold fs-4">결과보기</span>

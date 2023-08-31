@@ -1,6 +1,12 @@
 import "../../style/HomePage.scss";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 const HomePage = () => {
+    useEffect(() => {
+        AOS.init();
+    })
 	return (
         <>
         <div className="home-wrapper">
@@ -14,11 +20,11 @@ const HomePage = () => {
                 <div className="title-wrapper">
                     <div className="title">YOU QUIZ</div>
                     <p>청소년들의 디지털 문해력 부족을 해결하기 위한 교육 서비스</p>
-                    <Link to ='/login'><button>로그인</button></Link>
+                    <Link to ={`/login`}><button>로그인</button></Link>
                 </div>
 
             </div>
-            <div className="home-first">
+            <div className="home-first" data-aos="fade-right" data-aos-duration="1000">
                 <div className="image">
                     <img className="image-first" src="homefirst.png" alt="first"/>
                 </div>
@@ -31,7 +37,7 @@ const HomePage = () => {
                 </div>
             </div>
 
-            <div className="home-second">
+            <div className="home-second" data-aos="fade-left" data-aos-duration="1000">
                 <div className="text">
                     <div className="head">Join your school, class, level, list, and advice</div>
                     <h1>학급 목록</h1>
@@ -44,7 +50,7 @@ const HomePage = () => {
                 </div>
             </div>
 
-            <div className="home-third">
+            <div className="home-third" data-aos="fade-right" data-aos-duration="1000">
                 <div className="image">
                     <img className="image-third" src="homethird.png" alt="third"/>
                 </div>

@@ -4,15 +4,13 @@ import MyPageForm from "../../../containers/MyPageForm";
 import { useTable } from "react-table";
 
 const TableBlock = styled.div`
-  height: 75vh;
+  height: 70vh;
   width: 54.5vw;
   display: flex;
-  align-items:center;
-  margin-top: .5vh;
+  margin-top: 3vh;
 `;
 
 const EvaluationBlock = styled.div`
-  height: 90%;
   width: 100%;
   overflow-y: auto; /* 내용많으면 스크롤됨 */
 
@@ -25,7 +23,6 @@ const EvaluationBlock = styled.div`
 
   table {
     width: 100%;
-    height: 55%;
     text-align: center;
     border-collapse: collapse;
     font-weight: 600;

@@ -5,7 +5,13 @@
     top:50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    
+    .allcheck {
+        padding-left: 1.5vw;
+        color: #4E4E4E;
+        font-weight: 400;
+        font-size: 25px;
+        margin: 2px 0px;
+    }
     button {
         position: absolute;
         bottom: 0;
@@ -26,39 +32,4 @@
 
         color: #FFFFFF;
     }
-}
-.agreement{
-    display: flex;
-    flex-direction: column;
-    font-weight: bold;
-    font-family: 'Inter';
-    font-size: 32px;
-    line-height: 39px;
-
-    color: #4E4E4E;
-    label + label {
-        margin-top: 20px;
-    }
-    p {
-        font-size: 20px;
-        font-weight: 600;
-        color: grey;
-    }
-    #hiddenCheckbox {
-        display: none;
-      }
-
-    #hiddenCheckbox:checked + #showCheckbox {
-        background: url("https://blog.kakaocdn.net/dn/p2kpN/btrL4lwWrqf/KqNevAyZKWsoCB5ijL9qcK/img.png") no-repeat;
-        background-size: contain;
-    }
-
-    #showCheckbox {
-        width: 20px;
-        height: 20px;
-
-        background: url("https://blog.kakaocdn.net/dn/bjVlZ3/btrL5bHw92G/bg8CBmi4x6zklkecdJ1dpk/img.png") no-repeat;
-        background-size: contain;
-    }
-
 }

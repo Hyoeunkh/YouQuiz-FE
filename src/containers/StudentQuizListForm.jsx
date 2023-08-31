@@ -17,8 +17,8 @@ const QuizFormWrapper = styled.div`
   }
   .custom-list-item {
     text-align: center;
-    width: 100%;
-    height: 150px;
+    width: 95%;
+    height: 15vh;
     padding: 0;
     border: 1px solid #D9D9D9;
     cursor: pointer;
@@ -59,7 +59,7 @@ const QuizFormWrapper = styled.div`
     height:40%;
     color: white;
     border-radius: .5rem;
-    margin-right: 2vw;
+    margin-right: 3vw;
     background-color: #19a05e;
     justify-content: center;
     align-items: center;

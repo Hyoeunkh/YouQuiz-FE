@@ -13,7 +13,7 @@ const ResultPage = () => {
   let showCorrect ='';
   let showStudent ='';
 
-  const { questions, title, correct_answerList, student_answer_list, answer_sentence, teacher_comment } = location.state;
+  const { questions, title, correct_answerList, student_answer_list, answer_sentence, teacher_comment, score } = location.state;
   const [currentQuestion, setCurrentQuestion] = useState(0);
 
   const getImageSource = (choice) => {
@@ -50,7 +50,7 @@ const ResultPage = () => {
       setCurrentQuestion(currentQuestion + 1);
     }
     else {
-      navigate(`/my/${chap_id}/complete`);
+      navigate(`/my/${chap_id}/complete`, {state: { score:score}});
     }
    };
 
@@ -67,7 +67,9 @@ const ResultPage = () => {
               <h3>{questions[currentQuestion].question}</h3>
               {questions[currentQuestion].exampleList.length > 0 ? (
               <h6>
-                @{questions[currentQuestion].writer}
+                <img className="icon" src={"/youtube-user.png"} width={30} alt="" />
+                {questions[currentQuestion].writer} 
+                <span className="date"> 1일전</span>
                 <span>
                   <br />
                   {questions[currentQuestion].comment}
@@ -95,6 +97,7 @@ const ResultPage = () => {
             )}
           </ul>
         </div>
+        {questions[currentQuestion].exampleList.length > 0 ? (
         <ul className="result_radio">
           <li>정답: 
             <img 
@@ -105,6 +108,7 @@ const ResultPage = () => {
               src={showStudent} alt="correct" />
           </li>
         </ul>
+        ) : null }
         <div className="btn-container">
             <img
               src="https://img.icons8.com/ios/80/19A05E/circled-left-2.png"
@@ -112,12 +116,18 @@ const ResultPage = () => {
               onClick={handlePrevQuestion}
             />
     
-            <img
-              src="https://img.icons8.com/ios/80/19A05E/circled-right-2.png"
-              alt="right"
-              onClick={handleNextQuestion}
-            />
-        </div>
+            {currentQuestion === questions.length - 1 ?
+              <button onClick={handleNextQuestion}>완료</button>
+            :
+              <img
+                width="80"
+                height="80"
+                src="https://img.icons8.com/ios/80/19A05E/circled-right-2.png"
+                alt="right"
+                onClick={ handleNextQuestion }
+              />
+            }
+          </div>
       </>
   );
 };

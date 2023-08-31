@@ -6,9 +6,9 @@ const MyPageForm = ( { userType, page, title } ) => {
 
     return (
       <> 
-          <SubSidebar userType={userType}/>
-          <SubHeader page={page} title={title}/>
-        </>
+        <SubSidebar userType={userType}/>
+        <SubHeader page={page} title={title}/>
+      </>
     );
 }
 export default MyPageForm;

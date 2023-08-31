@@ -7,7 +7,7 @@ const ListContent = styled.div`
     float: left;
     width: 23vw;
     height: 70vh;
-    margin-left: 10vw;
+    margin-left: 8vw;
 
     .sub-container {
         display:flex;
@@ -42,8 +42,8 @@ export default function SubSideBar( { userType} ) {
             <ul className="sub-container">
                 {isStudent && (
                     <>
-                        <li className={`nav-item ${location.pathname.includes(`/result`) ? "current-page" : ""}`}>
-                            <Link to={`/my/result`}>학습 결과</Link>
+                        <li className={`nav-item ${location.pathname.includes(`/my`) ? "current-page" : ""}`}>
+                            <Link to={`/my`}>학습 결과</Link>
                         </li>
                         <li className={`nav-item ${location.pathname.includes(`/update`) ? "current-page" : ""}`}>
                             <Link to="#">개인정보 수정</Link>
