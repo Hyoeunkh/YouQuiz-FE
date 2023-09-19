@@ -24,7 +24,6 @@ export default function EvaluationData() {
            )
           .catch ((e) => console.log(e));
         }, []);
-
   const columns = useMemo(
     () => {
       if (!lists) return []; // lists가 null일 때 빈 배열 반환

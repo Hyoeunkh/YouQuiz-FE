@@ -17,7 +17,6 @@ export default function ResultPage() {
   useEffect(() => {
     dispatch(ResultFetchThunk());
   }, []);
-  
   if(status === "success"){
     return (
       <>
