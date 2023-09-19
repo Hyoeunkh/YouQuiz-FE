@@ -68,7 +68,7 @@ export default function EvaluationData() {
               const EvaluationData = {
                   number: index + 1,
                   chap_id: list.chap_id+"단계",
-                  title: list.title,
+                  title: list.youtube_title,
                   status: list.complete_student + "/" + list.total_student, 
                   btn:<button 
                         onClick={() => {
