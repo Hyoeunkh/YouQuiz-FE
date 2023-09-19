@@ -24,7 +24,6 @@ export default function EvaluationData() {
            )
           .catch ((e) => console.log(e));
         }, []);
-
   const columns = useMemo(
     () => {
       if (!lists) return []; // lists가 null일 때 빈 배열 반환
@@ -69,7 +68,7 @@ export default function EvaluationData() {
               const EvaluationData = {
                   number: index + 1,
                   chap_id: list.chap_id+"단계",
-                  title: list.title,
+                  title: list.youtube_title,
                   status: list.complete_student + "/" + list.total_student, 
                   btn:<button 
                         onClick={() => {

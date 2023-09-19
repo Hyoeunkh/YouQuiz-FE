@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { styled } from 'styled-components';
+import { useSelector } from "react-redux";
 import axios from 'axios';
 
 const TableWrapper = styled.div`
@@ -77,7 +78,7 @@ const StudentTable = ({ studentData, onReply, replyingStudentId, text, handleCha
                 '#F8F8F8' : 'white' }}
               >
                 <td>{student.student_id}</td>
-                <td>{student.student_name}</td>
+                <td>{student.username}</td>
                 <td width="70%">{student.answer_sentence}</td>
                 <td>
                   <button onClick={() => onReply(student.student_id)}>답글</button>
@@ -89,8 +90,8 @@ const StudentTable = ({ studentData, onReply, replyingStudentId, text, handleCha
                     <textarea
                       rows="4"
                       cols="50"
-                      placeholder="답글을 달아주세요"
-                      value={text[student.student_id] || ''}
+                      placeholder="아직 답글이 달리지 않았습니다."
+                      value={text[student.student_id]}
                       onChange={(event) => handleChange(event, student.student_id)}
                     />
                     <button className="complete-btn"
@@ -102,7 +103,7 @@ const StudentTable = ({ studentData, onReply, replyingStudentId, text, handleCha
                     </button>
                   </td>
                 </tr>
-              )}
+                )}
             </React.Fragment>
           ))}
       </table>
@@ -116,22 +117,31 @@ const TeacherToggle = () => {
   const [lastRepliedStudentId, setLastRepliedStudentId] = useState(null);
   const [text, setText] = useState([]);
   const [data, setData] = useState([]);
+  const [answer, setAnswer] = useState([]);
+  const { chap_id } =useSelector((state) => state.chap_id);
+  const { id } = useSelector((state) => state.auth);
 
   const StudentData = async () => {
     try {
       const response = await axios.get(
-        "http://101.101.219.109:8080/teacher/1/study/1/1"
+        `http://101.101.219.109:8080/teacher/${id}/study/1/${chap_id}`
       );
       setData(response.data.answer_sentence_list);
+      setAnswer(response.data.commentEntityList);
     } catch (e) {
       console.log(e);
     }
   };
   StudentData();
-
-  const handleReply = (studentId) => {
+    const handleReply = (studentId) => {
     setReplyingStudentId(studentId);
     setLastRepliedStudentId(studentId);
+
+    const originalAnswer = answer[studentId - 1].comment;
+  setText((prevText) => ({
+    ...prevText,
+    [studentId]: originalAnswer,
+  }));
   };
   const handleChange = (event, studentId) => {
     setText((prevText) => ({
@@ -140,10 +150,20 @@ const TeacherToggle = () => {
     }));
   };
 
-  const handleCompleteReply = (studentId, replyContent) => {
-    //답글을 저장하고 관련 상태를 업데이트
-    console.log(`학생${studentId}: ${replyContent}`);
+  const handleCompleteReply = async (studentId, replyContent) => {
+    const comment =  replyContent;
+    console.log(comment);
     setReplyingStudentId(null);
+  
+    try {
+      // 서버로 수정된 답변을 보냄
+      await axios.post(`http://101.101.219.109:8080/teacher/${id}/study/${studentId}/comment`, {
+        comment: comment,
+      });
+    } catch (error) {
+      console.error("Error sending choices to backend:", error.response.data);
+      throw error;
+    }
   };
 
   return (
