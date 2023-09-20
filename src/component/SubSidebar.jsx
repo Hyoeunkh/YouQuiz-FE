@@ -1,6 +1,9 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { styled } from "styled-components";
+import { persistor } from "../index"
+import { useDispatch} from "react-redux";
+import { authActions } from "../store/authSlice";
 
 const ListContent = styled.div`
     position: relative;
@@ -26,17 +29,30 @@ const ListContent = styled.div`
         font-size: 1.5rem;
     }
     .current-page a {
-            font-weight: 600;
-            color: #19A05E;
+        font-weight: 600;
+        color: #19A05E;
     }
-
+    .logout {
+        font-size: 1rem;
+        border-bottom: .1vh solid #727272;
+        font-weight: 700;
+        color: #727272;
+    }
 `;
 
-export default function SubSideBar( { userType} ) {
+export default function SubSideBar( { userType } ) {
     const location = useLocation();
     const isStudent = userType === "student";
     const isTeacher = userType === "teacher";
 
+    const dispatch = useDispatch();
+
+    const handleLogout = async () => {
+        await persistor.purge();
+        dispatch(authActions.setAuth({ status: null, id: null, username: null, role: null }));
+        // 페이지 리로딩을 하지 않는게 좋습니다. 리로딩은 React의 SPA 아이디어에 어긋나기 때문입니다.
+        // 대신 로그아웃 후에 어떤 화면을 보여줄지, 혹은 사용자를 리다이렉트할지를 결정합니다.
+    };
     return (
         <ListContent>
             <ul className="sub-container">
@@ -64,6 +80,9 @@ export default function SubSideBar( { userType} ) {
                         </li>
                     </>
                 )}
+                <li className="nav-item">
+                    <Link className="logout" to={`/`} onClick={handleLogout}>로그아웃</Link>
+                </li>
             </ul>
         </ListContent>
     );
