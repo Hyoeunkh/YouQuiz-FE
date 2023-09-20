@@ -154,10 +154,9 @@ const TeacherToggle = () => {
     const comment =  replyContent;
     console.log(comment);
     setReplyingStudentId(null);
-  
     try {
       // 서버로 수정된 답변을 보냄
-      await axios.post(`http://101.101.219.109:8080/teacher/${id}/study/${studentId}/comment`, {
+      await axios.post(`http://101.101.219.109:8080/teacher/${id}/study/${chap_id}/${studentId}/comment`, {
         comment: comment,
       });
     } catch (error) {
