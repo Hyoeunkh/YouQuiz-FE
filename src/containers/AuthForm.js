@@ -26,7 +26,6 @@ const AuthForm = ({type, form, onChange, onSubmit, error }) => {
         else if (role === "teacher") navigate("/teacher/study");
     }, [role])
 
-
     return (
         <>
             <div className="auth-wrapper">
