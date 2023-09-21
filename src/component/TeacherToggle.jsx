@@ -91,7 +91,7 @@ const StudentTable = ({ studentData, onReply, replyingStudentId, text, handleCha
                       rows="4"
                       cols="50"
                       placeholder="아직 답글이 달리지 않았습니다."
-                      value={text[student.student_id] ? text[student.student_id] : null}
+                      value={text[student.student_id]}
                       onChange={(event) => handleChange(event, student.student_id)}
                     />
                     <button className="complete-btn"
@@ -134,16 +134,16 @@ const TeacherToggle = () => {
       }
     };
     StudentData();
-}, []);
+}, [answer]);
 if (!data) {
   return null;
 }
 
-    const handleReply = (studentId) => {
-    setReplyingStudentId(studentId);
-    setLastRepliedStudentId(studentId);
+  const handleReply = (studentId) => {
+  setReplyingStudentId(studentId);
+  setLastRepliedStudentId(studentId);
 
-    const originalAnswer = answer[studentId - 1].comment;
+  const originalAnswer = answer[studentId - 1].comment;
   setText((prevText) => ({
     ...prevText,
     [studentId]: originalAnswer,
