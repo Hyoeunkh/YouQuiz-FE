@@ -44,8 +44,6 @@ const RegisterWrapper = styled.div`
 const SchoolAuth = () => {
     const [error,setError] = useState(null);
 
-
-
 	return (
         <>
             <RegisterWrapper>

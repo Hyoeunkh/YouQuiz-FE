@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { AuthFetchThunk } from "../store/authSlice";
 
 
-const AuthForm = ({type, form, onChange, onSubmit, error }) => {
+const AuthForm = ({ type, form, onChange, onSubmit, error }) => {
     const btnRef= useRef();
     const navigate = useNavigate();
     const dispatch = useDispatch();

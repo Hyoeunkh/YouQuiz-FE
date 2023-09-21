@@ -15,7 +15,7 @@ export const resultSlice = createSlice({
     },
 });
 
-export const ResultFetchThunk = () => {
+export const ResultFetchThunk = ( id ) => {
     return async (dispatch) => {
         dispatch(resultActions.setResult({
             status : "fetching",
@@ -23,7 +23,7 @@ export const ResultFetchThunk = () => {
         }));
 
         const request = async () => {
-            const response = await fetch(`http://101.101.219.109:8080/student/1/studystatus`);
+            const response = await fetch(`http://101.101.219.109:8080/student/${id}/studystatus`);
             if(!response.ok) throw new Error("Failed!");
             //console.log("response" + response.json());
             return response.json();

@@ -16,10 +16,11 @@ const ListBlock = styled.div`
 
 export default function TeacherStudyList() {
   const { status, data }= useSelector((state)=> state.teacher);
+  const { id } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(TeacherFetchThunk());
+    dispatch(TeacherFetchThunk(id));
   }, []);
 
   if(status === "success"){

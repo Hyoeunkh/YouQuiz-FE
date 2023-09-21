@@ -15,10 +15,11 @@ const ListBlock = styled.div`
 
 export default function QuizPage() {
   const { status, data }= useSelector((state)=> state.chap);
+  const { id } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(ChapFetchThunk());
+    dispatch(ChapFetchThunk(id));
   }, []);
   
   if(status === "success"){

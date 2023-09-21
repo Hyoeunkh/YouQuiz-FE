@@ -38,7 +38,7 @@ const YoutubeVideo = ({ videoId }) => {
 
   return <YouTube videoId={videoId} opts={opts} />;
 };
-//result 일경우????
+
 export default function TquizMedia() {
   const [questions, setQuestions] = useState(null);
   const { role, id } = useSelector((state) => state.auth);

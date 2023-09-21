@@ -38,7 +38,7 @@ const EvaluationBlock = styled.div`
     height: 5vh;
   }
   tbody td:nth-child(3) {
-    width: 40%;
+    width: 45%;
     text-align: start;
     padding-left: 2vw;
   }
