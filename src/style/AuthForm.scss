@@ -49,6 +49,7 @@ $green:#19A05E;
         color: $grey;
         &.active {
             color:$green;
+            transform: scale(1.1);
         }
     }
 

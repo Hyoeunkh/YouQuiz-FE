@@ -17,6 +17,3 @@ export const sendChoicesToBackend = (studentId, chapId, answerList, answerSenten
       throw error;
     });
   };
-  /* 이런형식으로 post해야함
-    “answer_list”: [1, 4, 2, 4, 2],
-    “answer_sentence”: “제 생각엔 …”  */

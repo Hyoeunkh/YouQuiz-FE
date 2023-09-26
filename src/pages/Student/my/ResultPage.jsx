@@ -12,10 +12,11 @@ const ListBlock = styled.div`
 
 export default function ResultPage() {
   const { status, data }= useSelector((state) => state.result);
+  const { id } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(ResultFetchThunk());
+    dispatch(ResultFetchThunk(id));
   }, []);
   if(status === "success"){
     return (

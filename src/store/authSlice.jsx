@@ -1,14 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { PURGE } from "redux-persist";
+
+const initialState = {
+    status : null,
+    id : null,
+    username : null,
+    role : null,
+  };
 
 export const authSlice = createSlice({
     name:"auth",
-    
-    initialState: {
-        status : null,
-        id : null,
-        username : null,
-        role : null,
-    },
+    initialState,
     reducers: {
         setAuth : (state, action) => {
             state.status = action.payload.status;
@@ -16,6 +18,9 @@ export const authSlice = createSlice({
             state.username = action.payload.username;
             state.role = action.payload.role;
         }
+    },
+    extraReducers: builder => {
+        builder.addCase(PURGE, () => initialState);
     },
 });
 
@@ -54,7 +59,6 @@ export const AuthFetchThunk = (role, id, pw) => {
                 role : role
             }));
         }catch(err){
-            
             dispatch(authActions.setAuth({
                 status: "failed",
                 id : null,

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { styled } from 'styled-components';
 import { useSelector } from "react-redux";
 import axios from 'axios';
@@ -120,24 +120,30 @@ const TeacherToggle = () => {
   const [answer, setAnswer] = useState([]);
   const { chap_id } =useSelector((state) => state.chap_id);
   const { id } = useSelector((state) => state.auth);
+  useEffect(() => {
+    const StudentData = async () => {
+      try {
+        const response = await axios.get(
+          `http://101.101.219.109:8080/teacher/${id}/study/1/${chap_id}`
+        );
+        setData(response.data.answer_sentence_list);
+        setAnswer(response.data.commentEntityList);
 
-  const StudentData = async () => {
-    try {
-      const response = await axios.get(
-        `http://101.101.219.109:8080/teacher/${id}/study/1/${chap_id}`
-      );
-      setData(response.data.answer_sentence_list);
-      setAnswer(response.data.commentEntityList);
-    } catch (e) {
-      console.log(e);
-    }
-  };
-  StudentData();
-    const handleReply = (studentId) => {
-    setReplyingStudentId(studentId);
-    setLastRepliedStudentId(studentId);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+    StudentData();
+}, [answer]);
+if (!data) {
+  return null;
+}
 
-    const originalAnswer = answer[studentId - 1].comment;
+  const handleReply = (studentId) => {
+  setReplyingStudentId(studentId);
+  setLastRepliedStudentId(studentId);
+
+  const originalAnswer = answer[studentId - 1].comment;
   setText((prevText) => ({
     ...prevText,
     [studentId]: originalAnswer,
@@ -153,11 +159,11 @@ const TeacherToggle = () => {
   const handleCompleteReply = async (studentId, replyContent) => {
     const comment =  replyContent;
     console.log(comment);
+    console.log(studentId);
     setReplyingStudentId(null);
-  
     try {
       // 서버로 수정된 답변을 보냄
-      await axios.post(`http://101.101.219.109:8080/teacher/${id}/study/${studentId}/comment`, {
+      await axios.post(`http://101.101.219.109:8080/teacher/${id}/study/${chap_id}/${studentId}/comment`, {
         comment: comment,
       });
     } catch (error) {

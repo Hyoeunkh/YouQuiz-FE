@@ -4,9 +4,10 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import { ChapIdFetchThunk } from "../../../store/chapIdSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function EvaluationData() {
+  const { id } = useSelector((state) => state.auth);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [lists, setLists] = useState(null);
@@ -14,11 +15,11 @@ export default function EvaluationData() {
     useEffect(() => {
       axios
       .all([axios.get(
-            `http://101.101.219.109:8080/teacher/1/evaluationstatus`
-          ), axios.get(`http://101.101.219.109:8080/teacher/1/studystatus`)])
+            `http://101.101.219.109:8080/teacher/${id}/evaluationstatus`
+          ), axios.get(`http://101.101.219.109:8080/teacher/${id}/studystatus`)])
           .then(
             axios.spread((res1, res2)  => {
-              setLists(res1.data.evaluation_status);
+              setLists(res1.data.evaluation_status[0]);
               settitle(res2.data.student_list[0]);
             })
            )
@@ -63,7 +64,7 @@ export default function EvaluationData() {
   const data = useMemo(
     () => {
       if (!lists) return []; // lists가 null일 때 빈 배열 반환
-
+      console.log(lists);
       return  lists.map((list, index) => {
               const EvaluationData = {
                   number: index + 1,
