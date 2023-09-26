@@ -4,6 +4,8 @@ import { chapSlice } from "./chapSlice";
 import { teacherSlice } from "./teacherSlice";
 import { resultSlice } from "./resultSlice";
 import { chapIdSlice } from "./chapIdSlice";
+import { schoolSlice } from "./schoolSlice";
+import { registerSlice } from "./registerSlice";
 
 import { combineReducers } from "redux";
 import { persistReducer } from "redux-persist";
@@ -16,6 +18,8 @@ const reducers = combineReducers({
     teacher: teacherSlice.reducer,
     result: resultSlice.reducer,
     chap_id: chapIdSlice.reducer,
+    register: registerSlice.reducer,
+    school: schoolSlice.reducer,
   });
   
   const persistConfig = {

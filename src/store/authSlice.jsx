@@ -59,7 +59,6 @@ export const AuthFetchThunk = (role, id, pw) => {
                 role : role
             }));
         }catch(err){
-            
             dispatch(authActions.setAuth({
                 status: "failed",
                 id : null,

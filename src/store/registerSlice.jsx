@@ -2,12 +2,14 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     status : null,
+    role : null,
     id : null,
     password : null,
     username : null,
     birth : null,
     sex : null,
     phoneNumber : null,
+    class_id : null,
   };
 
 export const registerSlice = createSlice({
@@ -16,9 +18,14 @@ export const registerSlice = createSlice({
     reducers: {
         setRegister : (state, action) => {
             state.status = action.payload.status;
+            state.role = action.payload.role;
             state.id = action.payload.id;
             state.username = action.payload.username;
             state.password = action.payload.password;
+            state.birth = action.payload.birth;
+            state.sex = action.payload.sex;
+            state.phoneNumber = action.payload.phoneNumber;
+            state.class_id = action.payload.class_id;
         }
     }
 });
@@ -27,9 +34,14 @@ export const RegisterFetchThunk = (role, id, password, username, birth, sex, pho
     return async (dispatch) => {
         dispatch(registerActions.setRegister({
             status : "fetching",
+            role : null,
             id : null,
             username : null,
             password : null,
+            birth : null,
+            sex : null,
+            phoneNumber : null,
+            class_id : null,
         }));
 
         const request = async () => {
@@ -45,6 +57,7 @@ export const RegisterFetchThunk = (role, id, password, username, birth, sex, pho
                     "birth": birth,
                     "sex": sex,
                     "phoneNumber": phoneNumber,
+                    "class_id" : "1",
                 })
             });
             if(!response.ok) throw new Error("Register Failed!");
@@ -57,17 +70,27 @@ export const RegisterFetchThunk = (role, id, password, username, birth, sex, pho
             
             dispatch(registerActions.setRegister({
                 status : "success",
+                role : data.role,
                 id : data.id,
                 username : data.username,
-                role : role
+                password : data.password,
+                birth : data.birth,
+                sex : data.sex,
+                phoneNumber : data.phoneNumber,
+                class_id : "1"
             }));
         }catch(err){
             
             dispatch(registerActions.setRegister({
                 status: "failed",
+                role : null,
                 id : null,
-                username: null,
-                role : null
+                username : null,
+                password : null,
+                birth : null,
+                sex : null,
+                phoneNumber : null,
+                class_id : null
             }))
         }
     }
