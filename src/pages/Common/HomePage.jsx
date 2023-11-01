@@ -41,8 +41,8 @@ const HomePage = () => {
                 <div className="text">
                     <div className="head">Join your school, class, level, list, and advice</div>
                     <h1>학급 목록</h1>
-                    <p className="line">학교별 학급 목록을 정확하고 알기 쉽게 검색하고,<br/>학급 코드를 인증하여 올바른 학급에 가입합니다.</p>
-                    <p>교육자는 학생들의 진행 상황을 <br />한눈에 볼 수 있습니다. <br/> 각 학생들의 의견에 코멘트를 달아주세요.</p>
+                    <p className="line">교육자는 학생들의 진행 상황을 <br/>한눈에 볼 수 있습니다. <br/> 각 학생들의 의견에 코멘트를 달아주세요.</p>
+                    <p>우리 학급 학생들은 어떤 의견을 가지고 있을까요?</p>
                     <button><Link to="/register">가입하기<img src="right-fill.png" alt=""/></Link></button>
                 </div>
                 <div className="image">
