@@ -1,18 +1,10 @@
 /* 홈 */
-@import url('https://fonts.googleapis.com/earlyaccess/notosanskr.css');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@500&display=swap');
-@import url('https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@2.0/NanumSquare.css');
-
 $dark-green:#105A31;
 $green:#19A05E;
 
 p {
     font-family: "Noto Sans KR", sans-serif;
     font-weight: 400;
-}
-h1 {
-    font-family: "NanumSquare", sans-serif;
-    font-weight: 800;
 }
 .home-wrapper{
     position: relative;
@@ -216,7 +208,8 @@ h1 {
             line-height: 3.5rem;
             text-align: right;
             letter-spacing: 0.07em;
-            font-family: 'NanumSquareBold';
+            font-family: 'NanumSquare';
+            font-weight: bolder;
 
             color: #2D3E34;
         }
@@ -235,20 +228,29 @@ h1 {
             width: 191px;
             height: 47px;
             left: 371px;
-            top: 304px;
+            top: 320px;
 
             background: $green;
             border: 0.125rem solid #F0F0F0;
             box-shadow: 0.063rem 0.063rem 0.25rem rgba(0, 0, 0, 0.25), inset -0.063rem -0.063rem 0rem rgba(255, 255, 255, 0.25), inset 0.063rem 0.063rem 0px rgba(255, 255, 255, 0.25);
             border-radius: 0.625rem;
-            font-family: 'Noto Sans';
-            font-weight: 600;
             font-size: 1.25rem;
             text-align: center;
-
+            letter-spacing: 0.07em;
             margin-top: 1.25rem;
-
+            transition: .5s;
             color: #ffffff;
+            &:hover {
+                background: white;
+                color: #19A05E;
+                transform: translate(0, -5%);
+                border:none;
+              }
+            &:hover:after {
+                left: auto;
+                right: 0;
+                width: 100%;
+            }
         }
     }
 }
@@ -274,13 +276,13 @@ h1 {
 
             text-align: center;
             background: #E3FAE7;
-            border: 0.063rem solid rgba(16, 90, 49, 0.22);
+            border: 1px solid rgba(16, 90, 49, 0.22);
             border-radius: 0.625rem;
             font-family: "Noto Sans", sans-serif;
             font-size: 0.688rem;
-            line-height: 0.938;
+            line-height: 1rem;
             
-            padding-top: 00.125rem;
+            padding-top: 0.125rem;
 
             color: $green;
 
@@ -289,7 +291,8 @@ h1 {
             margin-top: 3rem;
             font-size: 3.2rem;
             line-height: 3.5rem;
-            font-family: 'NanumSquareBold';
+            font-family: 'NanumSquare';
+            font-weight: bolder;
             text-align: left;
             letter-spacing: 0.07em;
 
@@ -304,7 +307,7 @@ h1 {
 
             color: #2D3E34;
 
-            padding: 1.4rem 0rem;
+            padding: 1rem 0rem;
         }
  
 
@@ -313,19 +316,30 @@ h1 {
             width: 149px;
             height: 47px;
             left: 0px;
-            top: 329.58px;
+            top: 325px;
 
             background: $green;
             border: 0.125rem solid #F0F0F0;
             box-shadow: 0.063rem 0.063rem 0.25rem rgba(0, 0, 0, 0.25), inset -0.063rem -0.063rem 0rem rgba(255, 255, 255, 0.25), inset 0.063rem 0.063rem 0px rgba(255, 255, 255, 0.25);
             border-radius: 0.625rem;
-            font-family: 'Noto Sans';
-            font-weight: 600;
+            letter-spacing: 0.07em;
             font-size: 1.25rem;
             text-align: center;
 
             margin-top: 1.25rem;
             color: white;
+            transition: .5s;
+            &:hover {
+                background: white;
+                color: #19A05E;
+                transform: translate(0, -5%);
+                border: none;
+              }
+            &:hover:after {
+                left: auto;
+                right: 0;
+                width: 100%;
+            }
         }
         a {
             color: inherit;
@@ -368,15 +382,15 @@ h1 {
             width: 226px;
             height: 22px;
             left: 0px;
-            top: 3px;
+            top: 0px;
 
             text-align: center;
             background: #E3FAE7;
-            border: 0.063rem solid rgba(16, 90, 49, 0.22);
+            border: 1px solid rgba(16, 90, 49, 0.22);
             border-radius: 0.625rem;
             font-family: "Noto Sans", sans-serif;
             font-size: 0.688rem;
-            line-height: 0.938;
+            line-height: 1rem;
             
             padding-top: 0.125rem;
 
@@ -387,7 +401,8 @@ h1 {
             margin-top: 3rem;
             font-size: 3.2rem;
             line-height: 3.5rem;
-            font-family: 'NanumSquareBold';
+            font-family: 'NanumSquare';
+            font-weight: bolder;
             text-align: left;
             letter-spacing: 0.07em;
 
