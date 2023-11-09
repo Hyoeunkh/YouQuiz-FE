@@ -9,7 +9,7 @@ export default function StudyData() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://101.101.219.109:8080/teacher/1/studystatus`
+          `http://52.78.142.246:8080/teacher/1/studystatus`
         );
         setLists(response.data.student_list[0]);
       } catch (e) {

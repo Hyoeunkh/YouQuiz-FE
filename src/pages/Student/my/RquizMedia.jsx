@@ -47,7 +47,7 @@ export default function RquizMedia() {
       const Data = async () => {
         try {
           const response = await axios.get(
-            `http://101.101.219.109:8080/${role}/${id}/studystatus/${chap_id}`,
+            `http://52.78.142.246:8080/${role}/${id}/studystatus/${chap_id}`,
           );
           setQuestions(response.data);
 

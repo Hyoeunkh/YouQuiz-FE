@@ -10,22 +10,60 @@ const AuthForm = ({ type, form, onChange, onSubmit, error }) => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
+    const LS_KEY_ID = "LS_KEY_ID";
+    const LS_KEY_SAVE_ID_FLAG = "LS_KEY_SAVE_ID_FLAG";
+
     const { status, id, username, role }= useSelector((state)=>state.auth);
-    
+
+    const [loginID, setLoginID] = useState("");
     const [btnActive, setBtnActive] = useState('student');
     const [idRef, pwRef] = [useRef(), useRef()];
+    const [saveIDFlag, setSaveIDFlag] = useState(false);
 
     const onClickHandler = (e) => {
-            console.log("btnclicked");
             console.log(btnActive);
             dispatch(AuthFetchThunk(btnActive, idRef.current.value, pwRef.current.value));
+            
+            if (idRef.current.value === "") {
+                alert("아이디를 입력해주세요.");
+            }
+            if (pwRef.current.value === "") {
+                alert("비밀번호를 입력해주세요.");
+            }
+            
+            if (true) {  /* login success */
+                if (saveIDFlag) localStorage.setItem(LS_KEY_ID, loginID);
+            } 
     }
+    const getLoginID = (event) => {
+        let value = event.target.value;
+    
+        if (value === "") {
+          setLoginID(value);
+          return;
+        }
+        setLoginID(value);
+        return;
+      };
+
+    useEffect(() => {
+        let idFlag = JSON.parse(localStorage.getItem(LS_KEY_SAVE_ID_FLAG));
+        if (idFlag !== null) setSaveIDFlag(idFlag);
+        if (idFlag === false) localStorage.setItem(LS_KEY_ID, "");
+      
+        let data = localStorage.getItem(LS_KEY_ID);
+        if (data !== null) setLoginID(data);
+      }, []);
 
     useEffect(() => {
         if(role === "student") navigate("/study");
         else if (role === "teacher") navigate("/teacher/study");
     }, [role])
-
+    
+    const handleSaveIDFlag = () => {
+        localStorage.setItem(LS_KEY_SAVE_ID_FLAG, !saveIDFlag);
+        setSaveIDFlag(!saveIDFlag);
+      };
     return (
         <>
             <div className="auth-wrapper">
@@ -38,11 +76,11 @@ const AuthForm = ({ type, form, onChange, onSubmit, error }) => {
                 </div>
                 
                 <form className="idpw" onSubmit={onSubmit}>
-                    <input ref={idRef} className="input"  name="userid" placeholder="아이디" onChange={onChange}  />
-                    <input ref={pwRef} className="input"  name="password" placeholder="비밀번호" type="password" onChange={onChange}  />
+                    <input ref={idRef} className="input"  name="userid" placeholder="아이디" value={loginID} onChange={(e) => getLoginID(e)} />
+                    <input ref={pwRef} className="input"  name="password" placeholder="비밀번호" type="password"/>
                 </form>
                 <label className="store">
-                    <input type="checkbox" id="store"/>
+                    <input type="checkbox" id="store" onChange={handleSaveIDFlag}/>
                     <label htmlFor="store"></label>
                     아이디 저장
                 </label>

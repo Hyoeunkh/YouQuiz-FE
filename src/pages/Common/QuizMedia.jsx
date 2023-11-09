@@ -48,7 +48,7 @@ export default function QuizMedia() {
       const Data = async () => {
         try {
           const response = await axios.get(
-            `http://101.101.219.109:8080/${role}/${id}/study/${chap_id}`
+            `http://52.78.142.246:8080/${role}/${id}/study/${chap_id}`
           );
           setQuestions(response.data);
 

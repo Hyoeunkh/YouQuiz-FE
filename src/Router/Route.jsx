@@ -2,7 +2,6 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import AgreementPage from "../pages/Common/AgreementPage";
 import UserInfoPage from "../pages/Common/UserInfoPage";
-import SchoolAuth from "../pages/Common/SchoolAuth";
 import QuestionPage from "../pages/Student/study/QuestionPage";
 import QuizPage from "../pages/Student/study/QuizPage";
 import QuizMedia from "../pages/Common/QuizMedia";
@@ -50,7 +49,6 @@ export const RegisterRoute = () => {
     <Routes>
       <Route path="/" element={<AgreementPage />} />
       <Route path="user" element={<UserInfoPage />} />
-      <Route path="schoolAuth" element={<SchoolAuth />} />
     </Routes>
   );
 };

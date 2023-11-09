@@ -24,9 +24,6 @@ const SubHeader = ({ page, title }) => {
       <Sub>
         <div className="sub-header">
           <div className="sub-title">{page}</div>
-          { title && (
-            <div className="sub-class">{`${title[0].school_name}고 ${title[0].grade}학년 ${title[0].class_num}반`}</div>
-          )}
         </div>
       </Sub>
     </>

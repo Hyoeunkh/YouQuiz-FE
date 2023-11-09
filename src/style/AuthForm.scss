@@ -52,8 +52,6 @@ $green:#19A05E;
             transform: scale(1.1);
         }
     }
-
-
 }
 
 .idpw{
@@ -132,7 +130,7 @@ $green:#19A05E;
     margin-top: 3vh;
     display: flex;
     flex-direction: row;
-    gap: 2vw;
+    gap: 1.7vw;
 
     li {
         display: flex;
@@ -140,7 +138,7 @@ $green:#19A05E;
         color: $grey;
     }
     a {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         color: inherit;
         text-decoration: none;
         border:none;

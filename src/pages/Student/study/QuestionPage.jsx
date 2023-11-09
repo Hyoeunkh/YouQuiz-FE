@@ -51,7 +51,7 @@ const QuestionPage = () => {
     const answerSentence = openEndedAnswer;
     console.log(answerList, answerSentence);
   
-    fetch(`http://101.101.219.109:8080/student/${id}/study/${chap_id}`, {
+    fetch(`http://52.78.142.246:8080/student/${id}/study/${chap_id}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

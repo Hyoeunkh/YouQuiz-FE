@@ -34,7 +34,7 @@ export const AuthFetchThunk = (role, id, pw) => {
         }));
 
         const request = async () => {
-            const response = await fetch(`http://101.101.219.109:8080/login/${role}`, {
+            const response = await fetch(`http://52.78.142.246:8080/login/${role}`, {
                 method : "POST",
                 headers:{
                     "Content-Type" : "application/json"

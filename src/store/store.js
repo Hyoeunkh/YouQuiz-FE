@@ -4,7 +4,6 @@ import { chapSlice } from "./chapSlice";
 import { teacherSlice } from "./teacherSlice";
 import { resultSlice } from "./resultSlice";
 import { chapIdSlice } from "./chapIdSlice";
-import { schoolSlice } from "./schoolSlice";
 import { registerSlice } from "./registerSlice";
 
 import { combineReducers } from "redux";
@@ -19,7 +18,6 @@ const reducers = combineReducers({
     result: resultSlice.reducer,
     chap_id: chapIdSlice.reducer,
     register: registerSlice.reducer,
-    school: schoolSlice.reducer,
   });
   
   const persistConfig = {

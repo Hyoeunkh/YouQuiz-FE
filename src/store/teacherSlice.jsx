@@ -23,7 +23,7 @@ export const TeacherFetchThunk = (id) => {
         }));
 
         const request = async () => {
-            const response = await fetch(`http://101.101.219.109:8080/teacher/${id}/study`);
+            const response = await fetch(`http://52.78.142.246:8080/teacher/${id}/study`);
             if(!response.ok) throw new Error("Failed!");
             // console.log("response" + response.json());
             return response.json();

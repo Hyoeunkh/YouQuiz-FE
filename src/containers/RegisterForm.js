@@ -169,7 +169,7 @@ const RegisterForm = ({ type, form, onChange, onSubmit }) => {
                         <Link to={-1}>
                             <button className="back">이전</button>
                         </Link>
-                        <Link to={`/register/schoolAuth`}>
+                        <Link to={`/login`}>
                             <button onClick={onClickHandler}>다음</button>
                         </Link>
                     </div>

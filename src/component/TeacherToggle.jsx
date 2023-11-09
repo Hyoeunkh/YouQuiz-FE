@@ -124,7 +124,7 @@ const TeacherToggle = () => {
     const StudentData = async () => {
       try {
         const response = await axios.get(
-          `http://101.101.219.109:8080/teacher/${id}/study/1/${chap_id}`
+          `http://52.78.142.246:8080/teacher/${id}/study/1/${chap_id}`
         );
         setData(response.data.answer_sentence_list);
         setAnswer(response.data.commentEntityList);
@@ -163,7 +163,7 @@ if (!data) {
     setReplyingStudentId(null);
     try {
       // 서버로 수정된 답변을 보냄
-      await axios.post(`http://101.101.219.109:8080/teacher/${id}/study/${chap_id}/${studentId}/comment`, {
+      await axios.post(`http://52.78.142.246:8080/teacher/${id}/study/${chap_id}/${studentId}/comment`, {
         comment: comment,
       });
     } catch (error) {
