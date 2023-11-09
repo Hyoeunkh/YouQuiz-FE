@@ -24,7 +24,6 @@ const Contents = styled.div`
 const Btn = styled.div`
   margin-left: 80.9vw;
 `;
-//버튼위치다시조정
 
 const YoutubeVideo = ({ videoId }) => {
   const opts = {

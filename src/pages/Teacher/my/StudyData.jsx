@@ -1,15 +1,17 @@
 import StudyManage from "./StudyManage";
 import { useMemo, useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import axios from "axios";
 
 export default function StudyData() {
   const [ lists, setLists ] = useState(null);
-
+  const { id } = useSelector((state) => state.auth);
+  
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://52.78.142.246:8080/teacher/1/studystatus`
+          `http://52.78.142.246:8080/teacher/${id}/studystatus`
         );
         setLists(response.data.student_list[0]);
       } catch (e) {

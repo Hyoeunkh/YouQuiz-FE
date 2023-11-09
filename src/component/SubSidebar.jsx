@@ -26,14 +26,14 @@ const ListContent = styled.div`
     a {
         color: black;
         text-decoration: none;
-        font-size: 1.5rem;
+        font-size: 1.3vw;
     }
     .current-page a {
         font-weight: 600;
         color: #19A05E;
     }
     .logout {
-        font-size: 1rem;
+        font-size: .85vw;
         border-bottom: .1vh solid #727272;
         font-weight: 700;
         color: #727272;

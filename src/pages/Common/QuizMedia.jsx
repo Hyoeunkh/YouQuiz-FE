@@ -14,7 +14,7 @@ const Contents = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0 20vw;
-  font-size: 1.5rem;
+  font-size: 1.4vw;
   .youtube {
   }
   img {

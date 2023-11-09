@@ -140,14 +140,15 @@ if (!data) {
 }
 
   const handleReply = (studentId) => {
-  setReplyingStudentId(studentId);
-  setLastRepliedStudentId(studentId);
+    setReplyingStudentId(studentId);
+    setLastRepliedStudentId(studentId);
+    const originalAnswer = answer[studentId - 1].comment !== 'null' ? 
+    answer[studentId - 1].comment : '';
 
-  const originalAnswer = answer[studentId - 1].comment;
-  setText((prevText) => ({
-    ...prevText,
-    [studentId]: originalAnswer,
-  }));
+    setText((prevText) => ({
+      ...prevText,
+      [studentId]: originalAnswer,
+    }));
   };
   const handleChange = (event, studentId) => {
     setText((prevText) => ({

@@ -10,15 +10,15 @@ const Questionwrapper = styled.div`
 
  .problem {
   width: 70%;
-  font-size:2.1rem;
+  font-size:1.8vw;
   font-weight:600;
-  margin: 1.8rem;
+  margin: 1.5vw;
   margin-left:10vw;
   }
  .progressbar-container {
   display: flex;
   flex-direction: row;
-  margin: 2.5rem 0px 0px 0px;
+  margin: 2vw 0px 0px 0px;
   position: relative;
   z-index: 1; 
   align-items:center;

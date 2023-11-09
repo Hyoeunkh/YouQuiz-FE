@@ -41,9 +41,8 @@ const QuizFormWrapper = styled.div`
     display: flex;
     gap: 1vw;
   }
-  .level-con span {
-    margin: auto 0;
-    font-size: 1.2rem;
+  .listitle {
+    font-size: 1.3vw;
   }
   .level {
     border: 1px solid #19a05e;
@@ -51,7 +50,7 @@ const QuizFormWrapper = styled.div`
     width: 4vw;
     text-align: center;
     color: #19a05e;
-    font-size: 1rem;
+    font-size: .85vw;
     padding: 5px;
   }
   .custom-bad {
@@ -63,6 +62,7 @@ const QuizFormWrapper = styled.div`
     background-color: #19a05e;
     justify-content: center;
     align-items: center;
+    font-size: 1.3vw;
     display: flex;
   }
 `;
@@ -102,10 +102,10 @@ const StudentQuizListForm = ({ lists }) => {
                     <div className="levle-con">
                       <div className="level fw-bold">{item.chap_id}단계</div>
                     </div>
-                    <div className="fw-bold fs-4 mt-2">{item.title}</div>
+                    <div className="listitle fw-bold mt-2">{item.title}</div>
                   </div>
                 </div>
-                <span className="custom-bad fw-bold fs-4">학습하기</span>
+                <span className="custom-bad fw-bold">학습하기</span>
               </li>
             );
           })}

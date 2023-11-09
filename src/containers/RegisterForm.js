@@ -14,10 +14,10 @@ const RegisterWrapper = styled.div`
         gap: 1vw;
         display: flex;
         flex-direction: row;
-        font-size: 1.2rem;
+        font-size: 1.2vw;
     }
     .roletype label {
-        font-size: 1rem;
+        font-size: .8vw;
         padding: 0.2em 0.4em;
     }
     .roletype input[type="radio"], label {
@@ -43,14 +43,14 @@ const RegisterWrapper = styled.div`
     }
     .sex{
         display: flex;
-        width:100%;
+        width: 100%;
         border: 3px solid #9E9E9E;
         margin: .5vh;
         gap: 1.2vw;
         padding: .5vh 1.6vw;
         border-radius: .3rem;
         color: #828282;
-        font-size: 1.1rem;
+        font-size: .95vw;
         text-align: center;
     }
     .sex input[type="radio"] {
@@ -65,7 +65,7 @@ const RegisterWrapper = styled.div`
         width: 6vw;
         text-align: center;
         justify-content: center;
-        font-size: 1.1rem;
+        font-size: .95vw;
         border-radius: .2rem;
     }
     .sex input[type=radio]+label{
@@ -77,8 +77,9 @@ const RegisterWrapper = styled.div`
         color: #dedede;
 }
     .sex span {
-    margin-right: 20vw;
-}
+        margin-right: 20vw;
+        margin-top:1vh;
+    }
     .userinfo {
         width:50%;
         height: 100%;
@@ -117,7 +118,6 @@ const RegisterWrapper = styled.div`
 const RegisterForm = ({ type, form, onChange, onSubmit }) => {
     const [error,setError] = useState(null);
     const dispatch = useDispatch();
-    const navigate = useNavigate();
 
     const [idRef, pwRef, pwconfirmRef, nameRef, birthRef, phoneRef] = [useRef(), useRef(), useRef(), useRef(),useRef(), useRef()];
     const [btnActive, setBtnActive] = useState('student');

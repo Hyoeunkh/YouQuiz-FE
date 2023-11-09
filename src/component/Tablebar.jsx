@@ -4,7 +4,9 @@ import { useSelector } from "react-redux";
 
 export default function Tablebar({ answer, teacher_comment }) {
     const { username, id } = useSelector((state) => state.auth);
+    console.log(teacher_comment);
     return (
+        
         <div className="tablebar">
             <table>
                 <thead>
@@ -22,7 +24,11 @@ export default function Tablebar({ answer, teacher_comment }) {
                     </tr>
                     <tr>
                     <td colSpan="3">
-                        <div className="answer-box">{teacher_comment}</div>
+                        <div className="answer-box">
+                        { teacher_comment && teacher_comment !== 'null' ? 
+                                    teacher_comment : 
+                                    '아직 답변하지 않았어요!' }
+                        </div>
                     </td>
                     </tr>
                 </tbody>

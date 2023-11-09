@@ -51,7 +51,7 @@ const QuizFormWrapper = styled.div`
     width: 4vw;
     text-align: center;
     color: #19a05e;
-    font-size: 1rem;
+    font-size: .8vw;
     padding: 5px;
     background-color:white;
   }
@@ -69,8 +69,7 @@ const QuizFormWrapper = styled.div`
 `;
 const Span = styled.span`
   margin: .5vh 0;
-
-  font-size: 1rem;
+  font-size: .85vw;
 `;
 
 const extractYoutubeVideoId = (url) => {

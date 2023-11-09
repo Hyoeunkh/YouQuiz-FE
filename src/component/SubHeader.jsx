@@ -14,7 +14,7 @@ const Sub = styled.div`
   }
   .sub-title {
     font-weight: 700;
-    font-size: 1.8rem;
+    font-size: 1.5vw;
   }
 `;
 
