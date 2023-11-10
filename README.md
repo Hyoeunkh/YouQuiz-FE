@@ -27,7 +27,7 @@
 
 ## 활용된 기술
 1. react-youtube 사용 ()
-'''
+```
 const YoutubeVideo = ({ videoId }) => {
   const opts = {
     height: "490",
@@ -38,9 +38,9 @@ const YoutubeVideo = ({ videoId }) => {
   };
   return <YouTube videoId={videoId} opts={opts} />;
 };
-'''
+```
 2. Redux-toolkit으로 상태 관리
-'''
+```
 import { configureStore } from "@reduxjs/toolkit";
 
 export const store = configureStore({
@@ -49,12 +49,13 @@ export const store = configureStore({
   middleware: [thunk],
 });
 
-'''
+```
+```
 import { Provider } from 'react-redux';
 import { store } from "./store/store";
 
 <Provider store={store}>
 ...
 </Provider>
-'''
+```
 
