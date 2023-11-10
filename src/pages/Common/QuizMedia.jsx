@@ -14,7 +14,7 @@ const Contents = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0 20vw;
-  font-size: 1.5rem;
+  font-size: 1.4vw;
   .youtube {
   }
   img {
@@ -45,18 +45,18 @@ export default function QuizMedia() {
   const { chap_id } = useSelector((state) => state.chap_id);
   const navigate = useNavigate();
   useEffect(() => {
-      const Data = async () => {
-        try {
-          const response = await axios.get(
-            `http://101.101.219.109:8080/${role}/${id}/study/${chap_id}`
-          );
-          setQuestions(response.data);
+    const Data = async () => {
+      try {
+        const response = await axios.get(
+          `http://52.79.181.56:8080/${role}/${id}/study/${chap_id}`
+        );
+        setQuestions(response.data);
 
-        } catch (e) {
-          console.log(e);
-        }
-      };
-      Data();
+      } catch (e) {
+        console.log(e);
+      }
+    };
+    Data();
   }, [questions]);
   if (!questions) {
     return null;

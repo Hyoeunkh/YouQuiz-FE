@@ -51,7 +51,7 @@ const QuestionPage = () => {
     const answerSentence = openEndedAnswer;
     console.log(answerList, answerSentence);
   
-    fetch(`http://101.101.219.109:8080/student/${id}/study/${chap_id}`, {
+    fetch(`http://52.79.181.56:8080/student/${id}/study/${chap_id}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -65,77 +65,75 @@ const QuestionPage = () => {
       console.error("Error sending choices to backend:", error.response.data);
       throw error;
     });
-    navigate(`/study/${chap_id}/complete`, {state: { score:null}});
+    navigate(`/study/${chap_id}/complete`, {state: { score:null }});
     
   };
   return (
     <>
-        <QuizTitle
-          text={title}
-          currentPage={currentQuestion+2}
-        />
-        <div className="firstq-container">
-          <div className="question-conta">
-            <h1>Q{currentQuestion+1}</h1>
-            <div className="problem-container">
-              <h3>{questions[currentQuestion].question}</h3>
-              {questions[currentQuestion].exampleList.length > 0 ? (
-              <h6>
-                @{questions[currentQuestion].writer}
-                <span>
-                  <br />
-                  {questions[currentQuestion].comment}
-                </span>
-              </h6>
-              ) : ( null )}
-            </div>
-          </div>
-
-          <ul className="radio-list">
+      <QuizTitle
+        text={title}
+        currentPage={currentQuestion+2}
+      />
+      <div className="firstq-container">
+        <div className="question-conta">
+          <h1>Q{currentQuestion+1}</h1>
+          <div className="problem-container">
+            <h3>{questions[currentQuestion].question}</h3>
             {questions[currentQuestion].exampleList.length > 0 ? (
-            questions[currentQuestion].exampleList.map((choice, index) => (
-              <label key={index} className="radio-label" >
-                <input
-                type="radio"
-                value={index + 1}
-                checked={answers[currentQuestion] === index + 1}
-                onChange={handleAnswerChange}
-              />
-                <img src={getImageSource(index + 1)} alt={`${choice}-circle`} />
-                {choice}
-              </label>
-            ))
-            ) : (
-              <textarea className="form"
-              value={openEndedAnswer}
-              onChange={handleOpenEndedAnswerChange}
-              placeholder="자유롭게 의견을 써주세요."
-              rows={8}/>
-            )}
-          </ul>
+            <h6>
+              @{questions[currentQuestion].writer}
+              <span>
+                <br />
+                {questions[currentQuestion].comment}
+              </span>
+            </h6>
+            ) : ( null )}
+          </div>
         </div>
-        
 
-        <div className="btn-container">
-            <img
-              width="80"
-              height="80"
-              src="https://img.icons8.com/ios/80/19A05E/circled-left-2.png"
-              alt="left"
-              onClick={handlePrevQuestion}
+        <ul className="radio-list">
+          {questions[currentQuestion].exampleList.length > 0 ? (
+          questions[currentQuestion].exampleList.map((choice, index) => (
+            <label key={index} className="radio-label" >
+              <input
+              type="radio"
+              value={index + 1}
+              checked={answers[currentQuestion] === index + 1}
+              onChange={handleAnswerChange}
             />
-            {currentQuestion === questions.length - 1 ?
-              <button onClick={handleSubmit}>제출</button>
-            :
-              <img
-                width="80"
-                height="80"
-                src="https://img.icons8.com/ios/80/19A05E/circled-right-2.png"
-                alt="right"
-                onClick={ handleNextQuestion }
-              />
-            }
-        </div>
+              <img src={getImageSource(index + 1)} alt={`${choice}-circle`} />
+              {choice}
+            </label>
+          ))
+          ) : (
+            <textarea className="form"
+            value={openEndedAnswer}
+            onChange={handleOpenEndedAnswerChange}
+            placeholder="자유롭게 의견을 써주세요."
+            rows={8}/>
+          )}
+        </ul>
+      </div>
+      <div className="btn-container">
+        <img
+          width="80"
+          height="80"
+          src="https://img.icons8.com/ios/80/19A05E/circled-left-2.png"
+          alt="left"
+          onClick={handlePrevQuestion}
+        />
+        {currentQuestion === questions.length - 1 ?
+          <button onClick={handleSubmit}>제출</button>
+        :
+          <img
+            width="80"
+            height="80"
+            src="https://img.icons8.com/ios/80/19A05E/circled-right-2.png"
+            alt="right"
+            onClick={ handleNextQuestion }
+          />
+        }
+      </div>
     </>
   );
 };

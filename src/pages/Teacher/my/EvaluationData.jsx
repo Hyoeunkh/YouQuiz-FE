@@ -11,20 +11,20 @@ export default function EvaluationData() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [lists, setLists] = useState(null);
-  const [title, settitle] = useState(null);
     useEffect(() => {
-      axios
-      .all([axios.get(
-            `http://101.101.219.109:8080/teacher/${id}/evaluationstatus`
-          ), axios.get(`http://101.101.219.109:8080/teacher/${id}/studystatus`)])
-          .then(
-            axios.spread((res1, res2)  => {
-              setLists(res1.data.evaluation_status[0]);
-              settitle(res2.data.student_list[0]);
-            })
-           )
-          .catch ((e) => console.log(e));
-        }, []);
+      const Data = async () => {
+      try {
+        const response = await axios.get(
+          `http://52.79.181.56:8080/teacher/${id}/evaluationstatus`
+        );
+          setLists(response.data.evaluation_status[0]);
+        } catch (e) {
+          console.log(e);
+        }
+      };
+      Data();
+    }, []);
+
   const columns = useMemo(
     () => {
       if (!lists) return []; // lists가 null일 때 빈 배열 반환
@@ -48,11 +48,11 @@ export default function EvaluationData() {
           Cell: ({ value }) => (
             <span>
                 <span style={{ color: value.split("/")[0] === value.split("/")[1] ? "green" : "red" }}>
-                    {value.split("/")[0]}
+                  {value.split("/")[0]}
                 </span>
                 /{value.split("/")[1]}
             </span>
-        ),
+          ),
         },
         {
           accessor: "btn",
@@ -66,24 +66,23 @@ export default function EvaluationData() {
       if (!lists) return []; // lists가 null일 때 빈 배열 반환
       console.log(lists);
       return  lists.map((list, index) => {
-              const EvaluationData = {
-                  number: index + 1,
-                  chap_id: list.chap_id+"단계",
-                  title: list.youtube_title,
-                  status: list.complete_student + "/" + list.total_student, 
-                  btn:<button 
-                        onClick={() => {
-                          navigate(`/teacher/study/${list.chap_id}/quizmedia`);
-                          dispatch(ChapIdFetchThunk(list.chap_id));
-                          }
-                        }
-                        style={{ background: "none", padding: 0, cursor: "pointer",color: "black" }}
-                      >채점하기</button>,
-              };
-              return EvaluationData;
-          });
-        }, [lists]);
-
-  
-  return <EvaluationManage columns={columns} data={data} title={title} />;
+        const EvaluationData = {
+          number: index + 1,
+          chap_id: list.chap_id+"단계",
+          title: list.youtube_title,
+          status: list.complete_student + "/" + list.total_student, 
+          btn:<button 
+              onClick={() => {
+                navigate(`/teacher/study/${list.chap_id}/quizmedia`);
+                dispatch(ChapIdFetchThunk(list.chap_id));
+                }
+              }
+              style={{ background: "none", padding: 0, cursor: "pointer",color: "black" }}
+            >채점하기
+          </button>,
+        };
+        return EvaluationData;
+      });
+    }, [lists]);
+  return <EvaluationManage columns={columns} data={data} />;
 }

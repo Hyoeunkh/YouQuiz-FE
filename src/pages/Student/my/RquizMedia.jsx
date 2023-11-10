@@ -24,7 +24,6 @@ const Contents = styled.div`
 const Btn = styled.div`
   margin-left: 80.9vw;
 `;
-//버튼위치다시조정
 
 const YoutubeVideo = ({ videoId }) => {
   const opts = {
@@ -47,7 +46,7 @@ export default function RquizMedia() {
       const Data = async () => {
         try {
           const response = await axios.get(
-            `http://101.101.219.109:8080/${role}/${id}/studystatus/${chap_id}`,
+            `http://52.79.181.56:8080/${role}/${id}/studystatus/${chap_id}`,
           );
           setQuestions(response.data);
 

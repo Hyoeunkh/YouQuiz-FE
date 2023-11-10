@@ -8,24 +8,22 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 
 const Contents = styled.div`
-  background-color: light-gray;
-  height: 55vh;
-  width: 65vw;
-  display: flex;
-  flex-direction: column;
-  margin: 0 20vw;
-  font-size: 1.5rem;
-  .youtube {
-  }
-  img {
-    margin-right: 0.5vw;
-  }
+background-color: light-gray;
+height: 55vh;
+width: 65vw;
+display: flex;
+flex-direction: column;
+margin: 0 20vw;
+font-size: 1.5rem;
+.youtube {
+}
+img {
+  margin-right: 0.5vw;
+}
 `;
 const Btn = styled.div`
-  margin-left: 80.9vw;
+margin-left: 80.9vw;
 `;
-//버튼위치다시조정
-
 const YoutubeVideo = ({ videoId }) => {
   const opts = {
     height: "490",
@@ -35,7 +33,6 @@ const YoutubeVideo = ({ videoId }) => {
       autoplay: 0,
     },
   };
-
   return <YouTube videoId={videoId} opts={opts} />;
 };
 
@@ -46,22 +43,22 @@ export default function TquizMedia() {
   const navigate = useNavigate();
 
   useEffect(() => {
-      const Data = async () => {
-        try {
-          const response = await axios.get(
-            `http://101.101.219.109:8080/${role}/${id}/study/1/${chap_id}`
-          );
-          setQuestions(response.data);
-
-        } catch (e) {
-          console.log(e);
-        }
-      };
-      Data();
+    const Data = async () => {
+      try {
+        const response = await axios.get(
+          `http://52.79.181.56:8080/${role}/${id}/study/1/${chap_id}`
+        );
+        setQuestions(response.data);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+    Data();
   }, [role, id, chap_id]);
   if (!questions) {
     return null;
   }
+  
   const extractYoutubeVideoId = (url) => {
     const match = url.match(
       /(?:https?:\/\/)?(?:www\.)?youtu(?:be\.com\/watch\?v=|\.be\/)([\w\-\_]*)(&(amp;)?[\w\?=]*)?/

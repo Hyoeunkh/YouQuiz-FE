@@ -6,38 +6,38 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import { useNavigate } from "react-router-dom";
 
 const AgreementPage = () => {
-    const [checked, setChecked] = React.useState([true, false]);
-    const [errorMessage, setErrorMessage] = React.useState("");
-    const navigate = useNavigate();
+  const [checked, setChecked] = React.useState([true, false]);
+  const [errorMessage, setErrorMessage] = React.useState("");
+  const navigate = useNavigate();
 
-    const handleChange1 = (event) => {
-      setChecked([event.target.checked, event.target.checked]);
-    };
-  
-    const handleChange2 = (event) => {
-      setChecked([event.target.checked, checked[1]]);
-    };
-  
-    const handleChange3 = (event) => {
-      setChecked([checked[0], event.target.checked]);
-    };
+  const handleChange1 = (event) => {
+    setChecked([event.target.checked, event.target.checked]);
+  };
 
-    const children = (
-      <Box sx={{ display: 'flex', flexDirection: 'column', ml: 3 }}>
-        <FormControlLabel
-          label={<Box component="div" fontSize={25} fontWeight={600}>
-          [필수] 유퀴즈 이용약관
-        </Box>}
-          control={<Checkbox checked={checked[0]} onChange={handleChange2} color="default" />}
-        />
-        <FormControlLabel
-          label={<Box component="div" fontSize={25} fontWeight={600}>
-          [필수] 개인정보 수집 및 이용
-        </Box>}
-          control={<Checkbox checked={checked[1]} onChange={handleChange3} color="default" />}
-        />
-      </Box>
-    );
+  const handleChange2 = (event) => {
+    setChecked([event.target.checked, checked[1]]);
+  };
+
+  const handleChange3 = (event) => {
+    setChecked([checked[0], event.target.checked]);
+  };
+
+  const children = (
+    <Box sx={{ display: 'flex', flexDirection: 'column', ml: 3 }}>
+      <FormControlLabel
+        label={<Box component="div" fontSize={25} fontWeight={600}>
+        [필수] 유퀴즈 이용약관
+      </Box>}
+        control={<Checkbox checked={checked[0]} onChange={handleChange2} color="default" />}
+      />
+      <FormControlLabel
+        label={<Box component="div" fontSize={25} fontWeight={600}>
+        [필수] 개인정보 수집 및 이용
+      </Box>}
+        control={<Checkbox checked={checked[1]} onChange={handleChange3} color="default" />}
+      />
+    </Box>
+  );
   const handleNextPage = () => {
     if (checked[0] && checked[1] ) {
         navigate(`user`);

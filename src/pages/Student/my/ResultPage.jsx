@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
-import ResultQuizListForm from "../../../containers/ResultQuizListForm";
-import MyPageForm from "../../../containers/MyPageForm";
+import ResultQuizListForm from "./ResultQuizListForm";
+import MyPageForm from "../../../component/MyPageForm";
 import { useSelector, useDispatch } from "react-redux";
 import { ResultFetchThunk } from "../../../store/resultSlice";
 
