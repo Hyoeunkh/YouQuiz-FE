@@ -1,16 +1,15 @@
-import "../style/AuthForm.scss"
+import "../../style/LoginPage.scss"
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { AuthFetchThunk } from "../store/authSlice";
+import { AuthFetchThunk } from "../../store/authSlice";
 
 
-const AuthForm = ({ type, form, onChange, onSubmit, error }) => {
-    const btnRef= useRef();
+const LoginPage = ({ type, form, onChange, onSubmit, error }) => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-    const { status, id, username, role }= useSelector((state)=>state.auth);
+    const { role }= useSelector((state)=>state.auth);
     const [btnActive, setBtnActive] = useState('student');
     const [idRef, pwRef] = [useRef(), useRef()];
 
@@ -62,4 +61,4 @@ const AuthForm = ({ type, form, onChange, onSubmit, error }) => {
     );
 };
 
-export default AuthForm;
+export default LoginPage;

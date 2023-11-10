@@ -111,13 +111,13 @@ const StudentTable = ({ studentData, onReply, replyingStudentId, text, handleCha
   );
 };
 
-const TeacherToggle = () => {
+const TeacherAnswerBar = () => {
 
   const [replyingStudentId, setReplyingStudentId] = useState(null);
   const [lastRepliedStudentId, setLastRepliedStudentId] = useState(null);
   const [text, setText] = useState([]);
   const [data, setData] = useState([]);
-  const [answer, setAnswer] = useState([]);
+  const [answer, setAnswer] = useState([null]);
   const { chap_id } =useSelector((state) => state.chap_id);
   const { id } = useSelector((state) => state.auth);
   useEffect(() => {
@@ -142,6 +142,7 @@ if (!data) {
   const handleReply = (studentId) => {
     setReplyingStudentId(studentId);
     setLastRepliedStudentId(studentId);
+    console.log(answer);//3번동건이는 answer[3]값을 가져와야하는데, 2번동건이의 답변을 안달았으므로 answer[2]번값이자꾸 불러와져서 오류
     const originalAnswer = answer[studentId - 1].comment !== 'null' ? 
     answer[studentId - 1].comment : '';
 
@@ -188,4 +189,4 @@ if (!data) {
   );
 };
 
-export default TeacherToggle;
+export default TeacherAnswerBar;

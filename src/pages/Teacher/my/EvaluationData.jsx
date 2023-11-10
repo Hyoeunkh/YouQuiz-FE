@@ -11,20 +11,20 @@ export default function EvaluationData() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [lists, setLists] = useState(null);
-  const [title, settitle] = useState(null);
     useEffect(() => {
-      axios
-      .all([axios.get(
+      const Data = async () => {
+      try {
+        const response = await axios.get(
             `http://52.78.142.246:8080/teacher/${id}/evaluationstatus`
-          ), axios.get(`http://52.78.142.246:8080/teacher/${id}/studystatus`)])
-          .then(
-            axios.spread((res1, res2)  => {
-              setLists(res1.data.evaluation_status[0]);
-              settitle(res2.data.student_list[0]);
-            })
-           )
-          .catch ((e) => console.log(e));
-        }, []);
+          );
+          setLists(response.data.evaluation_status[0]);
+        } catch (e) {
+          console.log(e);
+        }
+      };
+      Data();
+    }, []);
+
   const columns = useMemo(
     () => {
       if (!lists) return []; // lists가 null일 때 빈 배열 반환
@@ -85,5 +85,5 @@ export default function EvaluationData() {
         }, [lists]);
 
   
-  return <EvaluationManage columns={columns} data={data} title={title} />;
+  return <EvaluationManage columns={columns} data={data} />;
 }

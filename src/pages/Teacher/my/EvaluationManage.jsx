@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import MyPageForm from "../../../containers/MyPageForm";
+import MyPageForm from "../../../component/MyPageForm";
 import { useTable } from "react-table";
 
 const TableBlock = styled.div`
@@ -50,12 +50,12 @@ const EvaluationBlock = styled.div`
   }
 `;
 
-export default function EvaluationtManage( { columns, data, title } ) {
+export default function EvaluationtManage( { columns, data } ) {
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     useTable({ columns, data });
   return (
     <>
-      <MyPageForm  userType={"teacher"} teacher_id={"20"} page={"채점 관리"} title={title}/>
+      <MyPageForm  userType={"teacher"} page={"채점 관리"} />
       <TableBlock>
         <EvaluationBlock>
           <table {...getTableProps()}>

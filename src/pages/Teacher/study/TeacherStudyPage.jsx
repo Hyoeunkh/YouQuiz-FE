@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import QuizTitle from "../../../component/QuizTitle";
-import TeacherToggle from "../../../component/TeacherToggle";
+import TeacherAnswerBar from "./TeacherAnswerBar";
 import "../../../style/QuestionPage.scss";
 
 const TeacherStudyPage = () => {
@@ -81,7 +81,7 @@ const TeacherStudyPage = () => {
               </label>
             ))
             ) : (
-              <TeacherToggle />
+              <TeacherAnswerBar />
             )}
           </ul>
         </div>

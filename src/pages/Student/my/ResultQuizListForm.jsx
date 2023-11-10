@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { ChapIdFetchThunk } from "../store/chapIdSlice";
+import { ChapIdFetchThunk } from "../../../store/chapIdSlice";
 import { useDispatch } from "react-redux";
 
 const QuizFormWrapper = styled.div`
@@ -15,13 +15,26 @@ const QuizFormWrapper = styled.div`
     padding: 0;
     gap:3vh;
   }
+  .alert-info {
+    margin: 0 auto;
+    background-color: white;
+    text-align: center;
+    font-size: 1.2vw;
+    font-weight: bold;
+    color: #9a9a9a;
+    border:none;
+  }
   .custom-list-item {
     text-align: center;
-    width: 95%;
+    width: 100%;
     height: 15vh;
     padding: 0;
     border: 1px solid #D9D9D9;
     cursor: pointer;
+    
+  }
+  .custom-list-item:hover {
+    background-color: #F4F4F4;
   }
   .list-container {
     height:100%;
@@ -41,30 +54,31 @@ const QuizFormWrapper = styled.div`
     display: flex;
     gap: 1vw;
   }
-  .listitle {
-    font-size: 1.3vw;
-  }
   .level {
     border: 1px solid #19a05e;
     border-radius: 5rem;
     width: 4vw;
     text-align: center;
     color: #19a05e;
-    font-size: .85vw;
+    font-size: .8vw;
     padding: 5px;
+    background-color:white;
   }
   .custom-bad {
     width: 20%;
     height:40%;
     color: white;
     border-radius: .5rem;
-    margin-right: 3vw;
+    margin-right: 2vw;
     background-color: #19a05e;
     justify-content: center;
     align-items: center;
-    font-size: 1.3vw;
     display: flex;
   }
+`;
+const Span = styled.span`
+  margin: .5vh 0;
+  font-size: .85vw;
 `;
 
 const extractYoutubeVideoId = (url) => {
@@ -74,15 +88,21 @@ const extractYoutubeVideoId = (url) => {
   return match && match[1] ? match[1] : null;
 };
 
-const StudentQuizListForm = ({ lists }) => {
+const ResultQuizListForm = ({ lists }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
 
   return (
     <QuizFormWrapper>
       <div className="Contents">
         <ol className="list-group">
-          {lists.map((item, index) => {
+          { lists.length === 0 ? (
+            <div className="alert alert-info" >
+              완료된 학습이 없습니다
+            </div>
+          ) : (
+          lists.map((item, index) => {
             const videoId = extractYoutubeVideoId(item.youtube_link);
             const imgsrc = videoId
               ? `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`
@@ -92,27 +112,29 @@ const StudentQuizListForm = ({ lists }) => {
               <li
                 key={index}
                 className="list-group-item d-flex justify-content-between align-items-center custom-list-item"
-                onClick={() => { navigate(`/study/${item.chap_id}/quizmedia`);
-                  dispatch(ChapIdFetchThunk(item.chap_id));
-                }}
+                onClick={() => { navigate(`/my/${item.chap_id}/quizmedia`);
+                dispatch(ChapIdFetchThunk(item.chap_id));
+              }}
               >
                 <div className="list-container">
                   <img className="youtubelist" src={imgsrc} alt="" />
                   <div className="ms-5 custom-text">
                     <div className="levle-con">
                       <div className="level fw-bold">{item.chap_id}단계</div>
+                      <Span>({item.score}점/ 100점)</Span>
                     </div>
-                    <div className="listitle fw-bold mt-2">{item.title}</div>
+                    <div className="fw-bold fs-5 mt-2">{item.title}</div>
                   </div>
                 </div>
-                <span className="custom-bad fw-bold">학습하기</span>
+                <span className="custom-bad fw-bold fs-4">결과보기</span>
               </li>
-            );
-          })}
+              );
+            })
+          )}
         </ol>
       </div>
     </QuizFormWrapper>
   );
 };
 
-export default StudentQuizListForm;
+export default ResultQuizListForm;

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
-import StudentQuizListForm from "../../../containers/StudentQuizListForm";
+import StudentQuizListForm from "./StudentQuizListForm";
 import { useSelector, useDispatch } from "react-redux";
 import { ChapFetchThunk } from "../../../store/chapSlice";
 

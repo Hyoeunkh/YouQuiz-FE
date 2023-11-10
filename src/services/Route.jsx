@@ -1,7 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import AgreementPage from "../pages/Common/AgreementPage";
-import UserInfoPage from "../pages/Common/UserInfoPage";
 import QuestionPage from "../pages/Student/study/QuestionPage";
 import QuizPage from "../pages/Student/study/QuizPage";
 import QuizMedia from "../pages/Common/QuizMedia";
@@ -12,6 +11,7 @@ import ResultQuizPage from "../pages/Student/my/ResultQuizPage";
 import ResultPage from "../pages/Student/my/ResultPage";
 import TquizMedia from "../pages/Teacher/study/TquizMedia";
 import RquizMedia from "../pages/Student/my/RquizMedia";
+import RegisterForm from "../pages/Common/RegisterForm";
 
 export const ResultRoute = () => {
   return (
@@ -48,7 +48,7 @@ export const RegisterRoute = () => {
   return (
     <Routes>
       <Route path="/" element={<AgreementPage />} />
-      <Route path="user" element={<UserInfoPage />} />
+      <Route path="user" element={<RegisterForm />} />
     </Routes>
   );
 };

@@ -18,7 +18,7 @@ const Sub = styled.div`
   }
 `;
 
-const SubHeader = ({ page, title }) => {
+const SubHeader = ({ page }) => {
   return (
     <>
       <Sub>

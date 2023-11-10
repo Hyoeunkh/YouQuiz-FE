@@ -1,10 +1,9 @@
-import "../style/Tablebar.scss";
+import "../../../style/StudentResultTable.scss";
 import React from 'react';
 import { useSelector } from "react-redux";
 
 export default function Tablebar({ answer, teacher_comment }) {
     const { username, id } = useSelector((state) => state.auth);
-    console.log(teacher_comment);
     return (
         
         <div className="tablebar">

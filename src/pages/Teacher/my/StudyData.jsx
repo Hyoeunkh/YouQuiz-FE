@@ -61,5 +61,5 @@ export default function StudyData() {
     [lists]
   );
 
-  return <StudyManage columns={columns} data={data} title={lists}/>;
+  return <StudyManage columns={columns} data={data} />;
 }

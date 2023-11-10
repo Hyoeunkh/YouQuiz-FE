@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { ChapIdFetchThunk } from "../store/chapIdSlice";
+import { ChapIdFetchThunk } from "../../../store/chapIdSlice";
 import { useDispatch } from "react-redux";
 
 const QuizFormWrapper = styled.div`

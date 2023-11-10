@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import QuizTitle from "../../../component/QuizTitle";
-import Tablebar from "../../../component/Tablebar";
+import StudentResultTable from "./StudentResultTable";
 import "../../../style/QuestionPage.scss";
 
 const ResultPage = () => {
@@ -93,7 +93,7 @@ const ResultPage = () => {
               </label>
             ))
             ) : (
-              <Tablebar answer={answer_sentence} teacher_comment={teacher_comment} />
+              <StudentResultTable answer={answer_sentence} teacher_comment={teacher_comment} />
             )}
           </ul>
         </div>
