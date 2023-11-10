@@ -15,8 +15,8 @@ export default function EvaluationData() {
       const Data = async () => {
       try {
         const response = await axios.get(
-            `http://52.78.142.246:8080/teacher/${id}/evaluationstatus`
-          );
+          `http://52.79.181.56:8080/teacher/${id}/evaluationstatus`
+        );
           setLists(response.data.evaluation_status[0]);
         } catch (e) {
           console.log(e);
@@ -48,11 +48,11 @@ export default function EvaluationData() {
           Cell: ({ value }) => (
             <span>
                 <span style={{ color: value.split("/")[0] === value.split("/")[1] ? "green" : "red" }}>
-                    {value.split("/")[0]}
+                  {value.split("/")[0]}
                 </span>
                 /{value.split("/")[1]}
             </span>
-        ),
+          ),
         },
         {
           accessor: "btn",
@@ -66,24 +66,23 @@ export default function EvaluationData() {
       if (!lists) return []; // lists가 null일 때 빈 배열 반환
       console.log(lists);
       return  lists.map((list, index) => {
-              const EvaluationData = {
-                  number: index + 1,
-                  chap_id: list.chap_id+"단계",
-                  title: list.youtube_title,
-                  status: list.complete_student + "/" + list.total_student, 
-                  btn:<button 
-                        onClick={() => {
-                          navigate(`/teacher/study/${list.chap_id}/quizmedia`);
-                          dispatch(ChapIdFetchThunk(list.chap_id));
-                          }
-                        }
-                        style={{ background: "none", padding: 0, cursor: "pointer",color: "black" }}
-                      >채점하기</button>,
-              };
-              return EvaluationData;
-          });
-        }, [lists]);
-
-  
+        const EvaluationData = {
+          number: index + 1,
+          chap_id: list.chap_id+"단계",
+          title: list.youtube_title,
+          status: list.complete_student + "/" + list.total_student, 
+          btn:<button 
+              onClick={() => {
+                navigate(`/teacher/study/${list.chap_id}/quizmedia`);
+                dispatch(ChapIdFetchThunk(list.chap_id));
+                }
+              }
+              style={{ background: "none", padding: 0, cursor: "pointer",color: "black" }}
+            >채점하기
+          </button>,
+        };
+        return EvaluationData;
+      });
+    }, [lists]);
   return <EvaluationManage columns={columns} data={data} />;
 }

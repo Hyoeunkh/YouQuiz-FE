@@ -46,75 +46,73 @@ const TeacherStudyPage = () => {
 
   return (
     <>
-        <QuizTitle
-          text={title}
-          currentPage={currentQuestion+2}
-        />
-        <div className="firstq-container">
-          <div className="question-conta">
-            <h1>Q{currentQuestion+1}</h1>
-            <div className="problem-container">
-              <h3>{questions[currentQuestion].question}</h3>
-              {questions[currentQuestion].exampleList.length > 0 ? (
-              <h6>
-                @{questions[currentQuestion].writer}
-                <span>
-                  <br />
-                  {questions[currentQuestion].comment}
-                </span>
-              </h6>
-              ) : ( null )}
-            </div>
-          </div>
-
-          <ul className="radio-list">
+      <QuizTitle
+        text={title}
+        currentPage={currentQuestion+2}
+      />
+      <div className="firstq-container">
+        <div className="question-conta">
+          <h1>Q{currentQuestion+1}</h1>
+          <div className="problem-container">
+            <h3>{questions[currentQuestion].question}</h3>
             {questions[currentQuestion].exampleList.length > 0 ? (
-            questions[currentQuestion].exampleList.map((choice, index) => (
-              <label key={index} className="radio-label" >
-                <input
-                type="radio"
-                value={index + 1}
-                checked={correct_answerList[index]}
-              />
-                <img src={getImageSource(index + 1)} alt={`${choice}-circle`} />
-                {choice}
-              </label>
-            ))
-            ) : (
-              <TeacherAnswerBar />
-            )}
-          </ul>
+            <h6>
+              @{questions[currentQuestion].writer}
+              <span>
+                <br />
+                {questions[currentQuestion].comment}
+              </span>
+            </h6>
+            ) : ( null )}
+          </div>
         </div>
-        {questions[currentQuestion].exampleList.length > 0 ? (
-        <ul className="result_radio">
-          <li>정답: 
-            <img 
-              src={showCorrect} alt="correct" />
-          </li>
+        <ul className="radio-list">
+          {questions[currentQuestion].exampleList.length > 0 ? (
+          questions[currentQuestion].exampleList.map((choice, index) => (
+            <label key={index} className="radio-label" >
+              <input
+              type="radio"
+              value={index + 1}
+              checked={correct_answerList[index]}
+            />
+              <img src={getImageSource(index + 1)} alt={`${choice}-circle`} />
+              {choice}
+            </label>
+          ))
+          ) : (
+            <TeacherAnswerBar />
+          )}
         </ul>
-        ) : null }
-
-        <div className="btn-container">
-          <img
-            width="80"
-            height="80"
-            src="https://img.icons8.com/ios/80/19A05E/circled-left-2.png"
-            alt="left"
-            onClick={handlePrevQuestion}
-          />
-          {currentQuestion === questions.length - 1 ?
-          <button onClick={handleNextQuestion}>완료</button>
-          :
-          <img
-            width="80"
-            height="80"
-            src="https://img.icons8.com/ios/80/19A05E/circled-right-2.png"
-            alt="right"
-            onClick={handleNextQuestion}
-          />
-          }
-        </div>
-      </>
+      </div>
+      {questions[currentQuestion].exampleList.length > 0 ? (
+      <ul className="result_radio">
+        <li>정답: 
+          <img 
+            src={showCorrect} alt="correct" />
+        </li>
+      </ul>
+      ) : null }
+      <div className="btn-container">
+        <img
+          width="80"
+          height="80"
+          src="https://img.icons8.com/ios/80/19A05E/circled-left-2.png"
+          alt="left"
+          onClick={handlePrevQuestion}
+        />
+        {currentQuestion === questions.length - 1 ?
+        <button onClick={handleNextQuestion}>완료</button>
+        :
+        <img
+          width="80"
+          height="80"
+          src="https://img.icons8.com/ios/80/19A05E/circled-right-2.png"
+          alt="right"
+          onClick={handleNextQuestion}
+        />
+        }
+      </div>
+    </>
   );
 };
 export default TeacherStudyPage;

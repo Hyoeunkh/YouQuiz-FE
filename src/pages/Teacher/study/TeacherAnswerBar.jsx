@@ -6,57 +6,57 @@ import axios from 'axios';
 const TableWrapper = styled.div`
 `;
 const STable = styled.div`
+width: 100%;
+height: 100%;
+overflow-y: auto;
+
+&::-webkit-scrollbar {
+  width: .7vw;
+}
+&::-webkit-scrollbar-thumb {
+  background: #D9D9D9;
+  border-radius: 5px;
+}
+&::-webkit-scrollbar-track {
+  background: none;
+}
+table {
   width: 100%;
   height: 100%;
-  overflow-y: auto;
-
-  &::-webkit-scrollbar {
-    width: .7vw;
-  }
-  &::-webkit-scrollbar-thumb {
-    background: #D9D9D9;
-    border-radius: 5px;
-  }
-  &::-webkit-scrollbar-track {
-    background: none;
-  }
-  table {
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    border-collapse: collapse;
-  }
-  td{
-    padding: 2vh 0;
-  }
-  th {
-    font-weight: 600;
-  }
-  thead {
-    position: sticky;
-    top: 0;
-    background-color: #F4F4F4;
-    height: 5vh;
-    box-shadow: 0px 2px 0px 0px #474747;
-  }
-  textarea {
-    width: 100%;
-    background-color: #F4F4F4;
-    border-radius: 0;
-    border-top:none;
-    border-left:none;
-  }
-  button{
-    background: none;
-    color: #19A05e;
-    font-weight: bold;
-  }
-  .complete-btn {
-    background-color: #19A05e;
-    color: white;
-    border-radius: .3rem;
-    float:right;
-  }
+  text-align: center;
+  border-collapse: collapse;
+}
+td{
+  padding: 2vh 0;
+}
+th {
+  font-weight: 600;
+}
+thead {
+  position: sticky;
+  top: 0;
+  background-color: #F4F4F4;
+  height: 5vh;
+  box-shadow: 0px 2px 0px 0px #474747;
+}
+textarea {
+  width: 100%;
+  background-color: #F4F4F4;
+  border-radius: 0;
+  border-top:none;
+  border-left:none;
+}
+button{
+  background: none;
+  color: #19A05e;
+  font-weight: bold;
+}
+.complete-btn {
+  background-color: #19A05e;
+  color: white;
+  border-radius: .3rem;
+  float:right;
+}
 `;
 const StudentTable = ({ studentData, onReply, replyingStudentId, text, handleChange, handleCompleteReply, lastRepliedStudentId }) => {
   return (
@@ -124,7 +124,7 @@ const TeacherAnswerBar = () => {
     const StudentData = async () => {
       try {
         const response = await axios.get(
-          `http://52.78.142.246:8080/teacher/${id}/study/1/${chap_id}`
+          `http://52.79.181.56:8080/teacher/${id}/study/1/${chap_id}`
         );
         setData(response.data.answer_sentence_list);
         setAnswer(response.data.commentEntityList);
@@ -142,13 +142,11 @@ if (!data) {
   const handleReply = (studentId) => {
     setReplyingStudentId(studentId);
     setLastRepliedStudentId(studentId);
-    console.log(answer);//3번동건이는 answer[3]값을 가져와야하는데, 2번동건이의 답변을 안달았으므로 answer[2]번값이자꾸 불러와져서 오류
-    const originalAnswer = answer[studentId - 1].comment !== 'null' ? 
-    answer[studentId - 1].comment : '';
-
+    console.log(answer);
+    const originalAnswer = answer.find(entity => entity.studentId === studentId).comment;
     setText((prevText) => ({
       ...prevText,
-      [studentId]: originalAnswer,
+      [studentId]: originalAnswer !== null ? originalAnswer : '',
     }));
   };
   const handleChange = (event, studentId) => {
@@ -165,7 +163,7 @@ if (!data) {
     setReplyingStudentId(null);
     try {
       // 서버로 수정된 답변을 보냄
-      await axios.post(`http://52.78.142.246:8080/teacher/${id}/study/${chap_id}/${studentId}/comment`, {
+      await axios.post(`http://52.79.181.56:8080/teacher/${id}/study/${chap_id}/${studentId}/comment`, {
         comment: comment,
       });
     } catch (error) {

@@ -6,65 +6,65 @@ import { ChapIdFetchThunk } from "../../../store/chapIdSlice";
 import { useDispatch } from "react-redux";
 
 const QuizFormWrapper = styled.div`
+width: 100%;
+.Contents {
+  height: 100%;
   width: 100%;
-  .Contents {
-    height: 100%;
-    width: 100%;
-  }
-  ol {
-    padding: 0;
-    gap:3vh;
-  }
-  .custom-list-item {
-    text-align: center;
-    width: 95%;
-    height: 15vh;
-    padding: 0;
-    border: 1px solid #D9D9D9;
-    cursor: pointer;
-  }
-  .list-container {
-    height:100%;
-    width:100%;
-    display: flex;
-    flex-direction: row;
-  }
-  .youtubelist {
-    height:100%;
-  }
-  .custom-text{
-    width:100%;
-    text-align: start;
-    margin: 3vh 0;
-  }
-  .levle-con {
-    display: flex;
-    gap: 1vw;
-  }
-  .level-con span {
-    margin: auto 0;
-    font-size: 1.2rem;
-  }
-  .level {
-    border: 1px solid #19a05e;
-    border-radius: 5rem;
-    width: 4vw;
-    text-align: center;
-    color: #19a05e;
-    font-size: 1rem;
-    padding: 5px;
-  }
-  .custom-bad {
-    width: 20%;
-    height:40%;
-    color: white;
-    border-radius: .5rem;
-    margin-right: 3vw;
-    background-color: #19a05e;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-  }
+}
+ol {
+  padding: 0;
+  gap:3vh;
+}
+.custom-list-item {
+  text-align: center;
+  width: 95%;
+  height: 15vh;
+  padding: 0;
+  border: 1px solid #D9D9D9;
+  cursor: pointer;
+}
+.list-container {
+  height:100%;
+  width:100%;
+  display: flex;
+  flex-direction: row;
+}
+.youtubelist {
+  height:100%;
+}
+.custom-text{
+  width:100%;
+  text-align: start;
+  margin: 3vh 0;
+}
+.levle-con {
+  display: flex;
+  gap: 1vw;
+}
+.level-con span {
+  margin: auto 0;
+  font-size: 1.2rem;
+}
+.level {
+  border: 1px solid #19a05e;
+  border-radius: 5rem;
+  width: 4vw;
+  text-align: center;
+  color: #19a05e;
+  font-size: 1rem;
+  padding: 5px;
+}
+.custom-bad {
+  width: 20%;
+  height:40%;
+  color: white;
+  border-radius: .5rem;
+  margin-right: 3vw;
+  background-color: #19a05e;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
 `;
 
 const extractYoutubeVideoId = (url) => {
@@ -87,7 +87,6 @@ const TeacherQuizListForm = ({ lists }) => {
             const imgsrc = videoId
               ? `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`
               : "";
-
             return (
               <li
                 key={index}

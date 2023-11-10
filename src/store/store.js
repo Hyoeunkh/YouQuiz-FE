@@ -1,4 +1,4 @@
-import { configureStore} from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
 import { authSlice } from "./authSlice";
 import { chapSlice } from "./chapSlice";
 import { teacherSlice } from "./teacherSlice";
@@ -12,22 +12,22 @@ import thunk from "redux-thunk";
 import storage from "redux-persist/lib/storage";
 
 const reducers = combineReducers({
-    auth: authSlice.reducer,
-    chap: chapSlice.reducer,
-    teacher: teacherSlice.reducer,
-    result: resultSlice.reducer,
-    chap_id: chapIdSlice.reducer,
-    register: registerSlice.reducer,
-  });
+  auth: authSlice.reducer,
+  chap: chapSlice.reducer,
+  teacher: teacherSlice.reducer,
+  result: resultSlice.reducer,
+  chap_id: chapIdSlice.reducer,
+  register: registerSlice.reducer,
+});
   
-  const persistConfig = {
-    key: "root",
-    storage,
-  };
-  const persistedReducer = persistReducer(persistConfig, reducers);
+const persistConfig = {
+  key: "root",
+  storage,
+};
+const persistedReducer = persistReducer(persistConfig, reducers);
 
 export const store = configureStore({
-    reducer: persistedReducer,
-    devTools: process.env.NODE_ENV !== "production",
-    middleware: [thunk],
+  reducer: persistedReducer,
+  devTools: process.env.NODE_ENV !== "production",
+  middleware: [thunk],
 });

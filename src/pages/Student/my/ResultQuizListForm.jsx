@@ -6,75 +6,75 @@ import { ChapIdFetchThunk } from "../../../store/chapIdSlice";
 import { useDispatch } from "react-redux";
 
 const QuizFormWrapper = styled.div`
+width: 100%;
+.Contents {
+  height: 100%;
   width: 100%;
-  .Contents {
-    height: 100%;
-    width: 100%;
-  }
-  ol {
-    padding: 0;
-    gap:3vh;
-  }
-  .alert-info {
-    margin: 0 auto;
-    background-color: white;
-    text-align: center;
-    font-size: 1.2vw;
-    font-weight: bold;
-    color: #9a9a9a;
-    border:none;
-  }
-  .custom-list-item {
-    text-align: center;
-    width: 100%;
-    height: 15vh;
-    padding: 0;
-    border: 1px solid #D9D9D9;
-    cursor: pointer;
-    
-  }
-  .custom-list-item:hover {
-    background-color: #F4F4F4;
-  }
-  .list-container {
-    height:100%;
-    width:100%;
-    display: flex;
-    flex-direction: row;
-  }
-  .youtubelist {
-    height:100%;
-  }
-  .custom-text{
-    width:100%;
-    text-align: start;
-    margin: 3vh 0;
-  }
-  .levle-con {
-    display: flex;
-    gap: 1vw;
-  }
-  .level {
-    border: 1px solid #19a05e;
-    border-radius: 5rem;
-    width: 4vw;
-    text-align: center;
-    color: #19a05e;
-    font-size: .8vw;
-    padding: 5px;
-    background-color:white;
-  }
-  .custom-bad {
-    width: 20%;
-    height:40%;
-    color: white;
-    border-radius: .5rem;
-    margin-right: 2vw;
-    background-color: #19a05e;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-  }
+}
+ol {
+  padding: 0;
+  gap:3vh;
+}
+.alert-info {
+  margin: 0 auto;
+  background-color: white;
+  text-align: center;
+  font-size: 1.2vw;
+  font-weight: bold;
+  color: #9a9a9a;
+  border:none;
+}
+.custom-list-item {
+  text-align: center;
+  width: 100%;
+  height: 15vh;
+  padding: 0;
+  border: 1px solid #D9D9D9;
+  cursor: pointer;
+  
+}
+.custom-list-item:hover {
+  background-color: #F4F4F4;
+}
+.list-container {
+  height:100%;
+  width:100%;
+  display: flex;
+  flex-direction: row;
+}
+.youtubelist {
+  height:100%;
+}
+.custom-text{
+  width:100%;
+  text-align: start;
+  margin: 3vh 0;
+}
+.levle-con {
+  display: flex;
+  gap: 1vw;
+}
+.level {
+  border: 1px solid #19a05e;
+  border-radius: 5rem;
+  width: 4vw;
+  text-align: center;
+  color: #19a05e;
+  font-size: .8vw;
+  padding: 5px;
+  background-color:white;
+}
+.custom-bad {
+  width: 20%;
+  height:40%;
+  color: white;
+  border-radius: .5rem;
+  margin-right: 2vw;
+  background-color: #19a05e;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
 `;
 const Span = styled.span`
   margin: .5vh 0;
