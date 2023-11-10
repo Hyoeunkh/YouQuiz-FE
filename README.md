@@ -1,8 +1,8 @@
 # YouQuiz-FE
 
-<img alt="image" src="./public/YouQuiz-logo.png" />
+<img align="center" alt="image" src="./public/YouQuiz-logo.png" />
 
-<div>📚 STACKS</div>
+# 📚 STACKS
 <div> 
   <img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white"> 
   <img src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white"> 
@@ -18,7 +18,7 @@
 ## 프로젝트 소개
 유튜브 영상과 그에 달린 실제 댓글을 기반으로 만든 문제들을 풀이하며 디지털 문해력을 기를 수 있도록 하는 공공 교육서비스입니다.
 
->## 기능
+## 기능
 -	실제 Youtube 영상 시청 
 -	실제 영상에 달린 댓글들로 만든, 디지털 문해력을 요하는 문제들을 풀이
 ( 5지선다형의 객관식 5문제와 주관식 1문제 )
@@ -40,6 +40,7 @@ const YoutubeVideo = ({ videoId }) => {
 };
 ```
 2. `Redux-toolkit`으로 상태 관리
+store.jsx
 ```JavaScript
 import { configureStore } from "@reduxjs/toolkit";
 
