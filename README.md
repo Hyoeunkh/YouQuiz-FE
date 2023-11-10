@@ -1,9 +1,9 @@
 # YouQuiz-FE
 
-<img width="329" alt="image" src="/YouQuiz-logo.png">
+<img alt="image" src="/YouQuiz-logo.png" />
 
-<div align=center><h1>📚 STACKS</h1></div>
-<div align=center> 
+<div>📚 STACKS</div>
+<div> 
   <img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white"> 
   <img src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white"> 
   <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"> 
@@ -26,8 +26,8 @@
 -	담당 선생님은 학생들의 학습진행 상황을 확인하고, 주관식 답에 대한 코멘트를 직접 작성
 
 ## 활용된 기술
-1. react-youtube 사용 ()
-```
+1. `react-youtube` 사용 ()
+```JavaScript
 const YoutubeVideo = ({ videoId }) => {
   const opts = {
     height: "490",
@@ -39,8 +39,8 @@ const YoutubeVideo = ({ videoId }) => {
   return <YouTube videoId={videoId} opts={opts} />;
 };
 ```
-2. Redux-toolkit으로 상태 관리
-```
+2. `Redux-toolkit`으로 상태 관리
+```JavaScript
 import { configureStore } from "@reduxjs/toolkit";
 
 export const store = configureStore({
@@ -48,9 +48,9 @@ export const store = configureStore({
   devTools: process.env.NODE_ENV !== "production",
   middleware: [thunk],
 });
-
 ```
-```
+index.jsx
+```JavaScript
 import { Provider } from 'react-redux';
 import { store } from "./store/store";
 
