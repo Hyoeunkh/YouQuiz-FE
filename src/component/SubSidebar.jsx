@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { styled } from "styled-components";
 import { persistor } from "../index"
-import { useDispatch} from "react-redux";
+import { useDispatch } from "react-redux";
 import { authActions } from "../store/authSlice";
 
 const ListContent = styled.div`

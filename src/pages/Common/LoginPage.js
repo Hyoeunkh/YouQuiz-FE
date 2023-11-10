@@ -4,8 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AuthFetchThunk } from "../../store/authSlice";
 
-
-const LoginPage = ({ type, form, onChange, onSubmit, error }) => {
+const LoginPage = () => {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 
@@ -39,7 +38,7 @@ const LoginPage = ({ type, form, onChange, onSubmit, error }) => {
 					<button className={`student ${btnActive === "student" ? "active" : ""}`} onClick={()=>setBtnActive("student")}>학생</button>
 					<button className={`teacher ${btnActive === "teacher" ? "active" : ""}`} onClick={()=>setBtnActive("teacher")}>교직원</button>
 				</div>
-				<form className="idpw" onSubmit={onSubmit}>
+				<form className="idpw">
 					<input ref={idRef} className="input"  name="userid" placeholder="아이디" />
 					<input ref={pwRef} className="input"  name="password" placeholder="비밀번호" type="password"/>
 				</form>
