@@ -1,6 +1,8 @@
 # YouQuiz-FE
-
-<img align=center alt="image" src="./public/YouQuiz-logo.png" />
+<br>
+<div align=center>
+  <img alt="image" src="./public/YouQuiz-logo.png" />
+</div>
 
 <br>
 <div align=center> <h2>📚 STACKS </h2> </div>
@@ -11,9 +13,9 @@
   <img src="https://img.shields.io/badge/jquery-0769AD?style=for-the-badge&logo=jquery&logoColor=white">
   <br>
 
-   <img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black"> 
-   <br>
-   <img src="https://img.shields.io/badge/amazonaws-232F3E?style=for-the-badge&logo=amazonaws&logoColor=white"> 
+  <img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black"> 
+  <br>
+  <img src="https://img.shields.io/badge/amazonaws-232F3E?style=for-the-badge&logo=amazonaws&logoColor=white"> 
 </div>
 <br><br><br>
 
