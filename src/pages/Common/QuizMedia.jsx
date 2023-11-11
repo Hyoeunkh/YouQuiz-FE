@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import "bootstrap/dist/css/bootstrap.min.css";
 import YouTube from "react-youtube";
 import QuizTitle from "../../component/QuizTitle";
 import { useNavigate } from "react-router-dom";
