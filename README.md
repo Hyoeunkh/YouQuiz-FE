@@ -83,8 +83,8 @@ import { store } from "./store/store";
 </Provider>
 ```
 >>student user와 teacher user를 구분하고
-각 챕터의 정보를 불러오기 위해 사용
-user의 type과 id를 저장하여 각 user에 맞는 정보를 주기 위해 사용
+>>각 챕터의 정보를 불러오기 위해 사용
+>>user의 type과 id를 저장하여 각 user에 맞는 정보를 주기 위해 사용
 
 
 
