@@ -53,7 +53,7 @@ const YoutubeVideo = ({ videoId }) => {
 >_각 user에 적합한 정보 할당_<br>
 >_각 퀴즈 챕터의 데이터를 불러오기_<br>
 
->store.jsx
+>>store.jsx
 ```JavaScript
 const reducers = combineReducers({
   auth: authSlice.reducer,
@@ -76,7 +76,7 @@ export const store = configureStore({
   middleware: [thunk],
 });
 ```
->index.jsx
+>>index.jsx
 ```JavaScript
 import { Provider } from 'react-redux';
 import { store } from "./store/store";
