@@ -49,10 +49,11 @@ const YoutubeVideo = ({ videoId }) => {
 <br>
 
 ### `Redux-toolkit`으로 상태 관리
->_로그인 시 user의 type(student, teacher)과 id 등 정보를 저장_<br>
->_각 user에 적합한 정보 할당_<br>
->_각 퀴즈 챕터의 데이터를 불러오기_<br>
->>store.jsx
+-_로그인 시 user의 type(student, teacher)과 id 등 정보를 저장_<br>
+-_각 user에 적합한 정보 할당_<br>
+-_각 퀴즈 챕터의 데이터를 불러오기_<br>
+
+>store.jsx
 ```JavaScript
 const reducers = combineReducers({
   auth: authSlice.reducer,
@@ -75,7 +76,7 @@ export const store = configureStore({
   middleware: [thunk],
 });
 ```
->>index.jsx
+>index.jsx
 ```JavaScript
 import { Provider } from 'react-redux';
 import { store } from "./store/store";
