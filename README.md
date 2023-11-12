@@ -49,6 +49,9 @@ const YoutubeVideo = ({ videoId }) => {
 <br>
 
 2. `Redux-toolkit`으로 상태 관리<br>
+_로그인 시 user의 type(student, teacher)과 id 등 정보를 저장_
+_각 user에 적합한 정보 할당_
+_각 퀴즈 챕터의 데이터를 불러오기_
 
 >store.jsx
 ```JavaScript
@@ -82,9 +85,5 @@ import { store } from "./store/store";
 ...
 </Provider>
 ```
->>student user와 teacher user를 구분하고
->>각 챕터의 정보를 불러오기 위해 사용
->>user의 type과 id를 저장하여 각 user에 맞는 정보를 주기 위해 사용
-
 
 
