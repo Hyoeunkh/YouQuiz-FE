@@ -33,7 +33,7 @@
 <br>
 
 ## 활용된 기술
-1. `react-youtube` 사용
+### `react-youtube` 사용
 ```JavaScript
 const YoutubeVideo = ({ videoId }) => {
   const opts = {
@@ -48,10 +48,10 @@ const YoutubeVideo = ({ videoId }) => {
 ```
 <br>
 
-2. `Redux-toolkit`으로 상태 관리<br>
-_로그인 시 user의 type(student, teacher)과 id 등 정보를 저장_
-_각 user에 적합한 정보 할당_
-_각 퀴즈 챕터의 데이터를 불러오기_
+### `Redux-toolkit`으로 상태 관리<br>
+>_로그인 시 user의 type(student, teacher)과 id 등 정보를 저장_<br>
+>_각 user에 적합한 정보 할당_<br>
+>_각 퀴즈 챕터의 데이터를 불러오기_<br>
 
 >store.jsx
 ```JavaScript
